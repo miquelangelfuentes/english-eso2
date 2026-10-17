@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="ca" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>English 2n d'ESO | Unitat 6: past continuous i contrast amb el past simple</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            display: ['"Outfit"', 'sans-serif'],
+            mono: ['"Fira Code"', 'monospace'],
+          },
+          colors: {
+            brand: {
+              50: '#eef2ff',
+              100: '#e0e7ff',
+              200: '#c7d2fe',
+              500: '#6366f1',
+              600: '#4f46e5',
+              700: '#4338ca',
+              800: '#3730a3',
+              900: '#312e81',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @media print {
+      header, nav, #unit-banner, #scaffolding-tools, .no-print { display: none !important; }
+      body { background: white !important; color: black !important; font-size: 11pt; }
+      .print-card { border: 1px solid #cbd5e1 !important; box-shadow: none !important; page-break-inside: avoid; margin-bottom: 1.5rem !important; }
+    }
+    .badge-pulse { animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+    @keyframes pulse-ring { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: .7; transform: scale(1.05); } }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col font-sans selection:bg-brand-500 selection:text-white">
+
+  <!-- CAPÇALERA -->
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 sm:h-20">
+        <div class="flex items-center gap-3">
+          <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-brand-600 to-indigo-500 text-white flex items-center justify-center font-display font-extrabold text-xl">2E</div>
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="text-xs font-bold uppercase tracking-wider text-brand-600 bg-brand-50 px-2 py-0.5 rounded-full border border-brand-200">Anglès 2n d'ESO</span>
+              <span class="text-xs text-slate-400 hidden sm:inline">• Gramàtica i pràctica DUA</span>
+            </div>
+            <h1 class="text-lg sm:text-xl font-display font-bold text-slate-900 leading-tight">Grammar Lab</h1>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-2 sm:gap-3">
+          <a href="unit5.html" class="flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-semibold rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors border border-slate-200">
+            <i data-lucide="arrow-left" class="w-4 h-4 text-brand-600"></i>
+            <span>Unitat 5</span>
+          </a>
+          <a href="index.html" class="hidden sm:flex items-center gap-1.5 px-3 py-1.5 text-xs sm:text-sm font-semibold rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors border border-slate-200">
+            <i data-lucide="home" class="w-4 h-4 text-brand-600"></i>
+            <span>Inici</span>
+          </a>
+          <a href="unit7.html" class="flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-semibold rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors border border-slate-200">
+            <span>Unitat 7</span>
+            <i data-lucide="arrow-right" class="w-4 h-4 text-brand-600"></i>
+          </a>
+          <button onclick="toggleUnitsModal()" class="flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-semibold rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors border border-slate-200">
+            <i data-lucide="layers" class="w-4 h-4 text-brand-600"></i>
+            <span class="hidden md:inline">Temari:</span>
+            <span class="font-bold text-brand-700">unitats 1-8</span>
+          </button>
+          <a href="#practice-section" class="flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-bold rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white">
+            <i data-lucide="play" class="w-3.5 h-3.5 fill-current"></i>
+            <span>Pràctica</span>
+          </a>
+          <button onclick="window.print()" class="p-2 text-slate-500 hover:bg-slate-100 rounded-xl">
+            <i data-lucide="printer" class="w-5 h-5"></i>
+          </button>
+        </div>
+      </div>
+
+      <nav class="flex items-center gap-2 overflow-x-auto py-2 border-t border-slate-100 scrollbar-none text-xs sm:text-sm">
+        <span class="text-slate-400 font-medium whitespace-nowrap pl-1 pr-2 flex items-center gap-1">
+          <i data-lucide="bookmark" class="w-3.5 h-3.5 text-brand-500"></i> Unitat 6:
+        </span>
+        <a href="#overview" class="px-3 py-1 rounded-lg text-slate-600 hover:bg-brand-50 font-medium">Objectius</a>
+        <a href="#past-cont-section" class="px-3 py-1 rounded-lg text-slate-600 hover:bg-brand-50 font-medium">1. Past continuous</a>
+        <a href="#simultaneous-section" class="px-3 py-1 rounded-lg text-slate-600 hover:bg-brand-50 font-medium">2. Accions amb while</a>
+        <a href="#contrast-section" class="px-3 py-1 rounded-lg text-slate-600 hover:bg-brand-50 font-medium">3. Contrast when / while</a>
+        <a href="#scaffolding-section" class="px-3 py-1 rounded-lg text-slate-600 hover:bg-brand-50 font-medium">4. Bastides</a>
+        <a href="#practice-section" class="px-3 py-1 rounded-lg bg-brand-50 text-brand-700 font-semibold">5. Pràctica</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- MODAL TEMARI -->
+  <div id="units-modal" class="fixed inset-0 z-50 bg-slate-900/50 backdrop-blur-sm hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-3xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-slate-200 p-6 sm:p-8">
+      <div class="flex items-center justify-between pb-4 border-b border-slate-100">
+        <div>
+          <span class="text-xs uppercase font-extrabold tracking-wider text-brand-600">Pla docent d'anglès de 2n d'ESO</span>
+          <h2 class="text-2xl font-display font-bold text-slate-900">Programa de gramàtica (unitats 1-8)</h2>
+          <p class="text-xs text-slate-500 mt-0.5">Active Minds 2 (Burlington English)</p>
+        </div>
+        <button onclick="toggleUnitsModal()" class="p-2 text-slate-400 hover:bg-slate-100 rounded-full"><i data-lucide="x" class="w-6 h-6"></i></button>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-4">
+        
+        <div class="p-4 rounded-2xl border border-slate-200 bg-slate-50/70 hover:bg-white transition-all">
+          <div class="flex items-center justify-between mb-1">
+            <span class="text-xs font-bold text-slate-500 uppercase tracking-wide">Unitat 1</span>
+            <a href="unit1.html" class="text-[10px] bg-emerald-600 text-white px-2 py-0.5 rounded-full font-bold hover:bg-emerald-700 transition-colors flex items-center gap-1">
+              <span>Obrir</span> ➡️
+            </a>
+          </div>
+          <h3 class="font-bold text-slate-800 text-sm capitalize-first">there is / there are, quantificadors i pronoms objecte</h3>
+          <p class="text-xs text-slate-500 mt-1">Noms comptables i no comptables, articles (the, a/an), quantificadors (some, any, much, many, how much, how many) i pronoms personals objecte.</p>
+        </div>
+
+        <div class="p-4 rounded-2xl border border-slate-200 bg-slate-50/70 hover:bg-white transition-all">
+          <div class="flex items-center justify-between mb-1">
+            <span class="text-xs font-bold text-slate-500 uppercase tracking-wide">Unitat 2</span>
+            <a href="unit2.html" class="text-[10px] bg-emerald-600 text-white px-2 py-0.5 rounded-full font-bold hover:bg-emerald-700 transition-colors flex items-center gap-1">
+              <span>Obrir</span> ➡️
+            </a>
+          </div>
+          <h3 class="font-bold text-slate-800 text-sm capitalize-first">contrast de presents, verbs estàtics i tag questions</h3>
+          <p class="text-xs text-slate-500 mt-1">Contrast present simple vs. present continuous (rutines vs. ara mateix), verbs que no accepten -ing (stative verbs) i preguntes confirmatòries (tag questions).</p>
+        </div>
+
+        <div class="p-4 rounded-2xl border border-slate-200 bg-slate-50/70 hover:bg-white transition-all">
+          <div class="flex items-center justify-between mb-1">
+            <span class="text-xs font-bold text-slate-500 uppercase tracking-wide">Unitat 3</span>
+            <a href="unit3.html" class="text-[10px] bg-emerald-600 text-white px-2 py-0.5 rounded-full font-bold hover:bg-emerald-700 transition-colors flex items-center gap-1">
+              <span>Obrir</span> ➡️
+            </a>
+          </div>
+          <h3 class="font-bold text-slate-800 text-sm capitalize-first">past simple, there was / there were i used to</h3>
+          <p class="text-xs text-slate-500 mt-1">Formes regulars (-ed) i irregulars en passat simple, regles ortogràfiques, expressions temporals (yesterday, last, ago), there was / there were i hàbits passats amb used to.</p>
+        </div>
+
+        <div class="p-4 rounded-2xl border border-slate-200 bg-slate-50/70 hover:bg-white transition-all">
+          <div class="flex items-center justify-between mb-1">
+            <span class="text-xs font-bold text-slate-500 uppercase tracking-wide">Unitat 4</span>
+            <a href="unit4.html" class="text-[10px] bg-emerald-600 text-white px-2 py-0.5 rounded-full font-bold hover:bg-emerald-700 transition-colors flex items-center gap-1">
+              <span>Obrir</span> ➡️
+            </a>
+          </div>
+          <h3 class="font-bold text-slate-800 text-sm capitalize-first">comparatius, superlatius, (not) as... as i too / enough</h3>
+          <p class="text-xs text-slate-500 mt-1">Adjectius comparatius (-er / more... than, less... than), el comparatiu d'igualtat (not) as... as, les estructures too / (not) enough i la forma superlativa.</p>
+        </div>
+
+        <div class="p-4 rounded-2xl border border-slate-200 bg-slate-50/70 hover:bg-white transition-all">
+          <div class="flex items-center justify-between mb-1">
+            <span class="text-xs font-bold text-slate-500 uppercase tracking-wide">Unitat 5</span>
+            <a href="unit5.html" class="text-[10px] bg-emerald-600 text-white px-2 py-0.5 rounded-full font-bold hover:bg-emerald-700 transition-colors flex items-center gap-1">
+              <span>Obrir</span> ➡️
+            </a>
+          </div>
+          <h3 class="font-bold text-slate-800 text-sm capitalize-first">verbs modals: can, could, must, should, have to i need to</h3>
+          <p class="text-xs text-slate-500 mt-1">Habilitat i permís amb can i could, obligació forta amb must, prohibició amb mustn't, consells amb should, i absència d'obligació amb don't have to.</p>
+        </div>
+
+        <div class="p-4 rounded-2xl border-2 border-brand-500 bg-brand-50/60 relative overflow-hidden shadow-sm">
+          <div class="flex items-center justify-between mb-1">
+            <span class="text-xs font-bold text-brand-700 uppercase tracking-wide">Unitat 6</span>
+            <span class="text-[10px] bg-brand-600 text-white px-2 py-0.5 rounded-full font-extrabold tracking-wide flex items-center gap-1">
+              <span class="w-1.5 h-1.5 rounded-full bg-white badge-pulse"></span> Activa ara
+            </span>
+          </div>
+          <h3 class="font-bold text-brand-900 text-sm capitalize-first">past continuous i contrast amb el past simple</h3>
+          <p class="text-xs text-brand-800 mt-1">El passat continu (was / were + -ing, accions simultànies amb while / as) i el contrast past continuous vs. past simple amb els connectors when i while.</p>
+        </div>
+
+        <div class="p-4 rounded-2xl border border-slate-200 bg-slate-50/70 hover:bg-white transition-all">
+          <div class="flex items-center justify-between mb-1">
+            <span class="text-xs font-bold text-slate-500 uppercase tracking-wide">Unitat 7</span>
+            <a href="unit7.html" class="text-[10px] bg-emerald-600 text-white px-2 py-0.5 rounded-full font-bold hover:bg-emerald-700 transition-colors flex items-center gap-1">
+              <span>Obrir</span> ➡️
+            </a>
+          </div>
+          <h3 class="font-bold text-slate-800 text-sm capitalize-first">el futur (be going to, present continuous, will) i el primer condicional</h3>
+          <p class="text-xs text-slate-500 mt-1">Plans i intencions amb be going to, cites acordades amb present continuous, futur espontani amb will, i el primer condicional amb if i unless.</p>
+        </div>
+
+        <div class="p-4 rounded-2xl border border-slate-200 bg-slate-50/70 hover:bg-white transition-all">
+          <div class="flex items-center justify-between mb-1">
+            <span class="text-xs font-bold text-slate-500 uppercase tracking-wide">Unitat 8</span>
+            <a href="unit8.html" class="text-[10px] bg-emerald-600 text-white px-2 py-0.5 rounded-full font-bold hover:bg-emerald-700 transition-colors flex items-center gap-1">
+              <span>Obrir</span> ➡️
+            </a>
+          </div>
+          <h3 class="font-bold text-slate-800 text-sm capitalize-first">present perfect simple, adverbis temporals i contrast amb past simple</h3>
+          <p class="text-xs text-slate-500 mt-1">El present perfect simple (have/has + participi), partícules temporals (ever, never, already, just, yet, recently, so far), for / since i contrast amb el passat simple.</p>
+        </div>
+      </div>
+      <div class="mt-6 pt-4 border-t border-slate-100 flex justify-end">
+        <button onclick="toggleUnitsModal()" class="px-5 py-2 rounded-xl bg-brand-600 text-white font-semibold text-sm">Tancar</button>
+      </div>
+    </div>
+  </div>
+
+  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 space-y-12">
+    <!-- BANNER -->
+    <section id="overview" class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-indigo-900 via-brand-800 to-indigo-950 text-white p-6 sm:p-10 shadow-xl">
+      <div class="relative z-10 max-w-3xl">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-brand-200 text-xs font-bold mb-4 border border-white/10">
+          <i data-lucide="sparkles" class="w-3.5 h-3.5 text-amber-300"></i> Unitat 6 • Bloc gramatical
+        </div>
+        <h2 class="text-2xl sm:text-4xl font-display font-extrabold text-white mb-4">
+          Past continuous & contrast with past simple (when / while)
+        </h2>
+        <p class="text-indigo-100 text-sm sm:text-base leading-relaxed mb-6">
+          Descobreix com descriure accions que s'estaven desenvolupant en un moment exacte del passat (<em>was / were + -ing</em>), com expressar accions que passaven al mateix temps (amb <em>while</em>) i com connectar accions llargues que són interrompudes per fets sobtats amb <em>when</em> i <em>while</em>.
+        </p>
+      </div>
+    </section>
+
+    <!-- SECCIÓ 1: PAST CONTINUOUS -->
+    <section id="past-cont-section" class="scroll-mt-24 space-y-6">
+      <div class="border-b border-slate-200 pb-3">
+        <span class="text-xs font-bold uppercase tracking-wider text-brand-600 bg-brand-50 px-2.5 py-1 rounded-md border border-brand-200">Part 1</span>
+        <h2 class="text-2xl sm:text-3xl font-display font-bold text-slate-900 mt-1">El past continuous (formes i usos)</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-white rounded-3xl border border-slate-200 p-6 shadow-sm space-y-3">
+          <h3 class="font-display font-bold text-lg text-slate-900">Fórmula: was / were + verb-ing</h3>
+          <p class="text-xs text-slate-600">S'utilitza per expressar què estava passant en un moment concret del passat:</p>
+          <ul class="text-xs text-slate-600 space-y-1 font-mono">
+            <li>• I / he / she / it <strong>was reading</strong>.</li>
+            <li>• You / we / they <strong>were playing</strong>.</li>
+            <li>• Negativa: <strong>wasn't / weren't</strong> + verb-ing.</li>
+            <li>• Pregunta: <strong>Was / Were</strong> + subjecte + verb-ing?</li>
+          </ul>
+          <div class="p-3 bg-slate-50 rounded-xl text-xs font-medium text-slate-800 flex justify-between items-center">
+            <span>"Yesterday at 7 pm, I was doing my English homework."</span>
+            <button onclick="speakText('Yesterday at 7 pm, I was doing my English homework.')" class="p-1 rounded bg-brand-600 text-white"><i data-lucide="volume-2" class="w-3.5 h-3.5"></i></button>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-3xl border border-slate-200 p-6 shadow-sm space-y-3">
+          <h3 class="font-display font-bold text-lg text-slate-900">Pistes temporals clau</h3>
+          <p class="text-xs text-slate-600">Paraules que solen acompanyar el past continuous:</p>
+          <div class="p-3 bg-indigo-50 rounded-xl border border-indigo-200 text-xs text-indigo-900 space-y-1">
+            • <em>at 8 o'clock yesterday</em> (a una hora exacta)<br>
+            • <em>all evening / all afternoon</em> (durant tota la tarda)<br>
+            • <em>this time last week</em> (aquesta mateixa hora la setmana passada)
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓ 2: WHILE -->
+    <section id="simultaneous-section" class="scroll-mt-24 space-y-6">
+      <div class="border-b border-slate-200 pb-3">
+        <span class="text-xs font-bold uppercase tracking-wider text-brand-600 bg-brand-50 px-2.5 py-1 rounded-md border border-brand-200">Part 2</span>
+        <h2 class="text-2xl sm:text-3xl font-display font-bold text-slate-900 mt-1">Accions simultànies: while i as</h2>
+      </div>
+
+      <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm space-y-3">
+        <p class="text-xs text-slate-600">Quan dues accions llargues passaven alhora en el passat, totes dues van en <strong>past continuous</strong>:</p>
+        <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200 text-xs sm:text-sm font-medium text-slate-800 space-y-2">
+          <p>"<strong>While</strong> Mum <strong>was cooking</strong> dinner, Dad <strong>was setting</strong> the table."</p>
+          <p>"I <strong>was listening</strong> to music <strong>while</strong> I <strong>was studying</strong>."</p>
+        </div>
+        <button onclick="speakText('While Mum was cooking dinner, Dad was setting the table.')" class="text-xs font-bold text-brand-600 hover:underline flex items-center gap-1">
+          <i data-lucide="volume-2" class="w-3.5 h-3.5"></i> Escolta l'exemple amb àudio
+        </button>
+      </div>
+    </section>
+
+    <!-- SECCIÓ 3: CONTRAST WHEN / WHILE -->
+    <section id="contrast-section" class="scroll-mt-24 space-y-6">
+      <div class="border-b border-slate-200 pb-3">
+        <span class="text-xs font-bold uppercase tracking-wider text-brand-600 bg-brand-50 px-2.5 py-1 rounded-md border border-brand-200">Part 3</span>
+        <h2 class="text-2xl sm:text-3xl font-display font-bold text-slate-900 mt-1">El gran contrast: accions interrompudes (when vs. while)</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm space-y-3">
+          <span class="text-xs font-bold text-indigo-700 bg-indigo-50 px-2 py-0.5 rounded-full border border-indigo-200">Acció llarga (fons)</span>
+          <h3 class="font-bold text-slate-900 text-base">While + past continuous</h3>
+          <p class="text-xs text-slate-600"><em>While</em> ("mentre") introdueix l'acció en progrés:</p>
+          <div class="p-3 bg-indigo-50/50 rounded-xl text-xs font-medium text-slate-800 border border-indigo-100">
+            "<strong>While we were playing</strong> football, it started to rain."
+          </div>
+        </div>
+
+        <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm space-y-3">
+          <span class="text-xs font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">Acció curta (interrupció)</span>
+          <h3 class="font-bold text-slate-900 text-base">When + past simple</h3>
+          <p class="text-xs text-slate-600"><em>When</em> ("quan") introdueix l'acció puntual que talla:</p>
+          <div class="p-3 bg-emerald-50/50 rounded-xl text-xs font-medium text-slate-800 border border-emerald-100">
+            "We were playing football <strong>when it started</strong> to rain."
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BASTIDES I ERRORS -->
+    <section id="scaffolding-section" class="scroll-mt-24 space-y-6">
+      <div class="border-b border-slate-200 pb-3">
+        <span class="text-xs font-bold uppercase tracking-wider text-brand-600 bg-brand-50 px-2.5 py-1 rounded-md border border-brand-200">Bastides i suport</span>
+        <h2 class="text-2xl sm:text-3xl font-display font-bold text-slate-900 mt-1">La regla d'or de when i while</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="bg-white p-5 rounded-3xl border-2 border-brand-100 shadow-sm space-y-2">
+          <div class="w-8 h-8 rounded-full bg-brand-600 text-white font-bold flex items-center justify-center text-sm">1</div>
+          <h3 class="font-bold text-slate-900 text-sm">Pas 1: quina acció és llarga?</h3>
+          <p class="text-xs text-slate-600">L'acció que dura estona (caminar, dormir, estudiar) requereix el past continuous.</p>
+        </div>
+        <div class="bg-white p-5 rounded-3xl border-2 border-brand-100 shadow-sm space-y-2">
+          <div class="w-8 h-8 rounded-full bg-brand-600 text-white font-bold flex items-center justify-center text-sm">2</div>
+          <h3 class="font-bold text-slate-900 text-sm">Pas 2: quina acció interromp?</h3>
+          <p class="text-xs text-slate-600">L'acció puntual que arriba de sobte (sonar el telèfon, començar a ploure) va en past simple.</p>
+        </div>
+        <div class="bg-white p-5 rounded-3xl border-2 border-brand-100 shadow-sm space-y-2">
+          <div class="w-8 h-8 rounded-full bg-brand-600 text-white font-bold flex items-center justify-center text-sm">3</div>
+          <h3 class="font-bold text-slate-900 text-sm">Pas 3: el truc dels connectors</h3>
+          <p class="text-xs text-slate-600"><strong>While</strong> porta past continuous (<em>while I was sleeping</em>). <strong>When</strong> porta past simple (<em>when the bell rang</em>).</p>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-3xl border border-rose-200 p-6 shadow-sm space-y-4">
+        <div class="flex items-center gap-2 text-rose-700 font-display font-bold text-lg">
+          <i data-lucide="shield-alert" class="w-5 h-5"></i> Detectiu d'errors comuns a la unitat 6
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+          <div class="p-4 bg-rose-50/50 rounded-2xl border border-rose-100 space-y-1.5">
+            <span class="font-bold text-rose-800">❌ Error 1: oblidar was / were</span>
+            <p class="text-slate-600"><em>"I watching TV"</em> ❌.</p>
+            <p class="font-bold text-emerald-800">✅ Correcte: <em>"I was watching TV"</em>.</p>
+          </div>
+          <div class="p-4 bg-rose-50/50 rounded-2xl border border-rose-100 space-y-1.5">
+            <span class="font-bold text-rose-800">❌ Error 2: concordar was amb plurals</span>
+            <p class="text-slate-600"><em>"They was playing"</em> ❌.</p>
+            <p class="font-bold text-emerald-800">✅ Correcte: <em>"They were playing"</em>.</p>
+          </div>
+          <div class="p-4 bg-rose-50/50 rounded-2xl border border-rose-100 space-y-1.5">
+            <span class="font-bold text-rose-800">❌ Error 3: intercanviar when i while</span>
+            <p class="text-slate-600"><em>"While it rang"</em> ❌.</p>
+            <p class="font-bold text-emerald-800">✅ Correcte: <em>"When it rang"</em> o <em>"While I was sleeping"</em>.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ZONA DE PRÀCTICA -->
+    <section id="practice-section" class="scroll-mt-24 space-y-8">
+      <div class="border-b border-slate-200 pb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-md border border-emerald-200">Zona interactiva</span>
+          <h2 class="text-2xl sm:text-3xl font-display font-bold text-slate-900 mt-1">Pràctica i reptes d'autoavaluació</h2>
+        </div>
+        <span class="px-3 py-1 rounded-xl bg-slate-100 text-slate-700 text-xs font-bold font-mono">Puntuació: <span id="user-score" class="text-brand-600">0</span> / 10</span>
+      </div>
+
+      <!-- Activitat 1: Classificador Curt vs Llarg -->
+      <div class="bg-white rounded-3xl border border-slate-200 p-6 shadow-sm space-y-4">
+        <h3 class="font-display font-bold text-lg text-slate-900">Activitat 1 • És una acció curta puntual o llarga en curs?</h3>
+        <div id="sort-container" class="space-y-4">
+          <div class="p-6 bg-slate-50 border-2 border-dashed border-slate-300 rounded-2xl text-center space-y-2">
+            <span id="sort-step" class="text-xs font-bold text-slate-400">Acció 1 de 5</span>
+            <p id="sort-word" class="text-xl font-bold text-slate-900 font-display">Carregant...</p>
+          </div>
+          <div class="grid grid-cols-2 gap-4">
+            <button onclick="answerActType('short')" class="p-4 rounded-2xl border-2 border-emerald-200 bg-emerald-50 text-emerald-900 font-bold text-sm">Curta puntual (past simple)</button>
+            <button onclick="answerActType('long')" class="p-4 rounded-2xl border-2 border-indigo-200 bg-indigo-50 text-indigo-900 font-bold text-sm">Llarga en curs (past continuous)</button>
+          </div>
+          <div id="sort-feedback" class="hidden p-4 rounded-2xl text-xs font-medium"></div>
+        </div>
+      </div>
+
+      <!-- Activitat 2: Repte When vs While -->
+      <div class="bg-white rounded-3xl border border-slate-200 p-6 shadow-sm space-y-4">
+        <h3 class="font-display font-bold text-lg text-slate-900">Activitat 2 • When o while?</h3>
+        <div id="when-while-grid" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+      </div>
+
+      <!-- Activitat 3: Taller de combinacions -->
+      <div class="bg-white rounded-3xl border border-slate-200 p-6 shadow-sm space-y-4">
+        <h3 class="font-display font-bold text-lg text-slate-900">Activitat 3 • Completa la forma correcta</h3>
+        <div id="comb-grid" class="space-y-3"></div>
+      </div>
+
+      <!-- Activitat 4: Gran repte -->
+      <div class="bg-slate-900 text-white rounded-3xl p-6 sm:p-10 shadow-xl space-y-6">
+        <div class="flex items-center justify-between border-b border-slate-800 pb-4">
+          <h3 class="text-xl font-display font-bold text-white">El gran repte de la unitat 6</h3>
+          <span id="quiz-question-counter" class="text-xs font-mono text-slate-400">Pregunta 1 de 10</span>
+        </div>
+        <div id="quiz-body" class="space-y-6">
+          <div class="space-y-1">
+            <span id="quiz-category" class="text-xs font-bold text-brand-400">Tema</span>
+            <p id="quiz-question-text" class="text-base sm:text-lg font-semibold text-slate-100">Carregant...</p>
+          </div>
+          <div id="quiz-options-container" class="grid grid-cols-1 sm:grid-cols-2 gap-3"></div>
+          <div id="quiz-feedback-box" class="hidden p-4 rounded-2xl text-xs font-medium"></div>
+          <div class="flex justify-end">
+            <button id="quiz-next-btn" onclick="nextQuizQuestion()" class="hidden px-5 py-2.5 rounded-xl bg-brand-600 text-white font-bold text-xs">Següent</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FITXA DE BUTXACA -->
+    <section class="print-card bg-white rounded-3xl border border-slate-200 p-6 space-y-4 text-xs text-slate-700">
+      <div class="flex items-center justify-between border-b border-slate-200 pb-3">
+        <h3 class="font-display font-bold text-base text-slate-900">Resum clau de la unitat 6 per a 2n d'ESO</h3>
+        <button onclick="window.print()" class="no-print px-3 py-1.5 bg-slate-100 rounded-xl font-bold">Imprimeix</button>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="p-3 bg-slate-50 rounded-xl">
+          <strong>Past continuous:</strong><br>
+          • was / were + verb-ing<br>
+          • I was sleeping<br>
+          • They were playing
+        </div>
+        <div class="p-3 bg-slate-50 rounded-xl">
+          <strong>Accions simultànies:</strong><br>
+          • While I was studying, my brother was playing. (totes dues en continu)
+        </div>
+        <div class="p-3 bg-slate-50 rounded-xl">
+          <strong>Acció interrompuda:</strong><br>
+          • While + past continuous<br>
+          • When + past simple (interrupció)
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-white border-t border-slate-200 mt-16 py-8 text-center text-xs text-slate-500">
+    English 2n d'ESO • Departament de Llengües Estrangeres • Unitat 6
+  </footer>
+
+  <script>
+    lucide.createIcons();
+    function speakText(t) {
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const u = new SpeechSynthesisUtterance(t);
+        u.lang = 'en-GB';
+        window.speechSynthesis.speak(u);
+      }
+    }
+    function toggleUnitsModal() { document.getElementById('units-modal').classList.toggle('hidden'); }
+
+    const actItems = [
+      { text: "The telephone rang.", type: "short", exp: "Correcte! És una acció curta i sobtada (past simple)." },
+      { text: "We were sleeping all night.", type: "long", exp: "Molt bé! És una acció contínua de fons (past continuous)." },
+      { text: "I dropped my keys.", type: "short", exp: "Exacte! Caure les claus és un fet instantani." },
+      { text: "She was reading a book.", type: "long", exp: "Correcte! Llegir un llibre dura una bona estona." },
+      { text: "A dog ran into the road.", type: "short", exp: "Molt bé! És una interrupció sobtada." }
+    ];
+    let curAct = 0;
+    function renderAct() {
+      if (curAct >= actItems.length) {
+        document.getElementById('sort-container').innerHTML = `<div class="p-4 bg-emerald-50 text-emerald-900 rounded-xl text-center font-bold">🎉 Molt bona feina! Has completat l'activitat 1.</div>`;
+        return;
+      }
+      document.getElementById('sort-step').textContent = `Acció ${curAct+1} de ${actItems.length}`;
+      document.getElementById('sort-word').textContent = actItems[curAct].text;
+      document.getElementById('sort-feedback').className = 'hidden';
+    }
+    function answerActType(t) {
+      const item = actItems[curAct];
+      const fb = document.getElementById('sort-feedback');
+      fb.classList.remove('hidden');
+      if (t === item.type) {
+        fb.className = 'p-3 rounded-xl bg-emerald-100 text-emerald-900 font-bold';
+        fb.innerHTML = `✅ ${item.exp}`;
+        setTimeout(() => { curAct++; renderAct(); }, 1300);
+      } else {
+        fb.className = 'p-3 rounded-xl bg-rose-100 text-rose-900 font-bold';
+        fb.innerHTML = `❌ És un fet puntual o una acció que dura una bona estona?`;
+      }
+    }
+
+    const whenWhileQuestions = [
+      { q: "______ I was studying, my friend phoned me.", opts: ["While", "When"], c: 0, exp: "Correcte! 'While' s'utilitza davant d'una acció en passat continu." },
+      { q: "We were having dinner ______ the lights went out.", opts: ["when", "while"], c: 0, exp: "Exacte! 'when' acompanya l'acció puntual que interromp (past simple)." },
+      { q: "______ the teacher arrived, we were talking.", opts: ["When", "While"], c: 0, exp: "Molt bé! Arribar és puntual: 'When the teacher arrived'." },
+      { q: "She hurt her leg ______ she was skiing.", opts: ["while", "when"], c: 0, exp: "Correcte! Esquiar estava en progrés: 'while she was skiing'." }
+    ];
+    function renderWhenWhile() {
+      const c = document.getElementById('when-while-grid');
+      c.innerHTML = whenWhileQuestions.map((q, idx) => `
+        <div class="p-4 bg-slate-50 border border-slate-200 rounded-2xl space-y-2">
+          <p class="font-bold text-xs text-slate-800">${q.q}</p>
+          <div class="flex gap-2">
+            ${q.opts.map((opt, oIdx) => `<button onclick="checkWW(${idx}, ${oIdx})" class="px-3 py-1 bg-white border border-slate-300 rounded-lg text-xs font-bold">${opt}</button>`).join('')}
+          </div>
+          <div id="ww-fb-${idx}" class="hidden text-xs p-2 rounded-lg"></div>
+        </div>
+      `).join('');
+    }
+    function checkWW(idx, oIdx) {
+      const q = whenWhileQuestions[idx];
+      const fb = document.getElementById(`ww-fb-${idx}`);
+      fb.classList.remove('hidden');
+      if (oIdx === q.c) {
+        fb.className = 'text-xs p-2 rounded-lg bg-emerald-100 text-emerald-900 font-bold';
+        fb.innerHTML = `✅ ${q.exp}`;
+      } else {
+        fb.className = 'text-xs p-2 rounded-lg bg-rose-100 text-rose-900 font-bold';
+        fb.innerHTML = `❌ Recorda: while + past continuous, when + past simple.`;
+      }
+    }
+
+    const combQuestions = [
+      { s: "I ______ (walk) in the park when I saw a deer.", opts: ["was walking", "walked", "were walking"], c: 0 },
+      { s: "While they were playing, it ______ (start) to rain.", opts: ["started", "was starting", "were starting"], c: 0 }
+    ];
+    function renderComb() {
+      const c = document.getElementById('comb-grid');
+      c.innerHTML = combQuestions.map((q, idx) => `
+        <div class="p-3 bg-slate-50 border border-slate-200 rounded-xl flex items-center justify-between text-xs">
+          <span id="comb-s-${idx}" class="font-semibold">${q.s}</span>
+          <div class="flex gap-2">
+            ${q.opts.map((opt, oIdx) => `<button onclick="checkComb(${idx}, ${oIdx})" class="px-2 py-1 bg-white border rounded font-bold">${opt}</button>`).join('')}
+          </div>
+        </div>
+      `).join('');
+    }
+    function checkComb(idx, oIdx) {
+      const q = combQuestions[idx];
+      const p = document.getElementById(`comb-s-${idx}`);
+      if (oIdx === q.c) p.innerHTML = q.s.replace('______', `<strong class="text-emerald-700 font-bold">${q.opts[oIdx]} ✅</strong>`);
+      else p.innerHTML = q.s.replace('______', `<strong class="text-rose-700 font-bold">${q.opts[oIdx]} ❌</strong>`);
+    }
+
+    const quizQuestions = [
+      { category: "past continuous forma", question: "Com es conjuga 'she' en past continuous de 'watch'?", options: ["she was watching", "she were watching", "she watched", "she is watching"], correct: 0, explanation: "Amb he/she/it s'utilitza 'was + verb-ing'." },
+      { category: "past continuous forma plural", question: "Quina forma és correcta per a 'they'?", options: ["they were studying", "they was studying", "they studied", "they are studying"], correct: 0, explanation: "Amb they s'utilitza 'were + verb-ing'." },
+      { category: "past continuous negativa", question: "Com es formula la negativa de 'I was sleeping'?", options: ["I wasn't sleeping.", "I weren't sleeping.", "I didn't sleeping.", "I not was sleeping."], correct: 0, explanation: "La negativa es forma amb was not / wasn't." },
+      { category: "past continuous interrogativa", question: "Quina pregunta està ben estructurada?", options: ["Were you doing your homework at 6 pm?", "Did you doing your homework?", "Was you doing your homework?", "You were doing your homework?"], correct: 0, explanation: "La pregunta comença amb l'auxiliar: 'Were you doing...?'." },
+      { category: "connector while", question: "Quin temps verbal segueix habitualment a 'while'?", options: ["Past continuous", "Past simple", "Present simple", "Future simple"], correct: 0, explanation: "'While' acompanya una acció en curs en past continuous." },
+      { category: "connector when", question: "Quin temps verbal sol anar directament després de 'when' en accions interrompudes?", options: ["Past simple", "Past continuous", "Present perfect", "Past perfect"], correct: 0, explanation: "'When' sol anar amb l'acció puntual en past simple que interromp." },
+      { category: "accions simultànies", question: "Completa la frase: 'While I was cooking, my sister ______ the dishes.'", options: ["was washing", "washed", "is washing", "were washing"], correct: 0, explanation: "Dues accions simultànies en el passat van totes dues en past continuous." },
+      { category: "acció interrompuda", question: "Completa: 'He was riding his bike when he ______ down.'", options: ["fell", "was falling", "falls", "is falling"], correct: 0, explanation: "Caure és l'acció sobtada que talla la continuïtat ➡️ past simple ('fell')." },
+      { category: "verbs d'estat", question: "Podem dir 'While I was knowing the answer'?", options: ["No, 'know' és un verb d'estat i no va en temps continus.", "Sí, darrere de while sempre s'ha de posar -ing.", "Només si és afirmativa.", "Sí, significa saber ara."], correct: 0, explanation: "Els verbs estàtics com 'know' no admeten temps continus." },
+      { category: "expressions de temps", question: "Quina expressió és típica del past continuous?", options: ["at 5 o'clock yesterday", "ago", "last week", "yesterday morning directament"], correct: 0, explanation: "Una hora concreta del passat ('at 5 o'clock yesterday') marca l'acció en curs." }
+    ];
+
+    let currentQuizIndex = 0;
+    let quizScore = 0;
+    let answered = new Set();
+    function renderCurrentQuizQuestion() {
+      const q = quizQuestions[currentQuizIndex];
+      document.getElementById('quiz-question-counter').textContent = `Pregunta ${currentQuizIndex + 1} de ${quizQuestions.length}`;
+      document.getElementById('quiz-category').textContent = `Tema: ${q.category}`;
+      document.getElementById('quiz-question-text').textContent = q.question;
+      document.getElementById('quiz-feedback-box').className = 'hidden';
+      document.getElementById('quiz-next-btn').className = 'hidden';
+      document.getElementById('quiz-options-container').innerHTML = q.options.map((opt, idx) => `
+        <button onclick="handleQuizAnswer(${idx})" id="q-opt-${idx}" class="text-left p-3.5 rounded-xl bg-white/10 hover:bg-white/20 border border-white/10 text-xs font-semibold">
+          ${String.fromCharCode(65 + idx)}) ${opt}
+        </button>
+      `).join('');
+    }
+    function handleQuizAnswer(idx) {
+      if (answered.has(currentQuizIndex)) return;
+      answered.add(currentQuizIndex);
+      const q = quizQuestions[currentQuizIndex];
+      const isCorrect = idx === q.correct;
+      const fb = document.getElementById('quiz-feedback-box');
+      fb.classList.remove('hidden');
+      if (isCorrect) {
+        quizScore++;
+        document.getElementById('user-score').textContent = quizScore;
+        fb.className = 'p-3 rounded-xl bg-emerald-950/80 border border-emerald-500/50 text-emerald-200 text-xs font-semibold';
+        fb.innerHTML = `🎉 ${q.explanation}`;
+      } else {
+        fb.className = 'p-3 rounded-xl bg-rose-950/80 border border-rose-500/50 text-rose-200 text-xs font-semibold';
+        fb.innerHTML = `⚠️ ${q.explanation}`;
+      }
+      document.getElementById('quiz-next-btn').classList.remove('hidden');
+    }
+    function nextQuizQuestion() {
+      if (currentQuizIndex < quizQuestions.length - 1) {
+        currentQuizIndex++;
+        renderCurrentQuizQuestion();
+      } else {
+        if (typeof confetti === 'function') confetti();
+        document.getElementById('quiz-body').innerHTML = `
+          <div class="text-center py-6 space-y-3">
+            <div class="text-4xl">🏆</div>
+            <h4 class="text-xl font-bold">Felicitats! Puntuació: ${quizScore} / 10</h4>
+            <a href="unit7.html" class="inline-block px-4 py-2 bg-brand-600 text-white rounded-xl font-bold text-xs">Continuar a la unitat 7 ➡️</a>
+          </div>
+        `;
+      }
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      renderAct();
+      renderWhenWhile();
+      renderComb();
+      renderCurrentQuizQuestion();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<html lang="ca" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>English 2n d'ESO | Unitat 3: past simple, there was / there were i used to</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Confetti library -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            display: ['"Outfit"', 'sans-serif'],
+            mono: ['"Fira Code"', 'monospace'],
+          },
+          colors: {
+            brand: {
+              50: '#eef2ff',
+              100: '#e0e7ff',
+              200: '#c7d2fe',
+              500: '#6366f1',
+              600: '#4f46e5',
+              700: '#4338ca',
+              800: '#3730a3',
+              900: '#312e81',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @media print {
+      header, nav, #unit-banner, #scaffolding-tools, .no-print {
+        display: none !important;
+      }
+      body {
+        background: white !important;
+        color: black !important;
+        font-size: 11pt;
+      }
+      .print-card {
+        border: 1px solid #cbd5e1 !important;
+        box-shadow: none !important;
+        page-break-inside: avoid;
+        margin-bottom: 1.5rem !important;
+      }
+    }
+    .badge-pulse {
+      animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+    @keyframes pulse-ring {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: .7; transform: scale(1.05); }
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col font-sans selection:bg-brand-500 selection:text-white">
+
+  <!-- ========================================================================= -->
+  <!-- CAPÇALERA GLOBAL                                                          -->
+  <!-- ========================================================================= -->
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm transition-all duration-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 sm:h-20">
+        
+        <!-- Logotip i títol -->
+        <div class="flex items-center gap-3">
+          <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-brand-600 to-indigo-500 text-white flex items-center justify-center shadow-md shadow-brand-500/20 font-display font-extrabold text-xl tracking-tight">
+            2E
+          </div>
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="text-xs font-bold uppercase tracking-wider text-brand-600 bg-brand-50 px-2 py-0.5 rounded-full border border-brand-200">Anglès 2n d'ESO</span>
+              <span class="text-xs text-slate-400 hidden sm:inline">• Gramàtica i pràctica DUA</span>
+            </div>
+            <h1 class="text-lg sm:text-xl font-display font-bold text-slate-900 leading-tight">Grammar Lab</h1>
+          </div>
+        </div>
+
+        <!-- Botons de navegació -->
+        <div class="flex items-center gap-2 sm:gap-3">
+          <a href="unit2.html" class="flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-semibold rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors border border-slate-200">
+            <i data-lucide="arrow-left" class="w-4 h-4 text-brand-600"></i>
+            <span>Unitat 2</span>
+          </a>
+
+          <a href="index.html" class="hidden sm:flex items-center gap-1.5 px-3 py-1.5 text-xs sm:text-sm font-semibold rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors border border-slate-200">
+            <i data-lucide="home" class="w-4 h-4 text-brand-600"></i>
+            <span>Inici</span>
+          </a>
+
+          <a href="unit4.html" class="flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-semibold rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors border border-slate-200">
+            <span>Unitat 4</span>
+            <i data-lucide="arrow-right" class="w-4 h-4 text-brand-600"></i>
+          </a>
+
+          <button onclick="toggleUnitsModal()" class="flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-semibold rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors border border-slate-200">
+            <i data-lucide="layers" class="w-4 h-4 text-brand-600"></i>
+            <span class="hidden md:inline">Temari del curs:</span>
+            <span class="font-bold text-brand-700">unitats 1-8</span>
+            <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-slate-400"></i>
+          </button>
+
+          <a href="#practice-section" class="flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-bold rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white shadow-sm shadow-emerald-600/20 transition-all">
+            <i data-lucide="play" class="w-3.5 h-3.5 fill-current"></i>
+            <span>Pràctica</span>
+          </a>
+
+          <button onclick="window.print()" title="Imprimeix o desa la fitxa resum" class="p-2 text-slate-500 hover:text-slate-800 hover:bg-slate-100 rounded-xl transition-colors">
+            <i data-lucide="printer" class="w-5 h-5"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Navegació ràpida interna -->
+      <nav class="flex items-center gap-2 overflow-x-auto py-2 border-t border-slate-100 scrollbar-none text-xs sm:text-sm">
+        <span class="text-slate-400 font-medium whitespace-nowrap pl-1 pr-2 flex items-center gap-1">
+          <i data-lucide="bookmark" class="w-3.5 h-3.5 text-brand-500"></i> Unitat 3:
+        </span>
+        <a href="#overview" class="px-3 py-1 rounded-lg text-slate-600 hover:text-brand-600 hover:bg-brand-50 whitespace-nowrap font-medium transition-colors">Objectius</a>
+        <a href="#past-simple-section" class="px-3 py-1 rounded-lg text-slate-600 hover:text-brand-600 hover:bg-brand-50 whitespace-nowrap font-medium transition-colors">1. Past simple</a>
+        <a href="#there-was-section" class="px-3 py-1 rounded-lg text-slate-600 hover:text-brand-600 hover:bg-brand-50 whitespace-nowrap font-medium transition-colors">2. There was / were</a>
+        <a href="#used-to-section" class="px-3 py-1 rounded-lg text-slate-600 hover:text-brand-600 hover:bg-brand-50 whitespace-nowrap font-medium transition-colors">3. Used to</a>
+        <a href="#scaffolding-section" class="px-3 py-1 rounded-lg text-slate-600 hover:text-brand-600 hover:bg-brand-50 whitespace-nowrap font-medium transition-colors">4. Bastides i eines</a>
+        <a href="#practice-section" class="px-3 py-1 rounded-lg bg-brand-50 text-brand-700 font-semibold whitespace-nowrap hover:bg-brand-100 transition-colors">5. Zona de pràctica</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ========================================================================= -->
+  <!-- MODAL DEL TEMARI DEL CURS (UNITATS 1 A 8)                                 -->
+  <!-- ========================================================================= -->
+  <div id="units-modal" class="fixed inset-0 z-50 bg-slate-900/50 backdrop-blur-sm hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-3xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-slate-200 p-6 sm:p-8 transform transition-all">
+      <div class="flex items-center justify-between pb-4 border-b border-slate-100">
+        <div>
+          <span class="text-xs uppercase font-extrabold tracking-wider text-brand-600">Pla docent d'anglès de 2n d'ESO</span>
+          <h2 class="text-2xl font-display font-bold text-slate-900">Programa de gramàtica (unitats 1-8)</h2>
+          <p class="text-xs text-slate-500 mt-0.5">Segons el llibre de text <em>Active Minds 2</em> (Burlington English)</p>
+        </div>
+        <button onclick="toggleUnitsModal()" class="p-2 text-slate-400 hover:text-slate-700 rounded-full hover:bg-slate-100">
+          <i data-lucide="x" class="w-6 h-6"></i>
+        </button>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-4">
+        
+        <div class="p-4 rounded-2xl border border-slate-200 bg-slate-50/70 hover:bg-white transition-all">
+          <div class="flex items-center justify-between mb-1">
+            <span class="text-xs font-bold text-slate-500 uppercase tracking-wide">Unitat 1</span>
+            <a href="unit1.html" class="text-[10px] bg-emerald-600 text-white px-2 py-0.5 rounded-full font-bold hover:bg-emerald-700 transition-colors flex items-center gap-1">
+              <span>Obrir</span> ➡️
+            </a>
+          </div>
+          <h3 class="font-bold text-slate-800 text-sm capitalize-first">there is / there are, quantificadors i pronoms objecte</h3>
+          <p class="text-xs text-slate-500 mt-1">Noms comptables i no comptables, articles (the, a/an), quantificadors (some, any, much, many, how much, how many) i pronoms personals objecte.</p>
+        </div>
+
+        <div class="p-4 rounded-2xl border border-slate-200 bg-slate-50/70 hover:bg-white transition-all">
+          <div class="flex items-center justify-between mb-1">
+            <span class="text-xs font-bold text-slate-500 uppercase tracking-wide">Unitat 2</span>
+            <a href="unit2.html" class="text-[10px] bg-emerald-600 text-white px-2 py-0.5 rounded-full font-bold hover:bg-emerald-700 transition-colors flex items-center gap-1">
+              <span>Obrir</span> ➡️
+            </a>
+          </div>
+          <h3 class="font-bold text-slate-800 text-sm capitalize-first">contrast de presents, verbs estàtics i tag questions</h3>
+          <p class="text-xs text-slate-500 mt-1">Contrast present simple vs. present continuous (rutines vs. ara mateix), verbs que no accepten -ing (stative verbs) i preguntes confirmatòries (tag questions).</p>
+        </div>
+
+        <div class="p-4 rounded-2xl border-2 border-brand-500 bg-brand-50/60 relative overflow-hidden shadow-sm">
+          <div class="flex items-center justify-between mb-1">
+            <span class="text-xs font-bold text-brand-700 uppercase tracking-wide">Unitat 3</span>
+            <span class="text-[10px] bg-brand-600 text-white px-2 py-0.5 rounded-full font-extrabold tracking-wide flex items-center gap-1">
+              <span class="w-1.5 h-1.5 rounded-full bg-white badge-pulse"></span> Activa ara
+            </span>
+          </div>
+          <h3 class="font-bold text-brand-900 text-sm capitalize-first">past simple, there was / there were i used to</h3>
+          <p class="text-xs text-brand-800 mt-1">Formes regulars (-ed) i irregulars en passat simple, regles ortogràfiques, expressions temporals (yesterday, last, ago), there was / there were i hàbits passats amb used to.</p>
+        </div>
+
+        <div class="p-4 rounded-2xl border border-slate-200 bg-slate-50/70 hover:bg-white transition-all">
+          <div class="flex items-center justify-between mb-1">
+            <span class="text-xs font-bold text-slate-500 uppercase tracking-wide">Unitat 4</span>
+            <a href="unit4.html" class="text-[10px] bg-emerald-600 text-white px-2 py-0.5 rounded-full font-bold hover:bg-emerald-700 transition-colors flex items-center gap-1">
+              <span>Obrir</span> ➡️
+            </a>
+          </div>
+          <h3 class="font-bold text-slate-800 text-sm capitalize-first">comparatius, superlatius, (not) as... as i too / enough</h3>
+          <p class="text-xs text-slate-500 mt-1">Adjectius comparatius (-er / more... than, less... than), el comparatiu d'igualtat (not) as... as, les estructures too / (not) enough i la forma superlativa.</p>
+        </div>
+
+        <div class="p-4 rounded-2xl border border-slate-200 bg-slate-50/70 hover:bg-white transition-all">
+          <div class="flex items-center justify-between mb-1">
+            <span class="text-xs font-bold text-slate-500 uppercase tracking-wide">Unitat 5</span>
+            <a href="unit5.html" class="text-[10px] bg-emerald-600 text-white px-2 py-0.5 rounded-full font-bold hover:bg-emerald-700 transition-colors flex items-center gap-1">
+              <span>Obrir</span> ➡️
+            </a>
+          </div>
+          <h3 class="font-bold text-slate-800 text-sm capitalize-first">verbs modals: can, could, must, should, have to i need to</h3>
+          <p class="text-xs text-slate-500 mt-1">Habilitat i permís amb can i could, obligació forta amb must, prohibició amb mustn't, consells amb should, i absència d'obligació amb don't have to.</p>
+        </div>
+
+        <div class="p-4 rounded-2xl border border-slate-200 bg-slate-50/70 hover:bg-white transition-all">
+          <div class="flex items-center justify-between mb-1">
+            <span class="text-xs font-bold text-slate-500 uppercase tracking-wide">Unitat 6</span>
+            <a href="unit6.html" class="text-[10px] bg-emerald-600 text-white px-2 py-0.5 rounded-full font-bold hover:bg-emerald-700 transition-colors flex items-center gap-1">
+              <span>Obrir</span> ➡️
+            </a>
+          </div>
+          <h3 class="font-bold text-slate-800 text-sm capitalize-first">past continuous i contrast amb el past simple</h3>
+          <p class="text-xs text-slate-500 mt-1">El passat continu (was / were + -ing, accions simultànies amb while / as) i el contrast past continuous vs. past simple amb els connectors when i while.</p>
+        </div>
+
+        <div class="p-4 rounded-2xl border border-slate-200 bg-slate-50/70 hover:bg-white transition-all">
+          <div class="flex items-center justify-between mb-1">
+            <span class="text-xs font-bold text-slate-500 uppercase tracking-wide">Unitat 7</span>
+            <a href="unit7.html" class="text-[10px] bg-emerald-600 text-white px-2 py-0.5 rounded-full font-bold hover:bg-emerald-700 transition-colors flex items-center gap-1">
+              <span>Obrir</span> ➡️
+            </a>
+          </div>
+          <h3 class="font-bold text-slate-800 text-sm capitalize-first">el futur (be going to, present continuous, will) i el primer condicional</h3>
+          <p class="text-xs text-slate-500 mt-1">Plans i intencions amb be going to, cites acordades amb present continuous, futur espontani amb will, i el primer condicional amb if i unless.</p>
+        </div>
+
+        <div class="p-4 rounded-2xl border border-slate-200 bg-slate-50/70 hover:bg-white transition-all">
+          <div class="flex items-center justify-between mb-1">
+            <span class="text-xs font-bold text-slate-500 uppercase tracking-wide">Unitat 8</span>
+            <a href="unit8.html" class="text-[10px] bg-emerald-600 text-white px-2 py-0.5 rounded-full font-bold hover:bg-emerald-700 transition-colors flex items-center gap-1">
+              <span>Obrir</span> ➡️
+            </a>
+          </div>
+          <h3 class="font-bold text-slate-800 text-sm capitalize-first">present perfect simple, adverbis temporals i contrast amb past simple</h3>
+          <p class="text-xs text-slate-500 mt-1">El present perfect simple (have/has + participi), partícules temporals (ever, never, already, just, yet, recently, so far), for / since i contrast amb el passat simple.</p>
+        </div>
+      </div>
+
+      <div class="mt-6 pt-4 border-t border-slate-100 flex justify-end">
+        <button onclick="toggleUnitsModal()" class="px-5 py-2 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-semibold text-sm transition-colors">
+          Tancar
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- BANNER PRINCIPAL I OBJECTIUS DE LA UNITAT                                 -->
+  <!-- ========================================================================= -->
+  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 space-y-12">
+    
+    <section id="overview" class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-indigo-900 via-brand-800 to-indigo-950 text-white p-6 sm:p-10 shadow-xl">
+      <div class="absolute -top-24 -right-24 w-96 h-96 bg-brand-500/20 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="relative z-10 max-w-3xl">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md text-brand-200 text-xs font-bold mb-4 border border-white/10">
+          <i data-lucide="sparkles" class="w-3.5 h-3.5 text-amber-300"></i>
+          Unitat 3 • Bloc gramatical
+        </div>
+        <h2 class="text-2xl sm:text-4xl font-display font-extrabold tracking-tight text-white mb-4">
+          Past simple, there was / there were & used to
+        </h2>
+        <p class="text-indigo-100 text-sm sm:text-base leading-relaxed mb-6">
+          En aquesta unitat aprendràs a parlar d'esdeveniments que van començar i van acabar en un moment precís del passat (tant amb verbs regulars en <em>-ed</em> com amb els verbs irregulars), a expressar l'existència d'elements en passat (<em>there was / there were</em>) i a descriure accions i hàbits que abans feies però que ja no fas (<em>used to</em>).
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          <div class="p-3.5 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/10 flex items-center gap-3">
+            <span class="w-7 h-7 rounded-lg bg-emerald-400/20 text-emerald-300 font-bold flex items-center justify-center text-xs">1</span>
+            <span class="text-xs font-medium text-slate-100">Past simple: -ed, irregulars, did / didn't</span>
+          </div>
+          <div class="p-3.5 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/10 flex items-center gap-3">
+            <span class="w-7 h-7 rounded-lg bg-indigo-400/20 text-indigo-300 font-bold flex items-center justify-center text-xs">2</span>
+            <span class="text-xs font-medium text-slate-100">There was vs. there were en el passat</span>
+          </div>
+          <div class="p-3.5 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/10 flex items-center gap-3">
+            <span class="w-7 h-7 rounded-lg bg-amber-400/20 text-amber-300 font-bold flex items-center justify-center text-xs">3</span>
+            <span class="text-xs font-medium text-slate-100">Hàbits pretèrits: used to / didn't use to</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- SECCIÓ 1: PAST SIMPLE                                                     -->
+    <!-- ========================================================================= -->
+    <section id="past-simple-section" class="scroll-mt-24 space-y-6">
+      <div class="border-b border-slate-200 pb-3 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-brand-600 bg-brand-50 px-2.5 py-1 rounded-md border border-brand-200">Part 1</span>
+          <h2 class="text-2xl sm:text-3xl font-display font-bold text-slate-900 mt-1">El past simple: regulars i irregulars</h2>
+        </div>
+        <span class="text-xs text-slate-500">Accions puntuals acabades en el passat</span>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Targeta: Verbs regulars -->
+        <div class="bg-white rounded-3xl border border-slate-200 p-6 shadow-sm space-y-4">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <span class="w-3 h-3 rounded-full bg-emerald-500"></span>
+              <h3 class="font-display font-bold text-lg text-slate-900">Verbs regulars (-ed)</h3>
+            </div>
+            <span class="text-xs font-mono font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">Forma base + -ed</span>
+          </div>
+
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Als verbs regulars se'ls afegeix la terminació <strong>-ed</strong> en afirmativa. Cal vigilar 3 regles ortogràfiques clau:
+          </p>
+
+          <ul class="text-xs text-slate-600 space-y-2">
+            <li class="p-2.5 rounded-xl bg-slate-50 border border-slate-100">
+              • <strong>Acabats en -e:</strong> només s'afegeix <em>-d</em>.<br>
+              <span class="font-mono text-brand-700">live ➡️ lived</span> | <span class="font-mono text-brand-700">like ➡️ liked</span>
+            </li>
+            <li class="p-2.5 rounded-xl bg-slate-50 border border-slate-100">
+              • <strong>Consonant + -y:</strong> canvia la <em>y</em> per <em>-ied</em>.<br>
+              <span class="font-mono text-brand-700">study ➡️ studied</span> | <span class="font-mono text-brand-700">carry ➡️ carried</span>
+            </li>
+            <li class="p-2.5 rounded-xl bg-slate-50 border border-slate-100">
+              • <strong>1 vocal curta + 1 consonant final:</strong> es dobla la consonant.<br>
+              <span class="font-mono text-brand-700">stop ➡️ stopped</span> | <span class="font-mono text-brand-700">plan ➡️ planned</span>
+            </li>
+          </ul>
+
+          <div class="p-3 bg-emerald-50 rounded-2xl border border-emerald-200 flex items-center justify-between">
+            <span class="text-xs font-medium text-emerald-900">"Yesterday, they watched a film and walked home."</span>
+            <button onclick="speakText('Yesterday, they watched a film and walked home.')" class="p-1.5 rounded-lg bg-emerald-600 text-white hover:bg-emerald-700">
+              <i data-lucide="volume-2" class="w-4 h-4"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Targeta: Verbs irregulars i auxiliars -->
+        <div class="bg-white rounded-3xl border border-slate-200 p-6 shadow-sm space-y-4">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <span class="w-3 h-3 rounded-full bg-indigo-500"></span>
+              <h3 class="font-display font-bold text-lg text-slate-900">Verbs irregulars i fórmules</h3>
+            </div>
+            <span class="text-xs font-mono font-bold text-indigo-700 bg-indigo-50 px-2 py-0.5 rounded-full border border-indigo-200">2a columna</span>
+          </div>
+
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Els verbs irregulars no segueixen cap norma fixa: cal aprendre la seva 2a columna de memòria!
+          </p>
+
+          <div class="grid grid-cols-2 gap-2 text-xs font-mono">
+            <div class="p-2 bg-slate-50 rounded-lg border border-slate-100">go ➡️ <strong>went</strong></div>
+            <div class="p-2 bg-slate-50 rounded-lg border border-slate-100">see ➡️ <strong>saw</strong></div>
+            <div class="p-2 bg-slate-50 rounded-lg border border-slate-100">have ➡️ <strong>had</strong></div>
+            <div class="p-2 bg-slate-50 rounded-lg border border-slate-100">eat ➡️ <strong>ate</strong></div>
+            <div class="p-2 bg-slate-50 rounded-lg border border-slate-100">buy ➡️ <strong>bought</strong></div>
+            <div class="p-2 bg-slate-50 rounded-lg border border-slate-100">write ➡️ <strong>wrote</strong></div>
+          </div>
+
+          <div class="p-3 bg-indigo-50 rounded-2xl border border-indigo-200 space-y-1.5 text-xs text-indigo-900">
+            <p><strong>Negativa:</strong> Subjecte + <strong>didn't</strong> + verb en infinitiu (<em>She didn't go</em>).</p>
+            <p><strong>Pregunta:</strong> <strong>Did</strong> + subjecte + verb en infinitiu? (<em>Did you see Pol?</em>).</p>
+            <p><strong>Expressions:</strong> <em>yesterday, last night, two days ago, in 2021</em>.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- SECCIÓ 2: THERE WAS / THERE WERE                                          -->
+    <!-- ========================================================================= -->
+    <section id="there-was-section" class="scroll-mt-24 space-y-6">
+      <div class="border-b border-slate-200 pb-3 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-brand-600 bg-brand-50 px-2.5 py-1 rounded-md border border-brand-200">Part 2</span>
+          <h2 class="text-2xl sm:text-3xl font-display font-bold text-slate-900 mt-1">There was / there were (existència en el passat)</h2>
+        </div>
+        <span class="text-xs text-slate-500">L'equivalent en passat de there is / there are</span>
+      </div>
+
+      <div class="bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-sm">
+        <div class="overflow-x-auto">
+          <table class="w-full text-left border-collapse text-xs sm:text-sm">
+            <thead>
+              <tr class="bg-slate-100/80 border-b border-slate-200 text-slate-700 font-display">
+                <th class="p-4 font-bold">Forma</th>
+                <th class="p-4 font-bold">Singular / No comptable</th>
+                <th class="p-4 font-bold">Plural comptable</th>
+                <th class="p-4 font-bold">Exemples</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100 text-slate-600">
+              <tr>
+                <td class="p-4 font-bold text-emerald-700 bg-emerald-50/30">Afirmativa (+)</td>
+                <td class="p-4 font-semibold text-slate-900">There was</td>
+                <td class="p-4 font-semibold text-slate-900">There were</td>
+                <td class="p-4 italic">"There was a cat." / "There were three dogs."</td>
+              </tr>
+              <tr>
+                <td class="p-4 font-bold text-rose-700 bg-rose-50/30">Negativa (-)</td>
+                <td class="p-4 font-semibold text-slate-900">There wasn't</td>
+                <td class="p-4 font-semibold text-slate-900">There weren't</td>
+                <td class="p-4 italic">"There wasn't any milk." / "There weren't any cars."</td>
+              </tr>
+              <tr>
+                <td class="p-4 font-bold text-indigo-700 bg-indigo-50/30">Pregunta (?)</td>
+                <td class="p-4 font-semibold text-slate-900">Was there...?</td>
+                <td class="p-4 font-semibold text-slate-900">Were there...?</td>
+                <td class="p-4 italic">"Was there a problem?" / "Were there any questions?"</td>
+              </tr>
+              <tr>
+                <td class="p-4 font-bold text-amber-700 bg-amber-50/30">Respostes curtes</td>
+                <td class="p-4" colspan="2">Yes, there was. / No, there wasn't. — Yes, there were. / No, there weren't.</td>
+                <td class="p-4 italic">Mai no es repeteix el nom, només l'auxiliar.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- SECCIÓ 3: USED TO                                                         -->
+    <!-- ========================================================================= -->
+    <section id="used-to-section" class="scroll-mt-24 space-y-6">
+      <div class="border-b border-slate-200 pb-3 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-brand-600 bg-brand-50 px-2.5 py-1 rounded-md border border-brand-200">Part 3</span>
+          <h2 class="text-2xl sm:text-3xl font-display font-bold text-slate-900 mt-1">L'estructura used to (hàbits passats)</h2>
+        </div>
+        <span class="text-xs text-slate-500">"Abans solia fer..." (però ara ja no)</span>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+        <div class="bg-white p-5 rounded-3xl border border-slate-200 shadow-sm space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold uppercase tracking-wider text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200">Afirmativa</span>
+            <span class="text-xs font-mono text-slate-400">used to + verb</span>
+          </div>
+          <p class="text-xs text-slate-600">S'utilitza per a accions habituals o estats del passat que ja han canviat.</p>
+          <div class="p-3 bg-slate-50 rounded-xl text-xs font-medium text-slate-800 border border-slate-100">
+            "I <strong>used to live</strong> in Madrid when I was young."
+          </div>
+          <button onclick="speakText('I used to live in Madrid when I was young.')" class="text-[11px] text-brand-600 font-bold hover:underline flex items-center gap-1">
+            <i data-lucide="volume-2" class="w-3.5 h-3.5"></i> Escolta la frase
+          </button>
+        </div>
+
+        <div class="bg-white p-5 rounded-3xl border border-slate-200 shadow-sm space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold uppercase tracking-wider text-rose-700 bg-rose-50 px-2.5 py-0.5 rounded-full border border-rose-200">Negativa</span>
+            <span class="text-xs font-mono text-slate-400">didn't use to</span>
+          </div>
+          <p class="text-xs text-slate-600">⚠️ Compte: com que <em>didn't</em> ja porta el passat, s'escriu <strong>use</strong> sense la lletra 'd'!</p>
+          <div class="p-3 bg-slate-50 rounded-xl text-xs font-medium text-slate-800 border border-slate-100">
+            "She <strong>didn't use to like</strong> vegetables, but now she loves them."
+          </div>
+          <button onclick="speakText('She didn\'t use to like vegetables, but now she loves them.')" class="text-[11px] text-brand-600 font-bold hover:underline flex items-center gap-1">
+            <i data-lucide="volume-2" class="w-3.5 h-3.5"></i> Escolta la frase
+          </button>
+        </div>
+
+        <div class="bg-white p-5 rounded-3xl border border-slate-200 shadow-sm space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold uppercase tracking-wider text-indigo-700 bg-indigo-50 px-2.5 py-0.5 rounded-full border border-indigo-200">Interrogativa</span>
+            <span class="text-xs font-mono text-slate-400">Did you use to...?</span>
+          </div>
+          <p class="text-xs text-slate-600">A les preguntes també s'escriu <strong>use</strong> sense 'd' final a causa de l'auxiliar <em>Did</em>.</p>
+          <div class="p-3 bg-slate-50 rounded-xl text-xs font-medium text-slate-800 border border-slate-100">
+            "<strong>Did you use to play</strong> the violin at primary school?"
+          </div>
+          <button onclick="speakText('Did you use to play the violin at primary school?')" class="text-[11px] text-brand-600 font-bold hover:underline flex items-center gap-1">
+            <i data-lucide="volume-2" class="w-3.5 h-3.5"></i> Escolta la frase
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- SECCIÓ 4: BASTIDES DE SUPORT I DETECTIU D'ERRORS                          -->
+    <!-- ========================================================================= -->
+    <section id="scaffolding-section" class="scroll-mt-24 space-y-6">
+      <div class="border-b border-slate-200 pb-3">
+        <span class="text-xs font-bold uppercase tracking-wider text-brand-600 bg-brand-50 px-2.5 py-1 rounded-md border border-brand-200">Bastides i suport</span>
+        <h2 class="text-2xl sm:text-3xl font-display font-bold text-slate-900 mt-1">L'escala de deducció de la unitat 3</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="bg-white p-5 rounded-3xl border-2 border-brand-100 shadow-sm space-y-2">
+          <div class="w-8 h-8 rounded-full bg-brand-600 text-white font-bold flex items-center justify-center text-sm">1</div>
+          <h3 class="font-bold text-slate-900 text-sm">Pas 1: cerca la pista de temps</h3>
+          <p class="text-xs text-slate-600">
+            Si veus <em>yesterday, last night, two days ago</em> o <em>in 2020</em>, la frase necessita obligatòriament el past simple.
+          </p>
+        </div>
+
+        <div class="bg-white p-5 rounded-3xl border-2 border-brand-100 shadow-sm space-y-2">
+          <div class="w-8 h-8 rounded-full bg-brand-600 text-white font-bold flex items-center justify-center text-sm">2</div>
+          <h3 class="font-bold text-slate-900 text-sm">Pas 2: si hi ha did / didn't, forma base!</h3>
+          <p class="text-xs text-slate-600">
+            <em>Did</em> i <em>didn't</em> ja absorbeixen el passat. Per tant, el verb principal SEMPRE torna a la forma base (infinitiu sense to).
+          </p>
+        </div>
+
+        <div class="bg-white p-5 rounded-3xl border-2 border-brand-100 shadow-sm space-y-2">
+          <div class="w-8 h-8 rounded-full bg-brand-600 text-white font-bold flex items-center justify-center text-sm">3</div>
+          <h3 class="font-bold text-slate-900 text-sm">Pas 3: és un hàbit del passat?</h3>
+          <p class="text-xs text-slate-600">
+            Si la frase parla d'alguna cosa que abans feies habitualment però ara ja no, utilitza <strong>used to</strong> (o <strong>didn't use to</strong>).
+          </p>
+        </div>
+      </div>
+
+      <!-- Detectiu d'errors comuns -->
+      <div class="bg-white rounded-3xl border border-rose-200 p-6 shadow-sm space-y-4">
+        <div class="flex items-center gap-2 text-rose-700 font-display font-bold text-lg">
+          <i data-lucide="shield-alert" class="w-5 h-5"></i>
+          Detectiu d'errors freqüents a la unitat 3
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+          <div class="p-4 bg-rose-50/50 rounded-2xl border border-rose-100 space-y-1.5">
+            <span class="font-bold text-rose-800">❌ Error 1: verb en passat després de didn't</span>
+            <p class="text-slate-600"><em>"She didn't went to school"</em> ❌ (doble passat!).</p>
+            <p class="font-bold text-emerald-800">✅ Correcte: <em>"She didn't go to school"</em>.</p>
+          </div>
+
+          <div class="p-4 bg-rose-50/50 rounded-2xl border border-rose-100 space-y-1.5">
+            <span class="font-bold text-rose-800">❌ Error 2: there was amb noms plurals</span>
+            <p class="text-slate-600"><em>"There was many people in the street"</em> ❌.</p>
+            <p class="font-bold text-emerald-800">✅ Correcte: <em>"There were many people in the street"</em>.</p>
+          </div>
+
+          <div class="p-4 bg-rose-50/50 rounded-2xl border border-rose-100 space-y-1.5">
+            <span class="font-bold text-rose-800">❌ Error 3: oblidar treure la -d a didn't use to</span>
+            <p class="text-slate-600"><em>"I didn't used to play tennis"</em> ❌.</p>
+            <p class="font-bold text-emerald-800">✅ Correcte: <em>"I didn't use to play tennis"</em>.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- SECCIÓ 5: ZONA DE PRÀCTICA INTERACTIVA                                    -->
+    <!-- ========================================================================= -->
+    <section id="practice-section" class="scroll-mt-24 space-y-8">
+      
+      <div class="border-b border-slate-200 pb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-md border border-emerald-200">Zona interactiva</span>
+          <h2 class="text-2xl sm:text-3xl font-display font-bold text-slate-900 mt-1">Pràctica i reptes d'autoavaluació</h2>
+        </div>
+        <div class="flex items-center gap-2">
+          <span id="score-badge" class="px-3 py-1 rounded-xl bg-slate-100 text-slate-700 text-xs font-bold font-mono">
+            Puntuació: <span id="user-score" class="text-brand-600">0</span> / 10
+          </span>
+        </div>
+      </div>
+
+      <!-- Activitat 1: Classificador de verbs regulars vs irregulars -->
+      <div class="bg-white rounded-3xl border border-slate-200 p-6 shadow-sm space-y-5">
+        <div class="flex items-center justify-between">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-emerald-700">Activitat 1 • Classificació ràpida</span>
+            <h3 class="font-display font-bold text-lg text-slate-900">És un verb regular (-ed) o irregular en passat?</h3>
+          </div>
+          <span class="text-xs text-slate-400">Tria la categoria correcta</span>
+        </div>
+
+        <div id="sort-container" class="space-y-4">
+          <div id="sort-card" class="p-6 bg-slate-50 border-2 border-dashed border-slate-300 rounded-2xl text-center space-y-3">
+            <span id="sort-step" class="text-xs font-bold text-slate-400 uppercase tracking-widest">Verb 1 de 5</span>
+            <p id="sort-word" class="text-2xl font-bold text-slate-900 font-display">Carregant...</p>
+            <p id="sort-translation" class="text-xs text-slate-500 italic"></p>
+          </div>
+
+          <div class="grid grid-cols-2 gap-4">
+            <button onclick="answerVerbType('regular')" class="p-4 rounded-2xl border-2 border-emerald-200 bg-emerald-50 hover:bg-emerald-100 text-emerald-900 font-bold text-sm transition-all flex flex-col items-center justify-center gap-1 active:scale-95">
+              <i data-lucide="check-circle" class="w-5 h-5 text-emerald-600"></i>
+              <span>Regular (-ed)</span>
+              <span class="text-[11px] font-normal text-emerald-700">(afegeix -ed, -d o -ied)</span>
+            </button>
+
+            <button onclick="answerVerbType('irregular')" class="p-4 rounded-2xl border-2 border-indigo-200 bg-indigo-50 hover:bg-indigo-100 text-indigo-900 font-bold text-sm transition-all flex flex-col items-center justify-center gap-1 active:scale-95">
+              <i data-lucide="zap" class="w-5 h-5 text-indigo-600"></i>
+              <span>Irregular</span>
+              <span class="text-[11px] font-normal text-indigo-700">(canvia de forma / 2a columna)</span>
+            </button>
+          </div>
+
+          <div id="sort-feedback" class="hidden p-4 rounded-2xl text-xs font-medium"></div>
+        </div>
+      </div>
+
+      <!-- Activitat 2: Repte There was vs There were -->
+      <div class="bg-white rounded-3xl border border-slate-200 p-6 shadow-sm space-y-5">
+        <div class="flex items-center justify-between">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-emerald-700">Activitat 2 • Repte gramatical</span>
+            <h3 class="font-display font-bold text-lg text-slate-900">There was o there were?</h3>
+          </div>
+          <span class="text-xs text-slate-400">Tria la forma que concorda</span>
+        </div>
+
+        <div id="there-was-grid" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <!-- Renderitzat per JS -->
+        </div>
+      </div>
+
+      <!-- Activitat 3: Taller d'used to -->
+      <div class="bg-white rounded-3xl border border-slate-200 p-6 shadow-sm space-y-5">
+        <div class="flex items-center justify-between">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-emerald-700">Activitat 3 • Taller d'hàbits passats</span>
+            <h3 class="font-display font-bold text-lg text-slate-900">Completa amb la forma correcta d'used to</h3>
+          </div>
+          <span class="text-xs text-slate-400">used to / didn't use to / Did... use to</span>
+        </div>
+
+        <div id="usedto-list" class="space-y-3">
+          <!-- Renderitzat per JS -->
+        </div>
+      </div>
+
+      <!-- Activitat 4: Gran repte de la unitat 3 (10 preguntes) -->
+      <div class="bg-slate-900 text-white rounded-3xl p-6 sm:p-10 shadow-xl space-y-6">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800 pb-4">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-amber-400 bg-amber-400/10 px-2.5 py-1 rounded-md border border-amber-400/20">Autoavaluació final</span>
+            <h3 class="text-xl sm:text-2xl font-display font-bold text-white mt-1">El gran repte de la unitat 3</h3>
+          </div>
+          <div class="flex items-center gap-3">
+            <span id="quiz-question-counter" class="text-xs font-mono text-slate-400">Pregunta 1 de 10</span>
+            <div class="w-24 h-2 bg-slate-800 rounded-full overflow-hidden">
+              <div id="quiz-progress-bar" class="h-full bg-brand-500 transition-all duration-300 w-[10%]"></div>
+            </div>
+          </div>
+        </div>
+
+        <div id="quiz-body" class="space-y-6">
+          <div class="space-y-2">
+            <span id="quiz-category" class="text-xs font-bold uppercase tracking-wider text-brand-400">Tema</span>
+            <p id="quiz-question-text" class="text-base sm:text-lg font-semibold text-slate-100">Carregant la pregunta...</p>
+          </div>
+
+          <div id="quiz-options-container" class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <!-- Botons d'opcions generats per JS -->
+          </div>
+
+          <div id="quiz-feedback-box" class="hidden p-4 rounded-2xl text-xs sm:text-sm font-medium"></div>
+
+          <div class="flex justify-end pt-2">
+            <button id="quiz-next-btn" onclick="nextQuizQuestion()" class="hidden px-5 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-bold text-xs sm:text-sm transition-all flex items-center gap-2">
+              <span>Següent pregunta</span>
+              <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- FITXA RESUM PER A IMPRIMIR                                                -->
+    <!-- ========================================================================= -->
+    <section class="print-card bg-white rounded-3xl border border-slate-200 p-6 sm:p-8 space-y-4 text-xs text-slate-700">
+      <div class="flex items-center justify-between border-b border-slate-200 pb-3">
+        <div>
+          <span class="text-[10px] uppercase font-bold tracking-wider text-brand-600">Fitxa d'estudi de butxaca</span>
+          <h3 class="font-display font-bold text-base text-slate-900">Resum clau de la unitat 3 per a 2n d'ESO</h3>
+        </div>
+        <button onclick="window.print()" class="no-print px-3 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold flex items-center gap-1.5">
+          <i data-lucide="printer" class="w-3.5 h-3.5"></i> Imprimeix
+        </button>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="space-y-2 p-4 bg-slate-50 rounded-2xl border border-slate-200">
+          <h4 class="font-bold text-slate-900 text-sm flex items-center gap-1.5">
+            <i data-lucide="clock" class="w-4 h-4 text-emerald-600"></i> Past simple
+          </h4>
+          <ul class="space-y-1 text-slate-600">
+            <li>• <strong>Afirmativa:</strong> verb en -ed o 2a columna (<em>visited, went</em>).</li>
+            <li>• <strong>Negativa:</strong> <strong>didn't</strong> + verb base (<em>didn't go</em>).</li>
+            <li>• <strong>Pregunta:</strong> <strong>Did</strong> + subj + verb base? (<em>Did you see?</em>).</li>
+            <li>• <strong>Pistes de temps:</strong> <em>yesterday, last, ago, in 2020</em>.</li>
+          </ul>
+        </div>
+
+        <div class="space-y-2 p-4 bg-slate-50 rounded-2xl border border-slate-200">
+          <h4 class="font-bold text-slate-900 text-sm flex items-center gap-1.5">
+            <i data-lucide="layers" class="w-4 h-4 text-indigo-600"></i> There was / were
+          </h4>
+          <ul class="space-y-1 text-slate-600">
+            <li>• <strong>Singular / no comptable:</strong> <em>There was / wasn't</em>.</li>
+            <li>• <strong>Plural comptable:</strong> <em>There were / weren't</em>.</li>
+            <li>• <strong>Preguntes:</strong> <em>Was there...? / Were there...?</em></li>
+            <li>• <strong>Respostes:</strong> <em>Yes, there was. / No, there weren't.</em></li>
+          </ul>
+        </div>
+
+        <div class="space-y-2 p-4 bg-slate-50 rounded-2xl border border-slate-200">
+          <h4 class="font-bold text-slate-900 text-sm flex items-center gap-1.5">
+            <i data-lucide="repeat" class="w-4 h-4 text-amber-600"></i> Used to (hàbits)
+          </h4>
+          <ul class="space-y-1 text-slate-600 font-mono text-[11px]">
+            <li>(+) I <strong>used to</strong> play.</li>
+            <li>(-) I <strong>didn't use to</strong> play.</li>
+            <li>(?) <strong>Did</strong> you <strong>use to</strong> play?</li>
+            <li>⚠️ Recorda treure la -d darrere de didn't / did!</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="bg-white border-t border-slate-200 mt-16 py-8 text-center text-xs text-slate-500">
+    <div class="max-w-7xl mx-auto px-4 space-y-2">
+      <p class="font-semibold text-slate-700">English 2n d'ESO • Departament de Llengües Estrangeres</p>
+      <p>Material basat en el llibre de text d'anglès de 2n d'ESO (Unitat 3 - Active Minds 2). Preparat per a GitHub Pages.</p>
+    </div>
+  </footer>
+
+  <!-- ========================================================================= -->
+  <!-- JAVASCRIPT DE LA UNITAT 3                                                 -->
+  <!-- ========================================================================= -->
+  <script>
+    lucide.createIcons();
+
+    function speakText(text) {
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = 'en-GB';
+        utterance.rate = 0.9;
+        window.speechSynthesis.speak(utterance);
+      }
+    }
+
+    function toggleUnitsModal() {
+      const modal = document.getElementById('units-modal');
+      modal.classList.toggle('hidden');
+    }
+
+    // Activitat 1: Classificador de verbs
+    const verbItems = [
+      { word: "visited", type: "regular", translation: "va visitar", explanation: "Correcte! Prové de visit + ed." },
+      { word: "went", type: "irregular", translation: "va anar", explanation: "Molt bé! És el passat irregular del verb go." },
+      { word: "stopped", type: "regular", translation: "es va aturar", explanation: "Exacte! Com que stop té una vocal curta i una consonant, dobla la 'p' + ed." },
+      { word: "ate", type: "irregular", translation: "va menjar", explanation: "Correcte! És la forma irregular en passat del verb eat." },
+      { word: "studied", type: "regular", translation: "va estudiar", explanation: "Molt bé! Consonant + y canvia a -ied (study ➡️ studied)." }
+    ];
+
+    let currentVerbIdx = 0;
+
+    function renderVerbItem() {
+      if (currentVerbIdx >= verbItems.length) {
+        document.getElementById('sort-container').innerHTML = `
+          <div class="text-center p-6 bg-emerald-50 border-2 border-emerald-300 rounded-2xl space-y-3">
+            <div class="text-3xl">🎉</div>
+            <h4 class="font-bold text-emerald-900 text-lg">Molt bona feina! Has completat l'activitat 1</h4>
+            <p class="text-xs text-emerald-700">Ja saps distingir entre verbs regulars i irregulars en passat.</p>
+            <button onclick="resetVerbActivity()" class="px-4 py-2 bg-emerald-600 text-white rounded-xl text-xs font-bold hover:bg-emerald-700">Tornar a jugar</button>
+          </div>
+        `;
+        return;
+      }
+      const item = verbItems[currentVerbIdx];
+      document.getElementById('sort-step').textContent = `Verb ${currentVerbIdx + 1} de ${verbItems.length}`;
+      document.getElementById('sort-word').textContent = item.word;
+      document.getElementById('sort-translation').textContent = `(${item.translation})`;
+      document.getElementById('sort-feedback').className = 'hidden p-4 rounded-2xl text-xs font-medium';
+    }
+
+    function answerVerbType(selected) {
+      const item = verbItems[currentVerbIdx];
+      const fb = document.getElementById('sort-feedback');
+      fb.classList.remove('hidden');
+
+      if (selected === item.type) {
+        fb.className = 'p-4 rounded-2xl text-xs font-semibold bg-emerald-100 text-emerald-900 border border-emerald-300';
+        fb.innerHTML = `✅ ${item.explanation}`;
+        setTimeout(() => {
+          currentVerbIdx++;
+          renderVerbItem();
+        }, 1400);
+      } else {
+        fb.className = 'p-4 rounded-2xl text-xs font-semibold bg-rose-100 text-rose-900 border border-rose-300';
+        fb.innerHTML = `❌ No és correcte. Revisa si acaba en -ed o si canvia completament de paraula!`;
+      }
+    }
+
+    function resetVerbActivity() {
+      currentVerbIdx = 0;
+      renderVerbItem();
+    }
+
+    // Activitat 2: There was vs There were
+    const thereWasQuestions = [
+      { question: "1. ______ twenty students in the classroom yesterday.", options: ["There was", "There were"], correct: 1, exp: "Correcte! 'Twenty students' és un plural comptable, per tant usem 'There were'." },
+      { question: "2. ______ a great concert in the park last night.", options: ["There was", "There were"], correct: 0, exp: "Molt bé! 'A great concert' és singular, per tant correspon 'There was'." },
+      { question: "3. ______ any milk in the bottle?", options: ["Was there", "Were there"], correct: 0, exp: "Exacte! 'Milk' és un nom no comptable (líquid), per tant la pregunta comença amb 'Was there?'." },
+      { question: "4. ______ many cars in the street this morning.", options: ["There wasn't", "There weren't"], correct: 1, exp: "Fantàstic! 'Cars' és plural, així que la forma negativa és 'There weren't'." }
+    ];
+
+    function renderThereWasQuiz() {
+      const c = document.getElementById('there-was-grid');
+      c.innerHTML = thereWasQuestions.map((q, idx) => `
+        <div class="p-5 rounded-2xl border border-slate-200 bg-slate-50 space-y-3">
+          <p class="font-bold text-slate-800 text-xs sm:text-sm">${q.question}</p>
+          <div class="grid grid-cols-2 gap-2">
+            ${q.options.map((opt, optIdx) => `
+              <button onclick="checkThereWas(${idx}, ${optIdx})" class="p-2.5 rounded-xl border border-slate-300 bg-white hover:bg-brand-50 hover:border-brand-400 font-bold text-xs text-slate-700 transition-all text-center">
+                ${opt}
+              </button>
+            `).join('')}
+          </div>
+          <div id="there-fb-${idx}" class="hidden text-xs p-3 rounded-xl"></div>
+        </div>
+      `).join('');
+    }
+
+    function checkThereWas(qIdx, optIdx) {
+      const q = thereWasQuestions[qIdx];
+      const fb = document.getElementById(`there-fb-${qIdx}`);
+      fb.classList.remove('hidden');
+      if (optIdx === q.correct) {
+        fb.className = 'text-xs p-3 rounded-xl bg-emerald-100 text-emerald-900 border border-emerald-300 font-semibold';
+        fb.innerHTML = `✅ ${q.exp}`;
+      } else {
+        fb.className = 'text-xs p-3 rounded-xl bg-rose-100 text-rose-900 border border-rose-300 font-semibold';
+        fb.innerHTML = `❌ Revisa si el nom que acompanya és singular o plural!`;
+      }
+    }
+
+    // Activitat 3: Taller d'used to
+    const usedToQuestions = [
+      { sentence: "When I was little, I ______ (live) in a village.", options: ["used to live", "didn't use to live", "use to live"], correct: 0 },
+      { sentence: "She ______ (not like) apples, but now she eats them every day.", options: ["didn't used to like", "didn't use to like", "not used to like"], correct: 1 },
+      { sentence: "______ (you / have) long hair when you were ten?", options: ["Did you use to have", "Did you used to have", "Used you to have"], correct: 0 },
+      { sentence: "We ______ (travel) by train every summer.", options: ["used to travel", "use to travel", "used travel"], correct: 0 }
+    ];
+
+    function renderUsedToList() {
+      const c = document.getElementById('usedto-list');
+      c.innerHTML = usedToQuestions.map((item, idx) => `
+        <div class="p-4 rounded-2xl border border-slate-200 bg-slate-50 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <p class="text-xs sm:text-sm font-semibold text-slate-800" id="ut-sentence-${idx}">${item.sentence}</p>
+          <div class="flex items-center gap-2">
+            ${item.options.map((opt, optIdx) => `
+              <button onclick="checkUsedTo(${idx}, ${optIdx})" class="px-3 py-1.5 rounded-xl border border-slate-300 bg-white hover:bg-brand-50 text-xs font-bold text-slate-700">
+                ${opt}
+              </button>
+            `).join('')}
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function checkUsedTo(idx, optIdx) {
+      const item = usedToQuestions[idx];
+      const p = document.getElementById(`ut-sentence-${idx}`);
+      if (optIdx === item.correct) {
+        p.innerHTML = item.sentence.replace('______', `<span class="text-emerald-700 font-bold bg-emerald-100 px-2 py-0.5 rounded-md">${item.options[optIdx]} ✅</span>`);
+      } else {
+        p.innerHTML = item.sentence.replace('______', `<span class="text-rose-700 font-bold bg-rose-100 px-2 py-0.5 rounded-md">${item.options[optIdx]} ❌ (recorda la regla!)</span>`);
+      }
+    }
+
+    // Activitat 4: Gran repte (10 preguntes)
+    const quizQuestions = [
+      {
+        category: "past simple: verbs regulars",
+        question: "Com s'escriu el passat simple del verb 'study'?",
+        options: ["studied", "studyed", "studid", "studdied"],
+        correct: 0,
+        explanation: "Com que acaba en consonant + y, la 'y' canvia per 'i' abans d'afegir -ed: 'studied'."
+      },
+      {
+        category: "past simple: dobles consonants",
+        question: "Quina forma en passat del verb 'stop' és correcta?",
+        options: ["stopped", "stoped", "stopied", "stopd"],
+        correct: 0,
+        explanation: "Vocal curta + consonant final fa que es dobli la 'p': 'stopped'."
+      },
+      {
+        category: "past simple: verbs irregulars",
+        question: "Quin és el passat irregular del verb 'buy' (comprar)?",
+        options: ["bought", "buyed", "boated", "brought"],
+        correct: 0,
+        explanation: "El passat de 'buy' és 'bought' (brought és el passat de bring)."
+      },
+      {
+        category: "past simple: oració negativa",
+        question: "Quina oració negativa està escrita correctament?",
+        options: [
+          "He didn't go to the cinema.",
+          "He didn't went to the cinema.",
+          "He not went to the cinema.",
+          "He didn't goes to the cinema."
+        ],
+        correct: 0,
+        explanation: "Darrere de l'auxiliar 'didn't', el verb principal sempre va en infinitiu (forma base): 'go'."
+      },
+      {
+        category: "past simple: interrogativa",
+        question: "Com es formula la pregunta: 'Vas veure el partit ahir a la nit?'",
+        options: [
+          "Did you watch the match last night?",
+          "Did you watched the match last night?",
+          "Were you watch the match last night?",
+          "Watched you the match last night?"
+        ],
+        correct: 0,
+        explanation: "La fórmula és Did + subjecte + forma base: 'Did you watch...?''."
+      },
+      {
+        category: "there was / there were",
+        question: "Completa la frase: '______ many cars in the car park two hours ago.'",
+        options: ["There were", "There was", "There is", "There are"],
+        correct: 0,
+        explanation: "'Cars' és plural comptable i la frase passa en el passat (ago), per tant s'usa 'There were'."
+      },
+      {
+        category: "there was: no comptables",
+        question: "Completa la frase: '______ some orange juice on the table.'",
+        options: ["There was", "There were", "There did", "There wasn't any juice"],
+        correct: 0,
+        explanation: "El suc (juice) és un líquid no comptable, així que requereix la forma en singular 'There was'."
+      },
+      {
+        category: "used to: hàbits passats",
+        question: "Quina frase expressa que abans vivies a Girona però ara ja no?",
+        options: [
+          "I used to live in Girona.",
+          "I use to live in Girona.",
+          "I was used live in Girona.",
+          "I didn't use live in Girona."
+        ],
+        correct: 0,
+        explanation: "L'estructura afirmativa d'hàbits passats és used to + verb en infinitiu: 'used to live'."
+      },
+      {
+        category: "used to: negativa",
+        question: "Quina és la forma negativa correcta per dir que abans no menjaves verdures?",
+        options: [
+          "I didn't use to eat vegetables.",
+          "I didn't used to eat vegetables.",
+          "I used not to eat vegetables.",
+          "I never use to eat vegetables."
+        ],
+        correct: 0,
+        explanation: "Després de 'didn't', s'escriu 'use' sense la lletra 'd': 'didn't use to'."
+      },
+      {
+        category: "expressions de temps de passat",
+        question: "Quina expressió de temps NO correspon al passat simple?",
+        options: [
+          "nowadays (avui dia)",
+          "yesterday (ahir)",
+          "last week (la setmana passada)",
+          "three days ago (fa tres dies)"
+        ],
+        correct: 0,
+        explanation: "'Nowadays' expressa present, mentre que 'yesterday', 'last' i 'ago' són típiques del passat simple."
+      }
+    ];
+
+    let currentQuizIndex = 0;
+    let quizScore = 0;
+    let answeredQuestions = new Set();
+
+    function renderCurrentQuizQuestion() {
+      const q = quizQuestions[currentQuizIndex];
+      document.getElementById('quiz-question-counter').textContent = `Pregunta ${currentQuizIndex + 1} de ${quizQuestions.length}`;
+      document.getElementById('quiz-category').textContent = `Tema: ${q.category}`;
+      document.getElementById('quiz-question-text').textContent = q.question;
+      document.getElementById('quiz-progress-bar').style.width = `${((currentQuizIndex + 1) / quizQuestions.length) * 100}%`;
+
+      const fbBox = document.getElementById('quiz-feedback-box');
+      fbBox.classList.add('hidden');
+      document.getElementById('quiz-next-btn').classList.add('hidden');
+
+      const optionsDiv = document.getElementById('quiz-options-container');
+      optionsDiv.innerHTML = q.options.map((opt, idx) => `
+        <button onclick="handleQuizAnswer(${idx})" id="q-opt-${idx}" class="text-left p-4 rounded-2xl bg-white/10 hover:bg-white/20 border border-white/10 text-xs sm:text-sm font-semibold transition-all flex items-center gap-3">
+          <span class="w-7 h-7 rounded-full bg-white/10 text-white font-mono flex items-center justify-center shrink-0 text-xs font-bold">${String.fromCharCode(65 + idx)}</span>
+          <span>${opt}</span>
+        </button>
+      `).join('');
+    }
+
+    function handleQuizAnswer(selectedIdx) {
+      if (answeredQuestions.has(currentQuizIndex)) return;
+      answeredQuestions.add(currentQuizIndex);
+
+      const q = quizQuestions[currentQuizIndex];
+      const isCorrect = selectedIdx === q.correct;
+      const fbBox = document.getElementById('quiz-feedback-box');
+      fbBox.classList.remove('hidden');
+
+      for (let i = 0; i < q.options.length; i++) {
+        const btn = document.getElementById(`q-opt-${i}`);
+        btn.disabled = true;
+        if (i === q.correct) {
+          btn.className = "text-left p-4 rounded-2xl bg-emerald-600/40 border border-emerald-400 text-white text-xs sm:text-sm font-semibold flex items-center gap-3";
+        } else if (i === selectedIdx && !isCorrect) {
+          btn.className = "text-left p-4 rounded-2xl bg-rose-600/40 border border-rose-400 text-white text-xs sm:text-sm font-semibold flex items-center gap-3";
+        } else {
+          btn.className = "text-left p-4 rounded-2xl bg-white/5 border border-white/5 text-slate-400 text-xs sm:text-sm flex items-center gap-3 opacity-60";
+        }
+      }
+
+      if (isCorrect) {
+        quizScore++;
+        document.getElementById('user-score').textContent = quizScore;
+        fbBox.className = "p-4 rounded-2xl text-xs sm:text-sm font-semibold bg-emerald-950/80 border border-emerald-500/50 text-emerald-200";
+        fbBox.innerHTML = `🎉 <strong>Molt bé!</strong> ${q.explanation}`;
+      } else {
+        fbBox.className = "p-4 rounded-2xl text-xs sm:text-sm font-semibold bg-rose-950/80 border border-rose-500/50 text-rose-200";
+        fbBox.innerHTML = `⚠️ <strong>Compte:</strong> ${q.explanation}`;
+      }
+
+      const nextBtn = document.getElementById('quiz-next-btn');
+      nextBtn.classList.remove('hidden');
+      if (currentQuizIndex === quizQuestions.length - 1) {
+        nextBtn.innerHTML = `<span>Veure resultats finals</span> <i data-lucide="award" class="w-4 h-4"></i>`;
+        lucide.createIcons();
+      }
+    }
+
+    function nextQuizQuestion() {
+      if (currentQuizIndex < quizQuestions.length - 1) {
+        currentQuizIndex++;
+        renderCurrentQuizQuestion();
+      } else {
+        showFinalQuizResults();
+      }
+    }
+
+    function showFinalQuizResults() {
+      if (typeof confetti === 'function') {
+        confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } });
+      }
+      const body = document.getElementById('quiz-body');
+      body.innerHTML = `
+        <div class="text-center py-8 space-y-4">
+          <div class="text-5xl">🏆</div>
+          <h4 class="text-2xl font-display font-bold text-white">Enhorabona! Has completat el gran repte de la unitat 3</h4>
+          <p class="text-sm text-slate-300">Puntuació aconseguida: <strong class="text-brand-400 text-xl font-mono">${quizScore} / 10</strong></p>
+          <div class="p-4 rounded-2xl bg-white/10 max-w-md mx-auto text-xs text-slate-200">
+            ${quizScore >= 8 
+              ? "🌟 Excel·lent domini del past simple, there was / were i used to!" 
+              : quizScore >= 5 
+              ? "👍 Bon treball! Revisa la fitxa de butxaca per consolidar les regles d'ortografia i l'estructura used to." 
+              : "💪 Continua practicant! Revisa els passos de deducció i torna-ho a provar."}
+          </div>
+          <div class="pt-4 flex justify-center gap-3">
+            <button onclick="restartQuiz()" class="px-5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-bold text-xs">Tornar a provar</button>
+            <a href="unit4.html" class="px-5 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-bold text-xs flex items-center gap-1.5">
+              <span>Continuar a la unitat 4</span> ➡️
+            </a>
+          </div>
+        </div>
+      `;
+    }
+
+    function restartQuiz() {
+      currentQuizIndex = 0;
+      quizScore = 0;
+      answeredQuestions.clear();
+      document.getElementById('user-score').textContent = "0";
+      renderCurrentQuizQuestion();
+    }
+
+    // Inicialització en carregar la pàgina
+    window.addEventListener('DOMContentLoaded', () => {
+      renderVerbItem();
+      renderThereWasQuiz();
+      renderUsedToList();
+      renderCurrentQuizQuestion();
+    });
+  </script>
+</body>
+</html>
