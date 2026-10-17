@@ -1,4 +1,4 @@
-# English 2n d'ESO - Grammar Lab & Practice
+# English 2n d'ESO - Grammar Lab i Practice
 
 Una plataforma web interactiva d'aprenentatge d'anglès com a llengua estrangera per a l'alumnat de **2n d'ESO**, dissenyada específicament per a desplegar-se de manera gratuïta i immediata a **GitHub Pages**.
 
@@ -72,5 +72,5 @@ Una plataforma web interactiva d'aprenentatge d'anglès com a llengua estrangera
 - **HTML5 semàntic**
 - **Tailwind CSS** (via CDN oficial)
 - **Vanilla JavaScript** (sense necessitat de compilació ni dependències de Node)
-- **Lucide Icons** & **Canvas-Confetti**
+- **Lucide Icons** i **Canvas-Confetti**
 - **Web Speech API** per a l'àudio natiu d'anglès
