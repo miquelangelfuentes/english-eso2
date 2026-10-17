@@ -51,7 +51,7 @@ Una plataforma web interactiva d'aprenentatge d'anglès com a llengua estrangera
 
 ---
 
-## 📚 Estructura de les unitats (Active Minds 2 - Burlington English)
+## 📚 Estructura de les unitats (2n d'ESO)
 
 | Unitat | Continguts gramaticals | Fitxer | Estat |
 | :--- | :--- | :--- | :--- |
@@ -70,7 +70,7 @@ Una plataforma web interactiva d'aprenentatge d'anglès com a llengua estrangera
 ## 🛠️ Tecnologies emprades
 
 - **HTML5 semàntic**
-- **Tailwind CSS** (via CDN oficial)
+- **Tailwind CSS** (via CDN)
 - **Vanilla JavaScript** (sense necessitat de compilació ni dependències de Node)
 - **Lucide Icons** i **Canvas-Confetti**
 - **Web Speech API** per al text a veu en anglès
