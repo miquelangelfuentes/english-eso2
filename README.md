@@ -9,7 +9,7 @@ Una plataforma web interactiva d'aprenentatge d'anglès com a llengua estrangera
 
 ## 🌟 Característiques pedagògiques
 
-- **Enfocament DUA (disseny universal per a l'aprenentatge):** explicacions dividides en mòduls (micro-learning), amb codis de colors, taules comparatives, alertes visuals i bastides pas a pas.
+- **Enfocament visual i accessible:** explicacions dividides en mòduls (micro-learning), amb codis de colors, taules comparatives, alertes visuals i bastides pas a pas.
 - **Bastides de suport (scaffolding):**
   - Eina interactiva *tag question builder* per deduir la pregunta confirmatòria en 3 passos.
   - *Detectiu d'errors comuns* per anticipar i corregir les errades més freqüents de l'alumnat catalanoparlant.
@@ -18,7 +18,7 @@ Una plataforma web interactiva d'aprenentatge d'anglès com a llengua estrangera
   1. *Classificador ràpid:* hàbits vs. accions en curs.
   2. *Reptes de verbs estàtics:* estats vs. accions mentals (casos especials de *think*, *have*, *see*).
   3. *Taller de tag questions:* completar tags amb explicació de la regla de l'imant.
-  4. *El gran repte de la unitat 2:* qüestionari d'autoavaluació de 10 preguntes amb puntuació, confeti i informe de resultats.
+  4. *El gran repte de la unitat 2:* qüestionari d'autoavaluació de 10 preguntes amb puntuació i informe de resultats.
 - **Escalabilitat curricular (de la unitat 1 a la 8):** arquitectura preparada per acollir les 8 unitats del curs de 2n d'ESO, amb la **unitat 2** 100% interactiva i desenvolupada al detall.
 - **Mode impressió:** format adaptat per imprimir o desar en PDF com a fitxa de resum per a l'aula o deures.
 
@@ -55,7 +55,7 @@ Una plataforma web interactiva d'aprenentatge d'anglès com a llengua estrangera
 
 | Unitat | Continguts gramaticals | Fitxer | Estat |
 | :--- | :--- | :--- | :--- |
-| **Portal** | **Hub principal del curs amb accés a totes les unitats i metodologia DUA** | [`index.html`](index.html) | **Completat** |
+| **Portal** | **Hub principal del curs amb accés a totes les unitats i explicacions visuals i bastides de suport** | [`index.html`](index.html) | **Completat** |
 | **Unitat 1** | *There is / there are*, quantificadors (*the, a/an, some, any, a lot of, much, many, how much, how many*) i pronoms personals objecte | [`unit1.html`](unit1.html) | **Completada (interactiva)** |
 | **Unitat 2** | Contrast: present simple vs. present continuous, verbs estàtics (*stative verbs*) i preguntes confirmatòries (*tag questions*) | [`unit2.html`](unit2.html) | **Completada (interactiva)** |
 | **Unitat 3** | El *past simple* (regulars *-ed*, regles ortogràfiques i irregulars), *there was / there were* i l'estructura *used to* | [`unit3.html`](unit3.html) | **Completada (interactiva)** |
