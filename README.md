@@ -51,18 +51,18 @@ Una plataforma web interactiva d'aprenentatge d'anglès com a llengua estrangera
 
 ---
 
-## 📚 Estructura de les unitats (syllabus de 2n d'ESO)
+## 📚 Estructura de les unitats (Active Minds 2 - Burlington English)
 
 | Unitat | Continguts gramaticals | Estat |
 | :--- | :--- | :--- |
-| **Unitat 1** | Present simple & adverbs of frequency | Planificada |
-| **Unitat 2** | **Contrast: present simple vs. continuous, stative verbs & tag questions** | **Completada (interactiva)** |
-| **Unitat 3** | Past simple vs. past continuous, time clauses (*when/while*) | Planificada |
-| **Unitat 4** | Comparatives, superlatives & *(not) as... as* | Planificada |
-| **Unitat 5** | The future: *will*, *be going to*, present continuous | Planificada |
-| **Unitat 6** | Modal verbs: *can, could, must, should, have to* | Planificada |
-| **Unitat 7** | Present perfect simple & *just / already / yet* | Planificada |
-| **Unitat 8** | Conditionals (zero & first) & final course review | Planificada |
+| **Unitat 1** | *There is / there are*, quantificadors (*the, a/an, some, any, a lot of, much, many, how much, how many*) i pronoms objecte | Planificada |
+| **Unitat 2** | **Contrast: present simple vs. present continuous, verbs estàtics (*stative verbs*) i preguntes confirmatòries (*tag questions*)** | **Completada (interactiva)** |
+| **Unitat 3** | El *past simple* (regulars *-ed*, regles ortogràfiques i irregulars), *there was / there were* i *used to* | Planificada |
+| **Unitat 4** | Adjectius comparatius (*-er / more... than, less... than*), *(not) as... as*, *too / (not) enough* i superlatius | Planificada |
+| **Unitat 5** | Verbs modals: *can*, *could*, *must / mustn't*, *should / shouldn't*, *have to / don't have to* i *need to* | Planificada |
+| **Unitat 6** | El *past continuous* (*was/were + -ing*, accions simultànies amb *while/as*) i contrast *past continuous* vs. *past simple* (*when/while*) | Planificada |
+| **Unitat 7** | Formes de futur (*be going to*, present continuous amb valor de futur, *will*) i el primer condicional (*first conditional* amb *if/unless*) | Planificada |
+| **Unitat 8** | El *present perfect simple*, partícules temporals (*ever, never, already, just, yet, recently, so far*), *for / since* i contrast amb *past simple* | Planificada |
 
 ---
 
