@@ -73,4 +73,4 @@ Una plataforma web interactiva d'aprenentatge d'anglès com a llengua estrangera
 - **Tailwind CSS** (via CDN oficial)
 - **Vanilla JavaScript** (sense necessitat de compilació ni dependències de Node)
 - **Lucide Icons** i **Canvas-Confetti**
-- **Web Speech API** per a l'àudio natiu d'anglès
+- **Web Speech API** per al text a veu en anglès
