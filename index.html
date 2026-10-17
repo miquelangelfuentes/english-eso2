@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>English 2n d'ESO | Unitat 2: present tenses, stative verbs & tag questions</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <title>English 2n d'ESO | Grammar Lab: portal del curs (unitats 1-8)</title>
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- Google Fonts -->
@@ -12,8 +14,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
-  <!-- Confetti library -->
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
 
   <script>
     tailwind.config = {
@@ -34,63 +34,17 @@
               700: '#4338ca',
               800: '#3730a3',
               900: '#312e81',
-            },
-            simple: {
-              50: '#ecfdf5',
-              100: '#d1fae5',
-              600: '#059669',
-              700: '#047857',
-              800: '#065f46',
-            },
-            continuous: {
-              50: '#eff6ff',
-              100: '#dbeafe',
-              600: '#2563eb',
-              700: '#1d4ed8',
-              800: '#1e40af',
-            },
-            tag: {
-              50: '#fff7ed',
-              100: '#ffedd5',
-              500: '#f97316',
-              600: '#ea580c',
-              700: '#c2410c',
             }
           }
         }
       }
     }
   </script>
-  <style>
-    @media print {
-      header, nav, #unit-banner, #scaffolding-tools, .no-print {
-        display: none !important;
-      }
-      body {
-        background: white !important;
-        color: black !important;
-        font-size: 11pt;
-      }
-      .print-card {
-        border: 1px solid #cbd5e1 !important;
-        box-shadow: none !important;
-        page-break-inside: avoid;
-        margin-bottom: 1.5rem !important;
-      }
-    }
-    .badge-pulse {
-      animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-    }
-    @keyframes pulse-ring {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: .7; transform: scale(1.05); }
-    }
-  </style>
 </head>
 <body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col font-sans selection:bg-brand-500 selection:text-white">
 
   <!-- ========================================================================= -->
-  <!-- CAPÇALERA GLOBAL I TEMARI DE LES UNITATS                                  -->
+  <!-- CAPÇALERA GLOBAL                                                          -->
   <!-- ========================================================================= -->
   <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm transition-all duration-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -104,1020 +58,353 @@
           <div>
             <div class="flex items-center gap-2">
               <span class="text-xs font-bold uppercase tracking-wider text-brand-600 bg-brand-50 px-2 py-0.5 rounded-full border border-brand-200">Anglès 2n d'ESO</span>
-              <span class="text-xs text-slate-400 hidden sm:inline">• Gramàtica i pràctica DUA</span>
+              <span class="text-xs text-slate-400 hidden sm:inline">- Portal oficial del curs</span>
             </div>
             <h1 class="text-lg sm:text-xl font-display font-bold text-slate-900 leading-tight">Grammar Lab</h1>
           </div>
         </div>
 
-        <!-- Botons de navegació -->
+        <!-- Accés ràpid -->
         <div class="flex items-center gap-2 sm:gap-3">
-          <button onclick="toggleUnitsModal()" class="flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-semibold rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors border border-slate-200">
+          <a href="#units-grid" class="flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-semibold rounded-xl bg-brand-50 hover:bg-brand-100 text-brand-700 transition-colors border border-brand-200">
             <i data-lucide="layers" class="w-4 h-4 text-brand-600"></i>
-            <span class="hidden md:inline">Temari del curs:</span>
-            <span class="font-bold text-brand-700">unitats 1-8</span>
-            <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-slate-400"></i>
-          </button>
-
-          <a href="#practice-section" class="flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-bold rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white shadow-sm shadow-emerald-600/20 transition-all">
-            <i data-lucide="play" class="w-3.5 h-3.5 fill-current"></i>
-            <span>Pràctica</span>
+            <span>Totes les unitats (1-8)</span>
           </a>
 
-          <button onclick="window.print()" title="Imprimeix o desa la fitxa resum" class="p-2 text-slate-500 hover:text-slate-800 hover:bg-slate-100 rounded-xl transition-colors">
-            <i data-lucide="printer" class="w-5 h-5"></i>
-          </button>
+          <a href="unit1.html" class="flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-bold rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white shadow-sm shadow-emerald-600/20 transition-all">
+            <i data-lucide="play" class="w-3.5 h-3.5 fill-current"></i>
+            <span>Comença a la unitat 1</span>
+          </a>
         </div>
       </div>
-
-      <!-- Navegació ràpida interna de la unitat 2 -->
-      <nav class="flex items-center gap-2 overflow-x-auto py-2 border-t border-slate-100 scrollbar-none text-xs sm:text-sm">
-        <span class="text-slate-400 font-medium whitespace-nowrap pl-1 pr-2 flex items-center gap-1">
-          <i data-lucide="bookmark" class="w-3.5 h-3.5 text-brand-500"></i> Unitat 2:
-        </span>
-        <a href="#overview" class="px-3 py-1 rounded-lg text-slate-600 hover:text-brand-600 hover:bg-brand-50 whitespace-nowrap font-medium transition-colors">Objectius</a>
-        <a href="#contrast-section" class="px-3 py-1 rounded-lg text-slate-600 hover:text-brand-600 hover:bg-brand-50 whitespace-nowrap font-medium transition-colors">1. Contrast: present simple i continuous</a>
-        <a href="#stative-section" class="px-3 py-1 rounded-lg text-slate-600 hover:text-brand-600 hover:bg-brand-50 whitespace-nowrap font-medium transition-colors">2. Verbs estàtics (stative)</a>
-        <a href="#tags-section" class="px-3 py-1 rounded-lg text-slate-600 hover:text-brand-600 hover:bg-brand-50 whitespace-nowrap font-medium transition-colors">3. Tag questions</a>
-        <a href="#scaffolding-section" class="px-3 py-1 rounded-lg text-slate-600 hover:text-brand-600 hover:bg-brand-50 whitespace-nowrap font-medium transition-colors">4. Bastides i eines</a>
-        <a href="#practice-section" class="px-3 py-1 rounded-lg bg-brand-50 text-brand-700 font-semibold whitespace-nowrap hover:bg-brand-100 transition-colors">5. Zona de pràctica</a>
-      </nav>
     </div>
   </header>
 
   <!-- ========================================================================= -->
-  <!-- MODAL DE VISIÓ GENERAL DEL CURS (UNITATS 1 A 8)                           -->
-  <!-- ========================================================================= -->
-  <div id="units-modal" class="fixed inset-0 z-50 bg-slate-900/50 backdrop-blur-sm hidden flex items-center justify-center p-4">
-    <div class="bg-white rounded-3xl max-w-3xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-slate-200 p-6 sm:p-8 transform transition-all">
-      <div class="flex items-center justify-between pb-4 border-b border-slate-100">
-        <div>
-          <span class="text-xs uppercase font-extrabold tracking-wider text-brand-600">Pla docent d'anglès de 2n d'ESO</span>
-          <h2 class="text-2xl font-display font-bold text-slate-900">Programa de gramàtica (unitats 1-8)</h2>
-        </div>
-        <button onclick="toggleUnitsModal()" class="p-2 text-slate-400 hover:text-slate-700 rounded-full hover:bg-slate-100">
-          <i data-lucide="x" class="w-6 h-6"></i>
-        </button>
-      </div>
-
-      <p class="text-sm text-slate-600 my-4">
-        Aquest portal recull la gramàtica clau de tot el curs. Pots navegar directament a la unitat en curs o consultar la planificació de les següents unitats.
-      </p>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-4">
-        <!-- Unitat 1 -->
-        <div class="p-4 rounded-2xl border border-slate-200 bg-slate-50/70 hover:bg-white transition-all">
-          <div class="flex items-center justify-between mb-1">
-            <span class="text-xs font-bold text-slate-500 uppercase tracking-wide">Unitat 1</span>
-            <span class="text-[10px] bg-slate-200 text-slate-700 px-2 py-0.5 rounded-full font-bold">Consolidada</span>
-          </div>
-          <h3 class="font-bold text-slate-800 text-sm">There is / there are, quantificadors i pronoms objecte</h3>
-          <p class="text-xs text-slate-500 mt-1"><em>There is / there are</em> (comptables i no comptables), quantificadors (<em>the, a/an, some, any, a lot of, much, many, how much, how many</em>) i pronoms personals objecte.</p>
-        </div>
-
-        <!-- Unitat 2 (Actual) -->
-        <div class="p-4 rounded-2xl border-2 border-brand-500 bg-brand-50/60 relative overflow-hidden shadow-sm">
-          <div class="absolute -right-6 -bottom-6 w-20 h-20 bg-brand-200/50 rounded-full blur-xl pointer-events-none"></div>
-          <div class="flex items-center justify-between mb-1">
-            <span class="text-xs font-bold text-brand-700 uppercase tracking-wide">Unitat 2</span>
-            <span class="text-[10px] bg-brand-600 text-white px-2 py-0.5 rounded-full font-extrabold tracking-wide flex items-center gap-1">
-              <span class="w-1.5 h-1.5 rounded-full bg-white badge-pulse"></span> Activa ara
-            </span>
-          </div>
-          <h3 class="font-bold text-brand-900 text-sm">Contrast de presents, verbs estàtics i tag questions</h3>
-          <p class="text-xs text-brand-800 mt-1">Contrast present simple vs. present continuous (hàbits vs. moment, històries i fotografies), verbs estàtics (stative verbs) i preguntes confirmatòries (tag questions).</p>
-        </div>
-
-        <!-- Unitat 3 -->
-        <div class="p-4 rounded-2xl border border-dashed border-slate-200 bg-white opacity-85 hover:opacity-100 transition-all">
-          <div class="flex items-center justify-between mb-1">
-            <span class="text-xs font-bold text-slate-400 uppercase tracking-wide">Unitat 3</span>
-            <span class="text-[10px] bg-amber-50 text-amber-700 border border-amber-200 px-2 py-0.5 rounded-full font-medium">Pròximament</span>
-          </div>
-          <h3 class="font-semibold text-slate-700 text-sm">Past simple, there was / there were i used to</h3>
-          <p class="text-xs text-slate-500 mt-1">El past simple (formes regulars en -ed i irregulars, regles ortogràfiques i expressions temporals), <em>there was / there were</em> i l'estructura <em>used to</em>.</p>
-        </div>
-
-        <!-- Unitat 4 -->
-        <div class="p-4 rounded-2xl border border-dashed border-slate-200 bg-white opacity-85 hover:opacity-100 transition-all">
-          <div class="flex items-center justify-between mb-1">
-            <span class="text-xs font-bold text-slate-400 uppercase tracking-wide">Unitat 4</span>
-            <span class="text-[10px] bg-amber-50 text-amber-700 border border-amber-200 px-2 py-0.5 rounded-full font-medium">Pròximament</span>
-          </div>
-          <h3 class="font-semibold text-slate-700 text-sm">Comparatius, superlatius, (not) as... as i too / enough</h3>
-          <p class="text-xs text-slate-500 mt-1">La forma comparativa (-er / more... than, less... than), el comparatiu d'igualtat <em>(not) as... as</em>, les estructures <em>too... / (not)... enough</em> i la forma superlativa.</p>
-        </div>
-
-        <!-- Unitat 5 -->
-        <div class="p-4 rounded-2xl border border-dashed border-slate-200 bg-white opacity-85 hover:opacity-100 transition-all">
-          <div class="flex items-center justify-between mb-1">
-            <span class="text-xs font-bold text-slate-400 uppercase tracking-wide">Unitat 5</span>
-            <span class="text-[10px] bg-amber-50 text-amber-700 border border-amber-200 px-2 py-0.5 rounded-full font-medium">Pròximament</span>
-          </div>
-          <h3 class="font-semibold text-slate-700 text-sm">Verbs modals: can, could, must, should, have to i need to</h3>
-          <p class="text-xs text-slate-500 mt-1">Habilitat i peticions amb <em>can</em> i <em>could</em>, obligació i prohibició amb <em>must / mustn't</em>, consells amb <em>should</em>, i necessitat amb <em>have to</em> i <em>need to</em>.</p>
-        </div>
-
-        <!-- Unitat 6 -->
-        <div class="p-4 rounded-2xl border border-dashed border-slate-200 bg-white opacity-85 hover:opacity-100 transition-all">
-          <div class="flex items-center justify-between mb-1">
-            <span class="text-xs font-bold text-slate-400 uppercase tracking-wide">Unitat 6</span>
-            <span class="text-[10px] bg-amber-50 text-amber-700 border border-amber-200 px-2 py-0.5 rounded-full font-medium">Pròximament</span>
-          </div>
-          <h3 class="font-semibold text-slate-700 text-sm">Past continuous i contrast amb el past simple</h3>
-          <p class="text-xs text-slate-500 mt-1">El past continuous (formes <em>was / were + -ing</em>, accions simultànies amb <em>while / as</em>) i el contrast past continuous / past simple amb els connectors <em>when</em> i <em>while</em>.</p>
-        </div>
-
-        <!-- Unitat 7 -->
-        <div class="p-4 rounded-2xl border border-dashed border-slate-200 bg-white opacity-85 hover:opacity-100 transition-all">
-          <div class="flex items-center justify-between mb-1">
-            <span class="text-xs font-bold text-slate-400 uppercase tracking-wide">Unitat 7</span>
-            <span class="text-[10px] bg-amber-50 text-amber-700 border border-amber-200 px-2 py-0.5 rounded-full font-medium">Pròximament</span>
-          </div>
-          <h3 class="font-semibold text-slate-700 text-sm">El futur (be going to, present continuous, will) i el primer condicional</h3>
-          <p class="text-xs text-slate-500 mt-1">Plans i intencions amb <em>be going to</em>, plans fixats amb present continuous, futur amb <em>will</em> (prediccions i decisions sobtades) i el primer condicional amb <em>if</em> i <em>unless</em>.</p>
-        </div>
-
-        <!-- Unitat 8 -->
-        <div class="p-4 rounded-2xl border border-dashed border-slate-200 bg-white opacity-85 hover:opacity-100 transition-all">
-          <div class="flex items-center justify-between mb-1">
-            <span class="text-xs font-bold text-slate-400 uppercase tracking-wide">Unitat 8</span>
-            <span class="text-[10px] bg-amber-50 text-amber-700 border border-amber-200 px-2 py-0.5 rounded-full font-medium">Pròximament</span>
-          </div>
-          <h3 class="font-semibold text-slate-700 text-sm">Present perfect simple, adverbis temporals i contrast amb past simple</h3>
-          <p class="text-xs text-slate-500 mt-1">El present perfect simple (have/has + participi), partícules temporals (<em>ever, never, already, just, yet, recently, so far</em>), <em>for / since</em> i contrast amb el past simple.</p>
-        </div>
-      </div>
-
-      <div class="mt-6 pt-4 border-t border-slate-100 flex justify-end">
-        <button onclick="toggleUnitsModal()" class="px-5 py-2 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-semibold text-sm transition-colors">
-          Continuar treballant a la unitat 2
-        </button>
-      </div>
-    </div>
-  </div>
-
-  <!-- ========================================================================= -->
-  <!-- BANNER PRINCIPAL I OBJECTIUS DE LA UNITAT                                 -->
+  <!-- HERO PRINCIPAL                                                            -->
   <!-- ========================================================================= -->
   <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 space-y-12">
     
-    <section id="overview" class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-indigo-900 via-brand-800 to-indigo-950 text-white p-6 sm:p-10 shadow-xl">
+    <section class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-indigo-900 via-brand-800 to-indigo-950 text-white p-6 sm:p-12 shadow-2xl">
       <!-- Fons decoratiu -->
       <div class="absolute -top-24 -right-24 w-96 h-96 bg-brand-500/20 rounded-full blur-3xl pointer-events-none"></div>
       <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
-      <div class="relative z-10 max-w-3xl">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md text-brand-200 text-xs font-bold mb-4 border border-white/10">
+      <div class="relative z-10 max-w-3xl space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md text-brand-200 text-xs font-bold border border-white/10">
           <i data-lucide="sparkles" class="w-3.5 h-3.5 text-amber-300"></i>
-          Unitat 2 • Bloc gramatical
+          Pla docent d'anglès 2n d'ESO - Active Minds 2 (Burlington English)
         </div>
-        <h2 class="text-2xl sm:text-4xl font-display font-extrabold tracking-tight text-white mb-4">
-          Present tenses contrast, stative verbs & tag questions
+        <h2 class="text-3xl sm:text-5xl font-display font-extrabold tracking-tight text-white leading-tight">
+          El teu laboratori de gramàtica anglesa interactiva
         </h2>
-        <p class="text-indigo-100 text-sm sm:text-base leading-relaxed mb-6">
-          En aquesta unitat aprendràs a contrastar amb precisió quan cal utilitzar el <strong>present simple</strong> i quan el <strong>present continuous</strong>, quins verbs especials d'estat no admeten mai <code class="bg-black/30 px-1.5 py-0.5 rounded font-mono text-amber-300">-ing</code>, i com construir preguntes confirmatòries (<strong>tag questions</strong>) com un parlant natiu.
+        <p class="text-indigo-100 text-sm sm:text-base leading-relaxed">
+          Benvinguts i benvingudes al portal de gramàtica de 2n d'ESO. Aquí trobaràs les 8 unitats del curs explicades pas a pas de manera visual i clara, amb pistes de suport, àudio natiu, activitats autocorrectives i reptes de 10 preguntes per posar-te a prova.
         </p>
 
-        <!-- Objectius d'aprenentatge -->
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
-          <div class="flex items-start gap-3 bg-white/10 rounded-2xl p-3 backdrop-blur-sm border border-white/5">
-            <div class="p-2 bg-emerald-400/20 text-emerald-300 rounded-xl">
-              <i data-lucide="refresh-cw" class="w-4 h-4"></i>
-            </div>
-            <div>
-              <h4 class="text-xs font-bold text-white">Hàbit vs. moment</h4>
-              <p class="text-[11px] text-indigo-200">Distingir rutines d'accions que passen ara mateix, pel·lícules i fotografies.</p>
-            </div>
+        <!-- Indicadors de recursos -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-4">
+          <div class="p-3 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/10 text-center">
+            <div class="text-2xl font-bold font-display text-amber-300">8</div>
+            <div class="text-xs text-indigo-200">unitats completes</div>
           </div>
-
-          <div class="flex items-start gap-3 bg-white/10 rounded-2xl p-3 backdrop-blur-sm border border-white/5">
-            <div class="p-2 bg-amber-400/20 text-amber-300 rounded-xl">
-              <i data-lucide="heart" class="w-4 h-4"></i>
-            </div>
-            <div>
-              <h4 class="text-xs font-bold text-white">Verbs estàtics</h4>
-              <p class="text-[11px] text-indigo-200">Verbs de sentiment, ment i possessió que no porten mai <em>-ing</em>.</p>
-            </div>
+          <div class="p-3 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/10 text-center">
+            <div class="text-2xl font-bold font-display text-emerald-300">32+</div>
+            <div class="text-xs text-indigo-200">activitats pràctiques</div>
           </div>
-
-          <div class="flex items-start gap-3 bg-white/10 rounded-2xl p-3 backdrop-blur-sm border border-white/5">
-            <div class="p-2 bg-rose-400/20 text-rose-300 rounded-xl">
-              <i data-lucide="tag" class="w-4 h-4"></i>
-            </div>
-            <div>
-              <h4 class="text-xs font-bold text-white">Tag questions</h4>
-              <p class="text-[11px] text-indigo-200">La regla de l'imant (+ / -), l'auxiliar adequat i el pronom corresponent.</p>
-            </div>
+          <div class="p-3 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/10 text-center">
+            <div class="text-2xl font-bold font-display text-sky-300">80</div>
+            <div class="text-xs text-indigo-200">preguntes de repte</div>
+          </div>
+          <div class="p-3 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/10 text-center">
+            <div class="text-2xl font-bold font-display text-rose-300">100%</div>
+            <div class="text-xs text-indigo-200">àudio natiu</div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ========================================================================= -->
-    <!-- SECCIÓ 1: CONTRAST ENTRE PRESENT SIMPLE I PRESENT CONTINUOUS              -->
-    <!-- ========================================================================= -->
-    <section id="contrast-section" class="scroll-mt-24 space-y-6">
-      
-      <div class="flex items-center justify-between border-b border-slate-200 pb-4">
-        <div>
-          <span class="text-xs font-bold uppercase tracking-wider text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-md border border-emerald-200">Part 1 d'explicació</span>
-          <h2 class="text-2xl sm:text-3xl font-display font-bold text-slate-900 mt-1">Contrast: present simple vs. present continuous</h2>
-        </div>
-        <button onclick="speakText('I usually eat at home, but today I am eating at a restaurant.')" class="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold transition-all">
-          <i data-lucide="volume-2" class="w-4 h-4 text-emerald-600"></i> Escolta l'exemple clau
-        </button>
-      </div>
-
-      <!-- Caixa de l'exemple clau -->
-      <div class="p-5 sm:p-6 rounded-3xl bg-gradient-to-r from-emerald-50 via-teal-50 to-cyan-50 border-2 border-emerald-200 shadow-sm">
-        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+    <!-- BANNER DESTACAT: VERB QUEST (VERBS IRREGULARS) -->
+    <section class="bg-gradient-to-r from-amber-500 via-pink-500 to-indigo-600 rounded-3xl p-1 shadow-lg">
+      <div class="bg-white rounded-[22px] p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-5">
+          <div class="w-16 h-16 rounded-2xl bg-gradient-to-tr from-indigo-600 to-pink-500 text-white flex items-center justify-center text-3xl shadow-lg shadow-indigo-300 shrink-0">
+            ⚡
+          </div>
           <div class="space-y-1">
-            <span class="text-xs font-extrabold uppercase tracking-widest text-emerald-700 flex items-center gap-1.5">
-              <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i> L'exemple clau de la unitat
-            </span>
-            <p class="text-lg sm:text-xl font-display font-bold text-slate-900">
-              "I usually <span class="text-emerald-700 underline decoration-emerald-400 decoration-2">eat</span> at home, but today I<span class="text-blue-600 underline decoration-blue-400 decoration-2">'m eating</span> at a restaurant."
-            </p>
-            <p class="text-xs sm:text-sm text-slate-600 italic">
-              (Normalment menjo a casa, però avui estic menjant en un restaurant.)
-            </p>
-          </div>
-          <button onclick="speakText('I usually eat at home, but today I am eating at a restaurant.')" class="self-start md:self-center flex items-center gap-2 px-4 py-2 bg-white text-emerald-700 border border-emerald-300 rounded-xl font-bold text-xs shadow-sm hover:bg-emerald-50 transition-all">
-            <i data-lucide="volume-2" class="w-4 h-4"></i> Escoltar àudio
-          </button>
-        </div>
-      </div>
-
-      <!-- Graella comparativa cara a cara -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        
-        <!-- Targeta: Present Simple -->
-        <div class="bg-white rounded-3xl border-2 border-emerald-100 p-6 shadow-sm hover:border-emerald-300 transition-all space-y-4">
-          <div class="flex items-center justify-between border-b border-emerald-100 pb-3">
             <div class="flex items-center gap-2">
-              <div class="w-9 h-9 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold">
-                <i data-lucide="repeat" class="w-5 h-5"></i>
-              </div>
-              <div>
-                <h3 class="font-display font-bold text-lg text-emerald-900">Present simple</h3>
-                <p class="text-xs text-emerald-700 font-medium">Hàbits, rutines i fets permanents</p>
-              </div>
+              <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-amber-100 text-amber-800">NOVA WEB DEDICADA</span>
+              <span class="text-xs font-semibold text-slate-400">Pàg. 114-115 Active Minds 2</span>
             </div>
-            <span class="text-xs font-mono font-bold bg-emerald-50 text-emerald-800 px-2.5 py-1 rounded-full border border-emerald-200">Verb base / -s</span>
-          </div>
-
-          <div class="space-y-3 text-sm text-slate-700">
-            <p>
-              S'utilitza per a accions que es repeteixen regularment o veritats que no canvien fàcilment.
+            <h3 class="text-xl sm:text-2xl font-display font-extrabold text-slate-900">Verb Quest: Arena dels 108 Verbs Irregulars</h3>
+            <p class="text-xs sm:text-sm text-slate-600 max-w-2xl leading-relaxed">
+              Practica els verbs en <strong>11 packs de 10 alfabèticament</strong>, posa't a prova als <strong>6 checkpoints acumulatius</strong> i juga als modes globals (Contrarellotge, Supervivència, Simulacre d'Examen i Ruleta).
             </p>
-
-            <div class="p-3 bg-emerald-50/70 rounded-2xl border border-emerald-100 space-y-1.5">
-              <span class="text-xs font-bold text-emerald-800 uppercase tracking-wider block">Paraules clau (time expressions):</span>
-              <div class="flex flex-wrap gap-1.5">
-                <span class="px-2 py-0.5 bg-white text-emerald-800 text-xs font-semibold rounded-md border border-emerald-200">always</span>
-                <span class="px-2 py-0.5 bg-white text-emerald-800 text-xs font-semibold rounded-md border border-emerald-200">usually</span>
-                <span class="px-2 py-0.5 bg-white text-emerald-800 text-xs font-semibold rounded-md border border-emerald-200">often</span>
-                <span class="px-2 py-0.5 bg-white text-emerald-800 text-xs font-semibold rounded-md border border-emerald-200">sometimes</span>
-                <span class="px-2 py-0.5 bg-white text-emerald-800 text-xs font-semibold rounded-md border border-emerald-200">never</span>
-                <span class="px-2 py-0.5 bg-white text-emerald-800 text-xs font-semibold rounded-md border border-emerald-200">every day</span>
-                <span class="px-2 py-0.5 bg-white text-emerald-800 text-xs font-semibold rounded-md border border-emerald-200">on Mondays</span>
-              </div>
-            </div>
-
-            <!-- Ús especial: històries i pel·lícules -->
-            <div class="p-4 rounded-2xl bg-slate-50 border-l-4 border-emerald-500 space-y-1">
-              <div class="flex items-center gap-1.5 text-xs font-bold text-slate-900">
-                <i data-lucide="clapperboard" class="w-4 h-4 text-emerald-600"></i> Ús especial: històries i pel·lícules
-              </div>
-              <p class="text-xs text-slate-600">
-                S'acostuma a utilitzar el <strong>present simple</strong> per explicar l'argument d'un llibre, conte o pel·lícula:
-              </p>
-              <div class="flex items-center justify-between text-xs pt-1 font-medium text-emerald-950">
-                <span>"The policeman <strong class="text-emerald-700">follows</strong> the criminal and <strong class="text-emerald-700">arrests</strong> him."</span>
-                <button onclick="speakText('The policeman follows the criminal and arrests him.')" class="text-emerald-600 hover:text-emerald-800 p-1" title="Escoltar">
-                  <i data-lucide="volume-2" class="w-3.5 h-3.5"></i>
-                </button>
-              </div>
-              <p class="text-[11px] text-slate-500 italic">(El policia segueix el delinqüent i l'arresta.)</p>
-            </div>
           </div>
         </div>
-
-        <!-- Targeta: Present Continuous -->
-        <div class="bg-white rounded-3xl border-2 border-blue-100 p-6 shadow-sm hover:border-blue-300 transition-all space-y-4">
-          <div class="flex items-center justify-between border-b border-blue-100 pb-3">
-            <div class="flex items-center gap-2">
-              <div class="w-9 h-9 rounded-xl bg-blue-100 text-blue-700 flex items-center justify-center font-bold">
-                <i data-lucide="play-circle" class="w-5 h-5"></i>
-              </div>
-              <div>
-                <h3 class="font-display font-bold text-lg text-blue-900">Present continuous</h3>
-                <p class="text-xs text-blue-700 font-medium">Allò que passa en el moment en què es parla</p>
-              </div>
-            </div>
-            <span class="text-xs font-mono font-bold bg-blue-50 text-blue-800 px-2.5 py-1 rounded-full border border-blue-200">am / is / are + -ing</span>
-          </div>
-
-          <div class="space-y-3 text-sm text-slate-700">
-            <p>
-              S'utilitza per a accions en curs ara mateix o situacions temporals que estan passant aquests dies.
-            </p>
-
-            <div class="p-3 bg-blue-50/70 rounded-2xl border border-blue-100 space-y-1.5">
-              <span class="text-xs font-bold text-blue-800 uppercase tracking-wider block">Paraules clau (time expressions):</span>
-              <div class="flex flex-wrap gap-1.5">
-                <span class="px-2 py-0.5 bg-white text-blue-800 text-xs font-semibold rounded-md border border-blue-200">now</span>
-                <span class="px-2 py-0.5 bg-white text-blue-800 text-xs font-semibold rounded-md border border-blue-200">right now</span>
-                <span class="px-2 py-0.5 bg-white text-blue-800 text-xs font-semibold rounded-md border border-blue-200">at the moment</span>
-                <span class="px-2 py-0.5 bg-white text-blue-800 text-xs font-semibold rounded-md border border-blue-200">today</span>
-                <span class="px-2 py-0.5 bg-white text-blue-800 text-xs font-semibold rounded-md border border-blue-200">this week</span>
-                <span class="px-2 py-0.5 bg-white text-blue-800 text-xs font-semibold rounded-md border border-blue-200">Look!</span>
-                <span class="px-2 py-0.5 bg-white text-blue-800 text-xs font-semibold rounded-md border border-blue-200">Listen!</span>
-              </div>
-            </div>
-
-            <!-- Ús especial: descriure fotografies -->
-            <div class="p-4 rounded-2xl bg-slate-50 border-l-4 border-blue-500 space-y-1">
-              <div class="flex items-center gap-1.5 text-xs font-bold text-slate-900">
-                <i data-lucide="camera" class="w-4 h-4 text-blue-600"></i> Ús especial: descriure fotografies
-              </div>
-              <p class="text-xs text-slate-600">
-                S'acostuma a utilitzar el <strong>present continuous</strong> per descriure imatges com si l'acció estigués passant ara:
-              </p>
-              <div class="flex items-center justify-between text-xs pt-1 font-medium text-blue-950">
-                <span>"In the picture, my father <strong class="text-blue-700">is playing</strong> basketball."</span>
-                <button onclick="speakText('In the picture, my father is playing basketball.')" class="text-blue-600 hover:text-blue-800 p-1" title="Escoltar">
-                  <i data-lucide="volume-2" class="w-3.5 h-3.5"></i>
-                </button>
-              </div>
-              <p class="text-[11px] text-slate-500 italic">(A la fotografia, el meu pare està jugant a bàsquet.)</p>
-            </div>
-          </div>
-        </div>
-
+        <a href="../irregular-verbs-eso2/index.html" class="shrink-0 px-6 py-3.5 rounded-2xl bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-display font-bold text-sm shadow-md transition-all flex items-center gap-2">
+          <span>Obrir Verb Quest</span>
+          <i data-lucide="external-link" class="w-4 h-4"></i>
+        </a>
       </div>
-
-      <!-- Bastida de decisió ràpida -->
-      <div class="bg-white p-5 rounded-3xl border border-slate-200 flex flex-col md:flex-row items-center justify-between gap-4">
-        <div class="flex items-center gap-3">
-          <div class="w-10 h-10 rounded-2xl bg-indigo-100 text-indigo-700 flex items-center justify-center shrink-0">
-            <i data-lucide="help-circle" class="w-5 h-5"></i>
-          </div>
-          <div>
-            <h4 class="font-bold text-slate-900 text-sm">Bastida de decisió ràpida: quin temps trio?</h4>
-            <p class="text-xs text-slate-500">Pregunta't: <em>És una rutina habitual (simple) o està passant en aquest instant (continuous)?</em></p>
-          </div>
-        </div>
-        <div class="flex items-center gap-2">
-          <span class="text-xs bg-slate-100 text-slate-700 px-3 py-1 rounded-xl font-mono">Rutina ➡️ simple</span>
-          <span class="text-xs bg-slate-100 text-slate-700 px-3 py-1 rounded-xl font-mono">Ara ➡️ continuous</span>
-        </div>
-      </div>
-
     </section>
 
     <!-- ========================================================================= -->
-    <!-- SECCIÓ 2: ELS VERBS ESTÀTICS (STATIVE VERBS)                              -->
+    <!-- FILTRES PER BLOC TEMÀTIC                                                  -->
     <!-- ========================================================================= -->
-    <section id="stative-section" class="scroll-mt-24 space-y-6">
-      
-      <div class="border-b border-slate-200 pb-4">
-        <span class="text-xs font-bold uppercase tracking-wider text-amber-700 bg-amber-50 px-2.5 py-1 rounded-md border border-amber-200">Part 2 d'explicació</span>
-        <h2 class="text-2xl sm:text-3xl font-display font-bold text-slate-900 mt-1">Els verbs estàtics (stative verbs)</h2>
-        <p class="text-sm text-slate-600 mt-1">
-          Els verbs estàtics expressen <strong>estats</strong> (no pas accions físiques en moviment). Per aquest motiu, <strong>no s'acostumen a fer servir mai en present continuous (<span class="line-through text-rose-500 font-mono">-ing</span>)</strong>!
-        </p>
-      </div>
-
-      <!-- Les 4 famílies de verbs estàtics -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        
-        <!-- Categoria 1 -->
-        <div class="bg-white p-5 rounded-2xl border border-rose-100 shadow-sm space-y-3">
-          <div class="flex items-center gap-2">
-            <span class="text-xl">❤️</span>
-            <h3 class="font-bold text-slate-900 text-sm">Gustos i desitjos</h3>
-          </div>
-          <p class="text-xs text-slate-500">Sentiments i preferències:</p>
-          <div class="flex flex-wrap gap-1">
-            <span class="px-2 py-1 bg-rose-50 text-rose-800 text-xs font-bold rounded-lg">like</span>
-            <span class="px-2 py-1 bg-rose-50 text-rose-800 text-xs font-bold rounded-lg">love</span>
-            <span class="px-2 py-1 bg-rose-50 text-rose-800 text-xs font-bold rounded-lg">hate</span>
-            <span class="px-2 py-1 bg-rose-50 text-rose-800 text-xs font-bold rounded-lg">want</span>
-            <span class="px-2 py-1 bg-rose-50 text-rose-800 text-xs font-bold rounded-lg">prefer</span>
-          </div>
-          <div class="text-[11px] text-slate-600 border-t border-slate-100 pt-2">
-            ✅ <em>I want an apple.</em><br>
-            ❌ <span class="line-through text-rose-500">I am wanting an apple.</span>
-          </div>
-        </div>
-
-        <!-- Categoria 2 -->
-        <div class="bg-white p-5 rounded-2xl border border-indigo-100 shadow-sm space-y-3">
-          <div class="flex items-center gap-2">
-            <span class="text-xl">🧠</span>
-            <h3 class="font-bold text-slate-900 text-sm">Activitats mentals</h3>
-          </div>
-          <p class="text-xs text-slate-500">Pensament, coneixement i memòria:</p>
-          <div class="flex flex-wrap gap-1">
-            <span class="px-2 py-1 bg-indigo-50 text-indigo-800 text-xs font-bold rounded-lg">think</span>
-            <span class="px-2 py-1 bg-indigo-50 text-indigo-800 text-xs font-bold rounded-lg">know</span>
-            <span class="px-2 py-1 bg-indigo-50 text-indigo-800 text-xs font-bold rounded-lg">understand</span>
-            <span class="px-2 py-1 bg-indigo-50 text-indigo-800 text-xs font-bold rounded-lg">remember</span>
-            <span class="px-2 py-1 bg-indigo-50 text-indigo-800 text-xs font-bold rounded-lg">believe</span>
-          </div>
-          <div class="text-[11px] text-slate-600 border-t border-slate-100 pt-2">
-            ✅ <em>I know the answer.</em><br>
-            ❌ <span class="line-through text-rose-500">I am knowing the answer.</span>
-          </div>
-        </div>
-
-        <!-- Categoria 3 -->
-        <div class="bg-white p-5 rounded-2xl border border-amber-100 shadow-sm space-y-3">
-          <div class="flex items-center gap-2">
-            <span class="text-xl">📦</span>
-            <h3 class="font-bold text-slate-900 text-sm">Possessió</h3>
-          </div>
-          <p class="text-xs text-slate-500">Coses que es tenen o pertanyen:</p>
-          <div class="flex flex-wrap gap-1">
-            <span class="px-2 py-1 bg-amber-50 text-amber-900 text-xs font-bold rounded-lg">have got</span>
-            <span class="px-2 py-1 bg-amber-50 text-amber-900 text-xs font-bold rounded-lg">have (tenir)</span>
-            <span class="px-2 py-1 bg-amber-50 text-amber-900 text-xs font-bold rounded-lg">own</span>
-            <span class="px-2 py-1 bg-amber-50 text-amber-900 text-xs font-bold rounded-lg">belong to</span>
-          </div>
-          <div class="text-[11px] text-slate-600 border-t border-slate-100 pt-2">
-            ✅ <em>She has got a bicycle.</em><br>
-            ❌ <span class="line-through text-rose-500">She is having got...</span>
-          </div>
-        </div>
-
-        <!-- Categoria 4 -->
-        <div class="bg-white p-5 rounded-2xl border border-teal-100 shadow-sm space-y-3">
-          <div class="flex items-center gap-2">
-            <span class="text-xl">👁️</span>
-            <h3 class="font-bold text-slate-900 text-sm">Percepció i sentits</h3>
-          </div>
-          <p class="text-xs text-slate-500">Sentits involuntaris:</p>
-          <div class="flex flex-wrap gap-1">
-            <span class="px-2 py-1 bg-teal-50 text-teal-900 text-xs font-bold rounded-lg">see</span>
-            <span class="px-2 py-1 bg-teal-50 text-teal-900 text-xs font-bold rounded-lg">hear</span>
-            <span class="px-2 py-1 bg-teal-50 text-teal-900 text-xs font-bold rounded-lg">smell</span>
-            <span class="px-2 py-1 bg-teal-50 text-teal-900 text-xs font-bold rounded-lg">taste</span>
-            <span class="px-2 py-1 bg-teal-50 text-teal-900 text-xs font-bold rounded-lg">feel</span>
-          </div>
-          <div class="text-[11px] text-slate-600 border-t border-slate-100 pt-2">
-            ✅ <em>I hear music outside.</em><br>
-            ❌ <span class="line-through text-rose-500">I am hearing music...</span>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- Verbs que canvien de significat -->
-      <div class="p-6 rounded-3xl bg-amber-50 border-2 border-amber-300 space-y-4">
-        <div class="flex items-center gap-2 text-amber-900 font-display font-bold text-base sm:text-lg">
-          <i data-lucide="alert-triangle" class="w-5 h-5 text-amber-600"></i>
-          Atenció: verbs que canvien de significat! (El cas de "think")
-        </div>
-        <p class="text-xs sm:text-sm text-slate-700">
-          Alguns verbs poden ser estàtics o dinàmics segons el context. Si s'utilitzen en <strong>present continuous</strong>, el seu significat canvia completament:
-        </p>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-1">
-          <!-- Think: estat -->
-          <div class="bg-white p-4 rounded-2xl border border-amber-200 shadow-sm space-y-2">
-            <div class="flex items-center justify-between">
-              <span class="text-xs font-extrabold uppercase tracking-wide text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200">Estat = opinió</span>
-              <span class="text-xs font-mono font-bold text-slate-400">Present simple</span>
-            </div>
-            <div class="flex items-center justify-between font-bold text-slate-900 text-sm sm:text-base">
-              <span>"I <strong class="text-emerald-700 underline">think</strong> your drawing is very nice."</span>
-              <button onclick="speakText('I think your drawing is very nice.')" class="p-1 text-slate-400 hover:text-slate-800">
-                <i data-lucide="volume-2" class="w-4 h-4"></i>
-              </button>
-            </div>
-            <p class="text-xs text-slate-600 italic">
-              ➡️ <em>Crec / Opino que el teu dibuix és molt bonic.</em> (És una opinió que tinc, no pas un exercici físic).
-            </p>
-          </div>
-
-          <!-- Think: acció mental -->
-          <div class="bg-white p-4 rounded-2xl border border-amber-200 shadow-sm space-y-2">
-            <div class="flex items-center justify-between">
-              <span class="text-xs font-extrabold uppercase tracking-wide text-blue-700 bg-blue-50 px-2.5 py-0.5 rounded-full border border-blue-200">Acció = procés mental</span>
-              <span class="text-xs font-mono font-bold text-slate-400">Present continuous</span>
-            </div>
-            <div class="flex items-center justify-between font-bold text-slate-900 text-sm sm:text-base">
-              <span>"I<strong class="text-blue-700 underline">'m thinking</strong> about travelling to South America."</span>
-              <button onclick="speakText('I am thinking about travelling to South America.')" class="p-1 text-slate-400 hover:text-slate-800">
-                <i data-lucide="volume-2" class="w-4 h-4"></i>
-              </button>
-            </div>
-            <p class="text-xs text-slate-600 italic">
-              ➡️ <em>Estic pensant a / M'estic plantejant viatjar a Amèrica del Sud.</em> (El cervell està rumiant activament en aquest moment).
-            </p>
-          </div>
-        </div>
-
-        <div class="p-3 bg-white/70 rounded-xl text-xs text-slate-700 border border-amber-200 flex items-center gap-2">
-          <i data-lucide="lightbulb" class="w-4 h-4 text-amber-600 shrink-0"></i>
-          <span><strong>Un altre cas clau:</strong> <em>"I have a dog"</em> (Tinc un gos, possessió = estàtic) vs. <em>"I'm having lunch"</em> (Estic dinant, acció de menjar = dinàmic).</span>
-        </div>
-      </div>
-
-    </section>
-
-    <!-- ========================================================================= -->
-    <!-- SECCIÓ 3: TAG QUESTIONS (PREGUNTES CONFIRMATÒRIES)                        -->
-    <!-- ========================================================================= -->
-    <section id="tags-section" class="scroll-mt-24 space-y-6">
-      
-      <div class="border-b border-slate-200 pb-4">
-        <span class="text-xs font-bold uppercase tracking-wider text-tag-700 bg-tag-50 px-2.5 py-1 rounded-md border border-tag-200">Part 3 d'explicació</span>
-        <h2 class="text-2xl sm:text-3xl font-display font-bold text-slate-900 mt-1">Tag questions (preguntes confirmatòries)</h2>
-        <p class="text-sm text-slate-600 mt-1">
-          Una <strong>tag question</strong> és una petita pregunta que s'afegeix al final d'una frase per demanar confirmació (l'equivalent en català a <em>"..., oi que sí?"</em>, <em>"..., veritat?"</em> o <em>"..., no?"</em>).
-        </p>
-      </div>
-
-      <!-- La llei de l'imant -->
-      <div class="p-6 rounded-3xl bg-gradient-to-r from-orange-50 via-amber-50 to-rose-50 border-2 border-orange-200 shadow-sm space-y-4">
-        <div class="flex items-center gap-2 text-tag-700 font-display font-extrabold text-lg sm:text-xl">
-          <i data-lucide="magnet" class="w-6 h-6"></i>
-          La llei de l'imant: els pols oposats s'atreuen!
-        </div>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div class="p-4 bg-white rounded-2xl border border-orange-200 shadow-sm space-y-2">
-            <div class="flex items-center gap-2 text-emerald-700 font-bold text-sm">
-              <span class="w-6 h-6 rounded-full bg-emerald-100 flex items-center justify-center font-mono">+</span>
-              Frase afirmativa (+) ➡️ tag negativa (-)
-            </div>
-            <p class="text-xs text-slate-600">Si la teva frase és positiva, la tag question sempre ha de portar contracció negativa (<code class="bg-slate-100 px-1 py-0.5 rounded font-mono text-slate-800">n't</code>):</p>
-            <p class="text-sm font-bold text-slate-800 bg-slate-50 p-2.5 rounded-xl border border-slate-200">
-              "He is happy, <span class="text-rose-600 font-extrabold underline">isn't he?</span>"
-            </p>
-          </div>
-
-          <div class="p-4 bg-white rounded-2xl border border-orange-200 shadow-sm space-y-2">
-            <div class="flex items-center gap-2 text-rose-700 font-bold text-sm">
-              <span class="w-6 h-6 rounded-full bg-rose-100 flex items-center justify-center font-mono">-</span>
-              Frase negativa (-) ➡️ tag afirmativa (+)
-            </div>
-            <p class="text-xs text-slate-600">Si la teva frase és negativa, la tag question ha de ser en positiu (sense <em>not</em>):</p>
-            <p class="text-sm font-bold text-slate-800 bg-slate-50 p-2.5 rounded-xl border border-slate-200">
-              "He isn't happy, <span class="text-emerald-700 font-extrabold underline">is he?</span>"
-            </p>
-          </div>
-        </div>
-
-        <div class="p-3 bg-white/80 rounded-2xl border border-orange-200 text-xs text-slate-700 space-y-1">
-          <div class="font-bold text-tag-700 flex items-center gap-1.5">
-            <i data-lucide="smile" class="w-4 h-4"></i> Ús comunicatiu i de cortesia:
-          </div>
-          <p>
-            S'utilitza per confirmar alguna cosa que creiem veritat, o per suavitzar el to d'una conversa i ser amables:
-            <br>
-            <em>"The weather is nice, <strong>isn't it?</strong>"</em> (Fa bon temps, oi que sí? ☀️)
-          </p>
-        </div>
-      </div>
-
-      <!-- Taula comparativa completa -->
-      <div class="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
-        <div class="bg-slate-900 text-white p-4 sm:px-6 flex items-center justify-between">
-          <div class="flex items-center gap-2">
-            <i data-lucide="table" class="w-5 h-5 text-tag-500"></i>
-            <h3 class="font-display font-bold text-base sm:text-lg">Taula completa de tag questions (del llibre de text)</h3>
-          </div>
-          <span class="text-xs text-slate-400">Auxiliar + pronom personal</span>
-        </div>
-
-        <div class="overflow-x-auto">
-          <table class="w-full text-left text-xs sm:text-sm">
-            <thead class="bg-slate-100 text-slate-700 uppercase font-bold text-[11px] tracking-wider border-b border-slate-200">
-              <tr>
-                <th class="py-3 px-4 sm:px-6">Verb / temps</th>
-                <th class="py-3 px-4 sm:px-6 text-emerald-800 bg-emerald-50/70">Frase afirmativa (+) ➡️ tag negativa (-)</th>
-                <th class="py-3 px-4 sm:px-6 text-rose-800 bg-rose-50/70">Frase negativa (-) ➡️ tag afirmativa (+)</th>
-                <th class="py-3 px-3 text-center">Àudio</th>
-              </tr>
-            </thead>
-            <tbody class="divide-y divide-slate-100 font-medium">
-              <!-- Row 1: be -->
-              <tr class="hover:bg-slate-50 transition-colors">
-                <td class="py-3.5 px-4 sm:px-6 font-bold text-slate-900">to be (is/are)</td>
-                <td class="py-3.5 px-4 sm:px-6">He is happy, <strong class="text-rose-600">isn't he?</strong></td>
-                <td class="py-3.5 px-4 sm:px-6">He isn't happy, <strong class="text-emerald-700">is he?</strong></td>
-                <td class="py-3.5 px-3 text-center">
-                  <button onclick="speakText('He is happy, isn\'t he? He isn\'t happy, is he?')" class="p-1.5 rounded-lg text-slate-400 hover:text-slate-800 hover:bg-slate-100">
-                    <i data-lucide="volume-2" class="w-4 h-4"></i>
-                  </button>
-                </td>
-              </tr>
-              <!-- Row 2: have got -->
-              <tr class="hover:bg-slate-50 transition-colors">
-                <td class="py-3.5 px-4 sm:px-6 font-bold text-slate-900">have got</td>
-                <td class="py-3.5 px-4 sm:px-6">You have got a car, <strong class="text-rose-600">haven't you?</strong></td>
-                <td class="py-3.5 px-4 sm:px-6">You haven't got a car, <strong class="text-emerald-700">have you?</strong></td>
-                <td class="py-3.5 px-3 text-center">
-                  <button onclick="speakText('You have got a car, haven\'t you?')" class="p-1.5 rounded-lg text-slate-400 hover:text-slate-800 hover:bg-slate-100">
-                    <i data-lucide="volume-2" class="w-4 h-4"></i>
-                  </button>
-                </td>
-              </tr>
-              <!-- Row 3: Present simple -->
-              <tr class="hover:bg-amber-50/50 bg-amber-50/20 transition-colors">
-                <td class="py-3.5 px-4 sm:px-6 font-bold text-amber-900">
-                  Present simple <span class="text-[10px] bg-amber-200 text-amber-800 px-1.5 py-0.5 rounded ml-1 font-bold">Auxiliar invisible!</span>
-                </td>
-                <td class="py-3.5 px-4 sm:px-6">She likes this book, <strong class="text-rose-600">doesn't she?</strong></td>
-                <td class="py-3.5 px-4 sm:px-6">She doesn't like this book, <strong class="text-emerald-700">does she?</strong></td>
-                <td class="py-3.5 px-3 text-center">
-                  <button onclick="speakText('She likes this book, doesn\'t she?')" class="p-1.5 rounded-lg text-slate-400 hover:text-slate-800 hover:bg-slate-100">
-                    <i data-lucide="volume-2" class="w-4 h-4"></i>
-                  </button>
-                </td>
-              </tr>
-              <!-- Row 4: Present continuous -->
-              <tr class="hover:bg-slate-50 transition-colors">
-                <td class="py-3.5 px-4 sm:px-6 font-bold text-slate-900">Present continuous</td>
-                <td class="py-3.5 px-4 sm:px-6">They are sleeping, <strong class="text-rose-600">aren't they?</strong></td>
-                <td class="py-3.5 px-4 sm:px-6">They aren't sleeping, <strong class="text-emerald-700">are they?</strong></td>
-                <td class="py-3.5 px-3 text-center">
-                  <button onclick="speakText('They are sleeping, aren\'t they?')" class="p-1.5 rounded-lg text-slate-400 hover:text-slate-800 hover:bg-slate-100">
-                    <i data-lucide="volume-2" class="w-4 h-4"></i>
-                  </button>
-                </td>
-              </tr>
-              <!-- Row 5: will / won't -->
-              <tr class="hover:bg-slate-50 transition-colors">
-                <td class="py-3.5 px-4 sm:px-6 font-bold text-slate-900">Futur (will)</td>
-                <td class="py-3.5 px-4 sm:px-6">We will be late, <strong class="text-rose-600">won't we?</strong></td>
-                <td class="py-3.5 px-4 sm:px-6">We won't be late, <strong class="text-emerald-700">will we?</strong></td>
-                <td class="py-3.5 px-3 text-center">
-                  <button onclick="speakText('We will be late, won\'t we?')" class="p-1.5 rounded-lg text-slate-400 hover:text-slate-800 hover:bg-slate-100">
-                    <i data-lucide="volume-2" class="w-4 h-4"></i>
-                  </button>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-    </section>
-
-    <!-- ========================================================================= -->
-    <!-- SECCIÓ 4: BASTIDES DE SUPORT PER A L'APRENENTATGE (SCAFFOLDING TOOLS)    -->
-    <!-- ========================================================================= -->
-    <section id="scaffolding-section" class="scroll-mt-24 space-y-6">
-      
-      <div class="border-b border-slate-200 pb-4">
-        <span class="text-xs font-bold uppercase tracking-wider text-brand-600 bg-brand-50 px-2.5 py-1 rounded-md border border-brand-200">Bastides i suport</span>
-        <h2 class="text-2xl sm:text-3xl font-display font-bold text-slate-900 mt-1">L'escala d'aprenentatge (scaffolding toolkit)</h2>
-        <p class="text-sm text-slate-600 mt-1">
-          Eines visuals pas a pas per no bloquejar-te i dominar les estructures amb seguretat.
-        </p>
-      </div>
-
-      <!-- L'escala en 3 passes -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-        
-        <div class="bg-white p-5 rounded-3xl border-2 border-brand-100 shadow-sm relative overflow-hidden space-y-2">
-          <div class="w-8 h-8 rounded-full bg-brand-600 text-white font-bold flex items-center justify-center text-sm">1</div>
-          <h3 class="font-bold text-slate-900 text-sm">Pas 1: detecta l'auxiliar</h3>
-          <p class="text-xs text-slate-600 leading-relaxed">
-            Busca si la frase té el verb <code class="bg-slate-100 px-1 py-0.5 rounded font-mono font-bold">be</code> (is, are), <code class="bg-slate-100 px-1 py-0.5 rounded font-mono font-bold">have got</code>, o <code class="bg-slate-100 px-1 py-0.5 rounded font-mono font-bold">will</code>.
-          </p>
-          <div class="text-[11px] bg-brand-50 p-2 rounded-xl text-brand-800 font-medium">
-            💡 <strong>Pista clau:</strong> si és present simple normal (p. ex. <em>likes, play</em>), l'auxiliar és <strong>do</strong> o <strong>does</strong>!
-          </div>
-        </div>
-
-        <div class="bg-white p-5 rounded-3xl border-2 border-brand-100 shadow-sm relative overflow-hidden space-y-2">
-          <div class="w-8 h-8 rounded-full bg-brand-600 text-white font-bold flex items-center justify-center text-sm">2</div>
-          <h3 class="font-bold text-slate-900 text-sm">Pas 2: gira el signe (+ / -)</h3>
-          <p class="text-xs text-slate-600 leading-relaxed">
-            Aplica la llei de l'imant:
-          </p>
-          <ul class="text-xs text-slate-700 space-y-1 font-mono">
-            <li>• is ➡️ <strong>isn't</strong></li>
-            <li>• doesn't ➡️ <strong>does</strong></li>
-            <li>• plays ➡️ <strong>doesn't</strong></li>
-            <li>• won't ➡️ <strong>will</strong></li>
-          </ul>
-        </div>
-
-        <div class="bg-white p-5 rounded-3xl border-2 border-brand-100 shadow-sm relative overflow-hidden space-y-2">
-          <div class="w-8 h-8 rounded-full bg-brand-600 text-white font-bold flex items-center justify-center text-sm">3</div>
-          <h3 class="font-bold text-slate-900 text-sm">Pas 3: pronom subjecte</h3>
-          <p class="text-xs text-slate-600 leading-relaxed">
-            A la tag question <strong>mai no es repeteix un nom propi</strong>; sempre es canvia pel pronom personal corresponent:
-          </p>
-          <div class="text-xs text-slate-700 font-mono bg-slate-50 p-2 rounded-xl">
-            Marc ➡️ <strong>he</strong><br>
-            Emma ➡️ <strong>she</strong><br>
-            The dogs ➡️ <strong>they</strong>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- Simulador interactiu -->
-      <div class="bg-gradient-to-br from-slate-900 to-indigo-950 text-white p-6 sm:p-8 rounded-3xl shadow-xl space-y-6">
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-white/10 pb-4">
-          <div class="flex items-center gap-2">
-            <div class="p-2 bg-brand-500/30 text-brand-300 rounded-xl">
-              <i data-lucide="cpu" class="w-5 h-5"></i>
-            </div>
-            <div>
-              <h3 class="font-display font-bold text-lg text-white">Generador pas a pas de tag questions</h3>
-              <p class="text-xs text-slate-400">Tria una frase i observa com la màquina dedueix la tag question</p>
-            </div>
-          </div>
-          <span class="text-xs text-brand-300 font-mono bg-white/5 px-2.5 py-1 rounded-full border border-white/10">Simulador DUA</span>
-        </div>
-
-        <div class="space-y-4">
-          <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider">Tria una frase de prova:</label>
-          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2">
-            <button onclick="simulateTag(0)" class="sim-btn text-left p-3 rounded-2xl bg-white/5 hover:bg-white/15 border border-white/10 text-xs transition-all">
-              <span class="font-semibold block text-white">1. Marc is playing football</span>
-              <span class="text-[11px] text-slate-400">to be + nom propi</span>
-            </button>
-            <button onclick="simulateTag(1)" class="sim-btn text-left p-3 rounded-2xl bg-white/5 hover:bg-white/15 border border-white/10 text-xs transition-all">
-              <span class="font-semibold block text-white">2. Sarah likes pizza</span>
-              <span class="text-[11px] text-slate-400">present simple 3a persona</span>
-            </button>
-            <button onclick="simulateTag(2)" class="sim-btn text-left p-3 rounded-2xl bg-white/5 hover:bg-white/15 border border-white/10 text-xs transition-all">
-              <span class="font-semibold block text-white">3. You haven't got a ticket</span>
-              <span class="text-[11px] text-slate-400">frase negativa amb have got</span>
-            </button>
-            <button onclick="simulateTag(3)" class="sim-btn text-left p-3 rounded-2xl bg-white/5 hover:bg-white/15 border border-white/10 text-xs transition-all">
-              <span class="font-semibold block text-white">4. They live in Girona</span>
-              <span class="text-[11px] text-slate-400">present simple plural</span>
-            </button>
-            <button onclick="simulateTag(4)" class="sim-btn text-left p-3 rounded-2xl bg-white/5 hover:bg-white/15 border border-white/10 text-xs transition-all">
-              <span class="font-semibold block text-white">5. We will win the match</span>
-              <span class="text-[11px] text-slate-400">futur amb will</span>
-            </button>
-            <button onclick="simulateTag(5)" class="sim-btn text-left p-3 rounded-2xl bg-white/5 hover:bg-white/15 border border-white/10 text-xs transition-all">
-              <span class="font-semibold block text-white">6. The cat isn't sleeping</span>
-              <span class="text-[11px] text-slate-400">to be negatiu + animal</span>
-            </button>
-          </div>
-
-          <!-- Sortida interactiva del simulador -->
-          <div id="sim-output" class="bg-black/30 border border-white/15 rounded-2xl p-5 space-y-4">
-            <div class="flex items-center justify-center py-6 text-slate-400 text-xs text-center">
-              Fes clic en qualsevol de les frases de dalt per veure la deducció pas a pas!
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Detectiu d'errors comuns -->
-      <div class="bg-white rounded-3xl border border-rose-200 p-6 shadow-sm space-y-4">
-        <div class="flex items-center gap-2 text-rose-700 font-display font-bold text-lg">
-          <i data-lucide="shield-alert" class="w-5 h-5"></i>
-          Detectiu d'errors freqüents a 2n d'ESO
-        </div>
-        <p class="text-xs sm:text-sm text-slate-600">
-          Revisa aquests 3 errors típics que solem fer quan parlem en català i passem a l'anglès:
-        </p>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
-          <div class="p-4 bg-rose-50/50 rounded-2xl border border-rose-100 space-y-1.5">
-            <span class="font-bold text-rose-800">❌ Error 1: dir sempre "..., is it?"</span>
-            <p class="text-slate-600">Com que en català sempre diem <em>"oi?"</em>, sovint es posa <em>is it?</em> a tot arreu.</p>
-            <p class="font-bold text-emerald-800">✅ Recorda: la tag canvia segons l'auxiliar i el subjecte de la frase!</p>
-          </div>
-
-          <div class="p-4 bg-rose-50/50 rounded-2xl border border-rose-100 space-y-1.5">
-            <span class="font-bold text-rose-800">❌ Error 2: oblidar does</span>
-            <p class="text-slate-600"><em>"She plays tennis, isn't she?"</em> ❌ (No hi ha cap verb 'to be' a la frase!).</p>
-            <p class="font-bold text-emerald-800">✅ Correcte: <em>"She plays tennis, doesn't she?"</em></p>
-          </div>
-
-          <div class="p-4 bg-rose-50/50 rounded-2xl border border-rose-100 space-y-1.5">
-            <span class="font-bold text-rose-800">❌ Error 3: repetir el nom</span>
-            <p class="text-slate-600"><em>"Pol is tired, isn't Pol?"</em> ❌ A l'anglès sona poc natural.</p>
-            <p class="font-bold text-emerald-800">✅ Correcte: <em>"Pol is tired, isn't he?"</em></p>
-          </div>
-        </div>
-      </div>
-
-    </section>
-
-    <!-- ========================================================================= -->
-    <!-- SECCIÓ 5: ZONA DE PRÀCTICA INTERACTIVA                                    -->
-    <!-- ========================================================================= -->
-    <section id="practice-section" class="scroll-mt-24 space-y-8">
-      
-      <div class="border-b border-slate-200 pb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+    <section class="space-y-4">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-200 pb-4">
         <div>
-          <span class="text-xs font-bold uppercase tracking-wider text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-md border border-emerald-200">Zona interactiva</span>
-          <h2 class="text-2xl sm:text-3xl font-display font-bold text-slate-900 mt-1">Pràctica i reptes d'autoavaluació</h2>
+          <span class="text-xs font-bold uppercase tracking-wider text-brand-600 bg-brand-50 px-2.5 py-1 rounded-md border border-brand-200">Temari oficial</span>
+          <h2 class="text-2xl sm:text-3xl font-display font-bold text-slate-900 mt-1">Les 8 unitats del curs</h2>
         </div>
-        <div class="flex items-center gap-2">
-          <span id="score-badge" class="px-3 py-1 rounded-xl bg-slate-100 text-slate-700 text-xs font-bold font-mono">
-            Puntuació: <span id="user-score" class="text-brand-600">0</span> / 10
-          </span>
-        </div>
+        <p class="text-xs sm:text-sm text-slate-500 max-w-md">
+          Fes clic a qualsevol unitat per accedir directament a l'explicació per parts, les bastides de suport i la zona de pràctica interactiva.
+        </p>
       </div>
 
-      <!-- Activitat 1: Classificació ràpida -->
-      <div class="bg-white rounded-3xl border border-slate-200 p-6 shadow-sm space-y-5">
-        <div class="flex items-center justify-between">
-          <div>
-            <span class="text-xs font-bold uppercase tracking-wider text-emerald-700">Activitat 1 • Classificació ràpida</span>
-            <h3 class="font-display font-bold text-lg text-slate-900">És un hàbit (present simple) o passa ara mateix (present continuous)?</h3>
-          </div>
-          <span class="text-xs text-slate-400">Fes clic a la targeta correcta</span>
-        </div>
-
-        <div id="sort-container" class="space-y-4">
-          <div id="sort-card" class="p-6 bg-slate-50 border-2 border-dashed border-slate-300 rounded-2xl text-center space-y-3">
-            <span id="sort-step" class="text-xs font-bold text-slate-400 uppercase tracking-widest">Frase 1 de 5</span>
-            <p id="sort-sentence" class="text-lg font-bold text-slate-900 font-display">Carregant...</p>
-            <p id="sort-translation" class="text-xs text-slate-500 italic"></p>
-          </div>
-
-          <div class="grid grid-cols-2 gap-4">
-            <button onclick="answerSort('simple')" class="p-4 rounded-2xl border-2 border-emerald-200 bg-emerald-50 hover:bg-emerald-100 text-emerald-900 font-bold text-sm transition-all flex flex-col items-center justify-center gap-1 active:scale-95">
-              <i data-lucide="repeat" class="w-5 h-5 text-emerald-600"></i>
-              <span>Hàbit / rutina</span>
-              <span class="text-[11px] font-normal text-emerald-700">(present simple)</span>
-            </button>
-
-            <button onclick="answerSort('continuous')" class="p-4 rounded-2xl border-2 border-blue-200 bg-blue-50 hover:bg-blue-100 text-blue-900 font-bold text-sm transition-all flex flex-col items-center justify-center gap-1 active:scale-95">
-              <i data-lucide="play-circle" class="w-5 h-5 text-blue-600"></i>
-              <span>Acció en curs / ara</span>
-              <span class="text-[11px] font-normal text-blue-700">(present continuous)</span>
-            </button>
-          </div>
-
-          <div id="sort-feedback" class="hidden p-4 rounded-2xl text-xs font-medium"></div>
-        </div>
-      </div>
-
-      <!-- Activitat 2: Repte de verbs estàtics -->
-      <div class="bg-white rounded-3xl border border-slate-200 p-6 shadow-sm space-y-5">
-        <div>
-          <span class="text-xs font-bold uppercase tracking-wider text-amber-700">Activitat 2 • Repte de verbs estàtics</span>
-          <h3 class="font-display font-bold text-lg text-slate-900">Tria la forma gramaticalment correcta</h3>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="stative-quiz-grid">
-          <!-- Es carrega amb JavaScript -->
-        </div>
-      </div>
-
-      <!-- Activitat 3: Taller de tag questions -->
-      <div class="bg-white rounded-3xl border border-slate-200 p-6 shadow-sm space-y-5">
-        <div class="flex items-center justify-between">
-          <div>
-            <span class="text-xs font-bold uppercase tracking-wider text-tag-700">Activitat 3 • Taller de tag questions</span>
-            <h3 class="font-display font-bold text-lg text-slate-900">Troba la tag question que encaixa perfectament</h3>
-          </div>
-          <span class="text-xs text-slate-400">Recorda la llei de l'imant (+ / -)</span>
-        </div>
-
-        <div class="space-y-3" id="tag-match-list">
-          <!-- Es carrega amb JavaScript -->
-        </div>
-      </div>
-
-      <!-- Activitat 4: El gran repte de la unitat 2 -->
-      <div id="quiz-card" class="bg-gradient-to-br from-indigo-900 to-slate-900 text-white rounded-3xl p-6 sm:p-10 shadow-xl space-y-6">
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-white/10 pb-4">
-          <div>
-            <span class="text-xs font-extrabold uppercase tracking-widest text-amber-300 flex items-center gap-1.5">
-              <i data-lucide="award" class="w-4 h-4"></i> Autoavaluació de la unitat 2
-            </span>
-            <h3 class="font-display font-extrabold text-2xl text-white mt-1">El gran repte de la unitat 2 (10 preguntes)</h3>
-          </div>
-          <div class="flex items-center gap-2">
-            <span id="quiz-question-counter" class="text-xs bg-white/10 px-3 py-1.5 rounded-xl font-mono text-indigo-200">Pregunta 1 de 10</span>
-          </div>
-        </div>
-
-        <!-- Barra de progrés -->
-        <div class="w-full bg-white/10 h-2 rounded-full overflow-hidden">
-          <div id="quiz-progress-bar" class="bg-gradient-to-r from-emerald-400 to-teal-400 h-full w-[10%] transition-all duration-300"></div>
-        </div>
-
-        <!-- Contingut de la pregunta -->
-        <div id="quiz-active-container" class="space-y-6">
-          <div class="p-6 bg-white/5 rounded-2xl border border-white/10 space-y-2">
-            <span id="quiz-category" class="text-[11px] font-bold uppercase tracking-wider text-amber-300">Tema: contrast</span>
-            <p id="quiz-question-text" class="text-base sm:text-xl font-bold text-white leading-relaxed">
-              Carregant pregunta...
+      <!-- Quadrícula de les 8 unitats -->
+      <div id="units-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+        
+        <!-- Unitat 1 -->
+        <div class="bg-white rounded-3xl border border-slate-200 p-6 shadow-sm hover:shadow-md hover:border-brand-300 transition-all flex flex-col justify-between group">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="w-9 h-9 rounded-xl bg-brand-100 text-brand-700 font-bold font-display flex items-center justify-center text-sm group-hover:bg-brand-600 group-hover:text-white transition-colors">U1</span>
+              <span class="text-xs text-slate-400 font-medium flex items-center gap-1"><i data-lucide="book-open" class="w-3.5 h-3.5 text-brand-500"></i> Teoria i pràctica</span>
+            </div>
+            <h3 class="font-display font-bold text-slate-900 text-base leading-snug">There is / there are, quantificadors i pronoms objecte</h3>
+            <p class="text-xs text-slate-500 leading-relaxed">
+              Noms comptables i no comptables, articles (<em>the, a/an</em>), quantificadors (<em>some, any, much, many, how much, how many</em>) i pronoms personals objecte.
             </p>
-            <p id="quiz-hint-text" class="text-xs text-indigo-200 italic"></p>
+            <div class="flex flex-wrap gap-1.5 pt-1">
+              <span class="text-[10px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded-md font-mono">there is/are</span>
+              <span class="text-[10px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded-md font-mono">some/any</span>
+              <span class="text-[10px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded-md font-mono">me/him/them</span>
+            </div>
           </div>
-
-          <div id="quiz-options-container" class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            <!-- Opcions dinàmiques -->
-          </div>
-
-          <div id="quiz-feedback-box" class="hidden p-4 rounded-2xl text-xs sm:text-sm font-medium border">
-            <!-- Retroacció pedagògica -->
-          </div>
-
-          <div class="flex justify-end pt-2">
-            <button id="quiz-next-btn" onclick="nextQuizQuestion()" class="hidden px-6 py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-slate-900 font-bold text-sm transition-all shadow-md flex items-center gap-2">
-              <span>Següent pregunta</span>
+          <div class="pt-5 mt-4 border-t border-slate-100">
+            <a href="unit1.html" class="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-xs transition-colors shadow-sm shadow-brand-500/20">
+              <span>Entra a la unitat 1</span>
               <i data-lucide="arrow-right" class="w-4 h-4"></i>
-            </button>
+            </a>
           </div>
         </div>
 
-        <!-- Caixa de resultats finals -->
-        <div id="quiz-results-container" class="hidden space-y-6 text-center py-6">
-          <div class="w-20 h-20 rounded-full bg-amber-400/20 text-amber-300 flex items-center justify-center mx-auto text-3xl font-extrabold shadow-inner">
-            🏆
+        <!-- Unitat 2 -->
+        <div class="bg-white rounded-3xl border border-slate-200 p-6 shadow-sm hover:shadow-md hover:border-brand-300 transition-all flex flex-col justify-between group">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="w-9 h-9 rounded-xl bg-brand-100 text-brand-700 font-bold font-display flex items-center justify-center text-sm group-hover:bg-brand-600 group-hover:text-white transition-colors">U2</span>
+              <span class="text-xs text-slate-400 font-medium flex items-center gap-1"><i data-lucide="book-open" class="w-3.5 h-3.5 text-brand-500"></i> Teoria i pràctica</span>
+            </div>
+            <h3 class="font-display font-bold text-slate-900 text-base leading-snug">Contrast de presents, verbs estàtics i tag questions</h3>
+            <p class="text-xs text-slate-500 leading-relaxed">
+              Contrast present simple vs. present continuous (rutines vs. ara mateix), verbs que no accepten -ing (<em>stative verbs</em>) i preguntes confirmatòries.
+            </p>
+            <div class="flex flex-wrap gap-1.5 pt-1">
+              <span class="text-[10px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded-md font-mono">simple vs cont.</span>
+              <span class="text-[10px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded-md font-mono">stative</span>
+              <span class="text-[10px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded-md font-mono">tag questions</span>
+            </div>
           </div>
-          <div class="space-y-2">
-            <h4 class="text-2xl sm:text-3xl font-display font-extrabold text-white">Has completat el repte de la unitat 2!</h4>
-            <p id="quiz-final-score-text" class="text-lg text-indigo-200 font-medium">La teva puntuació: <strong>8 / 10</strong></p>
-            <p id="quiz-evaluation-comment" class="text-sm text-slate-300 max-w-md mx-auto"></p>
+          <div class="pt-5 mt-4 border-t border-slate-100">
+            <a href="unit2.html" class="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-xs transition-colors shadow-sm shadow-brand-500/20">
+              <span>Entra a la unitat 2</span>
+              <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </a>
           </div>
+        </div>
 
-          <div class="flex flex-wrap items-center justify-center gap-3 pt-4">
-            <button onclick="restartQuiz()" class="px-5 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold text-xs transition-colors border border-white/20">
-              Torna-ho a intentar
-            </button>
-            <button onclick="window.print()" class="px-5 py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-slate-900 font-bold text-xs transition-colors flex items-center gap-1.5">
-              <i data-lucide="printer" class="w-4 h-4"></i> Desa o imprimeix el resum
-            </button>
+        <!-- Unitat 3 -->
+        <div class="bg-white rounded-3xl border border-slate-200 p-6 shadow-sm hover:shadow-md hover:border-brand-300 transition-all flex flex-col justify-between group">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="w-9 h-9 rounded-xl bg-brand-100 text-brand-700 font-bold font-display flex items-center justify-center text-sm group-hover:bg-brand-600 group-hover:text-white transition-colors">U3</span>
+              <span class="text-xs text-slate-400 font-medium flex items-center gap-1"><i data-lucide="book-open" class="w-3.5 h-3.5 text-brand-500"></i> Teoria i pràctica</span>
+            </div>
+            <h3 class="font-display font-bold text-slate-900 text-base leading-snug">Past simple, there was / there were i used to</h3>
+            <p class="text-xs text-slate-500 leading-relaxed">
+              Formes regulars (-ed) i irregulars en passat simple, regles ortogràfiques, expressions temporals (<em>yesterday, last, ago</em>), <em>there was / were</em> i hàbits passats amb <em>used to</em>.
+            </p>
+            <div class="flex flex-wrap gap-1.5 pt-1">
+              <span class="text-[10px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded-md font-mono">did / didn't</span>
+              <span class="text-[10px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded-md font-mono">there was/were</span>
+              <span class="text-[10px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded-md font-mono">used to</span>
+            </div>
+          </div>
+          <div class="pt-5 mt-4 border-t border-slate-100">
+            <a href="unit3.html" class="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-xs transition-colors shadow-sm shadow-brand-500/20">
+              <span>Entra a la unitat 3</span>
+              <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Unitat 4 -->
+        <div class="bg-white rounded-3xl border border-slate-200 p-6 shadow-sm hover:shadow-md hover:border-brand-300 transition-all flex flex-col justify-between group">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="w-9 h-9 rounded-xl bg-brand-100 text-brand-700 font-bold font-display flex items-center justify-center text-sm group-hover:bg-brand-600 group-hover:text-white transition-colors">U4</span>
+              <span class="text-xs text-slate-400 font-medium flex items-center gap-1"><i data-lucide="book-open" class="w-3.5 h-3.5 text-brand-500"></i> Teoria i pràctica</span>
+            </div>
+            <h3 class="font-display font-bold text-slate-900 text-base leading-snug">Comparatius, superlatius, (not) as... as i too / enough</h3>
+            <p class="text-xs text-slate-500 leading-relaxed">
+              Adjectius curts (-er / -est), llargs (more / most), comparatiu d'igualtat <em>(not) as... as</em>, i el grau d'excés o suficiència amb <em>too</em> i <em>enough</em>.
+            </p>
+            <div class="flex flex-wrap gap-1.5 pt-1">
+              <span class="text-[10px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded-md font-mono">-er than / more</span>
+              <span class="text-[10px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded-md font-mono">as... as</span>
+              <span class="text-[10px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded-md font-mono">too / enough</span>
+            </div>
+          </div>
+          <div class="pt-5 mt-4 border-t border-slate-100">
+            <a href="unit4.html" class="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-xs transition-colors shadow-sm shadow-brand-500/20">
+              <span>Entra a la unitat 4</span>
+              <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Unitat 5 -->
+        <div class="bg-white rounded-3xl border border-slate-200 p-6 shadow-sm hover:shadow-md hover:border-brand-300 transition-all flex flex-col justify-between group">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="w-9 h-9 rounded-xl bg-brand-100 text-brand-700 font-bold font-display flex items-center justify-center text-sm group-hover:bg-brand-600 group-hover:text-white transition-colors">U5</span>
+              <span class="text-xs text-slate-400 font-medium flex items-center gap-1"><i data-lucide="book-open" class="w-3.5 h-3.5 text-brand-500"></i> Teoria i pràctica</span>
+            </div>
+            <h3 class="font-display font-bold text-slate-900 text-base leading-snug">Verbs modals: can, could, must, should, have to i need to</h3>
+            <p class="text-xs text-slate-500 leading-relaxed">
+              Habilitat (<em>can, could</em>), obligació forta (<em>must</em>), prohibició (<em>mustn't</em>), consell (<em>should</em>), i absència d'obligació (<em>don't have to</em>).
+            </p>
+            <div class="flex flex-wrap gap-1.5 pt-1">
+              <span class="text-[10px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded-md font-mono">can / could</span>
+              <span class="text-[10px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded-md font-mono">must vs mustn't</span>
+              <span class="text-[10px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded-md font-mono">don't have to</span>
+            </div>
+          </div>
+          <div class="pt-5 mt-4 border-t border-slate-100">
+            <a href="unit5.html" class="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-xs transition-colors shadow-sm shadow-brand-500/20">
+              <span>Entra a la unitat 5</span>
+              <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Unitat 6 -->
+        <div class="bg-white rounded-3xl border border-slate-200 p-6 shadow-sm hover:shadow-md hover:border-brand-300 transition-all flex flex-col justify-between group">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="w-9 h-9 rounded-xl bg-brand-100 text-brand-700 font-bold font-display flex items-center justify-center text-sm group-hover:bg-brand-600 group-hover:text-white transition-colors">U6</span>
+              <span class="text-xs text-slate-400 font-medium flex items-center gap-1"><i data-lucide="book-open" class="w-3.5 h-3.5 text-brand-500"></i> Teoria i pràctica</span>
+            </div>
+            <h3 class="font-display font-bold text-slate-900 text-base leading-snug">Past continuous i contrast amb el past simple</h3>
+            <p class="text-xs text-slate-500 leading-relaxed">
+              El passat continu (<em>was / were + -ing</em>), accions simultànies amb <em>while / as</em>, i la interrupció d'accions en curs amb <em>when</em> i <em>while</em>.
+            </p>
+            <div class="flex flex-wrap gap-1.5 pt-1">
+              <span class="text-[10px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded-md font-mono">was/were + -ing</span>
+              <span class="text-[10px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded-md font-mono">while + cont.</span>
+              <span class="text-[10px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded-md font-mono">when + simple</span>
+            </div>
+          </div>
+          <div class="pt-5 mt-4 border-t border-slate-100">
+            <a href="unit6.html" class="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-xs transition-colors shadow-sm shadow-brand-500/20">
+              <span>Entra a la unitat 6</span>
+              <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Unitat 7 -->
+        <div class="bg-white rounded-3xl border border-slate-200 p-6 shadow-sm hover:shadow-md hover:border-brand-300 transition-all flex flex-col justify-between group">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="w-9 h-9 rounded-xl bg-brand-100 text-brand-700 font-bold font-display flex items-center justify-center text-sm group-hover:bg-brand-600 group-hover:text-white transition-colors">U7</span>
+              <span class="text-xs text-slate-400 font-medium flex items-center gap-1"><i data-lucide="book-open" class="w-3.5 h-3.5 text-brand-500"></i> Teoria i pràctica</span>
+            </div>
+            <h3 class="font-display font-bold text-slate-900 text-base leading-snug">El futur (be going to, present continuous, will) i primer condicional</h3>
+            <p class="text-xs text-slate-500 leading-relaxed">
+              Plans i intencions (<em>be going to</em>), cites acordades (present continuous), decisions del moment (<em>will</em>) i oracions condicionals (<em>if / unless</em>).
+            </p>
+            <div class="flex flex-wrap gap-1.5 pt-1">
+              <span class="text-[10px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded-md font-mono">be going to</span>
+              <span class="text-[10px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded-md font-mono">will / won't</span>
+              <span class="text-[10px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded-md font-mono">if / unless</span>
+            </div>
+          </div>
+          <div class="pt-5 mt-4 border-t border-slate-100">
+            <a href="unit7.html" class="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-xs transition-colors shadow-sm shadow-brand-500/20">
+              <span>Entra a la unitat 7</span>
+              <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Unitat 8 -->
+        <div class="bg-white rounded-3xl border border-slate-200 p-6 shadow-sm hover:shadow-md hover:border-brand-300 transition-all flex flex-col justify-between group">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="w-9 h-9 rounded-xl bg-brand-100 text-brand-700 font-bold font-display flex items-center justify-center text-sm group-hover:bg-brand-600 group-hover:text-white transition-colors">U8</span>
+              <span class="text-xs text-slate-400 font-medium flex items-center gap-1"><i data-lucide="book-open" class="w-3.5 h-3.5 text-brand-500"></i> Teoria i pràctica</span>
+            </div>
+            <h3 class="font-display font-bold text-slate-900 text-base leading-snug">Present perfect simple, adverbis temporals i contrast past simple</h3>
+            <p class="text-xs text-slate-500 leading-relaxed">
+              Experiències vitals (<em>have/has + participi</em>), partícules (<em>ever, never, already, just, yet</em>), durada amb <em>for / since</em> i contrast amb el passat simple.
+            </p>
+            <div class="flex flex-wrap gap-1.5 pt-1">
+              <span class="text-[10px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded-md font-mono">have/has + pp</span>
+              <span class="text-[10px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded-md font-mono">just/already/yet</span>
+              <span class="text-[10px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded-md font-mono">for vs since</span>
+            </div>
+          </div>
+          <div class="pt-5 mt-4 border-t border-slate-100">
+            <a href="unit8.html" class="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-xs transition-colors shadow-sm shadow-brand-500/20">
+              <span>Entra a la unitat 8</span>
+              <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </a>
           </div>
         </div>
 
       </div>
-
     </section>
 
     <!-- ========================================================================= -->
-    <!-- SECCIÓ 6: FITXA RESUM D'ESTUDI PER A L'ALUMNAT                             -->
+    <!-- METODOLOGIA I SUPORT PEDAGÒGIC                                            -->
     <!-- ========================================================================= -->
-    <section id="printable-summary" class="print-card bg-white rounded-3xl border border-slate-200 p-6 sm:p-8 shadow-sm space-y-6">
-      <div class="flex items-center justify-between border-b border-slate-200 pb-4">
-        <div>
-          <span class="text-xs font-bold uppercase tracking-wider text-slate-500">Fitxa resum d'estudi</span>
-          <h2 class="text-xl sm:text-2xl font-display font-bold text-slate-900">Grammar pocket guide • Unitat 2</h2>
-        </div>
-        <button onclick="window.print()" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold rounded-xl transition-colors flex items-center gap-2">
-          <i data-lucide="printer" class="w-4 h-4"></i> Imprimeix / Desa en PDF
-        </button>
+    <section class="bg-white rounded-3xl border border-slate-200 p-6 sm:p-10 shadow-sm space-y-6">
+      <div class="max-w-3xl space-y-2">
+        <span class="text-xs font-bold uppercase tracking-wider text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-md border border-emerald-200">Com funciona</span>
+        <h3 class="text-2xl font-display font-bold text-slate-900">Com s'aprèn a Grammar Lab?</h3>
+        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+          Cada unitat segueix una seqüència pedagògica estructurada per garantir la màxima comprensió i autonomia de l'alumnat:
+        </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-xs text-slate-700">
-        
-        <!-- Columna 1 -->
-        <div class="space-y-2 p-4 bg-slate-50 rounded-2xl border border-slate-200">
-          <h4 class="font-bold text-slate-900 text-sm flex items-center gap-1.5">
-            <i data-lucide="repeat" class="w-4 h-4 text-emerald-600"></i> Present simple vs. continuous
-          </h4>
-          <ul class="space-y-1 text-slate-600">
-            <li>• <strong>Simple:</strong> hàbits, rutines (<em>usually, every day</em>).</li>
-            <li>• <strong>Continuous:</strong> acció ara (<em>now, at the moment</em>).</li>
-            <li>• <strong>Històries / pel·lícules:</strong> present simple (<em>The hero saves the city</em>).</li>
-            <li>• <strong>Fotos:</strong> present continuous (<em>In the photo, he is swimming</em>).</li>
-          </ul>
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+        <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
+          <div class="w-8 h-8 rounded-xl bg-brand-600 text-white font-bold flex items-center justify-center text-sm">1</div>
+          <h4 class="font-bold text-slate-900 text-sm">Explicació modular</h4>
+          <p class="text-xs text-slate-600">Continguts fragmentats en micro-mòduls amb colors, taules comparatives i exemples.</p>
         </div>
 
-        <!-- Columna 2 -->
-        <div class="space-y-2 p-4 bg-slate-50 rounded-2xl border border-slate-200">
-          <h4 class="font-bold text-slate-900 text-sm flex items-center gap-1.5">
-            <i data-lucide="slash" class="w-4 h-4 text-rose-500"></i> Verbs estàtics (sense -ing)
-          </h4>
-          <p class="text-slate-600">Expressen estats, gustos o pensament:</p>
-          <div class="font-mono text-[11px] bg-white p-2 rounded-lg border border-slate-200">
-            like, love, hate, want, know, think, understand, have got, see.
-          </div>
-          <p class="text-slate-500 italic">
-            * <em>I think</em> (opinió) vs. <em>I'm thinking</em> (plantejar-se).
-          </p>
+        <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
+          <div class="w-8 h-8 rounded-xl bg-emerald-600 text-white font-bold flex items-center justify-center text-sm">2</div>
+          <h4 class="font-bold text-slate-900 text-sm">Pistes de suport</h4>
+          <p class="text-xs text-slate-600">Arbres de decisió pas a pas i el "detectiu d'errors" per anticipar els errors més típics.</p>
         </div>
 
-        <!-- Columna 3 -->
-        <div class="space-y-2 p-4 bg-slate-50 rounded-2xl border border-slate-200">
-          <h4 class="font-bold text-slate-900 text-sm flex items-center gap-1.5">
-            <i data-lucide="magnet" class="w-4 h-4 text-orange-600"></i> Tag questions
-          </h4>
-          <ul class="space-y-1 text-slate-600">
-            <li>• (+) Frase afirmativa ➡️ tag negativa (-).</li>
-            <li>• (-) Frase negativa ➡️ tag afirmativa (+).</li>
-            <li>• <strong>Amb to be:</strong> <em>He is ➡️ isn't he?</em></li>
-            <li>• <strong>Present simple:</strong> <em>She likes ➡️ doesn't she?</em></li>
-            <li>• <strong>have got:</strong> <em>You have got ➡️ haven't you?</em></li>
-            <li>• <strong>will:</strong> <em>We will ➡️ won't we?</em></li>
-          </ul>
+        <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
+          <div class="w-8 h-8 rounded-xl bg-sky-600 text-white font-bold flex items-center justify-center text-sm">3</div>
+          <h4 class="font-bold text-slate-900 text-sm">Pràctica interactiva</h4>
+          <p class="text-xs text-slate-600">4 activitats per unitat amb retroacció immediata explicada en català.</p>
         </div>
 
+        <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
+          <div class="w-8 h-8 rounded-xl bg-amber-600 text-white font-bold flex items-center justify-center text-sm">4</div>
+          <h4 class="font-bold text-slate-900 text-sm">Àudio i fitxes imprimibles</h4>
+          <p class="text-xs text-slate-600">Text a veu en anglès i fitxes imprimibles adaptades per a l'estudi.</p>
+        </div>
       </div>
     </section>
 
@@ -1128,576 +415,13 @@
   <!-- ========================================================================= -->
   <footer class="bg-white border-t border-slate-200 mt-16 py-8 text-center text-xs text-slate-500">
     <div class="max-w-7xl mx-auto px-4 space-y-2">
-      <p class="font-semibold text-slate-700">English 2n d'ESO • Departament de Llengües Estrangeres</p>
-      <p>Material pedagògic basat en el llibre de text d'anglès de 2n d'ESO (Unitat 2). Preparat per a GitHub Pages.</p>
+      <p class="font-semibold text-slate-700">English 2n d'ESO - Departament de Llengües Estrangeres</p>
+      <p>Material pedagògic basat en el llibre de text <em>Active Minds 2</em> (Burlington English). Publicat a GitHub Pages.</p>
     </div>
   </footer>
 
-  <!-- ========================================================================= -->
-  <!-- LÒGICA JAVASCRIPT DE L'APLICACIÓ                                          -->
-  <!-- ========================================================================= -->
   <script>
-    // Inicialització de les icones Lucide
     lucide.createIcons();
-
-    // -------------------------------------------------------------
-    // REPRODUCCIÓ DE VEU NATIVA EN ANGLÈS (WEB SPEECH API)
-    // -------------------------------------------------------------
-    function speakText(text) {
-      if ('speechSynthesis' in window) {
-        window.speechSynthesis.cancel();
-        const utterance = new SpeechSynthesisUtterance(text);
-        utterance.lang = 'en-GB';
-        utterance.rate = 0.9;
-        utterance.pitch = 1.0;
-        window.speechSynthesis.speak(utterance);
-      } else {
-        alert("El teu navegador no suporta la reproducció de veu integrada.");
-      }
-    }
-
-    // -------------------------------------------------------------
-    // MODAL DEL TEMARI DE LES UNITATS 1 A 8
-    // -------------------------------------------------------------
-    function toggleUnitsModal() {
-      const modal = document.getElementById('units-modal');
-      modal.classList.toggle('hidden');
-    }
-
-    // -------------------------------------------------------------
-    // DADES PER AL SIMULADOR DE DEDUCCIÓ DE TAG QUESTIONS
-    // -------------------------------------------------------------
-    const simSentences = [
-      {
-        sentence: "Marc is playing football",
-        step1: "auxiliar trobat: <strong>is</strong> (del verb <em>to be</em>).",
-        step2: "canvi de signe: la frase és afirmativa (+), per tant l'auxiliar serà negatiu: <strong>isn't</strong>.",
-        step3: "pronom del subjecte: Marc és masculí singular ➡️ <strong>he</strong>.",
-        result: "Marc is playing football, <strong class='text-amber-300 underline font-mono text-base'>isn't he?</strong>",
-        translation: "El Marc està jugant a futbol, oi que sí?"
-      },
-      {
-        sentence: "Sarah likes pizza",
-        step1: "no hi ha auxiliar visible! El verb és <em>likes</em> (present simple de 3a persona singular). L'auxiliar amagat és <strong>does</strong>.",
-        step2: "canvi de signe: la frase és afirmativa (+), per tant cal posar <strong>doesn't</strong>.",
-        step3: "pronom del subjecte: Sarah és femení singular ➡️ <strong>she</strong>.",
-        result: "Sarah likes pizza, <strong class='text-amber-300 underline font-mono text-base'>doesn't she?</strong>",
-        translation: "A la Sarah li agrada la pizza, veritat?"
-      },
-      {
-        sentence: "You haven't got a ticket",
-        step1: "auxiliar trobat: <strong>haven't</strong> (de l'estructura <em>have got</em>).",
-        step2: "canvi de signe: la frase és negativa (-), per tant la tag serà afirmativa: <strong>have</strong>.",
-        step3: "pronom del subjecte: ja és el pronom personal <strong>you</strong>.",
-        result: "You haven't got a ticket, <strong class='text-amber-300 underline font-mono text-base'>have you?</strong>",
-        translation: "No tens cap bitllet, oi?"
-      },
-      {
-        sentence: "They live in Girona",
-        step1: "no hi ha 'be' ni modal! El verb és <em>live</em> (present simple plural). L'auxiliar amagat és <strong>do</strong>.",
-        step2: "canvi de signe: frase afirmativa (+) ➡️ auxiliar negatiu: <strong>don't</strong>.",
-        step3: "pronom del subjecte: ja és el pronom <strong>they</strong>.",
-        result: "They live in Girona, <strong class='text-amber-300 underline font-mono text-base'>don't they?</strong>",
-        translation: "Viuen a Girona, oi que sí?"
-      },
-      {
-        sentence: "We will win the match",
-        step1: "auxiliar trobat: <strong>will</strong> (modal de futur).",
-        step2: "canvi de signe: la forma negativa de 'will' és la contracció irregular <strong>won't</strong>.",
-        step3: "pronom del subjecte: pronom <strong>we</strong>.",
-        result: "We will win the match, <strong class='text-amber-300 underline font-mono text-base'>won't we?</strong>",
-        translation: "Guanyarem el partit, oi que sí?"
-      },
-      {
-        sentence: "The cat isn't sleeping",
-        step1: "auxiliar trobat: <strong>isn't</strong> (verb <em>to be</em> en negatiu).",
-        step2: "canvi de signe: frase negativa (-) ➡️ auxiliar afirmatiu: <strong>is</strong>.",
-        step3: "pronom del subjecte: The cat és un animal singular ➡️ <strong>it</strong>.",
-        result: "The cat isn't sleeping, <strong class='text-amber-300 underline font-mono text-base'>is it?</strong>",
-        translation: "El gat no està dormint, veritat?"
-      }
-    ];
-
-    function simulateTag(index) {
-      const item = simSentences[index];
-      const outputDiv = document.getElementById('sim-output');
-
-      document.querySelectorAll('.sim-btn').forEach((btn, i) => {
-        if (i === index) {
-          btn.classList.add('border-brand-400', 'bg-white/20');
-        } else {
-          btn.classList.remove('border-brand-400', 'bg-white/20');
-        }
-      });
-
-      outputDiv.innerHTML = `
-        <div class="space-y-4 animate-fadeIn">
-          <div class="flex items-center justify-between border-b border-white/10 pb-2">
-            <span class="text-xs uppercase font-extrabold text-brand-300">Anàlisi de: "${item.sentence}"</span>
-            <button onclick="speakText('${item.sentence.replace(/'/g, "\\'")}')" class="text-xs text-slate-300 hover:text-white flex items-center gap-1">
-              <i data-lucide="volume-2" class="w-3.5 h-3.5"></i> Escolta
-            </button>
-          </div>
-
-          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
-            <div class="bg-white/5 p-3 rounded-xl border border-white/10">
-              <span class="text-[10px] text-brand-300 uppercase font-bold block mb-1">1. Auxiliar</span>
-              <p class="text-slate-200 capitalize">${item.step1}</p>
-            </div>
-            <div class="bg-white/5 p-3 rounded-xl border border-white/10">
-              <span class="text-[10px] text-amber-300 uppercase font-bold block mb-1">2. Polaritat (+ / -)</span>
-              <p class="text-slate-200 capitalize">${item.step2}</p>
-            </div>
-            <div class="bg-white/5 p-3 rounded-xl border border-white/10">
-              <span class="text-[10px] text-emerald-300 uppercase font-bold block mb-1">3. Pronom</span>
-              <p class="text-slate-200 capitalize">${item.step3}</p>
-            </div>
-          </div>
-
-          <div class="p-4 bg-brand-500/20 border border-brand-400/30 rounded-2xl flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-            <div>
-              <span class="text-[10px] text-brand-200 uppercase font-bold block">Frase completa final:</span>
-              <div class="text-sm sm:text-base text-white font-bold">${item.result}</div>
-              <div class="text-xs text-slate-300 italic">(${item.translation})</div>
-            </div>
-            <button onclick="speakText('${item.result.replace(/<[^>]*>/g, '').replace(/'/g, "\\'")}')" class="px-3 py-1.5 bg-white text-slate-900 rounded-xl text-xs font-bold hover:bg-slate-100 flex items-center gap-1.5 shrink-0">
-              <i data-lucide="volume-2" class="w-4 h-4"></i> Escolta la tag
-            </button>
-          </div>
-        </div>
-      `;
-      lucide.createIcons();
-    }
-
-    // -------------------------------------------------------------
-    // ACTIVITAT 1: CLASSIFICACIÓ RÀPIDA (HÀBIT VS. MOMENT)
-    // -------------------------------------------------------------
-    const sortItems = [
-      {
-        sentence: "Look! The bus is arriving at the station.",
-        type: "continuous",
-        translation: "Mira! L'autobús està arribant a l'estació.",
-        explanation: "Correcte! La paraula 'Look!' i 'is arriving' indiquen una acció que passa ara mateix (present continuous)."
-      },
-      {
-        sentence: "I usually walk to school with my friends.",
-        type: "simple",
-        translation: "Normalment vaig caminant a l'institut amb els meus amics.",
-        explanation: "Molt bé! 'Usually' és un adverbi de freqüència que indica un hàbit o rutina (present simple)."
-      },
-      {
-        sentence: "In this photo, my brother is surfing a big wave.",
-        type: "continuous",
-        translation: "En aquesta foto, el meu germà està fent surf sobre una onada gran.",
-        explanation: "Exacte! Com diu el llibre de text, fem servir el present continuous per descriure fotografies."
-      },
-      {
-        sentence: "The detective enters the room and solves the mystery.",
-        type: "simple",
-        translation: "El detectiu entra a l'habitació i resol el misteri.",
-        explanation: "Molt bé! Com indica la unitat, per narrar l'argument d'un llibre o pel·lícula s'acostuma a fer servir el present simple."
-      },
-      {
-        sentence: "Shh! Be quiet! The baby is sleeping.",
-        type: "continuous",
-        translation: "Xst! Feu silenci! El nadó està dormint.",
-        explanation: "Correcte! És una acció que està tenint lloc exactament en aquest moment (present continuous)."
-      }
-    ];
-
-    let currentSortIndex = 0;
-
-    function renderSortItem() {
-      if (currentSortIndex >= sortItems.length) {
-        document.getElementById('sort-container').innerHTML = `
-          <div class="text-center p-6 bg-emerald-50 border-2 border-emerald-300 rounded-2xl space-y-3">
-            <div class="text-3xl">🎉</div>
-            <h4 class="font-bold text-emerald-900 text-lg">Molt bona feina! Has completat l'activitat 1</h4>
-            <p class="text-xs text-emerald-700">Has après a distingir hàbits i rutines d'accions que estan passant en el moment.</p>
-            <button onclick="resetSortActivity()" class="px-4 py-2 bg-emerald-600 text-white rounded-xl text-xs font-bold hover:bg-emerald-700">Tornar a jugar</button>
-          </div>
-        `;
-        return;
-      }
-
-      const item = sortItems[currentSortIndex];
-      document.getElementById('sort-step').textContent = `Frase ${currentSortIndex + 1} de ${sortItems.length}`;
-      document.getElementById('sort-sentence').textContent = item.sentence;
-      document.getElementById('sort-translation').textContent = `(${item.translation})`;
-      document.getElementById('sort-feedback').className = 'hidden p-4 rounded-2xl text-xs font-medium';
-    }
-
-    function answerSort(selectedType) {
-      const item = sortItems[currentSortIndex];
-      const fb = document.getElementById('sort-feedback');
-      fb.classList.remove('hidden');
-
-      if (selectedType === item.type) {
-        fb.className = 'p-4 rounded-2xl text-xs font-semibold bg-emerald-100 text-emerald-900 border border-emerald-300';
-        fb.innerHTML = `✅ ${item.explanation}`;
-        setTimeout(() => {
-          currentSortIndex++;
-          renderSortItem();
-        }, 1500);
-      } else {
-        fb.className = 'p-4 rounded-2xl text-xs font-semibold bg-rose-100 text-rose-900 border border-rose-300';
-        fb.innerHTML = `❌ No ben bé. Fixa't en les paraules clau: ${item.translation}`;
-      }
-    }
-
-    function resetSortActivity() {
-      currentSortIndex = 0;
-      location.reload();
-    }
-
-    // -------------------------------------------------------------
-    // ACTIVITAT 2: REPTE DE VERBS ESTÀTICS
-    // -------------------------------------------------------------
-    const stativeQuestions = [
-      {
-        question: "1. I ______ pizza is the most delicious food.",
-        options: ["think (opinió)", "am thinking"],
-        correct: 0,
-        explanation: "Correcte! Quan 'think' expressa una opinió o creença ('crec que...'), és un verb estàtic i va en present simple."
-      },
-      {
-        question: "2. Can you be quiet? I ______ about my math exam right now.",
-        options: ["think", "am thinking (procés mental)"],
-        correct: 1,
-        explanation: "Molt bé! Aquí no expressa una opinió, sinó l'acció activa de pensar i rumiar en aquest moment."
-      },
-      {
-        question: "3. My sister ______ a glass of water right now.",
-        options: ["wants", "is wanting"],
-        correct: 0,
-        explanation: "Exacte! 'Want' és un desig i és sempre un verb estàtic; mai no es diu 'is wanting'."
-      },
-      {
-        question: "4. Pol can't answer the phone because he ______ a shower.",
-        options: ["has", "is having"],
-        correct: 1,
-        explanation: "Fantàstic! 'Have a shower' és una acció dinàmica (dutxar-se), no una possessió permanent."
-      }
-    ];
-
-    function renderStativeQuiz() {
-      const container = document.getElementById('stative-quiz-grid');
-      container.innerHTML = stativeQuestions.map((q, idx) => `
-        <div class="p-5 rounded-2xl border border-slate-200 bg-slate-50 space-y-3">
-          <p class="font-bold text-slate-800 text-xs sm:text-sm">${q.question}</p>
-          <div class="grid grid-cols-2 gap-2" id="stative-opts-${idx}">
-            ${q.options.map((opt, optIdx) => `
-              <button onclick="checkStative(${idx}, ${optIdx})" class="p-2.5 rounded-xl border border-slate-300 bg-white hover:bg-brand-50 hover:border-brand-400 font-bold text-xs text-slate-700 transition-all text-center">
-                ${opt}
-              </button>
-            `).join('')}
-          </div>
-          <div id="stative-fb-${idx}" class="hidden text-xs p-3 rounded-xl"></div>
-        </div>
-      `).join('');
-    }
-
-    function checkStative(qIdx, selectedOpt) {
-      const q = stativeQuestions[qIdx];
-      const fb = document.getElementById(`stative-fb-${qIdx}`);
-      fb.classList.remove('hidden');
-
-      if (selectedOpt === q.correct) {
-        fb.className = 'text-xs p-3 rounded-xl bg-emerald-100 text-emerald-900 border border-emerald-300 font-semibold';
-        fb.innerHTML = `✅ ${q.explanation}`;
-      } else {
-        fb.className = 'text-xs p-3 rounded-xl bg-rose-100 text-rose-900 border border-rose-300 font-semibold';
-        fb.innerHTML = `❌ Revisa la regla: els verbs d'estat no porten -ing, tret que expressin una activitat o procés dinàmic!`;
-      }
-    }
-
-    // -------------------------------------------------------------
-    // ACTIVITAT 3: TALLER DE TAG QUESTIONS
-    // -------------------------------------------------------------
-    const tagMatches = [
-      {
-        sentence: "You are listening to the teacher,",
-        options: ["aren't you?", "are you?", "don't you?"],
-        correct: 0,
-        tip: "frase afirmativa (+) amb 'are' ➡️ tag negativa amb 'aren't' i pronom 'you'."
-      },
-      {
-        sentence: "She doesn't eat meat,",
-        options: ["doesn't she?", "does she?", "is she?"],
-        correct: 1,
-        tip: "frase negativa (-) amb 'doesn't' ➡️ tag positiva amb 'does' i pronom 'she'."
-      },
-      {
-        sentence: "Marc and Pau have got a skateboard,",
-        options: ["haven't they?", "haven't Marc and Pau?", "don't they?"],
-        correct: 0,
-        tip: "Marc and Pau són ells (they), i tenim 'have got' afirmativa ➡️ 'haven't they?'."
-      },
-      {
-        sentence: "We will arrive on time,",
-        options: ["will we?", "won't we?", "aren't we?"],
-        correct: 1,
-        tip: "amb 'will' afirmativa, la tag negativa és 'won't we?'."
-      }
-    ];
-
-    function renderTagMatches() {
-      const container = document.getElementById('tag-match-list');
-      container.innerHTML = tagMatches.map((item, idx) => `
-        <div class="p-4 rounded-2xl border border-slate-200 bg-slate-50 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-          <div class="space-y-1">
-            <span class="text-xs font-mono font-bold text-slate-800">"${item.sentence} <span id="tag-blank-${idx}" class="text-tag-600 font-extrabold underline">______?</span>"</span>
-            <p class="text-[11px] text-slate-500 italic">Pista: ${item.tip}</p>
-          </div>
-          <div class="flex flex-wrap gap-1.5" id="tag-opts-${idx}">
-            ${item.options.map((opt, optIdx) => `
-              <button onclick="checkTagMatch(${idx}, ${optIdx})" class="px-3 py-1.5 rounded-xl border border-slate-300 bg-white hover:bg-orange-50 hover:border-orange-400 text-xs font-bold text-slate-700 transition-all">
-                ${opt}
-              </button>
-            `).join('')}
-          </div>
-        </div>
-      `).join('');
-    }
-
-    function checkTagMatch(idx, selectedOpt) {
-      const item = tagMatches[idx];
-      const blank = document.getElementById(`tag-blank-${idx}`);
-      if (selectedOpt === item.correct) {
-        blank.textContent = item.options[selectedOpt];
-        blank.className = "text-emerald-700 font-extrabold underline";
-      } else {
-        blank.textContent = `${item.options[selectedOpt]} (❌)`;
-        blank.className = "text-rose-600 font-bold underline";
-      }
-    }
-
-    // -------------------------------------------------------------
-    // ACTIVITAT 4: EL GRAN REPTE DE LA UNITAT 2 (10 PREGUNTES)
-    // -------------------------------------------------------------
-    const quizQuestions = [
-      {
-        category: "contrast: present simple i continuous",
-        question: "Normalment menjo a casa, però avui estic dinant en un restaurant:",
-        options: [
-          "I usually eat at home, but today I'm eating at a restaurant.",
-          "I am usually eating at home, but today I eat at a restaurant.",
-          "I usually eating at home, but today I eating at a restaurant.",
-          "I eat usually at home, but today I am eat at a restaurant."
-        ],
-        correct: 0,
-        explanation: "'Usually' marca l'hàbit (present simple: eat). 'Today' marca l'excepció en curs (present continuous: 'm eating)."
-      },
-      {
-        category: "ús en històries i pel·lícules",
-        question: "Per narrar l'argument d'un llibre o una pel·lícula en anglès, quin temps s'utilitza habitualment?",
-        options: [
-          "Present simple (p. ex. 'The policeman follows the criminal and arrests him')",
-          "Present continuous (p. ex. 'The policeman is following...')",
-          "Past continuous obligatòriament",
-          "Futur amb will"
-        ],
-        correct: 0,
-        explanation: "Com s'explica al llibre de text de la unitat 2, per explicar el que té lloc en una història o pel·lícula s'acostuma a fer servir el present simple."
-      },
-      {
-        category: "descripció de fotografies",
-        question: "Com descrivim el que passa en una fotografia? 'In the picture, my father ______ basketball.'",
-        options: [
-          "is playing",
-          "plays",
-          "play",
-          "are playing"
-        ],
-        correct: 0,
-        explanation: "El present continuous s'utilitza per descriure fotos perquè es parla de l'escena com si passés en el moment actual."
-      },
-      {
-        category: "verbs estàtics (stative verbs)",
-        question: "Quin d'aquests verbs no s'acostuma a utilitzar mai en present continuous?",
-        options: [
-          "want",
-          "play",
-          "watch",
-          "eat"
-        ],
-        correct: 0,
-        explanation: "'Want' és un verb d'estat (desig). Mai no es diu 'I am wanting'."
-      },
-      {
-        category: "canvi de significat (think)",
-        question: "Quina frase expressa una opinió estàtica personal sobre un dibuix?",
-        options: [
-          "I think your drawing is very nice.",
-          "I am thinking your drawing is very nice.",
-          "I am thinking about your drawing.",
-          "I thinks your drawing is nice."
-        ],
-        correct: 0,
-        explanation: "Quan 'think' significa opinar o creure, és estàtic: 'I think your drawing is very nice'."
-      },
-      {
-        category: "tag questions: to be",
-        question: "Completa la frase: 'He is happy, ______?'",
-        options: [
-          "isn't he?",
-          "is he?",
-          "doesn't he?",
-          "is it?"
-        ],
-        correct: 0,
-        explanation: "Frase afirmativa (+) amb 'is' ➡️ tag negativa (-) 'isn't he?'."
-      },
-      {
-        category: "tag questions: present simple",
-        question: "Completa la frase: 'She likes this book, ______?'",
-        options: [
-          "doesn't she?",
-          "isn't she?",
-          "does she?",
-          "don't she?"
-        ],
-        correct: 0,
-        explanation: "Com que és present simple (likes), l'auxiliar és do/does. Com que la frase és afirmativa, cal 'doesn't she?'."
-      },
-      {
-        category: "tag questions: have got",
-        question: "Completa la frase: 'You haven't got a car, ______?'",
-        options: [
-          "have you?",
-          "haven't you?",
-          "do you?",
-          "don't you?"
-        ],
-        correct: 0,
-        explanation: "Frase negativa (-) amb 'haven't' ➡️ tag afirmativa (+) 'have you?'."
-      },
-      {
-        category: "tag questions: futur (will)",
-        question: "Completa la frase: 'We won't be late, ______?'",
-        options: [
-          "will we?",
-          "won't we?",
-          "aren't we?",
-          "shall we?"
-        ],
-        correct: 0,
-        explanation: "Frase negativa amb 'won't' ➡️ tag afirmativa amb 'will we?'."
-      },
-      {
-        category: "tag questions: ús pràctic",
-        question: "Per a què serveix la tag question a 'The weather is nice, isn't it?'",
-        options: [
-          "Per demanar confirmació amb cortesia i suavitzar el to d'una conversa.",
-          "Per donar una ordre autoritària.",
-          "Per expressar una acció que va passar fa dos anys.",
-          "Per comparar dos objectes diferents."
-        ],
-        correct: 0,
-        explanation: "S'utilitza per demanar acord de manera amigable o per cortesia, buscant l'aprovació del receptor ('Fa bon temps, oi que sí?')."
-      }
-    ];
-
-    let currentQuizIndex = 0;
-    let quizScore = 0;
-    let answeredQuestions = new Set();
-
-    function renderCurrentQuizQuestion() {
-      const q = quizQuestions[currentQuizIndex];
-      document.getElementById('quiz-question-counter').textContent = `Pregunta ${currentQuizIndex + 1} de ${quizQuestions.length}`;
-      document.getElementById('quiz-category').textContent = `Tema: ${q.category}`;
-      document.getElementById('quiz-question-text').textContent = q.question;
-      document.getElementById('quiz-progress-bar').style.width = `${((currentQuizIndex + 1) / quizQuestions.length) * 100}%`;
-
-      const fbBox = document.getElementById('quiz-feedback-box');
-      fbBox.classList.add('hidden');
-      document.getElementById('quiz-next-btn').classList.add('hidden');
-
-      const optionsDiv = document.getElementById('quiz-options-container');
-      optionsDiv.innerHTML = q.options.map((opt, idx) => `
-        <button onclick="handleQuizAnswer(${idx})" id="q-opt-${idx}" class="text-left p-4 rounded-2xl bg-white/10 hover:bg-white/20 border border-white/10 text-xs sm:text-sm font-semibold transition-all flex items-center gap-3">
-          <span class="w-7 h-7 rounded-full bg-white/10 text-white font-mono flex items-center justify-center shrink-0 text-xs font-bold">${String.fromCharCode(65 + idx)}</span>
-          <span>${opt}</span>
-        </button>
-      `).join('');
-    }
-
-    function handleQuizAnswer(selectedIdx) {
-      if (answeredQuestions.has(currentQuizIndex)) return;
-      answeredQuestions.add(currentQuizIndex);
-
-      const q = quizQuestions[currentQuizIndex];
-      const isCorrect = (selectedIdx === q.correct);
-      const fbBox = document.getElementById('quiz-feedback-box');
-      fbBox.classList.remove('hidden');
-
-      if (isCorrect) {
-        quizScore++;
-        document.getElementById('user-score').textContent = quizScore;
-        document.getElementById(`q-opt-${selectedIdx}`).classList.add('bg-emerald-500/40', 'border-emerald-400');
-        fbBox.className = 'p-4 rounded-2xl text-xs sm:text-sm font-medium bg-emerald-500/20 text-emerald-200 border border-emerald-400/40';
-        fbBox.innerHTML = `🎉 <strong>Correcte!</strong> ${q.explanation}`;
-      } else {
-        document.getElementById(`q-opt-${selectedIdx}`).classList.add('bg-rose-500/40', 'border-rose-400');
-        document.getElementById(`q-opt-${q.correct}`).classList.add('bg-emerald-500/40', 'border-emerald-400');
-        fbBox.className = 'p-4 rounded-2xl text-xs sm:text-sm font-medium bg-rose-500/20 text-rose-200 border border-rose-400/40';
-        fbBox.innerHTML = `⚠️ <strong>Repassa:</strong> ${q.explanation}`;
-      }
-
-      document.getElementById('quiz-next-btn').classList.remove('hidden');
-    }
-
-    function nextQuizQuestion() {
-      currentQuizIndex++;
-      if (currentQuizIndex < quizQuestions.length) {
-        renderCurrentQuizQuestion();
-      } else {
-        showFinalQuizResults();
-      }
-    }
-
-    function showFinalQuizResults() {
-      document.getElementById('quiz-active-container').classList.add('hidden');
-      document.getElementById('quiz-results-container').classList.remove('hidden');
-      document.getElementById('quiz-final-score-text').innerHTML = `La teva puntuació: <strong class="text-white text-2xl font-mono">${quizScore} / ${quizQuestions.length}</strong>`;
-
-      const comment = document.getElementById('quiz-evaluation-comment');
-      if (quizScore >= 8) {
-        comment.textContent = "Excel·lent nivell! Domines el contrast de temps verbals, els verbs estàtics i les tag questions de la unitat 2.";
-        if (typeof confetti === 'function') {
-          confetti({
-            particleCount: 100,
-            spread: 70,
-            origin: { y: 0.6 }
-          });
-        }
-      } else if (quizScore >= 5) {
-        comment.textContent = "Molt bé! Has superat el test amb bona nota. Revisa les bastides de suport i la taula de tag questions per arribar al 10!";
-      } else {
-        comment.textContent = "Ànims! Pots tornar a mirar els exemples amb àudio i consultar la guia d'estudi per millorar el teu resultat.";
-      }
-    }
-
-    function restartQuiz() {
-      currentQuizIndex = 0;
-      quizScore = 0;
-      answeredQuestions.clear();
-      document.getElementById('user-score').textContent = '0';
-      document.getElementById('quiz-active-container').classList.remove('hidden');
-      document.getElementById('quiz-results-container').classList.add('hidden');
-      renderCurrentQuizQuestion();
-    }
-
-    // -------------------------------------------------------------
-    // INICIALITZACIÓ EN CARREGAR EL DOM
-    // -------------------------------------------------------------
-    document.addEventListener('DOMContentLoaded', () => {
-      simulateTag(0);
-      renderSortItem();
-      renderStativeQuiz();
-      renderTagMatches();
-      renderCurrentQuizQuestion();
-    });
   </script>
 </body>
 </html>
