@@ -55,8 +55,8 @@ Una plataforma web interactiva d'aprenentatge d'anglès com a llengua estrangera
 
 | Unitat | Continguts gramaticals | Estat |
 | :--- | :--- | :--- |
-| **Unitat 1** | *There is / there are*, quantificadors (*the, a/an, some, any, a lot of, much, many, how much, how many*) i pronoms objecte | Planificada |
-| **Unitat 2** | **Contrast: present simple vs. present continuous, verbs estàtics (*stative verbs*) i preguntes confirmatòries (*tag questions*)** | **Completada (interactiva)** |
+| **Unitat 1** | ***There is / there are*, quantificadors (*the, a/an, some, any, a lot of, much, many, how much, how many*) i pronoms personals objecte** | **Completada (interactiva - `unit1.html`)** |
+| **Unitat 2** | **Contrast: present simple vs. present continuous, verbs estàtics (*stative verbs*) i preguntes confirmatòries (*tag questions*)** | **Completada (interactiva - `index.html`)** |
 | **Unitat 3** | El *past simple* (regulars *-ed*, regles ortogràfiques i irregulars), *there was / there were* i *used to* | Planificada |
 | **Unitat 4** | Adjectius comparatius (*-er / more... than, less... than*), *(not) as... as*, *too / (not) enough* i superlatius | Planificada |
 | **Unitat 5** | Verbs modals: *can*, *could*, *must / mustn't*, *should / shouldn't*, *have to / don't have to* i *need to* | Planificada |

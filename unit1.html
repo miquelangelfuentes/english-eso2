@@ -1,0 +1,1379 @@
+<!DOCTYPE html>
+<html lang="ca" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>English 2n d'ESO | Unitat 1: there is / there are, quantificadors i pronoms objecte</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Confetti library -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            display: ['"Outfit"', 'sans-serif'],
+            mono: ['"Fira Code"', 'monospace'],
+          },
+          colors: {
+            brand: {
+              50: '#eef2ff',
+              100: '#e0e7ff',
+              200: '#c7d2fe',
+              500: '#6366f1',
+              600: '#4f46e5',
+              700: '#4338ca',
+              800: '#3730a3',
+              900: '#312e81',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @media print {
+      header, nav, #unit-banner, #scaffolding-tools, .no-print {
+        display: none !important;
+      }
+      body {
+        background: white !important;
+        color: black !important;
+        font-size: 11pt;
+      }
+      .print-card {
+        border: 1px solid #cbd5e1 !important;
+        box-shadow: none !important;
+        page-break-inside: avoid;
+        margin-bottom: 1.5rem !important;
+      }
+    }
+    .badge-pulse {
+      animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+    @keyframes pulse-ring {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: .7; transform: scale(1.05); }
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col font-sans selection:bg-brand-500 selection:text-white">
+
+  <!-- ========================================================================= -->
+  <!-- CAPÇALERA GLOBAL I TEMARI DE LES UNITATS                                  -->
+  <!-- ========================================================================= -->
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm transition-all duration-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 sm:h-20">
+        
+        <!-- Logotip i títol -->
+        <div class="flex items-center gap-3">
+          <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-brand-600 to-indigo-500 text-white flex items-center justify-center shadow-md shadow-brand-500/20 font-display font-extrabold text-xl tracking-tight">
+            2E
+          </div>
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="text-xs font-bold uppercase tracking-wider text-brand-600 bg-brand-50 px-2 py-0.5 rounded-full border border-brand-200">Anglès 2n d'ESO</span>
+              <span class="text-xs text-slate-400 hidden sm:inline">• Gramàtica i pràctica DUA</span>
+            </div>
+            <h1 class="text-lg sm:text-xl font-display font-bold text-slate-900 leading-tight">Grammar Lab</h1>
+          </div>
+        </div>
+
+        <!-- Botons de navegació -->
+        <div class="flex items-center gap-2 sm:gap-3">
+          <a href="index.html" class="flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-semibold rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors border border-slate-200">
+            <span>Unitat 2</span>
+            <i data-lucide="arrow-right" class="w-4 h-4 text-brand-600"></i>
+          </a>
+
+          <button onclick="toggleUnitsModal()" class="flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-semibold rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors border border-slate-200">
+            <i data-lucide="layers" class="w-4 h-4 text-brand-600"></i>
+            <span class="hidden md:inline">Temari del curs:</span>
+            <span class="font-bold text-brand-700">unitats 1-8</span>
+            <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-slate-400"></i>
+          </button>
+
+          <a href="#practice-section" class="flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-bold rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white shadow-sm shadow-emerald-600/20 transition-all">
+            <i data-lucide="play" class="w-3.5 h-3.5 fill-current"></i>
+            <span>Pràctica</span>
+          </a>
+
+          <button onclick="window.print()" title="Imprimeix o desa la fitxa resum" class="p-2 text-slate-500 hover:text-slate-800 hover:bg-slate-100 rounded-xl transition-colors">
+            <i data-lucide="printer" class="w-5 h-5"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Navegació ràpida interna de la unitat 1 -->
+      <nav class="flex items-center gap-2 overflow-x-auto py-2 border-t border-slate-100 scrollbar-none text-xs sm:text-sm">
+        <span class="text-slate-400 font-medium whitespace-nowrap pl-1 pr-2 flex items-center gap-1">
+          <i data-lucide="bookmark" class="w-3.5 h-3.5 text-brand-500"></i> Unitat 1:
+        </span>
+        <a href="#overview" class="px-3 py-1 rounded-lg text-slate-600 hover:text-brand-600 hover:bg-brand-50 whitespace-nowrap font-medium transition-colors">Objectius</a>
+        <a href="#there-is-section" class="px-3 py-1 rounded-lg text-slate-600 hover:text-brand-600 hover:bg-brand-50 whitespace-nowrap font-medium transition-colors">1. There is / there are</a>
+        <a href="#quantifiers-section" class="px-3 py-1 rounded-lg text-slate-600 hover:text-brand-600 hover:bg-brand-50 whitespace-nowrap font-medium transition-colors">2. Articles i quantificadors</a>
+        <a href="#pronouns-section" class="px-3 py-1 rounded-lg text-slate-600 hover:text-brand-600 hover:bg-brand-50 whitespace-nowrap font-medium transition-colors">3. Pronoms personals objecte</a>
+        <a href="#scaffolding-section" class="px-3 py-1 rounded-lg text-slate-600 hover:text-brand-600 hover:bg-brand-50 whitespace-nowrap font-medium transition-colors">4. Bastides i eines</a>
+        <a href="#practice-section" class="px-3 py-1 rounded-lg bg-brand-50 text-brand-700 font-semibold whitespace-nowrap hover:bg-brand-100 transition-colors">5. Zona de pràctica</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ========================================================================= -->
+  <!-- MODAL DEL TEMARI DEL CURS (UNITATS 1 A 8)                                 -->
+  <!-- ========================================================================= -->
+  <div id="units-modal" class="fixed inset-0 z-50 bg-slate-900/50 backdrop-blur-sm hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-3xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-slate-200 p-6 sm:p-8 transform transition-all">
+      <div class="flex items-center justify-between pb-4 border-b border-slate-100">
+        <div>
+          <span class="text-xs uppercase font-extrabold tracking-wider text-brand-600">Pla docent d'anglès de 2n d'ESO</span>
+          <h2 class="text-2xl font-display font-bold text-slate-900">Programa de gramàtica (unitats 1-8)</h2>
+          <p class="text-xs text-slate-500 mt-0.5">Segons el llibre de text <em>Active Minds 2</em> (Burlington English)</p>
+        </div>
+        <button onclick="toggleUnitsModal()" class="p-2 text-slate-400 hover:text-slate-700 rounded-full hover:bg-slate-100">
+          <i data-lucide="x" class="w-6 h-6"></i>
+        </button>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-4">
+        <!-- Unitat 1 (Actualment oberta) -->
+        <div class="p-4 rounded-2xl border-2 border-brand-500 bg-brand-50/60 relative overflow-hidden shadow-sm">
+          <div class="flex items-center justify-between mb-1">
+            <span class="text-xs font-bold text-brand-700 uppercase tracking-wide">Unitat 1</span>
+            <span class="text-[10px] bg-brand-600 text-white px-2 py-0.5 rounded-full font-extrabold tracking-wide flex items-center gap-1">
+              <span class="w-1.5 h-1.5 rounded-full bg-white badge-pulse"></span> Activa ara
+            </span>
+          </div>
+          <h3 class="font-bold text-brand-900 text-sm">There is / there are, quantificadors i pronoms objecte</h3>
+          <p class="text-xs text-brand-800 mt-1">Noms comptables i no comptables, articles, <em>some / any, much / many, how much / how many</em> i pronoms personals objecte.</p>
+        </div>
+
+        <!-- Unitat 2 -->
+        <div class="p-4 rounded-2xl border border-slate-200 bg-slate-50/70 hover:bg-white transition-all">
+          <div class="flex items-center justify-between mb-1">
+            <span class="text-xs font-bold text-slate-500 uppercase tracking-wide">Unitat 2</span>
+            <a href="index.html" class="text-[10px] bg-emerald-600 text-white px-2 py-0.5 rounded-full font-bold hover:bg-emerald-700">Obrir ➡️</a>
+          </div>
+          <h3 class="font-bold text-slate-800 text-sm">Contrast de presents, verbs estàtics i tag questions</h3>
+          <p class="text-xs text-slate-500 mt-1">Present simple vs. continuous (hàbits vs. moment, històries i fotografies), verbs estàtics i preguntes confirmatòries.</p>
+        </div>
+
+        <!-- Unitat 3 -->
+        <div class="p-4 rounded-2xl border border-dashed border-slate-200 bg-white opacity-85 hover:opacity-100 transition-all">
+          <div class="flex items-center justify-between mb-1">
+            <span class="text-xs font-bold text-slate-400 uppercase tracking-wide">Unitat 3</span>
+            <span class="text-[10px] bg-amber-50 text-amber-700 border border-amber-200 px-2 py-0.5 rounded-full font-medium">Pròximament</span>
+          </div>
+          <h3 class="font-semibold text-slate-700 text-sm">Past simple, there was / there were i used to</h3>
+          <p class="text-xs text-slate-500 mt-1">El past simple (formes regulars en -ed i irregulars, regles ortogràfiques i expressions temporals), <em>there was / there were</em> i <em>used to</em>.</p>
+        </div>
+
+        <!-- Unitat 4 -->
+        <div class="p-4 rounded-2xl border border-dashed border-slate-200 bg-white opacity-85 hover:opacity-100 transition-all">
+          <div class="flex items-center justify-between mb-1">
+            <span class="text-xs font-bold text-slate-400 uppercase tracking-wide">Unitat 4</span>
+            <span class="text-[10px] bg-amber-50 text-amber-700 border border-amber-200 px-2 py-0.5 rounded-full font-medium">Pròximament</span>
+          </div>
+          <h3 class="font-semibold text-slate-700 text-sm">Comparatius, superlatius, (not) as... as i too / enough</h3>
+          <p class="text-xs text-slate-500 mt-1">La forma comparativa (-er / more... than, less... than), <em>(not) as... as</em>, <em>too... / (not)... enough</em> i superlatius.</p>
+        </div>
+
+        <!-- Unitat 5 -->
+        <div class="p-4 rounded-2xl border border-dashed border-slate-200 bg-white opacity-85 hover:opacity-100 transition-all">
+          <div class="flex items-center justify-between mb-1">
+            <span class="text-xs font-bold text-slate-400 uppercase tracking-wide">Unitat 5</span>
+            <span class="text-[10px] bg-amber-50 text-amber-700 border border-amber-200 px-2 py-0.5 rounded-full font-medium">Pròximament</span>
+          </div>
+          <h3 class="font-semibold text-slate-700 text-sm">Verbs modals: can, could, must, should, have to i need to</h3>
+          <p class="text-xs text-slate-500 mt-1">Habilitat i peticions amb <em>can</em> i <em>could</em>, obligació i prohibició amb <em>must / mustn't</em>, consells amb <em>should</em>, i necessitat amb <em>have to</em> i <em>need to</em>.</p>
+        </div>
+
+        <!-- Unitat 6 -->
+        <div class="p-4 rounded-2xl border border-dashed border-slate-200 bg-white opacity-85 hover:opacity-100 transition-all">
+          <div class="flex items-center justify-between mb-1">
+            <span class="text-xs font-bold text-slate-400 uppercase tracking-wide">Unitat 6</span>
+            <span class="text-[10px] bg-amber-50 text-amber-700 border border-amber-200 px-2 py-0.5 rounded-full font-medium">Pròximament</span>
+          </div>
+          <h3 class="font-semibold text-slate-700 text-sm">Past continuous i contrast amb el past simple</h3>
+          <p class="text-xs text-slate-500 mt-1">El past continuous (formes <em>was / were + -ing</em>, accions simultànies amb <em>while / as</em>) i el contrast amb connectors <em>when</em> i <em>while</em>.</p>
+        </div>
+
+        <!-- Unitat 7 -->
+        <div class="p-4 rounded-2xl border border-dashed border-slate-200 bg-white opacity-85 hover:opacity-100 transition-all">
+          <div class="flex items-center justify-between mb-1">
+            <span class="text-xs font-bold text-slate-400 uppercase tracking-wide">Unitat 7</span>
+            <span class="text-[10px] bg-amber-50 text-amber-700 border border-amber-200 px-2 py-0.5 rounded-full font-medium">Pròximament</span>
+          </div>
+          <h3 class="font-semibold text-slate-700 text-sm">El futur (be going to, present continuous, will) i el primer condicional</h3>
+          <p class="text-xs text-slate-500 mt-1">Plans i intencions amb <em>be going to</em>, plans fixats amb present continuous, futur amb <em>will</em> i el primer condicional amb <em>if / unless</em>.</p>
+        </div>
+
+        <!-- Unitat 8 -->
+        <div class="p-4 rounded-2xl border border-dashed border-slate-200 bg-white opacity-85 hover:opacity-100 transition-all">
+          <div class="flex items-center justify-between mb-1">
+            <span class="text-xs font-bold text-slate-400 uppercase tracking-wide">Unitat 8</span>
+            <span class="text-[10px] bg-amber-50 text-amber-700 border border-amber-200 px-2 py-0.5 rounded-full font-medium">Pròximament</span>
+          </div>
+          <h3 class="font-semibold text-slate-700 text-sm">Present perfect simple, adverbis temporals i contrast amb past simple</h3>
+          <p class="text-xs text-slate-500 mt-1">El present perfect simple (have/has + participi), partícules temporals (<em>ever, never, already, just, yet, recently, so far</em>), <em>for / since</em> i contrast amb el past simple.</p>
+        </div>
+      </div>
+
+      <div class="mt-6 pt-4 border-t border-slate-100 flex justify-end">
+        <button onclick="toggleUnitsModal()" class="px-5 py-2 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-semibold text-sm transition-colors">
+          Tancar
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- BANNER PRINCIPAL I OBJECTIUS DE LA UNITAT 1                               -->
+  <!-- ========================================================================= -->
+  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 space-y-12">
+    
+    <section id="overview" class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-indigo-900 via-brand-800 to-indigo-950 text-white p-6 sm:p-10 shadow-xl">
+      <div class="absolute -top-24 -right-24 w-96 h-96 bg-brand-500/20 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="relative z-10 max-w-3xl">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md text-brand-200 text-xs font-bold mb-4 border border-white/10">
+          <i data-lucide="sparkles" class="w-3.5 h-3.5 text-amber-300"></i>
+          Unitat 1 • Bloc gramatical
+        </div>
+        <h2 class="text-2xl sm:text-4xl font-display font-extrabold tracking-tight text-white mb-4">
+          There is / there are, quantifiers & object pronouns
+        </h2>
+        <p class="text-indigo-100 text-sm sm:text-base leading-relaxed mb-6">
+          En aquesta unitat aprendràs a expressar existència amb <strong>there is</strong> i <strong>there are</strong> (segons si el nom és comptable o no comptable), a utilitzar amb precisió els <strong>articles i quantificadors</strong> (<em>some, any, much, many, a lot of, how much, how many</em>), i a substituir complements amb els <strong>pronoms personals objecte</strong>.
+        </p>
+
+        <!-- Objectius d'aprenentatge -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
+          <div class="flex items-start gap-3 bg-white/10 rounded-2xl p-3 backdrop-blur-sm border border-white/5">
+            <div class="p-2 bg-emerald-400/20 text-emerald-300 rounded-xl">
+              <i data-lucide="home" class="w-4 h-4"></i>
+            </div>
+            <div>
+              <h4 class="text-xs font-bold text-white">There is / there are</h4>
+              <p class="text-[11px] text-indigo-200">Expressar "hi ha" en singular, plural i noms no comptables.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3 bg-white/10 rounded-2xl p-3 backdrop-blur-sm border border-white/5">
+            <div class="p-2 bg-amber-400/20 text-amber-300 rounded-xl">
+              <i data-lucide="pie-chart" class="w-4 h-4"></i>
+            </div>
+            <div>
+              <h4 class="text-xs font-bold text-white">Articles i quantificadors</h4>
+              <p class="text-[11px] text-indigo-200">Distingir quan cal <em>some, any, much, many, a lot of</em> o preguntar quantitat.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3 bg-white/10 rounded-2xl p-3 backdrop-blur-sm border border-white/5">
+            <div class="p-2 bg-rose-400/20 text-rose-300 rounded-xl">
+              <i data-lucide="user-check" class="w-4 h-4"></i>
+            </div>
+            <div>
+              <h4 class="text-xs font-bold text-white">Pronoms objecte</h4>
+              <p class="text-[11px] text-indigo-200">Substituir persones i coses (<em>him, her, them, us...</em>) sense repetir noms.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- SECCIÓ 1: THERE IS / THERE ARE                                            -->
+    <!-- ========================================================================= -->
+    <section id="there-is-section" class="scroll-mt-24 space-y-6">
+      
+      <div class="flex items-center justify-between border-b border-slate-200 pb-4">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-md border border-emerald-200">Part 1 d'explicació</span>
+          <h2 class="text-2xl sm:text-3xl font-display font-bold text-slate-900 mt-1">There is / there are (expressar existència)</h2>
+        </div>
+        <button onclick="speakText('There is a house. There are rooms. There is coffee.')" class="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold transition-all">
+          <i data-lucide="volume-2" class="w-4 h-4 text-emerald-600"></i> Escolta els exemples
+        </button>
+      </div>
+
+      <!-- Taula del llibre de text -->
+      <div class="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
+        <div class="bg-slate-900 text-white p-4 sm:px-6 flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <i data-lucide="table" class="w-5 h-5 text-emerald-400"></i>
+            <h3 class="font-display font-bold text-base sm:text-lg">Quadre complet de there is / there are (Active Minds 2)</h3>
+          </div>
+          <span class="text-xs text-slate-400">Comptables vs. no comptables</span>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs sm:text-sm">
+            <thead class="bg-slate-100 text-slate-700 uppercase font-bold text-[11px] tracking-wider border-b border-slate-200">
+              <tr>
+                <th class="py-3 px-4 sm:px-6">Estructura</th>
+                <th class="py-3 px-4 sm:px-6 text-emerald-800 bg-emerald-50/70">Noms comptables</th>
+                <th class="py-3 px-4 sm:px-6 text-indigo-800 bg-indigo-50/70">Noms no comptables</th>
+                <th class="py-3 px-3 text-center">Àudio</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100 font-medium">
+              <!-- Afirmativa -->
+              <tr class="hover:bg-slate-50 transition-colors">
+                <td class="py-3.5 px-4 sm:px-6 font-bold text-slate-900">Afirmativa (+)</td>
+                <td class="py-3.5 px-4 sm:px-6">
+                  <div><strong>There is</strong> a house. <span class="text-slate-400 text-xs">(singular)</span></div>
+                  <div><strong>There are</strong> rooms. <span class="text-slate-400 text-xs">(plural)</span></div>
+                </td>
+                <td class="py-3.5 px-4 sm:px-6">
+                  <div><strong>There is</strong> coffee.</div>
+                </td>
+                <td class="py-3.5 px-3 text-center">
+                  <button onclick="speakText('There is a house. There are rooms. There is coffee.')" class="p-1.5 rounded-lg text-slate-400 hover:text-slate-800 hover:bg-slate-100">
+                    <i data-lucide="volume-2" class="w-4 h-4"></i>
+                  </button>
+                </td>
+              </tr>
+              <!-- Negativa -->
+              <tr class="hover:bg-slate-50 transition-colors">
+                <td class="py-3.5 px-4 sm:px-6 font-bold text-slate-900">Negativa (-)</td>
+                <td class="py-3.5 px-4 sm:px-6">
+                  <div><strong>There isn't</strong> a toilet. <span class="text-slate-400 text-xs">(singular)</span></div>
+                  <div><strong>There aren't</strong> beds. <span class="text-slate-400 text-xs">(plural)</span></div>
+                </td>
+                <td class="py-3.5 px-4 sm:px-6">
+                  <div><strong>There isn't</strong> tea.</div>
+                </td>
+                <td class="py-3.5 px-3 text-center">
+                  <button onclick="speakText('There isn\'t a toilet. There aren\'t beds. There isn\'t tea.')" class="p-1.5 rounded-lg text-slate-400 hover:text-slate-800 hover:bg-slate-100">
+                    <i data-lucide="volume-2" class="w-4 h-4"></i>
+                  </button>
+                </td>
+              </tr>
+              <!-- Interrogativa -->
+              <tr class="hover:bg-slate-50 transition-colors">
+                <td class="py-3.5 px-4 sm:px-6 font-bold text-slate-900">Interrogativa (?)</td>
+                <td class="py-3.5 px-4 sm:px-6">
+                  <div><strong>Is there</strong> a fridge?</div>
+                  <div><strong>Are there</strong> tables?</div>
+                </td>
+                <td class="py-3.5 px-4 sm:px-6">
+                  <div><strong>Is there</strong> money?</div>
+                </td>
+                <td class="py-3.5 px-3 text-center">
+                  <button onclick="speakText('Is there a fridge? Are there tables? Is there money?')" class="p-1.5 rounded-lg text-slate-400 hover:text-slate-800 hover:bg-slate-100">
+                    <i data-lucide="volume-2" class="w-4 h-4"></i>
+                  </button>
+                </td>
+              </tr>
+              <!-- Respostes breus -->
+              <tr class="hover:bg-slate-50 transition-colors">
+                <td class="py-3.5 px-4 sm:px-6 font-bold text-slate-900">Respostes breus</td>
+                <td class="py-3.5 px-4 sm:px-6">
+                  <div>Yes, there <strong>is</strong>. / No, there <strong>isn't</strong>.</div>
+                  <div>Yes, there <strong>are</strong>. / No, there <strong>aren't</strong>.</div>
+                </td>
+                <td class="py-3.5 px-4 sm:px-6">
+                  <div>Yes, there <strong>is</strong>. / No, there <strong>isn't</strong>.</div>
+                </td>
+                <td class="py-3.5 px-3 text-center">
+                  <button onclick="speakText('Yes, there is. No, there isn\'t. Yes, there are. No, there aren\'t.')" class="p-1.5 rounded-lg text-slate-400 hover:text-slate-800 hover:bg-slate-100">
+                    <i data-lucide="volume-2" class="w-4 h-4"></i>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Notes clau de suport -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="p-4 bg-emerald-50 rounded-2xl border border-emerald-200 text-xs text-slate-700 space-y-1">
+          <span class="font-bold text-emerald-900 flex items-center gap-1.5">
+            <i data-lucide="check-circle" class="w-4 h-4 text-emerald-600"></i> Noms no comptables (uncountable nouns)
+          </span>
+          <p>Els noms que no es poden comptar individualment (com <em>coffee, tea, money, water, milk, sugar</em>) <strong>sempre porten el verb en singular (there is / there isn't / is there?)</strong>.</p>
+        </div>
+
+        <div class="p-4 bg-amber-50 rounded-2xl border border-amber-200 text-xs text-slate-700 space-y-1">
+          <span class="font-bold text-amber-900 flex items-center gap-1.5">
+            <i data-lucide="alert-circle" class="w-4 h-4 text-amber-600"></i> Traducció al català
+          </span>
+          <p>Tant <em>there is</em> (singular) com <em>there are</em> (plural) es tradueixen en català per <strong>"hi ha"</strong>. Recorda que en anglès és obligatori canviar el verb segons el nombre!</p>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- SECCIÓ 2: ARTICLES I QUANTIFICADORS                                       -->
+    <!-- ========================================================================= -->
+    <section id="quantifiers-section" class="scroll-mt-24 space-y-6">
+      
+      <div class="border-b border-slate-200 pb-4">
+        <span class="text-xs font-bold uppercase tracking-wider text-amber-700 bg-amber-50 px-2.5 py-1 rounded-md border border-amber-200">Part 2 d'explicació</span>
+        <h2 class="text-2xl sm:text-3xl font-display font-bold text-slate-900 mt-1">Articles i quantificadors (quantifiers)</h2>
+        <p class="text-sm text-slate-600 mt-1">
+          Els quantificadors ens indiquen la quantitat d'un nom sense haver de dir el nombre exacte. Fixa't si el nom és comptable o no comptable, i si la frase és afirmativa, negativa o una pregunta:
+        </p>
+      </div>
+
+      <!-- Graella de quantificadors -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        
+        <!-- the -->
+        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm space-y-2">
+          <div class="flex items-center justify-between">
+            <h3 class="font-bold text-base text-slate-900">the</h3>
+            <span class="text-[10px] font-mono bg-slate-100 text-slate-700 px-2 py-0.5 rounded-full font-bold">article determinat</span>
+          </div>
+          <p class="text-xs text-slate-600">S'utilitza davant d'un nom que és conegut pel parlant (comptable o no comptable).</p>
+          <p class="text-[11px] text-slate-500 italic">Traducció: el, la, l', els, les.</p>
+          <div class="text-xs font-medium text-slate-800 bg-slate-50 p-2.5 rounded-xl border border-slate-100">
+            "I have got a house. <strong>The</strong> house is very big."
+          </div>
+        </div>
+
+        <!-- a / an -->
+        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm space-y-2">
+          <div class="flex items-center justify-between">
+            <h3 class="font-bold text-base text-slate-900">a / an</h3>
+            <span class="text-[10px] font-mono bg-slate-100 text-slate-700 px-2 py-0.5 rounded-full font-bold">singular comptable</span>
+          </div>
+          <p class="text-xs text-slate-600">S'utilitza davant d'un nom singular no conegut prèviament. <strong>a</strong> amb so consonant, <strong>an</strong> amb so vocal.</p>
+          <p class="text-[11px] text-slate-500 italic">Traducció: un, una.</p>
+          <div class="text-xs font-medium text-slate-800 bg-slate-50 p-2.5 rounded-xl border border-slate-100">
+            "<strong>a</strong> shelf, <strong>an</strong> armchair, <strong>a</strong> uniform."
+          </div>
+        </div>
+
+        <!-- some -->
+        <div class="bg-white p-5 rounded-2xl border border-emerald-200 shadow-sm space-y-2">
+          <div class="flex items-center justify-between">
+            <h3 class="font-bold text-base text-emerald-900">some</h3>
+            <span class="text-[10px] font-mono bg-emerald-50 text-emerald-800 px-2 py-0.5 rounded-full font-bold">afirmativa (+)</span>
+          </div>
+          <p class="text-xs text-slate-600">Frases afirmatives amb plurals comptables o noms no comptables. També per oferir o demanar amb cortesia.</p>
+          <p class="text-[11px] text-slate-500 italic">Traducció: uns/es, alguns/es, una mica de.</p>
+          <div class="text-xs font-medium text-slate-800 bg-slate-50 p-2.5 rounded-xl border border-slate-100">
+            "There are <strong>some</strong> books." / "Would you like <strong>some</strong> tea?"
+          </div>
+        </div>
+
+        <!-- any -->
+        <div class="bg-white p-5 rounded-2xl border border-rose-200 shadow-sm space-y-2">
+          <div class="flex items-center justify-between">
+            <h3 class="font-bold text-base text-rose-900">any</h3>
+            <span class="text-[10px] font-mono bg-rose-50 text-rose-800 px-2 py-0.5 rounded-full font-bold">negativa (-) i pregunta (?)</span>
+          </div>
+          <p class="text-xs text-slate-600">Frases negatives (cap, gens de) i interrogatives ordinàries (algun/a, una mica de).</p>
+          <p class="text-[11px] text-slate-500 italic">Traducció: cap, gens de / algun, alguns.</p>
+          <div class="text-xs font-medium text-slate-800 bg-slate-50 p-2.5 rounded-xl border border-slate-100">
+            "There aren't <strong>any</strong> doctors." / "Have you got <strong>any</strong> milk?"
+          </div>
+        </div>
+
+        <!-- a lot of / lots of -->
+        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm space-y-2">
+          <div class="flex items-center justify-between">
+            <h3 class="font-bold text-base text-slate-900">a lot of / lots of</h3>
+            <span class="text-[10px] font-mono bg-slate-100 text-slate-700 px-2 py-0.5 rounded-full font-bold">gran quantitat</span>
+          </div>
+          <p class="text-xs text-slate-600">Tant amb noms comptables en plural com amb noms no comptables.</p>
+          <p class="text-[11px] text-slate-500 italic">Traducció: molt/a, molts/es, una pila de.</p>
+          <div class="text-xs font-medium text-slate-800 bg-slate-50 p-2.5 rounded-xl border border-slate-100">
+            "<strong>A lot of</strong> children play here." / "<strong>Lots of</strong> people enjoy films."
+          </div>
+        </div>
+
+        <!-- many vs much -->
+        <div class="bg-white p-5 rounded-2xl border border-indigo-200 shadow-sm space-y-2">
+          <div class="flex items-center justify-between">
+            <h3 class="font-bold text-base text-indigo-900">many vs. much</h3>
+            <span class="text-[10px] font-mono bg-indigo-50 text-indigo-800 px-2 py-0.5 rounded-full font-bold">molts vs. molt</span>
+          </div>
+          <p class="text-xs text-slate-600"><strong>Many</strong> per a comptables en plural (<em>many girls</em>). <strong>Much</strong> per a no comptables en negatives i preguntes (<em>much water</em>).</p>
+          <p class="text-[11px] text-slate-500 italic">Traducció: molts/es vs. molt/a, gaire.</p>
+          <div class="text-xs font-medium text-slate-800 bg-slate-50 p-2.5 rounded-xl border border-slate-100">
+            "<strong>Many</strong> girls play football." / "I haven't got <strong>much</strong> paper."
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Caixa d'interrogatius de quantitat: How many vs How much -->
+      <div class="p-5 rounded-3xl bg-gradient-to-r from-amber-50 to-orange-50 border-2 border-amber-200 space-y-3">
+        <h4 class="font-bold text-amber-950 text-sm flex items-center gap-2">
+          <i data-lucide="help-circle" class="w-4 h-4 text-amber-700"></i> Preguntar la quantitat: how many vs. how much
+        </h4>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs text-slate-700">
+          <div class="bg-white p-3.5 rounded-2xl border border-amber-200 space-y-1">
+            <span class="font-bold text-slate-900 block">How many ...? (Quants/es ...?)</span>
+            <p>S'utilitza exclusivament amb noms <strong>comptables en plural</strong>:</p>
+            <p class="font-bold text-brand-700">"<strong>How many</strong> rooms are there?"</p>
+          </div>
+
+          <div class="bg-white p-3.5 rounded-2xl border border-amber-200 space-y-1">
+            <span class="font-bold text-slate-900 block">How much ...? (Quant/a ...? / Quin preu té?)</span>
+            <p>S'utilitza amb noms <strong>no comptables</strong> o amb el verb <em>to be</em> per preguntar el preu:</p>
+            <p class="font-bold text-brand-700">"<strong>How much</strong> rice is there?" / "<strong>How much</strong> is it?"</p>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- SECCIÓ 3: ELS PRONOMS PERSONALS OBJECTE                                   -->
+    <!-- ========================================================================= -->
+    <section id="pronouns-section" class="scroll-mt-24 space-y-6">
+      
+      <div class="border-b border-slate-200 pb-4">
+        <span class="text-xs font-bold uppercase tracking-wider text-rose-700 bg-rose-50 px-2.5 py-1 rounded-md border border-rose-200">Part 3 d'explicació</span>
+        <h2 class="text-2xl sm:text-3xl font-display font-bold text-slate-900 mt-1">Els pronoms personals objecte (object pronouns)</h2>
+        <p class="text-sm text-slate-600 mt-1">
+          Els pronoms objecte fan la funció de <strong>complement directe o indirecte</strong> (reben l'acció del verb o van després d'una preposició com <em>for, with, to, at</em>):
+        </p>
+      </div>
+
+      <!-- Taula comparativa de pronoms -->
+      <div class="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
+        <div class="bg-slate-900 text-white p-4 sm:px-6 flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <i data-lucide="users" class="w-5 h-5 text-rose-400"></i>
+            <h3 class="font-display font-bold text-base sm:text-lg">Taula de pronoms personals: subjecte vs. objecte</h3>
+          </div>
+          <span class="text-xs text-slate-400">Funció de complement</span>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs sm:text-sm">
+            <thead class="bg-slate-100 text-slate-700 uppercase font-bold text-[11px] tracking-wider border-b border-slate-200">
+              <tr>
+                <th class="py-3 px-4 sm:px-6">Pronom subjecte (qui fa l'acció)</th>
+                <th class="py-3 px-4 sm:px-6 text-rose-800 bg-rose-50/70">Pronom objecte (qui rep l'acció)</th>
+                <th class="py-3 px-4 sm:px-6">Equivalència en català</th>
+                <th class="py-3 px-4 sm:px-6">Exemple</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100 font-medium">
+              <tr class="hover:bg-slate-50 transition-colors">
+                <td class="py-3 px-4 sm:px-6 font-bold text-slate-900">I</td>
+                <td class="py-3 px-4 sm:px-6 font-bold text-rose-600 text-base font-mono">me</td>
+                <td class="py-3 px-4 sm:px-6 text-slate-600">em, m', -me, 'm (a mi)</td>
+                <td class="py-3 px-4 sm:px-6">You can call <strong>me</strong> later.</td>
+              </tr>
+              <tr class="hover:bg-slate-50 transition-colors">
+                <td class="py-3 px-4 sm:px-6 font-bold text-slate-900">you</td>
+                <td class="py-3 px-4 sm:px-6 font-bold text-rose-600 text-base font-mono">you</td>
+                <td class="py-3 px-4 sm:px-6 text-slate-600">et, t', -te, 't (a tu)</td>
+                <td class="py-3 px-4 sm:px-6">We are making a cake for <strong>you</strong>.</td>
+              </tr>
+              <tr class="hover:bg-slate-50 transition-colors">
+                <td class="py-3 px-4 sm:px-6 font-bold text-slate-900">he</td>
+                <td class="py-3 px-4 sm:px-6 font-bold text-rose-600 text-base font-mono">him</td>
+                <td class="py-3 px-4 sm:px-6 text-slate-600">el, l', -lo, 'l, li (a ell)</td>
+                <td class="py-3 px-4 sm:px-6">I saw <strong>him</strong> at school.</td>
+              </tr>
+              <tr class="hover:bg-slate-50 transition-colors">
+                <td class="py-3 px-4 sm:px-6 font-bold text-slate-900">she</td>
+                <td class="py-3 px-4 sm:px-6 font-bold text-rose-600 text-base font-mono">her</td>
+                <td class="py-3 px-4 sm:px-6 text-slate-600">la, l', -la, li (a ella)</td>
+                <td class="py-3 px-4 sm:px-6">Her parents bought it for <strong>her</strong>.</td>
+              </tr>
+              <tr class="hover:bg-slate-50 transition-colors">
+                <td class="py-3 px-4 sm:px-6 font-bold text-slate-900">it</td>
+                <td class="py-3 px-4 sm:px-6 font-bold text-rose-600 text-base font-mono">it</td>
+                <td class="py-3 px-4 sm:px-6 text-slate-600">el, la, l', -lo, -la (a un animal o cosa)</td>
+                <td class="py-3 px-4 sm:px-6">I like this book. I read <strong>it</strong>.</td>
+              </tr>
+              <tr class="hover:bg-slate-50 transition-colors">
+                <td class="py-3 px-4 sm:px-6 font-bold text-slate-900">we</td>
+                <td class="py-3 px-4 sm:px-6 font-bold text-rose-600 text-base font-mono">us</td>
+                <td class="py-3 px-4 sm:px-6 text-slate-600">ens, 'ns, -nos (a nosaltres)</td>
+                <td class="py-3 px-4 sm:px-6">Our teacher helps <strong>us</strong> every day.</td>
+              </tr>
+              <tr class="hover:bg-slate-50 transition-colors">
+                <td class="py-3 px-4 sm:px-6 font-bold text-slate-900">they</td>
+                <td class="py-3 px-4 sm:px-6 font-bold text-rose-600 text-base font-mono">them</td>
+                <td class="py-3 px-4 sm:px-6 text-slate-600">els, les, 'ls, -los (a ells/elles)</td>
+                <td class="py-3 px-4 sm:px-6">I gave <strong>them</strong> money to go shopping.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Regla d'ordre: CD + preposició + CI -->
+      <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200 text-xs text-slate-700 space-y-1">
+        <span class="font-bold text-slate-900 flex items-center gap-1.5">
+          <i data-lucide="shuffle" class="w-4 h-4 text-brand-600"></i> Ordre especial amb dos pronoms:
+        </span>
+        <p>
+          Si en una frase hi ha un pronom que fa de complement directe i un altre d'indirecte, es posen sempre en aquest ordre: <strong>complement directe + preposició (for / to) + complement indirecte</strong>:
+        </p>
+        <p class="font-medium text-slate-900 pt-1">
+          <em>"She wanted a new phone and her parents bought <strong>it</strong> [CD] for <strong>her</strong> [CI]."</em>
+        </p>
+      </div>
+
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- SECCIÓ 4: BASTIDES DE SUPORT I DETECTIU D'ERRORS                          -->
+    <!-- ========================================================================= -->
+    <section id="scaffolding-section" class="scroll-mt-24 space-y-6">
+      
+      <div class="border-b border-slate-200 pb-4">
+        <span class="text-xs font-bold uppercase tracking-wider text-brand-600 bg-brand-50 px-2.5 py-1 rounded-md border border-brand-200">Bastides i suport</span>
+        <h2 class="text-2xl sm:text-3xl font-display font-bold text-slate-900 mt-1">L'escala d'aprenentatge de la unitat 1</h2>
+        <p class="text-sm text-slate-600 mt-1">
+          Eines visuals per evitar bloquejos i resoldre els exercicis amb èxit.
+        </p>
+      </div>
+
+      <!-- El semàfor de decisió de quantificadors -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="bg-white p-5 rounded-3xl border-2 border-brand-100 shadow-sm space-y-2">
+          <div class="w-8 h-8 rounded-full bg-brand-600 text-white font-bold flex items-center justify-center text-sm">1</div>
+          <h3 class="font-bold text-slate-900 text-sm">Pas 1: el nom es pot comptar?</h3>
+          <p class="text-xs text-slate-600">
+            • <strong>Comptable plural</strong> (p. ex. <em>apples, cars, books</em>) ➡️ <em>many, how many, there are</em>.<br>
+            • <strong>No comptable</strong> (líquids, materials, diners: <em>water, money, coffee</em>) ➡️ <em>much, how much, there is</em>.
+          </p>
+        </div>
+
+        <div class="bg-white p-5 rounded-3xl border-2 border-brand-100 shadow-sm space-y-2">
+          <div class="w-8 h-8 rounded-full bg-brand-600 text-white font-bold flex items-center justify-center text-sm">2</div>
+          <h3 class="font-bold text-slate-900 text-sm">Pas 2: quin signe té la frase?</h3>
+          <p class="text-xs text-slate-600">
+            • <strong>Afirmativa (+)</strong> ➡️ <em>some</em> o <em>a lot of</em>.<br>
+            • <strong>Negativa (-) o pregunta (?)</strong> ➡️ <em>any</em>.<br>
+            • <em>Excepció:</em> en ofertes o peticions educades s'usa <em>some</em> ("Would you like some tea?").
+          </p>
+        </div>
+
+        <div class="bg-white p-5 rounded-3xl border-2 border-brand-100 shadow-sm space-y-2">
+          <div class="w-8 h-8 rounded-full bg-brand-600 text-white font-bold flex items-center justify-center text-sm">3</div>
+          <h3 class="font-bold text-slate-900 text-sm">Pas 3: qui rep l'acció?</h3>
+          <p class="text-xs text-slate-600">
+            Darrere del verb o d'una preposició (<em>with, to, for</em>), mai no s'escriu <em>he, she, they</em>. Sempre cal utilitzar el pronom objecte: <strong>him, her, them, us, me</strong>.
+          </p>
+        </div>
+      </div>
+
+      <!-- Detectiu d'errors comuns a 2n d'ESO -->
+      <div class="bg-white rounded-3xl border border-rose-200 p-6 shadow-sm space-y-4">
+        <div class="flex items-center gap-2 text-rose-700 font-display font-bold text-lg">
+          <i data-lucide="shield-alert" class="w-5 h-5"></i>
+          Detectiu d'errors freqüents a la unitat 1
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+          <div class="p-4 bg-rose-50/50 rounded-2xl border border-rose-100 space-y-1.5">
+            <span class="font-bold text-rose-800">❌ Error 1: there is amb plurals</span>
+            <p class="text-slate-600">Com que en català "hi ha" no té plural, sovint es diu <em>"There is three pens"</em>.</p>
+            <p class="font-bold text-emerald-800">✅ Correcte: <em>"There are three pens"</em>.</p>
+          </div>
+
+          <div class="p-4 bg-rose-50/50 rounded-2xl border border-rose-100 space-y-1.5">
+            <span class="font-bold text-rose-800">❌ Error 2: much amb coses comptables</span>
+            <p class="text-slate-600"><em>"I haven't got much friends"</em> ❌ (Els amics es poden comptar!).</p>
+            <p class="font-bold text-emerald-800">✅ Correcte: <em>"I haven't got many friends"</em>.</p>
+          </div>
+
+          <div class="p-4 bg-rose-50/50 rounded-2xl border border-rose-100 space-y-1.5">
+            <span class="font-bold text-rose-800">❌ Error 3: pronom subjecte com a complement</span>
+            <p class="text-slate-600"><em>"I invited they to my birthday"</em> ❌ o <em>"Look at she!"</em> ❌.</p>
+            <p class="font-bold text-emerald-800">✅ Correcte: <em>"I invited them"</em> / <em>"Look at her!"</em>.</p>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- SECCIÓ 5: ZONA DE PRÀCTICA INTERACTIVA                                    -->
+    <!-- ========================================================================= -->
+    <section id="practice-section" class="scroll-mt-24 space-y-8">
+      
+      <div class="border-b border-slate-200 pb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-md border border-emerald-200">Zona interactiva</span>
+          <h2 class="text-2xl sm:text-3xl font-display font-bold text-slate-900 mt-1">Pràctica i reptes d'autoavaluació</h2>
+        </div>
+        <div class="flex items-center gap-2">
+          <span id="score-badge" class="px-3 py-1 rounded-xl bg-slate-100 text-slate-700 text-xs font-bold font-mono">
+            Puntuació: <span id="user-score" class="text-brand-600">0</span> / 10
+          </span>
+        </div>
+      </div>
+
+      <!-- Activitat 1: Classificador de comptables vs no comptables -->
+      <div class="bg-white rounded-3xl border border-slate-200 p-6 shadow-sm space-y-5">
+        <div class="flex items-center justify-between">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-emerald-700">Activitat 1 • Classificació ràpida</span>
+            <h3 class="font-display font-bold text-lg text-slate-900">És un nom comptable o no comptable?</h3>
+          </div>
+          <span class="text-xs text-slate-400">Fes clic a la targeta correcta</span>
+        </div>
+
+        <div id="sort-container" class="space-y-4">
+          <div id="sort-card" class="p-6 bg-slate-50 border-2 border-dashed border-slate-300 rounded-2xl text-center space-y-3">
+            <span id="sort-step" class="text-xs font-bold text-slate-400 uppercase tracking-widest">Paraula 1 de 5</span>
+            <p id="sort-word" class="text-2xl font-bold text-slate-900 font-display">Carregant...</p>
+            <p id="sort-translation" class="text-xs text-slate-500 italic"></p>
+          </div>
+
+          <div class="grid grid-cols-2 gap-4">
+            <button onclick="answerCountable('countable')" class="p-4 rounded-2xl border-2 border-emerald-200 bg-emerald-50 hover:bg-emerald-100 text-emerald-900 font-bold text-sm transition-all flex flex-col items-center justify-center gap-1 active:scale-95">
+              <i data-lucide="boxes" class="w-5 h-5 text-emerald-600"></i>
+              <span>Comptable</span>
+              <span class="text-[11px] font-normal text-emerald-700">(es pot comptar: 1, 2, 3...)</span>
+            </button>
+
+            <button onclick="answerCountable('uncountable')" class="p-4 rounded-2xl border-2 border-indigo-200 bg-indigo-50 hover:bg-indigo-100 text-indigo-900 font-bold text-sm transition-all flex flex-col items-center justify-center gap-1 active:scale-95">
+              <i data-lucide="droplet" class="w-5 h-5 text-indigo-600"></i>
+              <span>No comptable</span>
+              <span class="text-[11px] font-normal text-indigo-700">(sempre en singular)</span>
+            </button>
+          </div>
+
+          <div id="sort-feedback" class="hidden p-4 rounded-2xl text-xs font-medium"></div>
+        </div>
+      </div>
+
+      <!-- Activitat 2: There is vs There are -->
+      <div class="bg-white rounded-3xl border border-slate-200 p-6 shadow-sm space-y-5">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-amber-700">Activitat 2 • There is o there are?</span>
+          <h3 class="font-display font-bold text-lg text-slate-900">Completa la frase amb l'opció correcta</h3>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="there-is-grid">
+          <!-- Es carrega amb JavaScript -->
+        </div>
+      </div>
+
+      <!-- Activitat 3: Quantifiers Matchmaker -->
+      <div class="bg-white rounded-3xl border border-slate-200 p-6 shadow-sm space-y-5">
+        <div class="flex items-center justify-between">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-tag-700">Activitat 3 • Taller de quantificadors</span>
+            <h3 class="font-display font-bold text-lg text-slate-900">Tria el quantificador adequat (some, any, much, many)</h3>
+          </div>
+          <span class="text-xs text-slate-400">Revisa la polaritat de la frase</span>
+        </div>
+
+        <div class="space-y-3" id="quantifier-match-list">
+          <!-- Es carrega amb JavaScript -->
+        </div>
+      </div>
+
+      <!-- Activitat 4: El gran repte de la unitat 1 -->
+      <div id="quiz-card" class="bg-gradient-to-br from-indigo-900 to-slate-900 text-white rounded-3xl p-6 sm:p-10 shadow-xl space-y-6">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-white/10 pb-4">
+          <div>
+            <span class="text-xs font-extrabold uppercase tracking-widest text-amber-300 flex items-center gap-1.5">
+              <i data-lucide="award" class="w-4 h-4"></i> Autoavaluació de la unitat 1
+            </span>
+            <h3 class="font-display font-extrabold text-2xl text-white mt-1">El gran repte de la unitat 1 (10 preguntes)</h3>
+          </div>
+          <div class="flex items-center gap-2">
+            <span id="quiz-question-counter" class="text-xs bg-white/10 px-3 py-1.5 rounded-xl font-mono text-indigo-200">Pregunta 1 de 10</span>
+          </div>
+        </div>
+
+        <div class="w-full bg-white/10 h-2 rounded-full overflow-hidden">
+          <div id="quiz-progress-bar" class="bg-gradient-to-r from-emerald-400 to-teal-400 h-full w-[10%] transition-all duration-300"></div>
+        </div>
+
+        <div id="quiz-active-container" class="space-y-6">
+          <div class="p-6 bg-white/5 rounded-2xl border border-white/10 space-y-2">
+            <span id="quiz-category" class="text-[11px] font-bold uppercase tracking-wider text-amber-300">Tema: there is / there are</span>
+            <p id="quiz-question-text" class="text-base sm:text-xl font-bold text-white leading-relaxed">
+              Carregant pregunta...
+            </p>
+            <p id="quiz-hint-text" class="text-xs text-indigo-200 italic"></p>
+          </div>
+
+          <div id="quiz-options-container" class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <!-- Opcions dinàmiques -->
+          </div>
+
+          <div id="quiz-feedback-box" class="hidden p-4 rounded-2xl text-xs sm:text-sm font-medium border">
+            <!-- Retroacció pedagògica -->
+          </div>
+
+          <div class="flex justify-end pt-2">
+            <button id="quiz-next-btn" onclick="nextQuizQuestion()" class="hidden px-6 py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-slate-900 font-bold text-sm transition-all shadow-md flex items-center gap-2">
+              <span>Següent pregunta</span>
+              <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Resultats finals -->
+        <div id="quiz-results-container" class="hidden space-y-6 text-center py-6">
+          <div class="w-20 h-20 rounded-full bg-amber-400/20 text-amber-300 flex items-center justify-center mx-auto text-3xl font-extrabold shadow-inner">
+            🏆
+          </div>
+          <div class="space-y-2">
+            <h4 class="text-2xl sm:text-3xl font-display font-extrabold text-white">Has completat el repte de la unitat 1!</h4>
+            <p id="quiz-final-score-text" class="text-lg text-indigo-200 font-medium">La teva puntuació: <strong>8 / 10</strong></p>
+            <p id="quiz-evaluation-comment" class="text-sm text-slate-300 max-w-md mx-auto"></p>
+          </div>
+
+          <div class="flex flex-wrap items-center justify-center gap-3 pt-4">
+            <button onclick="restartQuiz()" class="px-5 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold text-xs transition-colors border border-white/20">
+              Torna-ho a intentar
+            </button>
+            <button onclick="window.print()" class="px-5 py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-slate-900 font-bold text-xs transition-colors flex items-center gap-1.5">
+              <i data-lucide="printer" class="w-4 h-4"></i> Desa o imprimeix el resum
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- SECCIÓ 6: FITXA RESUM D'ESTUDI PER A L'ALUMNAT                             -->
+    <!-- ========================================================================= -->
+    <section id="printable-summary" class="print-card bg-white rounded-3xl border border-slate-200 p-6 sm:p-8 shadow-sm space-y-6">
+      <div class="flex items-center justify-between border-b border-slate-200 pb-4">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-slate-500">Fitxa resum d'estudi</span>
+          <h2 class="text-xl sm:text-2xl font-display font-bold text-slate-900">Grammar pocket guide • Unitat 1</h2>
+        </div>
+        <button onclick="window.print()" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold rounded-xl transition-colors flex items-center gap-2">
+          <i data-lucide="printer" class="w-4 h-4"></i> Imprimeix / Desa en PDF
+        </button>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-xs text-slate-700">
+        
+        <!-- Columna 1 -->
+        <div class="space-y-2 p-4 bg-slate-50 rounded-2xl border border-slate-200">
+          <h4 class="font-bold text-slate-900 text-sm flex items-center gap-1.5">
+            <i data-lucide="home" class="w-4 h-4 text-emerald-600"></i> There is / there are
+          </h4>
+          <ul class="space-y-1 text-slate-600">
+            <li>• <strong>There is:</strong> singular comptable (<em>a house</em>) i no comptables (<em>coffee</em>).</li>
+            <li>• <strong>There are:</strong> plural comptable (<em>rooms, beds</em>).</li>
+            <li>• <strong>Negativa:</strong> <em>there isn't / there aren't</em>.</li>
+            <li>• <strong>Pregunta:</strong> <em>is there? / are there?</em></li>
+          </ul>
+        </div>
+
+        <!-- Columna 2 -->
+        <div class="space-y-2 p-4 bg-slate-50 rounded-2xl border border-slate-200">
+          <h4 class="font-bold text-slate-900 text-sm flex items-center gap-1.5">
+            <i data-lucide="pie-chart" class="w-4 h-4 text-amber-600"></i> Quantificadors clau
+          </h4>
+          <ul class="space-y-1 text-slate-600">
+            <li>• <strong>some:</strong> afirmativa (+) i ofertes/peticions.</li>
+            <li>• <strong>any:</strong> negativa (-) i preguntes (?).</li>
+            <li>• <strong>many:</strong> comptables en plural (<em>many girls</em>).</li>
+            <li>• <strong>much:</strong> no comptables en (-) i (?) (<em>much paper</em>).</li>
+            <li>• <strong>how many / how much:</strong> comptable vs. no comptable / preu.</li>
+          </ul>
+        </div>
+
+        <!-- Columna 3 -->
+        <div class="space-y-2 p-4 bg-slate-50 rounded-2xl border border-slate-200">
+          <h4 class="font-bold text-slate-900 text-sm flex items-center gap-1.5">
+            <i data-lucide="user-check" class="w-4 h-4 text-rose-600"></i> Pronoms objecte
+          </h4>
+          <ul class="space-y-1 text-slate-600 font-mono text-[11px]">
+            <li>I ➡️ <strong>me</strong></li>
+            <li>you ➡️ <strong>you</strong></li>
+            <li>he ➡️ <strong>him</strong></li>
+            <li>she ➡️ <strong>her</strong></li>
+            <li>it ➡️ <strong>it</strong></li>
+            <li>we ➡️ <strong>us</strong></li>
+            <li>they ➡️ <strong>them</strong></li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========================================================================= -->
+  <!-- PEU DE PÀGINA                                                             -->
+  <!-- ========================================================================= -->
+  <footer class="bg-white border-t border-slate-200 mt-16 py-8 text-center text-xs text-slate-500">
+    <div class="max-w-7xl mx-auto px-4 space-y-2">
+      <p class="font-semibold text-slate-700">English 2n d'ESO • Departament de Llengües Estrangeres</p>
+      <p>Material pedagògic basat en el llibre de text d'anglès de 2n d'ESO (Unitat 1 - Active Minds 2). Preparat per a GitHub Pages.</p>
+    </div>
+  </footer>
+
+  <!-- ========================================================================= -->
+  <!-- LÒGICA JAVASCRIPT DE L'APLICACIÓ                                          -->
+  <!-- ========================================================================= -->
+  <script>
+    lucide.createIcons();
+
+    function speakText(text) {
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = 'en-GB';
+        utterance.rate = 0.9;
+        utterance.pitch = 1.0;
+        window.speechSynthesis.speak(utterance);
+      } else {
+        alert("El teu navegador no suporta la reproducció de veu integrada.");
+      }
+    }
+
+    function toggleUnitsModal() {
+      const modal = document.getElementById('units-modal');
+      modal.classList.toggle('hidden');
+    }
+
+    // -------------------------------------------------------------
+    // ACTIVITAT 1: CLASSIFICADOR COMPTABLE VS NO COMPTABLE
+    // -------------------------------------------------------------
+    const countItems = [
+      {
+        word: "coffee",
+        type: "uncountable",
+        translation: "cafè (líquid / substància)",
+        explanation: "Correcte! 'Coffee' és un líquid i és no comptable (sempre amb 'there is' o 'much')."
+      },
+      {
+        word: "rooms",
+        type: "countable",
+        translation: "habitacions",
+        explanation: "Molt bé! 'Rooms' és un nom comptable en plural (porta 'there are' o 'many')."
+      },
+      {
+        word: "money",
+        type: "uncountable",
+        translation: "diners (concepte general)",
+        explanation: "Exacte! 'Money' és no comptable en anglès (es diu 'much money' o 'How much money?')."
+      },
+      {
+        word: "tables",
+        type: "countable",
+        translation: "taules",
+        explanation: "Molt bé! 'Tables' són objectes individuals comptables."
+      },
+      {
+        word: "water",
+        type: "uncountable",
+        translation: "aigua",
+        explanation: "Correcte! Com tots els líquids, 'water' és no comptable."
+      }
+    ];
+
+    let currentCountIndex = 0;
+
+    function renderCountItem() {
+      if (currentCountIndex >= countItems.length) {
+        document.getElementById('sort-container').innerHTML = `
+          <div class="text-center p-6 bg-emerald-50 border-2 border-emerald-300 rounded-2xl space-y-3">
+            <div class="text-3xl">🎉</div>
+            <h4 class="font-bold text-emerald-900 text-lg">Molt bona feina! Has completat l'activitat 1</h4>
+            <p class="text-xs text-emerald-700">Has après a distingir noms comptables de no comptables.</p>
+            <button onclick="resetCountActivity()" class="px-4 py-2 bg-emerald-600 text-white rounded-xl text-xs font-bold hover:bg-emerald-700">Tornar a jugar</button>
+          </div>
+        `;
+        return;
+      }
+
+      const item = countItems[currentCountIndex];
+      document.getElementById('sort-step').textContent = `Paraula ${currentCountIndex + 1} de ${countItems.length}`;
+      document.getElementById('sort-word').textContent = item.word;
+      document.getElementById('sort-translation').textContent = `(${item.translation})`;
+      document.getElementById('sort-feedback').className = 'hidden p-4 rounded-2xl text-xs font-medium';
+    }
+
+    function answerCountable(selectedType) {
+      const item = countItems[currentCountIndex];
+      const fb = document.getElementById('sort-feedback');
+      fb.classList.remove('hidden');
+
+      if (selectedType === item.type) {
+        fb.className = 'p-4 rounded-2xl text-xs font-semibold bg-emerald-100 text-emerald-900 border border-emerald-300';
+        fb.innerHTML = `✅ ${item.explanation}`;
+        setTimeout(() => {
+          currentCountIndex++;
+          renderCountItem();
+        }, 1500);
+      } else {
+        fb.className = 'p-4 rounded-2xl text-xs font-semibold bg-rose-100 text-rose-900 border border-rose-300';
+        fb.innerHTML = `❌ No ben bé. Revisa si es pot comptar en unitats o és un líquid/massa.`;
+      }
+    }
+
+    function resetCountActivity() {
+      currentCountIndex = 0;
+      renderCountItem();
+    }
+
+    // -------------------------------------------------------------
+    // ACTIVITAT 2: THERE IS O THERE ARE?
+    // -------------------------------------------------------------
+    const thereIsQuestions = [
+      {
+        question: "1. ______ three apples on the table.",
+        options: ["There is", "There are"],
+        correct: 1,
+        explanation: "Correcte! 'Three apples' és un plural comptable, per tant cal utilitzar 'There are'."
+      },
+      {
+        question: "2. ______ some milk in the fridge.",
+        options: ["There is", "There are"],
+        correct: 0,
+        explanation: "Molt bé! 'Milk' és un líquid no comptable, així que sempre porta 'There is'."
+      },
+      {
+        question: "3. ______ any chairs in the classroom?",
+        options: ["Is there", "Are there"],
+        correct: 1,
+        explanation: "Exacte! 'Chairs' és plural, per tant la pregunta comença amb 'Are there?'."
+      },
+      {
+        question: "4. ______ tea in the teapot.",
+        options: ["There isn't", "There aren't"],
+        correct: 0,
+        explanation: "Fantàstic! 'Tea' és no comptable, per tant la forma negativa és 'There isn't'."
+      }
+    ];
+
+    function renderThereIsQuiz() {
+      const container = document.getElementById('there-is-grid');
+      container.innerHTML = thereIsQuestions.map((q, idx) => `
+        <div class="p-5 rounded-2xl border border-slate-200 bg-slate-50 space-y-3">
+          <p class="font-bold text-slate-800 text-xs sm:text-sm">${q.question}</p>
+          <div class="grid grid-cols-2 gap-2">
+            ${q.options.map((opt, optIdx) => `
+              <button onclick="checkThereIs(${idx}, ${optIdx})" class="p-2.5 rounded-xl border border-slate-300 bg-white hover:bg-brand-50 hover:border-brand-400 font-bold text-xs text-slate-700 transition-all text-center">
+                ${opt}
+              </button>
+            `).join('')}
+          </div>
+          <div id="there-fb-${idx}" class="hidden text-xs p-3 rounded-xl"></div>
+        </div>
+      `).join('');
+    }
+
+    function checkThereIs(qIdx, selectedOpt) {
+      const q = thereIsQuestions[qIdx];
+      const fb = document.getElementById(`there-fb-${qIdx}`);
+      fb.classList.remove('hidden');
+
+      if (selectedOpt === q.correct) {
+        fb.className = 'text-xs p-3 rounded-xl bg-emerald-100 text-emerald-900 border border-emerald-300 font-semibold';
+        fb.innerHTML = `✅ ${q.explanation}`;
+      } else {
+        fb.className = 'text-xs p-3 rounded-xl bg-rose-100 text-rose-900 border border-rose-300 font-semibold';
+        fb.innerHTML = `❌ Revisa si el nom és singular, plural o no comptable!`;
+      }
+    }
+
+    // -------------------------------------------------------------
+    // ACTIVITAT 3: TALLER DE QUANTIFICADORS
+    // -------------------------------------------------------------
+    const quantMatches = [
+      {
+        sentence: "I have got ______ books in my bag.",
+        options: ["some", "any", "much"],
+        correct: 0,
+        tip: "frase afirmativa (+) amb plural comptable."
+      },
+      {
+        sentence: "We haven't got ______ chocolate left.",
+        options: ["some", "any", "many"],
+        correct: 1,
+        tip: "frase negativa (-) amb nom no comptable."
+      },
+      {
+        sentence: "How ______ students are in your class?",
+        options: ["much", "many", "any"],
+        correct: 1,
+        tip: "estudiants és un nom comptable en plural."
+      },
+      {
+        sentence: "How ______ is this T-shirt?",
+        options: ["much", "many", "some"],
+        correct: 0,
+        tip: "per preguntar el preu d'alguna cosa s'usa 'How much'."
+      }
+    ];
+
+    function renderQuantMatches() {
+      const container = document.getElementById('quantifier-match-list');
+      container.innerHTML = quantMatches.map((item, idx) => `
+        <div class="p-4 rounded-2xl border border-slate-200 bg-slate-50 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div class="space-y-1">
+            <span class="text-xs font-mono font-bold text-slate-800">"${item.sentence.replace('______', `<span id="quant-blank-${idx}" class="text-amber-600 font-extrabold underline">______</span>`)}"</span>
+            <p class="text-[11px] text-slate-500 italic">Pista: ${item.tip}</p>
+          </div>
+          <div class="flex flex-wrap gap-1.5">
+            ${item.options.map((opt, optIdx) => `
+              <button onclick="checkQuantMatch(${idx}, ${optIdx})" class="px-3 py-1.5 rounded-xl border border-slate-300 bg-white hover:bg-orange-50 hover:border-orange-400 text-xs font-bold text-slate-700 transition-all">
+                ${opt}
+              </button>
+            `).join('')}
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function checkQuantMatch(idx, selectedOpt) {
+      const item = quantMatches[idx];
+      const blank = document.getElementById(`quant-blank-${idx}`);
+      if (selectedOpt === item.correct) {
+        blank.textContent = item.options[selectedOpt];
+        blank.className = "text-emerald-700 font-extrabold underline";
+      } else {
+        blank.textContent = `${item.options[selectedOpt]} (❌)`;
+        blank.className = "text-rose-600 font-bold underline";
+      }
+    }
+
+    // -------------------------------------------------------------
+    // ACTIVITAT 4: EL GRAN REPTE DE LA UNITAT 1 (10 PREGUNTES)
+    // -------------------------------------------------------------
+    const quizQuestions = [
+      {
+        category: "there is / there are",
+        question: "Com es diu 'Hi ha una casa' en anglès?",
+        options: [
+          "There is a house.",
+          "There are a house.",
+          "There have a house.",
+          "Is a house."
+        ],
+        correct: 0,
+        explanation: "Amb un nom comptable en singular ('a house'), s'utilitza 'There is'."
+      },
+      {
+        category: "there is / there are: no comptables",
+        question: "Quina frase és correcta per a un nom no comptable com 'coffee'?",
+        options: [
+          "There is coffee.",
+          "There are coffee.",
+          "There aren't coffee.",
+          "Are there coffee?"
+        ],
+        correct: 0,
+        explanation: "Els noms no comptables van sempre amb el verb en singular: 'There is coffee'."
+      },
+      {
+        category: "quantificadors: some vs any",
+        question: "Completa la frase negativa: 'There aren't ______ beds in the room.'",
+        options: [
+          "any",
+          "some",
+          "much",
+          "a"
+        ],
+        correct: 0,
+        explanation: "En oracions negatives amb plurals s'utilitza 'any'."
+      },
+      {
+        category: "quantificadors: ofertes de cortesia",
+        question: "Quina partícula s'utilitza per oferir alguna cosa amb cortesia? 'Would you like ______ tea?'",
+        options: [
+          "some",
+          "any",
+          "many",
+          "much"
+        ],
+        correct: 0,
+        explanation: "Quan oferim o demanem alguna cosa esperant una resposta afirmativa, utilitzem 'some' en lloc d''any'."
+      },
+      {
+        category: "quantificadors: many",
+        question: "Completa la frase: '______ girls play football in my town.'",
+        options: [
+          "Many",
+          "Much",
+          "Any",
+          "A"
+        ],
+        correct: 0,
+        explanation: "'Girls' és un nom comptable en plural, per tant utilitzem 'Many'."
+      },
+      {
+        category: "interrogatius de quantitat",
+        question: "Com preguntem la quantitat d'habitacions? '______ rooms are there?'",
+        options: [
+          "How many",
+          "How much",
+          "How some",
+          "How any"
+        ],
+        correct: 0,
+        explanation: "'Rooms' és plural comptable, per tant la pregunta correcta és 'How many'."
+      },
+      {
+        category: "preguntar preus",
+        question: "Quina pregunta utilitzem per saber el preu d'un objecte?",
+        options: [
+          "How much is it?",
+          "How many is it?",
+          "How some is it?",
+          "How any is it?"
+        ],
+        correct: 0,
+        explanation: "Per demanar el preu s'utilitza sempre 'How much is it?' amb el verb to be."
+      },
+      {
+        category: "pronoms personals objecte",
+        question: "Completa la frase: 'Pol called me, so I called ______ back.'",
+        options: [
+          "him",
+          "he",
+          "his",
+          "they"
+        ],
+        correct: 0,
+        explanation: "Com que és un noi i fa de complement del verb 'called', utilitzem el pronom objecte 'him'."
+      },
+      {
+        category: "pronoms personals objecte",
+        question: "Completa la frase: 'Our grandparents visited ______ yesterday (a nosaltres).'",
+        options: [
+          "us",
+          "we",
+          "our",
+          "them"
+        ],
+        correct: 0,
+        explanation: "El pronom objecte corresponent a 'we' (nosaltres) és 'us'."
+      },
+      {
+        category: "ordre dels pronoms",
+        question: "Com ordenem complement directe i indirecte? 'Her parents bought ______.'",
+        options: [
+          "it for her",
+          "for her it",
+          "her it",
+          "it she"
+        ],
+        correct: 0,
+        explanation: "L'ordre és complement directe + preposició (for/to) + complement indirecte: 'it for her'."
+      }
+    ];
+
+    let currentQuizIndex = 0;
+    let quizScore = 0;
+    let answeredQuestions = new Set();
+
+    function renderCurrentQuizQuestion() {
+      const q = quizQuestions[currentQuizIndex];
+      document.getElementById('quiz-question-counter').textContent = `Pregunta ${currentQuizIndex + 1} de ${quizQuestions.length}`;
+      document.getElementById('quiz-category').textContent = `Tema: ${q.category}`;
+      document.getElementById('quiz-question-text').textContent = q.question;
+      document.getElementById('quiz-progress-bar').style.width = `${((currentQuizIndex + 1) / quizQuestions.length) * 100}%`;
+
+      const fbBox = document.getElementById('quiz-feedback-box');
+      fbBox.classList.add('hidden');
+      document.getElementById('quiz-next-btn').classList.add('hidden');
+
+      const optionsDiv = document.getElementById('quiz-options-container');
+      optionsDiv.innerHTML = q.options.map((opt, idx) => `
+        <button onclick="handleQuizAnswer(${idx})" id="q-opt-${idx}" class="text-left p-4 rounded-2xl bg-white/10 hover:bg-white/20 border border-white/10 text-xs sm:text-sm font-semibold transition-all flex items-center gap-3">
+          <span class="w-7 h-7 rounded-full bg-white/10 text-white font-mono flex items-center justify-center shrink-0 text-xs font-bold">${String.fromCharCode(65 + idx)}</span>
+          <span>${opt}</span>
+        </button>
+      `).join('');
+    }
+
+    function handleQuizAnswer(selectedIdx) {
+      if (answeredQuestions.has(currentQuizIndex)) return;
+      answeredQuestions.add(currentQuizIndex);
+
+      const q = quizQuestions[currentQuizIndex];
+      const isCorrect = (selectedIdx === q.correct);
+      const fbBox = document.getElementById('quiz-feedback-box');
+      fbBox.classList.remove('hidden');
+
+      if (isCorrect) {
+        quizScore++;
+        document.getElementById('user-score').textContent = quizScore;
+        document.getElementById(`q-opt-${selectedIdx}`).classList.add('bg-emerald-500/40', 'border-emerald-400');
+        fbBox.className = 'p-4 rounded-2xl text-xs sm:text-sm font-medium bg-emerald-500/20 text-emerald-200 border border-emerald-400/40';
+        fbBox.innerHTML = `🎉 <strong>Correcte!</strong> ${q.explanation}`;
+      } else {
+        document.getElementById(`q-opt-${selectedIdx}`).classList.add('bg-rose-500/40', 'border-rose-400');
+        document.getElementById(`q-opt-${q.correct}`).classList.add('bg-emerald-500/40', 'border-emerald-400');
+        fbBox.className = 'p-4 rounded-2xl text-xs sm:text-sm font-medium bg-rose-500/20 text-rose-200 border border-rose-400/40';
+        fbBox.innerHTML = `⚠️ <strong>Repassa:</strong> ${q.explanation}`;
+      }
+
+      document.getElementById('quiz-next-btn').classList.remove('hidden');
+    }
+
+    function nextQuizQuestion() {
+      currentQuizIndex++;
+      if (currentQuizIndex < quizQuestions.length) {
+        renderCurrentQuizQuestion();
+      } else {
+        showFinalQuizResults();
+      }
+    }
+
+    function showFinalQuizResults() {
+      document.getElementById('quiz-active-container').classList.add('hidden');
+      document.getElementById('quiz-results-container').classList.remove('hidden');
+      document.getElementById('quiz-final-score-text').innerHTML = `La teva puntuació: <strong class="text-white text-2xl font-mono">${quizScore} / ${quizQuestions.length}</strong>`;
+
+      const comment = document.getElementById('quiz-evaluation-comment');
+      if (quizScore >= 8) {
+        comment.textContent = "Excel·lent nivell! Domines there is / there are, els quantificadors i els pronoms objecte de la unitat 1.";
+        if (typeof confetti === 'function') {
+          confetti({
+            particleCount: 100,
+            spread: 70,
+            origin: { y: 0.6 }
+          });
+        }
+      } else if (quizScore >= 5) {
+        comment.textContent = "Molt bé! Has superat el test de la unitat 1 amb bona nota. Revisa les bastides de suport i els quantificadors per arribar al 10!";
+      } else {
+        comment.textContent = "Ànims! Pots tornar a mirar els exemples i consultar la fitxa de resum per millorar el teu resultat.";
+      }
+    }
+
+    function restartQuiz() {
+      currentQuizIndex = 0;
+      quizScore = 0;
+      answeredQuestions.clear();
+      document.getElementById('user-score').textContent = '0';
+      document.getElementById('quiz-active-container').classList.remove('hidden');
+      document.getElementById('quiz-results-container').classList.add('hidden');
+      renderCurrentQuizQuestion();
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      renderCountItem();
+      renderThereIsQuiz();
+      renderQuantMatches();
+      renderCurrentQuizQuestion();
+    });
+  </script>
+</body>
+</html>
