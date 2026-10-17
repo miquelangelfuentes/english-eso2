@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="ca" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <title>English 2n d'ESO | Unitat 8: present perfect simple, adverbis temporals i contrast amb past simple</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            display: ['"Outfit"', 'sans-serif'],
+            mono: ['"Fira Code"', 'monospace'],
+          },
+          colors: {
+            brand: {
+              50: '#eef2ff',
+              100: '#e0e7ff',
+              200: '#c7d2fe',
+              500: '#6366f1',
+              600: '#4f46e5',
+              700: '#4338ca',
+              800: '#3730a3',
+              900: '#312e81',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @media print {
+      header, nav, #unit-banner, #scaffolding-tools, .no-print { display: none !important; }
+      body { background: white !important; color: black !important; font-size: 11pt; }
+      .print-card { border: 1px solid #cbd5e1 !important; box-shadow: none !important; page-break-inside: avoid; margin-bottom: 1.5rem !important; }
+    }
+    .badge-pulse { animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+    @keyframes pulse-ring { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: .7; transform: scale(1.05); } }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col font-sans selection:bg-brand-500 selection:text-white">
+
+  <!-- CAPÇALERA -->
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 sm:h-20">
+        <div class="flex items-center gap-3">
+          <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-brand-600 to-indigo-500 text-white flex items-center justify-center font-display font-extrabold text-xl">2E</div>
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="text-xs font-bold uppercase tracking-wider text-brand-600 bg-brand-50 px-2 py-0.5 rounded-full border border-brand-200">Anglès 2n d'ESO</span>
+              <span class="text-xs text-slate-400 hidden sm:inline">- Gramàtica i pràctica</span>
+            </div>
+            <h1 class="text-lg sm:text-xl font-display font-bold text-slate-900 leading-tight">Grammar Lab</h1>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-2 sm:gap-3">
+          <a href="unit7.html" class="flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-semibold rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors border border-slate-200">
+            <i data-lucide="arrow-left" class="w-4 h-4 text-brand-600"></i>
+            <span>Unitat 7</span>
+          </a>
+          <a href="index.html" class="flex items-center gap-1.5 px-3 py-1.5 text-xs sm:text-sm font-semibold rounded-xl bg-brand-50 hover:bg-brand-100 text-brand-700 transition-colors border border-brand-200">
+            <i data-lucide="home" class="w-4 h-4 text-brand-600"></i>
+            <span>Inici (8 unitats)</span>
+          </a>
+          <button onclick="toggleUnitsModal()" class="flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-semibold rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors border border-slate-200">
+            <i data-lucide="layers" class="w-4 h-4 text-brand-600"></i>
+            <span class="hidden md:inline">Temari:</span>
+            <span class="font-bold text-brand-700">unitats 1-8</span>
+          </button>
+          <a href="#practice-section" class="flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-bold rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white">
+            <i data-lucide="play" class="w-3.5 h-3.5 fill-current"></i>
+            <span>Pràctica</span>
+          </a>
+          <button onclick="window.print()" class="p-2 text-slate-500 hover:bg-slate-100 rounded-xl">
+            <i data-lucide="printer" class="w-5 h-5"></i>
+          </button>
+        </div>
+      </div>
+
+      <nav class="flex items-center gap-2 overflow-x-auto py-2 border-t border-slate-100 scrollbar-none text-xs sm:text-sm">
+        <span class="text-slate-400 font-medium whitespace-nowrap pl-1 pr-2 flex items-center gap-1">
+          <i data-lucide="bookmark" class="w-3.5 h-3.5 text-brand-500"></i> Unitat 8:
+        </span>
+        <a href="#overview" class="px-3 py-1 rounded-lg text-slate-600 hover:bg-brand-50 font-medium">Objectius</a>
+        <a href="#present-perfect-section" class="px-3 py-1 rounded-lg text-slate-600 hover:bg-brand-50 font-medium">1. Present perfect</a>
+        <a href="#particles-section" class="px-3 py-1 rounded-lg text-slate-600 hover:bg-brand-50 font-medium">2. Ever, never, just, yet</a>
+        <a href="#for-since-section" class="px-3 py-1 rounded-lg text-slate-600 hover:bg-brand-50 font-medium">3. For vs. since</a>
+        <a href="#contrast-section" class="px-3 py-1 rounded-lg text-slate-600 hover:bg-brand-50 font-medium">4. Contrast past simple</a>
+        <a href="#scaffolding-section" class="px-3 py-1 rounded-lg text-slate-600 hover:bg-brand-50 font-medium">5. Bastides</a>
+        <a href="#practice-section" class="px-3 py-1 rounded-lg bg-brand-50 text-brand-700 font-semibold">6. Pràctica</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- MODAL TEMARI -->
+  <div id="units-modal" class="fixed inset-0 z-50 bg-slate-900/50 backdrop-blur-sm hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-3xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-slate-200 p-6 sm:p-8">
+      <div class="flex items-center justify-between pb-4 border-b border-slate-100">
+        <div>
+          <span class="text-xs uppercase font-extrabold tracking-wider text-brand-600">Pla docent d'anglès de 2n d'ESO</span>
+          <h2 class="text-2xl font-display font-bold text-slate-900">Programa de gramàtica (unitats 1-8)</h2>
+          <p class="text-xs text-slate-500 mt-0.5">Active Minds 2 (Burlington English)</p>
+        </div>
+        <button onclick="toggleUnitsModal()" class="p-2 text-slate-400 hover:bg-slate-100 rounded-full"><i data-lucide="x" class="w-6 h-6"></i></button>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-4">
+        
+        <div class="p-4 rounded-2xl border border-slate-200 bg-slate-50/70 hover:bg-white transition-all">
+          <div class="flex items-center justify-between mb-1">
+            <span class="text-xs font-bold text-slate-500 uppercase tracking-wide">Unitat 1</span>
+            <a href="unit1.html" class="text-[10px] bg-emerald-600 text-white px-2 py-0.5 rounded-full font-bold hover:bg-emerald-700 transition-colors flex items-center gap-1">
+              <span>Obrir</span> ➡️
+            </a>
+          </div>
+          <h3 class="font-bold text-slate-800 text-sm capitalize-first">there is / there are, quantificadors i pronoms objecte</h3>
+          <p class="text-xs text-slate-500 mt-1">Noms comptables i no comptables, articles (the, a/an), quantificadors (some, any, much, many, how much, how many) i pronoms personals objecte.</p>
+        </div>
+
+        <div class="p-4 rounded-2xl border border-slate-200 bg-slate-50/70 hover:bg-white transition-all">
+          <div class="flex items-center justify-between mb-1">
+            <span class="text-xs font-bold text-slate-500 uppercase tracking-wide">Unitat 2</span>
+            <a href="unit2.html" class="text-[10px] bg-emerald-600 text-white px-2 py-0.5 rounded-full font-bold hover:bg-emerald-700 transition-colors flex items-center gap-1">
+              <span>Obrir</span> ➡️
+            </a>
+          </div>
+          <h3 class="font-bold text-slate-800 text-sm capitalize-first">contrast de presents, verbs estàtics i tag questions</h3>
+          <p class="text-xs text-slate-500 mt-1">Contrast present simple vs. present continuous (rutines vs. ara mateix), verbs que no accepten -ing (stative verbs) i preguntes confirmatòries (tag questions).</p>
+        </div>
+
+        <div class="p-4 rounded-2xl border border-slate-200 bg-slate-50/70 hover:bg-white transition-all">
+          <div class="flex items-center justify-between mb-1">
+            <span class="text-xs font-bold text-slate-500 uppercase tracking-wide">Unitat 3</span>
+            <a href="unit3.html" class="text-[10px] bg-emerald-600 text-white px-2 py-0.5 rounded-full font-bold hover:bg-emerald-700 transition-colors flex items-center gap-1">
+              <span>Obrir</span> ➡️
+            </a>
+          </div>
+          <h3 class="font-bold text-slate-800 text-sm capitalize-first">past simple, there was / there were i used to</h3>
+          <p class="text-xs text-slate-500 mt-1">Formes regulars (-ed) i irregulars en passat simple, regles ortogràfiques, expressions temporals (yesterday, last, ago), there was / there were i hàbits passats amb used to.</p>
+        </div>
+
+        <div class="p-4 rounded-2xl border border-slate-200 bg-slate-50/70 hover:bg-white transition-all">
+          <div class="flex items-center justify-between mb-1">
+            <span class="text-xs font-bold text-slate-500 uppercase tracking-wide">Unitat 4</span>
+            <a href="unit4.html" class="text-[10px] bg-emerald-600 text-white px-2 py-0.5 rounded-full font-bold hover:bg-emerald-700 transition-colors flex items-center gap-1">
+              <span>Obrir</span> ➡️
+            </a>
+          </div>
+          <h3 class="font-bold text-slate-800 text-sm capitalize-first">comparatius, superlatius, (not) as... as i too / enough</h3>
+          <p class="text-xs text-slate-500 mt-1">Adjectius comparatius (-er / more... than, less... than), el comparatiu d'igualtat (not) as... as, les estructures too / (not) enough i la forma superlativa.</p>
+        </div>
+
+        <div class="p-4 rounded-2xl border border-slate-200 bg-slate-50/70 hover:bg-white transition-all">
+          <div class="flex items-center justify-between mb-1">
+            <span class="text-xs font-bold text-slate-500 uppercase tracking-wide">Unitat 5</span>
+            <a href="unit5.html" class="text-[10px] bg-emerald-600 text-white px-2 py-0.5 rounded-full font-bold hover:bg-emerald-700 transition-colors flex items-center gap-1">
+              <span>Obrir</span> ➡️
+            </a>
+          </div>
+          <h3 class="font-bold text-slate-800 text-sm capitalize-first">verbs modals: can, could, must, should, have to i need to</h3>
+          <p class="text-xs text-slate-500 mt-1">Habilitat i permís amb can i could, obligació forta amb must, prohibició amb mustn't, consells amb should, i absència d'obligació amb don't have to.</p>
+        </div>
+
+        <div class="p-4 rounded-2xl border border-slate-200 bg-slate-50/70 hover:bg-white transition-all">
+          <div class="flex items-center justify-between mb-1">
+            <span class="text-xs font-bold text-slate-500 uppercase tracking-wide">Unitat 6</span>
+            <a href="unit6.html" class="text-[10px] bg-emerald-600 text-white px-2 py-0.5 rounded-full font-bold hover:bg-emerald-700 transition-colors flex items-center gap-1">
+              <span>Obrir</span> ➡️
+            </a>
+          </div>
+          <h3 class="font-bold text-slate-800 text-sm capitalize-first">past continuous i contrast amb el past simple</h3>
+          <p class="text-xs text-slate-500 mt-1">El passat continu (was / were + -ing, accions simultànies amb while / as) i el contrast past continuous vs. past simple amb els connectors when i while.</p>
+        </div>
+
+        <div class="p-4 rounded-2xl border border-slate-200 bg-slate-50/70 hover:bg-white transition-all">
+          <div class="flex items-center justify-between mb-1">
+            <span class="text-xs font-bold text-slate-500 uppercase tracking-wide">Unitat 7</span>
+            <a href="unit7.html" class="text-[10px] bg-emerald-600 text-white px-2 py-0.5 rounded-full font-bold hover:bg-emerald-700 transition-colors flex items-center gap-1">
+              <span>Obrir</span> ➡️
+            </a>
+          </div>
+          <h3 class="font-bold text-slate-800 text-sm capitalize-first">el futur (be going to, present continuous, will) i el primer condicional</h3>
+          <p class="text-xs text-slate-500 mt-1">Plans i intencions amb be going to, cites acordades amb present continuous, futur espontani amb will, i el primer condicional amb if i unless.</p>
+        </div>
+
+        <div class="p-4 rounded-2xl border-2 border-brand-500 bg-brand-50/60 relative overflow-hidden shadow-sm">
+          <div class="flex items-center justify-between mb-1">
+            <span class="text-xs font-bold text-brand-700 uppercase tracking-wide">Unitat 8</span>
+            <span class="text-[10px] bg-brand-600 text-white px-2 py-0.5 rounded-full font-extrabold tracking-wide flex items-center gap-1">
+              <span class="w-1.5 h-1.5 rounded-full bg-white badge-pulse"></span> Activa ara
+            </span>
+          </div>
+          <h3 class="font-bold text-brand-900 text-sm capitalize-first">present perfect simple, adverbis temporals i contrast amb past simple</h3>
+          <p class="text-xs text-brand-800 mt-1">El present perfect simple (have/has + participi), partícules temporals (ever, never, already, just, yet, recently, so far), for / since i contrast amb el passat simple.</p>
+        </div>
+      </div>
+      <div class="mt-6 pt-4 border-t border-slate-100 flex justify-end">
+        <button onclick="toggleUnitsModal()" class="px-5 py-2 rounded-xl bg-brand-600 text-white font-semibold text-sm">Tancar</button>
+      </div>
+    </div>
+  </div>
+
+  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 space-y-12">
+    <!-- BANNER -->
+    <section id="overview" class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-indigo-900 via-brand-800 to-indigo-950 text-white p-6 sm:p-10 shadow-xl">
+      <div class="relative z-10 max-w-3xl">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-brand-200 text-xs font-bold mb-4 border border-white/10">
+          <i data-lucide="sparkles" class="w-3.5 h-3.5 text-amber-300"></i> Unitat 8 - Gran cloenda del curs
+        </div>
+        <h2 class="text-2xl sm:text-4xl font-display font-extrabold text-white mb-4">
+          Present perfect simple, partícules temporals i contrast amb el past simple
+        </h2>
+        <p class="text-indigo-100 text-sm sm:text-base leading-relaxed mb-6">
+          Comunica les teves experiències personals (<em>have you ever...?</em>), accions que tot just acaben de passar (<em>just</em>) o accions que connecten el passat amb el present. Domina les partícules <em>already, yet, for, since</em> i aprèn quan cal usar el past simple i quan el present perfect.
+        </p>
+      </div>
+    </section>
+
+    <!-- SECCIÓ 1: PRESENT PERFECT -->
+    <section id="present-perfect-section" class="scroll-mt-24 space-y-6">
+      <div class="border-b border-slate-200 pb-3">
+        <span class="text-xs font-bold uppercase tracking-wider text-brand-600 bg-brand-50 px-2.5 py-1 rounded-md border border-brand-200">Part 1</span>
+        <h2 class="text-2xl sm:text-3xl font-display font-bold text-slate-900 mt-1">El present perfect simple (have / has + participi)</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-white rounded-3xl border border-slate-200 p-6 shadow-sm space-y-3">
+          <h3 class="font-display font-bold text-lg text-slate-900">Estructura bàsica</h3>
+          <p class="text-xs text-slate-600">Fórmula: <strong>have / has + participi de passat (3a columna o -ed)</strong>:</p>
+          <ul class="text-xs text-slate-600 space-y-1 font-mono">
+            <li>- I / you / we / they <strong>have seen</strong> (I've seen).</li>
+            <li>- He / she / it <strong>has seen</strong> (He's seen).</li>
+            <li>- Negativa: <strong>haven't / hasn't</strong> + participi.</li>
+            <li>- Pregunta: <strong>Have / Has</strong> + subjecte + participi?</li>
+          </ul>
+          <div class="p-3 bg-slate-50 rounded-xl text-xs font-medium text-slate-800 flex justify-between items-center">
+            <span>"I have visited London three times in my life."</span>
+            <button onclick="speakText('I have visited London three times in my life.')" class="p-1 rounded bg-brand-600 text-white"><i data-lucide="volume-2" class="w-3.5 h-3.5"></i></button>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-3xl border border-slate-200 p-6 shadow-sm space-y-3">
+          <h3 class="font-display font-bold text-lg text-slate-900">Quan s'utilitza?</h3>
+          <ul class="text-xs text-slate-600 space-y-2">
+            <li class="p-2.5 bg-slate-50 rounded-xl">
+              1. <strong>Experiències vitals:</strong> coses que has fet o no has fet a la vida sense importar quan (<em>I have tried sushi</em>).
+            </li>
+            <li class="p-2.5 bg-slate-50 rounded-xl">
+              2. <strong>Resultat en el present:</strong> <em>"I have lost my keys"</em> (per tant ara no puc entrar a casa).
+            </li>
+            <li class="p-2.5 bg-slate-50 rounded-xl">
+              3. <strong>Accions continuades:</strong> van començar en el passat i continuen actives (<em>She has lived here for 5 years</em>).
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓ 2: PARTÍCULES TEMPORALS -->
+    <section id="particles-section" class="scroll-mt-24 space-y-6">
+      <div class="border-b border-slate-200 pb-3">
+        <span class="text-xs font-bold uppercase tracking-wider text-brand-600 bg-brand-50 px-2.5 py-1 rounded-md border border-brand-200">Part 2</span>
+        <h2 class="text-2xl sm:text-3xl font-display font-bold text-slate-900 mt-1">Partícules temporals: ever, never, already, just, yet</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="bg-white p-5 rounded-3xl border border-slate-200 shadow-sm space-y-2 text-xs">
+          <span class="font-bold text-indigo-700 bg-indigo-50 px-2 py-0.5 rounded-full border border-indigo-200">Preguntes</span>
+          <h3 class="font-bold text-slate-900 text-sm">Ever ("alguna vegada?")</h3>
+          <p class="text-slate-600">"Have you <strong>ever</strong> eaten insects?"</p>
+          <hr class="border-slate-100 my-2">
+          <span class="font-bold text-rose-700 bg-rose-50 px-2 py-0.5 rounded-full border border-rose-200">Afirmativa amb valor negatiu</span>
+          <h3 class="font-bold text-slate-900 text-sm">Never ("mai")</h3>
+          <p class="text-slate-600">"I have <strong>never</strong> seen a ghost."</p>
+        </div>
+
+        <div class="bg-white p-5 rounded-3xl border border-slate-200 shadow-sm space-y-2 text-xs">
+          <span class="font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">Abans d'hora</span>
+          <h3 class="font-bold text-slate-900 text-sm">Already ("ja")</h3>
+          <p class="text-slate-600">"I have <strong>already</strong> done my homework." (va al mig, entre have i el participi).</p>
+          <hr class="border-slate-100 my-2">
+          <span class="font-bold text-amber-700 bg-amber-50 px-2 py-0.5 rounded-full border border-amber-200">Fa molt pocs segons</span>
+          <h3 class="font-bold text-slate-900 text-sm">Just ("tot just / fa un instant")</h3>
+          <p class="text-slate-600">"The train has <strong>just</strong> arrived."</p>
+        </div>
+
+        <div class="bg-white p-5 rounded-3xl border border-slate-200 shadow-sm space-y-2 text-xs">
+          <span class="font-bold text-sky-700 bg-sky-50 px-2 py-0.5 rounded-full border border-sky-200">Al final de la frase</span>
+          <h3 class="font-bold text-slate-900 text-sm">Yet ("encara no / ja?")</h3>
+          <p class="text-slate-600">S'utilitza només en negatives (-) i preguntes (?), i va <strong>SEMPRE al final</strong>:</p>
+          <ul class="space-y-1 font-mono text-[11px] pt-1">
+            <li>- I haven't finished <strong>yet</strong>.</li>
+            <li>- Have you seen it <strong>yet</strong>?</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓ 3: FOR VS SINCE -->
+    <section id="for-since-section" class="scroll-mt-24 space-y-6">
+      <div class="border-b border-slate-200 pb-3">
+        <span class="text-xs font-bold uppercase tracking-wider text-brand-600 bg-brand-50 px-2.5 py-1 rounded-md border border-brand-200">Part 3</span>
+        <h2 class="text-2xl sm:text-3xl font-display font-bold text-slate-900 mt-1">For vs. since (durada i punt de partida)</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm space-y-2">
+          <h3 class="font-bold text-slate-900 text-base">For + període de durada ("durant / fa...")</h3>
+          <p class="text-xs text-slate-600">Compta la quantitat de temps transcorregut:</p>
+          <div class="p-3 bg-slate-50 rounded-xl text-xs font-mono text-slate-800">
+            - for two hours (durant 2 hores)<br>
+            - for three days (fa 3 dies)<br>
+            - for ten years (durant 10 anys)
+          </div>
+        </div>
+
+        <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm space-y-2">
+          <h3 class="font-bold text-slate-900 text-base">Since + punt exacte d'inici ("des de...")</h3>
+          <p class="text-xs text-slate-600">Indica el moment precís en què va arrencar:</p>
+          <div class="p-3 bg-slate-50 rounded-xl text-xs font-mono text-slate-800">
+            - since 2018 (des del 2018)<br>
+            - since Monday (des de dilluns)<br>
+            - since 9 o'clock (des de les 9 en punt)
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓ 4: CONTRAST AMB PAST SIMPLE -->
+    <section id="contrast-section" class="scroll-mt-24 space-y-6">
+      <div class="border-b border-slate-200 pb-3">
+        <span class="text-xs font-bold uppercase tracking-wider text-brand-600 bg-brand-50 px-2.5 py-1 rounded-md border border-brand-200">Part 4</span>
+        <h2 class="text-2xl sm:text-3xl font-display font-bold text-slate-900 mt-1">Contrast: present perfect vs. past simple (i been vs. gone)</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm space-y-3">
+          <h3 class="font-bold text-slate-900 text-base">Past simple vs. present perfect</h3>
+          <ul class="text-xs text-slate-600 space-y-2">
+            <li class="p-2.5 bg-slate-50 rounded-xl">
+              <strong>Past simple (temps acabat):</strong> porta data concreta: <em>yesterday, in 2021, two days ago</em>.<br>
+              <em>"I went to Paris in 2020."</em>
+            </li>
+            <li class="p-2.5 bg-slate-50 rounded-xl">
+              <strong>Present perfect (temps obert):</strong> sense moment exacte: <em>ever, never, so far</em>.<br>
+              <em>"I have been to Paris twice."</em>
+            </li>
+          </ul>
+        </div>
+
+        <div class="bg-white p-6 rounded-3xl border border-amber-200 bg-amber-50/50 shadow-sm space-y-3">
+          <h3 class="font-bold text-amber-900 text-base">⚠️ Been to vs. gone to</h3>
+          <p class="text-xs text-amber-800 leading-relaxed">
+            - <strong>She has gone to Rome:</strong> Ha marxat a Roma i <em>encara és allà</em>.<br>
+            - <strong>She has been to Rome:</strong> Ha visitat Roma però <em>ja ha tornat</em> a casa.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- BASTIDES I ERRORS -->
+    <section id="scaffolding-section" class="scroll-mt-24 space-y-6">
+      <div class="border-b border-slate-200 pb-3">
+        <span class="text-xs font-bold uppercase tracking-wider text-brand-600 bg-brand-50 px-2.5 py-1 rounded-md border border-brand-200">Bastides i suport</span>
+        <h2 class="text-2xl sm:text-3xl font-display font-bold text-slate-900 mt-1">L'arbre de decisió final</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="bg-white p-5 rounded-3xl border-2 border-brand-100 shadow-sm space-y-2">
+          <div class="w-8 h-8 rounded-full bg-brand-600 text-white font-bold flex items-center justify-center text-sm">1</div>
+          <h3 class="font-bold text-slate-900 text-sm">Pas 1: hi ha una data tancada?</h3>
+          <p class="text-xs text-slate-600">Si veus <em>yesterday, last, in 2019</em> ➡️ Past simple! Si és una experiència sense data ➡️ Present perfect.</p>
+        </div>
+        <div class="bg-white p-5 rounded-3xl border-2 border-brand-100 shadow-sm space-y-2">
+          <div class="w-8 h-8 rounded-full bg-brand-600 text-white font-bold flex items-center justify-center text-sm">2</div>
+          <h3 class="font-bold text-slate-900 text-sm">Pas 2: durada o inici?</h3>
+          <p class="text-xs text-slate-600">Quantitat d'hores/anys ➡️ <strong>for</strong>. Moment precís en què comença ➡️ <strong>since</strong>.</p>
+        </div>
+        <div class="bg-white p-5 rounded-3xl border-2 border-brand-100 shadow-sm space-y-2">
+          <div class="w-8 h-8 rounded-full bg-brand-600 text-white font-bold flex items-center justify-center text-sm">3</div>
+          <h3 class="font-bold text-slate-900 text-sm">Pas 3: 3a columna del verb</h3>
+          <p class="text-xs text-slate-600">Recorda que el present perfect necessita el <em>past participle</em> (3a columna, com <em>seen, eaten, written</em>).</p>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-3xl border border-rose-200 p-6 shadow-sm space-y-4">
+        <div class="flex items-center gap-2 text-rose-700 font-display font-bold text-lg">
+          <i data-lucide="shield-alert" class="w-5 h-5"></i> Detectiu d'errors comuns a la unitat 8
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+          <div class="p-4 bg-rose-50/50 rounded-2xl border border-rose-100 space-y-1.5">
+            <span class="font-bold text-rose-800">❌ Error 1: present perfect amb dates passades</span>
+            <p class="text-slate-600"><em>"I have seen him yesterday"</em> ❌.</p>
+            <p class="font-bold text-emerald-800">✅ Correcte: <em>"I saw him yesterday"</em>.</p>
+          </div>
+          <div class="p-4 bg-rose-50/50 rounded-2xl border border-rose-100 space-y-1.5">
+            <span class="font-bold text-rose-800">❌ Error 2: usar la 2a columna en lloc de la 3a</span>
+            <p class="text-slate-600"><em>"I have went to London"</em> ❌.</p>
+            <p class="font-bold text-emerald-800">✅ Correcte: <em>"I have gone"</em> o <em>"I have been"</em>.</p>
+          </div>
+          <div class="p-4 bg-rose-50/50 rounded-2xl border border-rose-100 space-y-1.5">
+            <span class="font-bold text-rose-800">❌ Error 3: posició de yet</span>
+            <p class="text-slate-600"><em>"I haven't yet finished"</em> ❌.</p>
+            <p class="font-bold text-emerald-800">✅ Correcte: <em>"I haven't finished yet"</em>.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ZONA DE PRÀCTICA -->
+    <section id="practice-section" class="scroll-mt-24 space-y-8">
+      <div class="border-b border-slate-200 pb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-md border border-emerald-200">Zona interactiva</span>
+          <h2 class="text-2xl sm:text-3xl font-display font-bold text-slate-900 mt-1">Pràctica i reptes d'autoavaluació</h2>
+        </div>
+        <span class="px-3 py-1 rounded-xl bg-slate-100 text-slate-700 text-xs font-bold font-mono">Puntuació: <span id="user-score" class="text-brand-600">0</span> / 10</span>
+      </div>
+
+      <!-- Activitat 1: Classificador For vs Since -->
+      <div class="bg-white rounded-3xl border border-slate-200 p-6 shadow-sm space-y-4">
+        <h3 class="font-display font-bold text-lg text-slate-900">Activitat 1 - Cal utilitzar for o since?</h3>
+        <div id="sort-container" class="space-y-4">
+          <div class="p-6 bg-slate-50 border-2 border-dashed border-slate-300 rounded-2xl text-center space-y-2">
+            <span id="sort-step" class="text-xs font-bold text-slate-400">Expressió 1 de 5</span>
+            <p id="sort-word" class="text-xl font-bold text-slate-900 font-display">Carregant...</p>
+          </div>
+          <div class="grid grid-cols-2 gap-4">
+            <button onclick="answerForSince('for')" class="p-4 rounded-2xl border-2 border-indigo-200 bg-indigo-50 text-indigo-900 font-bold text-sm">For (durada de temps)</button>
+            <button onclick="answerForSince('since')" class="p-4 rounded-2xl border-2 border-emerald-200 bg-emerald-50 text-emerald-900 font-bold text-sm">Since (punt d'inici)</button>
+          </div>
+          <div id="sort-feedback" class="hidden p-4 rounded-2xl text-xs font-medium"></div>
+        </div>
+      </div>
+
+      <!-- Activitat 2: Repte Partícules -->
+      <div class="bg-white rounded-3xl border border-slate-200 p-6 shadow-sm space-y-4">
+        <h3 class="font-display font-bold text-lg text-slate-900">Activitat 2 - Tria la partícula temporal</h3>
+        <div id="particles-grid" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+      </div>
+
+      <!-- Activitat 3: Past simple vs Present perfect -->
+      <div class="bg-white rounded-3xl border border-slate-200 p-6 shadow-sm space-y-4">
+        <h3 class="font-display font-bold text-lg text-slate-900">Activitat 3 - Past simple o present perfect?</h3>
+        <div id="contrast-grid" class="space-y-3"></div>
+      </div>
+
+      <!-- Activitat 4: Gran repte -->
+      <div class="bg-slate-900 text-white rounded-3xl p-6 sm:p-10 shadow-xl space-y-6">
+        <div class="flex items-center justify-between border-b border-slate-800 pb-4">
+          <h3 class="text-xl font-display font-bold text-white">El gran repte de la unitat 8 (final del curs)</h3>
+          <span id="quiz-question-counter" class="text-xs font-mono text-slate-400">Pregunta 1 de 10</span>
+        </div>
+        <div id="quiz-body" class="space-y-6">
+          <div class="space-y-1">
+            <span id="quiz-category" class="text-xs font-bold text-brand-400">Tema</span>
+            <p id="quiz-question-text" class="text-base sm:text-lg font-semibold text-slate-100">Carregant...</p>
+          </div>
+          <div id="quiz-options-container" class="grid grid-cols-1 sm:grid-cols-2 gap-3"></div>
+          <div id="quiz-feedback-box" class="hidden p-4 rounded-2xl text-xs font-medium"></div>
+          <div class="flex justify-end">
+            <button id="quiz-next-btn" onclick="nextQuizQuestion()" class="hidden px-5 py-2.5 rounded-xl bg-brand-600 text-white font-bold text-xs">Següent</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FITXES IMPRIMIBLES -->
+    <section class="print-card bg-white rounded-3xl border border-slate-200 p-6 space-y-4 text-xs text-slate-700">
+      <div class="flex items-center justify-between border-b border-slate-200 pb-3">
+        <h3 class="font-display font-bold text-base text-slate-900">Resum de la unitat 8 per a 2n d'ESO</h3>
+        <button onclick="window.print()" class="no-print px-3 py-1.5 bg-slate-100 rounded-xl font-bold">Imprimeix</button>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="p-3 bg-slate-50 rounded-xl">
+          <strong>Present perfect:</strong><br>
+          - have/has + past participle (3a col)<br>
+          - Experiències sense data<br>
+          - I have seen / She has worked
+        </div>
+        <div class="p-3 bg-slate-50 rounded-xl">
+          <strong>Partícules:</strong><br>
+          - ever (?): Have you ever?<br>
+          - never (+): I have never<br>
+          - already (ja) / just (tot just)<br>
+          - yet: al final en (-) i (?)
+        </div>
+        <div class="p-3 bg-slate-50 rounded-xl">
+          <strong>For / since i contrast:</strong><br>
+          - for: durada (for 3 days)<br>
+          - since: inici (since 2020)<br>
+          - past simple: si té data tancada!
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-white border-t border-slate-200 mt-16 py-8 text-center text-xs text-slate-500">
+    English 2n d'ESO - Departament de Llengües Estrangeres - Unitat 8 (Curs completat)
+  </footer>
+
+  <script>
+    lucide.createIcons();
+    function speakText(t) {
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const u = new SpeechSynthesisUtterance(t);
+        u.lang = 'en-GB';
+        window.speechSynthesis.speak(u);
+      }
+    }
+    function toggleUnitsModal() { document.getElementById('units-modal').classList.toggle('hidden'); }
+
+    const fsItems = [
+      { text: "three years", type: "for", exp: "Correcte! És una quantitat de temps ➡️ for." },
+      { text: "2019", type: "since", exp: "Molt bé! És l'any concret d'inici ➡️ since." },
+      { text: "two hours", type: "for", exp: "Exacte! Indica durada ➡️ for." },
+      { text: "last Monday", type: "since", exp: "Correcte! És el dia precís en què comença ➡️ since." },
+      { text: "a long time", type: "for", exp: "Molt bé! Expressa un període ➡️ for a long time." }
+    ];
+    let curFS = 0;
+    function renderFS() {
+      if (curFS >= fsItems.length) {
+        document.getElementById('sort-container').innerHTML = `<div class="p-4 bg-emerald-50 text-emerald-900 rounded-xl text-center font-bold">🎉 Molt bona feina! Has completat l'activitat 1.</div>`;
+        return;
+      }
+      document.getElementById('sort-step').textContent = `Expressió ${curFS+1} de ${fsItems.length}`;
+      document.getElementById('sort-word').textContent = fsItems[curFS].text;
+      document.getElementById('sort-feedback').className = 'hidden';
+    }
+    function answerForSince(t) {
+      const item = fsItems[curFS];
+      const fb = document.getElementById('sort-feedback');
+      fb.classList.remove('hidden');
+      if (t === item.type) {
+        fb.className = 'p-3 rounded-xl bg-emerald-100 text-emerald-900 font-bold';
+        fb.innerHTML = `✅ ${item.exp}`;
+        setTimeout(() => { curFS++; renderFS(); }, 1300);
+      } else {
+        fb.className = 'p-3 rounded-xl bg-rose-100 text-rose-900 font-bold';
+        fb.innerHTML = `❌ És una quantitat de temps (for) o un moment de partida (since)?`;
+      }
+    }
+
+    const particlesQuestions = [
+      { q: "Have you ______ been to New York?", opts: ["ever", "never"], c: 0, exp: "Correcte! 'Ever' s'utilitza a les preguntes d'experiències." },
+      { q: "I have ______ eaten octopus. I don't like it.", opts: ["never", "ever"], c: 0, exp: "Exacte! 'Never' dóna sentit negatiu a l'oració afirmativa." },
+      { q: "She has ______ arrived. Look, her bag is still here!", opts: ["just", "yet"], c: 0, exp: "Molt bé! 'Just' expressa que ha passat tot just fa un instant." },
+      { q: "I haven't done my homework ______.", opts: ["yet", "already"], c: 0, exp: "Correcte! 'Yet' va sempre al final de les negatives (encara no)." }
+    ];
+    function renderParticles() {
+      const c = document.getElementById('particles-grid');
+      c.innerHTML = particlesQuestions.map((q, idx) => `
+        <div class="p-4 bg-slate-50 border border-slate-200 rounded-2xl space-y-2">
+          <p class="font-bold text-xs text-slate-800">${q.q}</p>
+          <div class="flex gap-2">
+            ${q.opts.map((opt, oIdx) => `<button onclick="checkPart(${idx}, ${oIdx})" class="px-3 py-1 bg-white border border-slate-300 rounded-lg text-xs font-bold">${opt}</button>`).join('')}
+          </div>
+          <div id="part-fb-${idx}" class="hidden text-xs p-2 rounded-lg"></div>
+        </div>
+      `).join('');
+    }
+    function checkPart(idx, oIdx) {
+      const q = particlesQuestions[idx];
+      const fb = document.getElementById(`part-fb-${idx}`);
+      fb.classList.remove('hidden');
+      if (oIdx === q.c) {
+        fb.className = 'text-xs p-2 rounded-lg bg-emerald-100 text-emerald-900 font-bold';
+        fb.innerHTML = `✅ ${q.exp}`;
+      } else {
+        fb.className = 'text-xs p-2 rounded-lg bg-rose-100 text-rose-900 font-bold';
+        fb.innerHTML = `❌ Revisa la posició i el tipus d'oració (+, -, ?)!`;
+      }
+    }
+
+    const contrastQuestions = [
+      { s: "I ______ (visit) Rome in 2021.", opts: ["visited", "have visited"], c: 0 },
+      { s: "She ______ (never see) a lion.", opts: ["has never seen", "never saw"], c: 0 }
+    ];
+    function renderContrast() {
+      const c = document.getElementById('contrast-grid');
+      c.innerHTML = contrastQuestions.map((q, idx) => `
+        <div class="p-3 bg-slate-50 border border-slate-200 rounded-xl flex items-center justify-between text-xs">
+          <span id="cont-s-${idx}" class="font-semibold">${q.s}</span>
+          <div class="flex gap-2">
+            ${q.opts.map((opt, oIdx) => `<button onclick="checkCont(${idx}, ${oIdx})" class="px-2 py-1 bg-white border rounded font-bold">${opt}</button>`).join('')}
+          </div>
+        </div>
+      `).join('');
+    }
+    function checkCont(idx, oIdx) {
+      const q = contrastQuestions[idx];
+      const p = document.getElementById(`cont-s-${idx}`);
+      if (oIdx === q.c) p.innerHTML = q.s.replace('______', `<strong class="text-emerald-700 font-bold">${q.opts[oIdx]} ✅</strong>`);
+      else p.innerHTML = q.s.replace('______', `<strong class="text-rose-700 font-bold">${q.opts[oIdx]} ❌</strong>`);
+    }
+
+    const quizQuestions = [
+      { category: "present perfect forma", question: "Com es conjuga 'he' en present perfect del verb 'see'?", options: ["He has seen", "He have seen", "He has saw", "He is seen"], correct: 0, explanation: "Amb he/she/it s'usa 'has' + la 3a columna (participi): 'seen'." },
+      { category: "present perfect negativa", question: "Quina és la forma negativa per a 'we'?", options: ["We haven't finished.", "We hasn't finished.", "We haven't finish.", "We didn't finished."], correct: 0, explanation: "Amb 'we' s'utilitza 'haven't' + participi acabat en -ed." },
+      { category: "partícula ever", question: "Com preguntem si algú ha menjat alguna vegada paella?", options: ["Have you ever eaten paella?", "Did you ever eaten paella?", "Have you never eat paella?", "Were you ever eaten paella?"], correct: 0, explanation: "'Ever' és la partícula per a preguntes d'experiència en present perfect." },
+      { category: "partícula never", question: "Quina frase és correcta amb 'never'?", options: ["I have never visited London.", "I haven't never visited London.", "I have never visit London.", "I never have visited not London."], correct: 0, explanation: "Never ja dóna sentit negatiu, per tant el verb va en afirmativa: 'have never visited'." },
+      { category: "partícula already", question: "On se situa normalment 'already'?", options: ["Entre have/has i el participi: 'have already done'", "Al final de tot", "Davant de tot", "Darrere de l'objecte"], correct: 0, explanation: "'Already' s'ubica habitualment entre l'auxiliar have/has i el participi." },
+      { category: "partícula yet", question: "Quina frase utilitza 'yet' correctament?", options: ["She hasn't called me yet.", "She yet hasn't called me.", "She hasn't yet called me.", "She has yet called me."], correct: 0, explanation: "'Yet' va obligatòriament al final de les frases negatives i preguntes." },
+      { category: "for de durada", question: "Completa la frase: 'I have lived here ______ five years.'", options: ["for", "since", "ago", "from"], correct: 0, explanation: "Cinc anys és un període de temps calculat, per tant s'usa 'for'." },
+      { category: "since d'inici", question: "Completa la frase: 'They have been friends ______ 2015.'", options: ["since", "for", "ago", "until"], correct: 0, explanation: "2015 és un any precís d'inici, per tant s'utilitza 'since'." },
+      { category: "contrast amb past simple", question: "Per què diem 'I bought a bike yesterday' i no 'I have bought'?", options: ["Perquè 'yesterday' és una data concreta i tancada del passat", "Perquè el verb buy és irregular", "Perquè és una pregunta", "Perquè falta la paraula yet"], correct: 0, explanation: "El past simple és obligatori quan s'indica el moment concret (yesterday, last, ago)." },
+      { category: "been to vs gone to", question: "Si la teva mare ha anat a Londres i ja ha tornat a casa, què dius?", options: ["She has been to London.", "She has gone to London.", "She is went to London.", "She was gone to London."], correct: 0, explanation: "'Been to' indica que ha anat i ja ha tornat." }
+    ];
+
+    let currentQuizIndex = 0;
+    let quizScore = 0;
+    let answered = new Set();
+    function renderCurrentQuizQuestion() {
+      const q = quizQuestions[currentQuizIndex];
+      document.getElementById('quiz-question-counter').textContent = `Pregunta ${currentQuizIndex + 1} de ${quizQuestions.length}`;
+      document.getElementById('quiz-category').textContent = `Tema: ${q.category}`;
+      document.getElementById('quiz-question-text').textContent = q.question;
+      document.getElementById('quiz-feedback-box').className = 'hidden';
+      document.getElementById('quiz-next-btn').className = 'hidden';
+      document.getElementById('quiz-options-container').innerHTML = q.options.map((opt, idx) => `
+        <button onclick="handleQuizAnswer(${idx})" id="q-opt-${idx}" class="text-left p-3.5 rounded-xl bg-white/10 hover:bg-white/20 border border-white/10 text-xs font-semibold">
+          ${String.fromCharCode(65 + idx)}) ${opt}
+        </button>
+      `).join('');
+    }
+    function handleQuizAnswer(idx) {
+      if (answered.has(currentQuizIndex)) return;
+      answered.add(currentQuizIndex);
+      const q = quizQuestions[currentQuizIndex];
+      const isCorrect = idx === q.correct;
+      const fb = document.getElementById('quiz-feedback-box');
+      fb.classList.remove('hidden');
+      if (isCorrect) {
+        quizScore++;
+        document.getElementById('user-score').textContent = quizScore;
+        fb.className = 'p-3 rounded-xl bg-emerald-950/80 border border-emerald-500/50 text-emerald-200 text-xs font-semibold';
+        fb.innerHTML = `🎉 ${q.explanation}`;
+      } else {
+        fb.className = 'p-3 rounded-xl bg-rose-950/80 border border-rose-500/50 text-rose-200 text-xs font-semibold';
+        fb.innerHTML = `⚠️ ${q.explanation}`;
+      }
+      document.getElementById('quiz-next-btn').classList.remove('hidden');
+    }
+    function nextQuizQuestion() {
+      if (currentQuizIndex < quizQuestions.length - 1) {
+        currentQuizIndex++;
+        renderCurrentQuizQuestion();
+      } else {
+        if (typeof confetti === 'function') confetti({ particleCount: 150, spread: 80 });
+        document.getElementById('quiz-body').innerHTML = `
+          <div class="text-center py-6 space-y-3">
+            <div class="text-5xl">🎓 🏆</div>
+            <h4 class="text-2xl font-bold">Enhorabona! Has completat tot el curs d'anglès de 2n d'ESO!</h4>
+            <p class="text-sm text-slate-300">Puntuació a la unitat 8: <strong class="text-brand-400 font-mono">${quizScore} / 10</strong></p>
+            <p class="text-xs text-emerald-400">Has superat les 8 unitats de gramàtica d'Active Minds 2.</p>
+            <a href="index.html" class="inline-block px-5 py-2.5 bg-brand-600 text-white rounded-xl font-bold text-xs mt-2">Tornar al portal principal 🏠</a>
+          </div>
+        `;
+      }
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      renderFS();
+      renderParticles();
+      renderContrast();
+      renderCurrentQuizQuestion();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="ca" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <title>English 2n d'ESO | Unitat 4: comparatius, superlatius, (not) as... as i too / enough</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            display: ['"Outfit"', 'sans-serif'],
+            mono: ['"Fira Code"', 'monospace'],
+          },
+          colors: {
+            brand: {
+              50: '#eef2ff',
+              100: '#e0e7ff',
+              200: '#c7d2fe',
+              500: '#6366f1',
+              600: '#4f46e5',
+              700: '#4338ca',
+              800: '#3730a3',
+              900: '#312e81',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @media print {
+      header, nav, #unit-banner, #scaffolding-tools, .no-print { display: none !important; }
+      body { background: white !important; color: black !important; font-size: 11pt; }
+      .print-card { border: 1px solid #cbd5e1 !important; box-shadow: none !important; page-break-inside: avoid; margin-bottom: 1.5rem !important; }
+    }
+    .badge-pulse { animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+    @keyframes pulse-ring { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: .7; transform: scale(1.05); } }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col font-sans selection:bg-brand-500 selection:text-white">
+
+  <!-- CAPÇALERA -->
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 sm:h-20">
+        <div class="flex items-center gap-3">
+          <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-brand-600 to-indigo-500 text-white flex items-center justify-center font-display font-extrabold text-xl">2E</div>
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="text-xs font-bold uppercase tracking-wider text-brand-600 bg-brand-50 px-2 py-0.5 rounded-full border border-brand-200">Anglès 2n d'ESO</span>
+              <span class="text-xs text-slate-400 hidden sm:inline">- Gramàtica i pràctica</span>
+            </div>
+            <h1 class="text-lg sm:text-xl font-display font-bold text-slate-900 leading-tight">Grammar Lab</h1>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-2 sm:gap-3">
+          <a href="unit3.html" class="flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-semibold rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors border border-slate-200">
+            <i data-lucide="arrow-left" class="w-4 h-4 text-brand-600"></i>
+            <span>Unitat 3</span>
+          </a>
+          <a href="index.html" class="hidden sm:flex items-center gap-1.5 px-3 py-1.5 text-xs sm:text-sm font-semibold rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors border border-slate-200">
+            <i data-lucide="home" class="w-4 h-4 text-brand-600"></i>
+            <span>Inici</span>
+          </a>
+          <a href="unit5.html" class="flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-semibold rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors border border-slate-200">
+            <span>Unitat 5</span>
+            <i data-lucide="arrow-right" class="w-4 h-4 text-brand-600"></i>
+          </a>
+          <button onclick="toggleUnitsModal()" class="flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-semibold rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors border border-slate-200">
+            <i data-lucide="layers" class="w-4 h-4 text-brand-600"></i>
+            <span class="hidden md:inline">Temari:</span>
+            <span class="font-bold text-brand-700">unitats 1-8</span>
+          </button>
+          <a href="#practice-section" class="flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-bold rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white">
+            <i data-lucide="play" class="w-3.5 h-3.5 fill-current"></i>
+            <span>Pràctica</span>
+          </a>
+          <button onclick="window.print()" class="p-2 text-slate-500 hover:bg-slate-100 rounded-xl">
+            <i data-lucide="printer" class="w-5 h-5"></i>
+          </button>
+        </div>
+      </div>
+
+      <nav class="flex items-center gap-2 overflow-x-auto py-2 border-t border-slate-100 scrollbar-none text-xs sm:text-sm">
+        <span class="text-slate-400 font-medium whitespace-nowrap pl-1 pr-2 flex items-center gap-1">
+          <i data-lucide="bookmark" class="w-3.5 h-3.5 text-brand-500"></i> Unitat 4:
+        </span>
+        <a href="#overview" class="px-3 py-1 rounded-lg text-slate-600 hover:bg-brand-50 font-medium">Objectius</a>
+        <a href="#comparatives-section" class="px-3 py-1 rounded-lg text-slate-600 hover:bg-brand-50 font-medium">1. Comparatius</a>
+        <a href="#equality-section" class="px-3 py-1 rounded-lg text-slate-600 hover:bg-brand-50 font-medium">2. (Not) as... as</a>
+        <a href="#too-enough-section" class="px-3 py-1 rounded-lg text-slate-600 hover:bg-brand-50 font-medium">3. Too i enough</a>
+        <a href="#superlatives-section" class="px-3 py-1 rounded-lg text-slate-600 hover:bg-brand-50 font-medium">4. Superlatius</a>
+        <a href="#scaffolding-section" class="px-3 py-1 rounded-lg text-slate-600 hover:bg-brand-50 font-medium">5. Bastides</a>
+        <a href="#practice-section" class="px-3 py-1 rounded-lg bg-brand-50 text-brand-700 font-semibold">6. Pràctica</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- MODAL TEMARI -->
+  <div id="units-modal" class="fixed inset-0 z-50 bg-slate-900/50 backdrop-blur-sm hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-3xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-slate-200 p-6 sm:p-8">
+      <div class="flex items-center justify-between pb-4 border-b border-slate-100">
+        <div>
+          <span class="text-xs uppercase font-extrabold tracking-wider text-brand-600">Pla docent d'anglès de 2n d'ESO</span>
+          <h2 class="text-2xl font-display font-bold text-slate-900">Programa de gramàtica (unitats 1-8)</h2>
+          <p class="text-xs text-slate-500 mt-0.5">Active Minds 2 (Burlington English)</p>
+        </div>
+        <button onclick="toggleUnitsModal()" class="p-2 text-slate-400 hover:bg-slate-100 rounded-full"><i data-lucide="x" class="w-6 h-6"></i></button>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-4">
+        
+        <div class="p-4 rounded-2xl border border-slate-200 bg-slate-50/70 hover:bg-white transition-all">
+          <div class="flex items-center justify-between mb-1">
+            <span class="text-xs font-bold text-slate-500 uppercase tracking-wide">Unitat 1</span>
+            <a href="unit1.html" class="text-[10px] bg-emerald-600 text-white px-2 py-0.5 rounded-full font-bold hover:bg-emerald-700 transition-colors flex items-center gap-1">
+              <span>Obrir</span> ➡️
+            </a>
+          </div>
+          <h3 class="font-bold text-slate-800 text-sm capitalize-first">there is / there are, quantificadors i pronoms objecte</h3>
+          <p class="text-xs text-slate-500 mt-1">Noms comptables i no comptables, articles (the, a/an), quantificadors (some, any, much, many, how much, how many) i pronoms personals objecte.</p>
+        </div>
+
+        <div class="p-4 rounded-2xl border border-slate-200 bg-slate-50/70 hover:bg-white transition-all">
+          <div class="flex items-center justify-between mb-1">
+            <span class="text-xs font-bold text-slate-500 uppercase tracking-wide">Unitat 2</span>
+            <a href="unit2.html" class="text-[10px] bg-emerald-600 text-white px-2 py-0.5 rounded-full font-bold hover:bg-emerald-700 transition-colors flex items-center gap-1">
+              <span>Obrir</span> ➡️
+            </a>
+          </div>
+          <h3 class="font-bold text-slate-800 text-sm capitalize-first">contrast de presents, verbs estàtics i tag questions</h3>
+          <p class="text-xs text-slate-500 mt-1">Contrast present simple vs. present continuous (rutines vs. ara mateix), verbs que no accepten -ing (stative verbs) i preguntes confirmatòries (tag questions).</p>
+        </div>
+
+        <div class="p-4 rounded-2xl border border-slate-200 bg-slate-50/70 hover:bg-white transition-all">
+          <div class="flex items-center justify-between mb-1">
+            <span class="text-xs font-bold text-slate-500 uppercase tracking-wide">Unitat 3</span>
+            <a href="unit3.html" class="text-[10px] bg-emerald-600 text-white px-2 py-0.5 rounded-full font-bold hover:bg-emerald-700 transition-colors flex items-center gap-1">
+              <span>Obrir</span> ➡️
+            </a>
+          </div>
+          <h3 class="font-bold text-slate-800 text-sm capitalize-first">past simple, there was / there were i used to</h3>
+          <p class="text-xs text-slate-500 mt-1">Formes regulars (-ed) i irregulars en passat simple, regles ortogràfiques, expressions temporals (yesterday, last, ago), there was / there were i hàbits passats amb used to.</p>
+        </div>
+
+        <div class="p-4 rounded-2xl border-2 border-brand-500 bg-brand-50/60 relative overflow-hidden shadow-sm">
+          <div class="flex items-center justify-between mb-1">
+            <span class="text-xs font-bold text-brand-700 uppercase tracking-wide">Unitat 4</span>
+            <span class="text-[10px] bg-brand-600 text-white px-2 py-0.5 rounded-full font-extrabold tracking-wide flex items-center gap-1">
+              <span class="w-1.5 h-1.5 rounded-full bg-white badge-pulse"></span> Activa ara
+            </span>
+          </div>
+          <h3 class="font-bold text-brand-900 text-sm capitalize-first">comparatius, superlatius, (not) as... as i too / enough</h3>
+          <p class="text-xs text-brand-800 mt-1">Adjectius comparatius (-er / more... than, less... than), el comparatiu d'igualtat (not) as... as, les estructures too / (not) enough i la forma superlativa.</p>
+        </div>
+
+        <div class="p-4 rounded-2xl border border-slate-200 bg-slate-50/70 hover:bg-white transition-all">
+          <div class="flex items-center justify-between mb-1">
+            <span class="text-xs font-bold text-slate-500 uppercase tracking-wide">Unitat 5</span>
+            <a href="unit5.html" class="text-[10px] bg-emerald-600 text-white px-2 py-0.5 rounded-full font-bold hover:bg-emerald-700 transition-colors flex items-center gap-1">
+              <span>Obrir</span> ➡️
+            </a>
+          </div>
+          <h3 class="font-bold text-slate-800 text-sm capitalize-first">verbs modals: can, could, must, should, have to i need to</h3>
+          <p class="text-xs text-slate-500 mt-1">Habilitat i permís amb can i could, obligació forta amb must, prohibició amb mustn't, consells amb should, i absència d'obligació amb don't have to.</p>
+        </div>
+
+        <div class="p-4 rounded-2xl border border-slate-200 bg-slate-50/70 hover:bg-white transition-all">
+          <div class="flex items-center justify-between mb-1">
+            <span class="text-xs font-bold text-slate-500 uppercase tracking-wide">Unitat 6</span>
+            <a href="unit6.html" class="text-[10px] bg-emerald-600 text-white px-2 py-0.5 rounded-full font-bold hover:bg-emerald-700 transition-colors flex items-center gap-1">
+              <span>Obrir</span> ➡️
+            </a>
+          </div>
+          <h3 class="font-bold text-slate-800 text-sm capitalize-first">past continuous i contrast amb el past simple</h3>
+          <p class="text-xs text-slate-500 mt-1">El passat continu (was / were + -ing, accions simultànies amb while / as) i el contrast past continuous vs. past simple amb els connectors when i while.</p>
+        </div>
+
+        <div class="p-4 rounded-2xl border border-slate-200 bg-slate-50/70 hover:bg-white transition-all">
+          <div class="flex items-center justify-between mb-1">
+            <span class="text-xs font-bold text-slate-500 uppercase tracking-wide">Unitat 7</span>
+            <a href="unit7.html" class="text-[10px] bg-emerald-600 text-white px-2 py-0.5 rounded-full font-bold hover:bg-emerald-700 transition-colors flex items-center gap-1">
+              <span>Obrir</span> ➡️
+            </a>
+          </div>
+          <h3 class="font-bold text-slate-800 text-sm capitalize-first">el futur (be going to, present continuous, will) i el primer condicional</h3>
+          <p class="text-xs text-slate-500 mt-1">Plans i intencions amb be going to, cites acordades amb present continuous, futur espontani amb will, i el primer condicional amb if i unless.</p>
+        </div>
+
+        <div class="p-4 rounded-2xl border border-slate-200 bg-slate-50/70 hover:bg-white transition-all">
+          <div class="flex items-center justify-between mb-1">
+            <span class="text-xs font-bold text-slate-500 uppercase tracking-wide">Unitat 8</span>
+            <a href="unit8.html" class="text-[10px] bg-emerald-600 text-white px-2 py-0.5 rounded-full font-bold hover:bg-emerald-700 transition-colors flex items-center gap-1">
+              <span>Obrir</span> ➡️
+            </a>
+          </div>
+          <h3 class="font-bold text-slate-800 text-sm capitalize-first">present perfect simple, adverbis temporals i contrast amb past simple</h3>
+          <p class="text-xs text-slate-500 mt-1">El present perfect simple (have/has + participi), partícules temporals (ever, never, already, just, yet, recently, so far), for / since i contrast amb el passat simple.</p>
+        </div>
+      </div>
+      <div class="mt-6 pt-4 border-t border-slate-100 flex justify-end">
+        <button onclick="toggleUnitsModal()" class="px-5 py-2 rounded-xl bg-brand-600 text-white font-semibold text-sm">Tancar</button>
+      </div>
+    </div>
+  </div>
+
+  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 space-y-12">
+    <!-- BANNER -->
+    <section id="overview" class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-indigo-900 via-brand-800 to-indigo-950 text-white p-6 sm:p-10 shadow-xl">
+      <div class="relative z-10 max-w-3xl">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-brand-200 text-xs font-bold mb-4 border border-white/10">
+          <i data-lucide="sparkles" class="w-3.5 h-3.5 text-amber-300"></i> Unitat 4 - Bloc gramatical
+        </div>
+        <h2 class="text-2xl sm:text-4xl font-display font-extrabold text-white mb-4">
+          Comparatives, superlatives, (not) as... as, too i enough
+        </h2>
+        <p class="text-indigo-100 text-sm sm:text-base leading-relaxed mb-6">
+          Aprèn a comparar objectes, persones i llocs en anglès: comparatius de superioritat i inferioritat, el comparatiu d'igualtat (<em>as... as</em>), la mesura d'excés o insuficiència (<em>too / enough</em>) i els superlatius absoluts.
+        </p>
+      </div>
+    </section>
+
+    <!-- SECCIÓ 1: COMPARATIUS -->
+    <section id="comparatives-section" class="scroll-mt-24 space-y-6">
+      <div class="border-b border-slate-200 pb-3">
+        <span class="text-xs font-bold uppercase tracking-wider text-brand-600 bg-brand-50 px-2.5 py-1 rounded-md border border-brand-200">Part 1</span>
+        <h2 class="text-2xl sm:text-3xl font-display font-bold text-slate-900 mt-1">Adjectius comparatius</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-white rounded-3xl border border-slate-200 p-6 shadow-sm space-y-3">
+          <h3 class="font-display font-bold text-lg text-slate-900">1. Adjectius curts (1 síl·laba o 2 amb -y)</h3>
+          <p class="text-xs text-slate-600">S'afegeix la terminació <strong>-er than</strong> ("més... que"):</p>
+          <ul class="text-xs text-slate-600 space-y-1.5 font-mono">
+            <li>- tall ➡️ <strong>taller than</strong> (més alt que)</li>
+            <li>- nice ➡️ <strong>nicer than</strong> (acabats en -e només afegim -r)</li>
+            <li>- big ➡️ <strong>bigger than</strong> (vocal curta + consonant: dobla consonant!)</li>
+            <li>- happy ➡️ <strong>happier than</strong> (acabats en consonant + y: canvia a -ier)</li>
+          </ul>
+          <div class="p-3 bg-slate-50 rounded-xl text-xs font-medium text-slate-800 flex justify-between items-center">
+            <span>"A giraffe is taller than a horse."</span>
+            <button onclick="speakText('A giraffe is taller than a horse.')" class="p-1 rounded bg-brand-600 text-white"><i data-lucide="volume-2" class="w-3.5 h-3.5"></i></button>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-3xl border border-slate-200 p-6 shadow-sm space-y-3">
+          <h3 class="font-display font-bold text-lg text-slate-900">2. Adjectius llargs i irregulars</h3>
+          <p class="text-xs text-slate-600">Per a 2 o més síl·labes (sense -y), s'utilitza <strong>more / less ... than</strong>:</p>
+          <ul class="text-xs text-slate-600 space-y-1.5 font-mono">
+            <li>- expensive ➡️ <strong>more expensive than</strong></li>
+            <li>- dangerous ➡️ <strong>less dangerous than</strong></li>
+          </ul>
+          <div class="p-3 bg-amber-50 rounded-xl border border-amber-200 text-xs text-amber-900 space-y-1">
+            <strong>⚠️ Irregulars imprescindibles:</strong><br>
+            - good ➡️ <strong>better than</strong> (millor que)<br>
+            - bad ➡️ <strong>worse than</strong> (pitjor que)<br>
+            - far ➡️ <strong>further than</strong> (més lluny que)
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓ 2: EQUALITY (NOT) AS... AS -->
+    <section id="equality-section" class="scroll-mt-24 space-y-6">
+      <div class="border-b border-slate-200 pb-3">
+        <span class="text-xs font-bold uppercase tracking-wider text-brand-600 bg-brand-50 px-2.5 py-1 rounded-md border border-brand-200">Part 2</span>
+        <h2 class="text-2xl sm:text-3xl font-display font-bold text-slate-900 mt-1">Comparatiu d'igualtat: (not) as... as</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm space-y-2">
+          <span class="text-xs font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">Igualtat (+)</span>
+          <h3 class="font-bold text-slate-900 text-sm">as + adjectiu + as ("tan... com")</h3>
+          <p class="text-xs text-slate-600">L'adjectiu NO canvia (no porta -er ni more):</p>
+          <div class="p-3 bg-slate-50 rounded-xl text-xs font-medium text-slate-800">
+            "My bike is <strong>as fast as</strong> yours." (La meva bici és tan ràpida com la teva).
+          </div>
+        </div>
+
+        <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm space-y-2">
+          <span class="text-xs font-bold text-rose-700 bg-rose-50 px-2 py-0.5 rounded-full border border-rose-200">Desigualtat (-)</span>
+          <h3 class="font-bold text-slate-900 text-sm">not as + adjectiu + as ("no tan... com")</h3>
+          <p class="text-xs text-slate-600">Expressa que el primer element és inferior al segon:</p>
+          <div class="p-3 bg-slate-50 rounded-xl text-xs font-medium text-slate-800">
+            "A scooter is <strong>not as fast as</strong> a car." (Un patinet no és tan ràpid com un cotxe).
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓ 3: TOO I ENOUGH -->
+    <section id="too-enough-section" class="scroll-mt-24 space-y-6">
+      <div class="border-b border-slate-200 pb-3">
+        <span class="text-xs font-bold uppercase tracking-wider text-brand-600 bg-brand-50 px-2.5 py-1 rounded-md border border-brand-200">Part 3</span>
+        <h2 class="text-2xl sm:text-3xl font-display font-bold text-slate-900 mt-1">Too i (not) enough</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+        <div class="bg-white p-5 rounded-3xl border border-slate-200 shadow-sm space-y-2">
+          <h3 class="font-bold text-slate-900 text-sm">too + adjectiu ("massa...")</h3>
+          <p class="text-xs text-slate-600">Expressa excés negatiu. <em>Too</em> va <strong>davant</strong> de l'adjectiu.</p>
+          <div class="p-3 bg-slate-50 rounded-xl text-xs font-medium text-slate-800">
+            "These shoes are <strong>too small</strong> for me."
+          </div>
+        </div>
+
+        <div class="bg-white p-5 rounded-3xl border border-slate-200 shadow-sm space-y-2">
+          <h3 class="font-bold text-slate-900 text-sm">adjectiu + enough ("prou...")</h3>
+          <p class="text-xs text-slate-600">Expressa suficiència. ⚠️ <em>Enough</em> va <strong>darrere</strong> de l'adjectiu!</p>
+          <div class="p-3 bg-slate-50 rounded-xl text-xs font-medium text-slate-800">
+            "He is <strong>tall enough</strong> to reach the shelf."
+          </div>
+        </div>
+
+        <div class="bg-white p-5 rounded-3xl border border-slate-200 shadow-sm space-y-2">
+          <h3 class="font-bold text-slate-900 text-sm">not + adjectiu + enough</h3>
+          <p class="text-xs text-slate-600">Expressa carència ("no prou...").</p>
+          <div class="p-3 bg-slate-50 rounded-xl text-xs font-medium text-slate-800">
+            "The soup is <strong>not hot enough</strong>."
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓ 4: SUPERLATIUS -->
+    <section id="superlatives-section" class="scroll-mt-24 space-y-6">
+      <div class="border-b border-slate-200 pb-3">
+        <span class="text-xs font-bold uppercase tracking-wider text-brand-600 bg-brand-50 px-2.5 py-1 rounded-md border border-brand-200">Part 4</span>
+        <h2 class="text-2xl sm:text-3xl font-display font-bold text-slate-900 mt-1">Adjectius superlatius</h2>
+      </div>
+
+      <div class="bg-white rounded-3xl border border-slate-200 p-6 shadow-sm space-y-4">
+        <p class="text-xs sm:text-sm text-slate-600">S'utilitza per indicar el grau màxim d'un element dins d'un grup:</p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs font-mono">
+          <div class="p-3 bg-slate-50 rounded-xl border border-slate-200">
+            <strong>Curts: the + adjectiu + -est</strong><br>
+            the tallest, the biggest, the happiest
+          </div>
+          <div class="p-3 bg-slate-50 rounded-xl border border-slate-200">
+            <strong>Llargs: the most / least</strong><br>
+            the most expensive, the least difficult
+          </div>
+          <div class="p-3 bg-slate-50 rounded-xl border border-slate-200">
+            <strong>Irregulars:</strong><br>
+            the best, the worst, the furthest
+          </div>
+        </div>
+        <p class="text-xs text-slate-500 italic">Preposicions: usem <strong>in</strong> per a llocs (<em>the highest mountain in the world</em>) i <strong>of</strong> per a períodes (<em>the best day of my life</em>).</p>
+      </div>
+    </section>
+
+    <!-- BASTIDES I ERRORS -->
+    <section id="scaffolding-section" class="scroll-mt-24 space-y-6">
+      <div class="border-b border-slate-200 pb-3">
+        <span class="text-xs font-bold uppercase tracking-wider text-brand-600 bg-brand-50 px-2.5 py-1 rounded-md border border-brand-200">Bastides i suport</span>
+        <h2 class="text-2xl sm:text-3xl font-display font-bold text-slate-900 mt-1">L'escala de comparació</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="bg-white p-5 rounded-3xl border-2 border-brand-100 shadow-sm space-y-2">
+          <div class="w-8 h-8 rounded-full bg-brand-600 text-white font-bold flex items-center justify-center text-sm">1</div>
+          <h3 class="font-bold text-slate-900 text-sm">Pas 1: quantes síl·labes té?</h3>
+          <p class="text-xs text-slate-600">1 síl·laba ➡️ -er / -est. 2 o més síl·labes ➡️ more / most.</p>
+        </div>
+        <div class="bg-white p-5 rounded-3xl border-2 border-brand-100 shadow-sm space-y-2">
+          <div class="w-8 h-8 rounded-full bg-brand-600 text-white font-bold flex items-center justify-center text-sm">2</div>
+          <h3 class="font-bold text-slate-900 text-sm">Pas 2: no t'oblidis de "than"</h3>
+          <p class="text-xs text-slate-600">Si compares dos elements, sempre cal la paraula <strong>than</strong> (i no <em>that</em>).</p>
+        </div>
+        <div class="bg-white p-5 rounded-3xl border-2 border-brand-100 shadow-sm space-y-2">
+          <div class="w-8 h-8 rounded-full bg-brand-600 text-white font-bold flex items-center justify-center text-sm">3</div>
+          <h3 class="font-bold text-slate-900 text-sm">Pas 3: la posició d'enough</h3>
+          <p class="text-xs text-slate-600"><em>Enough</em> va SEMPRE darrere de l'adjectiu (<em>warm enough</em>, mai <em>enough warm</em>).</p>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-3xl border border-rose-200 p-6 shadow-sm space-y-4">
+        <div class="flex items-center gap-2 text-rose-700 font-display font-bold text-lg">
+          <i data-lucide="shield-alert" class="w-5 h-5"></i> Detectiu d'errors comuns a la unitat 4
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+          <div class="p-4 bg-rose-50/50 rounded-2xl border border-rose-100 space-y-1.5">
+            <span class="font-bold text-rose-800">❌ Error 1: duplicar marques</span>
+            <p class="text-slate-600"><em>"more taller than"</em> ❌ (o poses more o poses -er, mai tots dos!).</p>
+            <p class="font-bold text-emerald-800">✅ Correcte: <em>"taller than"</em>.</p>
+          </div>
+          <div class="p-4 bg-rose-50/50 rounded-2xl border border-rose-100 space-y-1.5">
+            <span class="font-bold text-rose-800">❌ Error 2: posició d'enough</span>
+            <p class="text-slate-600"><em>"She is enough old"</em> ❌.</p>
+            <p class="font-bold text-emerald-800">✅ Correcte: <em>"She is old enough"</em>.</p>
+          </div>
+          <div class="p-4 bg-rose-50/50 rounded-2xl border border-rose-100 space-y-1.5">
+            <span class="font-bold text-rose-800">❌ Error 3: confondre than amb that</span>
+            <p class="text-slate-600"><em>"better that me"</em> ❌.</p>
+            <p class="font-bold text-emerald-800">✅ Correcte: <em>"better than me"</em>.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ZONA DE PRÀCTICA -->
+    <section id="practice-section" class="scroll-mt-24 space-y-8">
+      <div class="border-b border-slate-200 pb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-md border border-emerald-200">Zona interactiva</span>
+          <h2 class="text-2xl sm:text-3xl font-display font-bold text-slate-900 mt-1">Pràctica i reptes d'autoavaluació</h2>
+        </div>
+        <span class="px-3 py-1 rounded-xl bg-slate-100 text-slate-700 text-xs font-bold font-mono">Puntuació: <span id="user-score" class="text-brand-600">0</span> / 10</span>
+      </div>
+
+      <!-- Activitat 1: Classificador Curt vs Llarg -->
+      <div class="bg-white rounded-3xl border border-slate-200 p-6 shadow-sm space-y-4">
+        <h3 class="font-display font-bold text-lg text-slate-900">Activitat 1 - Adjectiu curt (-er) o llarg (more)?</h3>
+        <div id="sort-container" class="space-y-4">
+          <div class="p-6 bg-slate-50 border-2 border-dashed border-slate-300 rounded-2xl text-center space-y-2">
+            <span id="sort-step" class="text-xs font-bold text-slate-400">Adjectiu 1 de 5</span>
+            <p id="sort-word" class="text-2xl font-bold text-slate-900 font-display">Carregant...</p>
+          </div>
+          <div class="grid grid-cols-2 gap-4">
+            <button onclick="answerAdjType('short')" class="p-4 rounded-2xl border-2 border-emerald-200 bg-emerald-50 text-emerald-900 font-bold text-sm">Curt (-er than)</button>
+            <button onclick="answerAdjType('long')" class="p-4 rounded-2xl border-2 border-indigo-200 bg-indigo-50 text-indigo-900 font-bold text-sm">Llarg (more ... than)</button>
+          </div>
+          <div id="sort-feedback" class="hidden p-4 rounded-2xl text-xs font-medium"></div>
+        </div>
+      </div>
+
+      <!-- Activitat 2: Repte too vs enough -->
+      <div class="bg-white rounded-3xl border border-slate-200 p-6 shadow-sm space-y-4">
+        <h3 class="font-display font-bold text-lg text-slate-900">Activitat 2 - Too o enough?</h3>
+        <div id="too-enough-grid" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+      </div>
+
+      <!-- Activitat 3: As... as igualtat -->
+      <div class="bg-white rounded-3xl border border-slate-200 p-6 shadow-sm space-y-4">
+        <h3 class="font-display font-bold text-lg text-slate-900">Activitat 3 - Taller de comparatius d'igualtat</h3>
+        <div id="as-as-grid" class="space-y-3"></div>
+      </div>
+
+      <!-- Activitat 4: Gran repte -->
+      <div class="bg-slate-900 text-white rounded-3xl p-6 sm:p-10 shadow-xl space-y-6">
+        <div class="flex items-center justify-between border-b border-slate-800 pb-4">
+          <h3 class="text-xl font-display font-bold text-white">El gran repte de la unitat 4</h3>
+          <span id="quiz-question-counter" class="text-xs font-mono text-slate-400">Pregunta 1 de 10</span>
+        </div>
+        <div id="quiz-body" class="space-y-6">
+          <div class="space-y-1">
+            <span id="quiz-category" class="text-xs font-bold text-brand-400">Tema</span>
+            <p id="quiz-question-text" class="text-base sm:text-lg font-semibold text-slate-100">Carregant...</p>
+          </div>
+          <div id="quiz-options-container" class="grid grid-cols-1 sm:grid-cols-2 gap-3"></div>
+          <div id="quiz-feedback-box" class="hidden p-4 rounded-2xl text-xs font-medium"></div>
+          <div class="flex justify-end">
+            <button id="quiz-next-btn" onclick="nextQuizQuestion()" class="hidden px-5 py-2.5 rounded-xl bg-brand-600 text-white font-bold text-xs">Següent</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FITXES IMPRIMIBLES -->
+    <section class="print-card bg-white rounded-3xl border border-slate-200 p-6 space-y-4 text-xs text-slate-700">
+      <div class="flex items-center justify-between border-b border-slate-200 pb-3">
+        <h3 class="font-display font-bold text-base text-slate-900">Resum de la unitat 4 per a 2n d'ESO</h3>
+        <button onclick="window.print()" class="no-print px-3 py-1.5 bg-slate-100 rounded-xl font-bold">Imprimeix</button>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="p-3 bg-slate-50 rounded-xl">
+          <strong>Comparatius:</strong><br>
+          - Curts: -er than (taller than)<br>
+          - Llargs: more/less ... than<br>
+          - Irregulars: better than, worse than
+        </div>
+        <div class="p-3 bg-slate-50 rounded-xl">
+          <strong>(Not) as... as:</strong><br>
+          - as fast as (tan ràpid com)<br>
+          - not as expensive as (no tan car com)
+        </div>
+        <div class="p-3 bg-slate-50 rounded-xl">
+          <strong>Too / enough i superlatius:</strong><br>
+          - too cold (massa fred)<br>
+          - warm enough (prou calent)<br>
+          - the fastest / the most expensive
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-white border-t border-slate-200 mt-16 py-8 text-center text-xs text-slate-500">
+    English 2n d'ESO - Departament de Llengües Estrangeres - Unitat 4
+  </footer>
+
+  <script>
+    lucide.createIcons();
+    function speakText(t) {
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const u = new SpeechSynthesisUtterance(t);
+        u.lang = 'en-GB';
+        window.speechSynthesis.speak(u);
+      }
+    }
+    function toggleUnitsModal() { document.getElementById('units-modal').classList.toggle('hidden'); }
+
+    const adjItems = [
+      { word: "fast", type: "short", exp: "Correcte! 1 síl·laba ➡️ faster than." },
+      { word: "expensive", type: "long", exp: "Exacte! 3 síl·labes ➡️ more expensive than." },
+      { word: "easy", type: "short", exp: "Molt bé! 2 síl·labes acabades en -y ➡️ easier than." },
+      { word: "intelligent", type: "long", exp: "Correcte! Adjectiu llarg ➡️ more intelligent than." },
+      { word: "hot", type: "short", exp: "Molt bé! 1 síl·laba (dobla 't') ➡️ hotter than." }
+    ];
+    let curAdj = 0;
+    function renderAdj() {
+      if (curAdj >= adjItems.length) {
+        document.getElementById('sort-container').innerHTML = `<div class="p-4 bg-emerald-50 text-emerald-900 rounded-xl text-center font-bold">🎉 Molt bona feina! Has completat l'activitat 1.</div>`;
+        return;
+      }
+      document.getElementById('sort-step').textContent = `Adjectiu ${curAdj+1} de ${adjItems.length}`;
+      document.getElementById('sort-word').textContent = adjItems[curAdj].word;
+      document.getElementById('sort-feedback').className = 'hidden';
+    }
+    function answerAdjType(t) {
+      const item = adjItems[curAdj];
+      const fb = document.getElementById('sort-feedback');
+      fb.classList.remove('hidden');
+      if (t === item.type) {
+        fb.className = 'p-3 rounded-xl bg-emerald-100 text-emerald-900 font-bold';
+        fb.innerHTML = `✅ ${item.exp}`;
+        setTimeout(() => { curAdj++; renderAdj(); }, 1300);
+      } else {
+        fb.className = 'p-3 rounded-xl bg-rose-100 text-rose-900 font-bold';
+        fb.innerHTML = `❌ Compta el nombre de síl·labes!`;
+      }
+    }
+
+    const tooEnoughQuestions = [
+      { q: "The soup is ______ hot to eat right now.", opts: ["too", "enough"], c: 0, exp: "Correcte! 'too' va davant de l'adjectiu per indicar excés." },
+      { q: "He isn't old ______ to drive a car.", opts: ["too", "enough"], c: 1, exp: "Exacte! 'enough' va darrere de l'adjectiu 'old'." },
+      { q: "This jacket is ______ big. I need a smaller size.", opts: ["too", "enough"], c: 0, exp: "Molt bé! 'too big' expressa que és massa gran." },
+      { q: "Is the water warm ______ for swimming?", opts: ["too", "enough"], c: 1, exp: "Correcte! 'warm enough' (prou calenta)." }
+    ];
+    function renderTooEnough() {
+      const c = document.getElementById('too-enough-grid');
+      c.innerHTML = tooEnoughQuestions.map((q, idx) => `
+        <div class="p-4 bg-slate-50 border border-slate-200 rounded-2xl space-y-2">
+          <p class="font-bold text-xs text-slate-800">${q.q}</p>
+          <div class="flex gap-2">
+            ${q.opts.map((opt, oIdx) => `<button onclick="checkTE(${idx}, ${oIdx})" class="px-3 py-1 bg-white border border-slate-300 rounded-lg text-xs font-bold">${opt}</button>`).join('')}
+          </div>
+          <div id="te-fb-${idx}" class="hidden text-xs p-2 rounded-lg"></div>
+        </div>
+      `).join('');
+    }
+    function checkTE(idx, oIdx) {
+      const q = tooEnoughQuestions[idx];
+      const fb = document.getElementById(`te-fb-${idx}`);
+      fb.classList.remove('hidden');
+      if (oIdx === q.c) {
+        fb.className = 'text-xs p-2 rounded-lg bg-emerald-100 text-emerald-900 font-bold';
+        fb.innerHTML = `✅ ${q.exp}`;
+      } else {
+        fb.className = 'text-xs p-2 rounded-lg bg-rose-100 text-rose-900 font-bold';
+        fb.innerHTML = `❌ Revisa si va davant (too) o darrere (enough)!`;
+      }
+    }
+
+    const asAsQuestions = [
+      { s: "A cat is ______ (not fast) a cheetah.", opts: ["not as fast as", "not faster as", "as not fast as"], c: 0 },
+      { s: "This book is ______ (interesting) that one.", opts: ["as interesting as", "as more interesting as", "so interesting as"], c: 0 }
+    ];
+    function renderAsAs() {
+      const c = document.getElementById('as-as-grid');
+      c.innerHTML = asAsQuestions.map((q, idx) => `
+        <div class="p-3 bg-slate-50 border border-slate-200 rounded-xl flex items-center justify-between text-xs">
+          <span id="as-s-${idx}" class="font-semibold">${q.s}</span>
+          <div class="flex gap-2">
+            ${q.opts.map((opt, oIdx) => `<button onclick="checkAsAs(${idx}, ${oIdx})" class="px-2 py-1 bg-white border rounded font-bold">${opt}</button>`).join('')}
+          </div>
+        </div>
+      `).join('');
+    }
+    function checkAsAs(idx, oIdx) {
+      const q = asAsQuestions[idx];
+      const p = document.getElementById(`as-s-${idx}`);
+      if (oIdx === q.c) p.innerHTML = q.s.replace('______', `<strong class="text-emerald-700 font-bold">${q.opts[oIdx]} ✅</strong>`);
+      else p.innerHTML = q.s.replace('______', `<strong class="text-rose-700 font-bold">${q.opts[oIdx]} ❌</strong>`);
+    }
+
+    const quizQuestions = [
+      { category: "comparatius curts", question: "Quin és el comparatiu de l'adjectiu 'happy'?", options: ["happier than", "more happy than", "happyer than", "happiest than"], correct: 0, explanation: "Consonant + y canvia a -ier: 'happier than'." },
+      { category: "comparatius irregulars", question: "Quin és el comparatiu de 'good'?", options: ["better than", "gooder than", "more good than", "best than"], correct: 0, explanation: "'good' és completament irregular: 'better than'." },
+      { category: "comparatius irregulars", question: "Quin és el comparatiu de 'bad'?", options: ["worse than", "badder than", "more bad than", "worst than"], correct: 0, explanation: "El comparatiu de 'bad' és 'worse than'." },
+      { category: "comparatius llargs", question: "Com es compara 'expensive'?", options: ["more expensive than", "expensiver than", "most expensive than", "expensive than"], correct: 0, explanation: "Els adjectius de 3 síl·labes porten 'more... than'." },
+      { category: "igualtat as... as", question: "Completa la igualtat: 'English is ______ History.'", options: ["as interesting as", "as more interesting as", "so interesting as", "as interesting than"], correct: 0, explanation: "L'estructura d'igualtat és sempre 'as + adjectiu base + as'." },
+      { category: "too d'excés", question: "On se situa 'too' respecte a l'adjectiu?", options: ["Davant de l'adjectiu: 'too small'", "Darrere de l'adjectiu: 'small too'", "Al final de l'oració", "Davant del subjecte"], correct: 0, explanation: "'too' sempre va directament davant de l'adjectiu." },
+      { category: "enough de suficiència", question: "Quina frase és correcta amb 'enough'?", options: ["She is tall enough to play.", "She is enough tall to play.", "She is enough tall than play.", "She is tall enough as play."], correct: 0, explanation: "'enough' sempre se situa DARRERE de l'adjectiu: 'tall enough'." },
+      { category: "superlatius curts", question: "Quin és el superlatiu de 'fast'?", options: ["the fastest", "the faster", "the most fast", "the fastiest"], correct: 0, explanation: "Els adjectius curts formen el superlatiu afegint the + -est." },
+      { category: "superlatius llargs", question: "Quin és el superlatiu de 'difficult'?", options: ["the most difficult", "the difficultest", "the more difficult", "the least difficultest"], correct: 0, explanation: "Els adjectius llargs fan el superlatiu amb 'the most + adjectiu'." },
+      { category: "superlatius preposicions", question: "Quina preposició acompanya un lloc amb superlatius? 'the highest mountain ______ the world'", options: ["in", "of", "at", "from"], correct: 0, explanation: "Per a llocs o col·lectius s'usa la preposició 'in': 'in the world'." }
+    ];
+
+    let currentQuizIndex = 0;
+    let quizScore = 0;
+    let answered = new Set();
+    function renderCurrentQuizQuestion() {
+      const q = quizQuestions[currentQuizIndex];
+      document.getElementById('quiz-question-counter').textContent = `Pregunta ${currentQuizIndex + 1} de ${quizQuestions.length}`;
+      document.getElementById('quiz-category').textContent = `Tema: ${q.category}`;
+      document.getElementById('quiz-question-text').textContent = q.question;
+      document.getElementById('quiz-feedback-box').className = 'hidden';
+      document.getElementById('quiz-next-btn').className = 'hidden';
+      document.getElementById('quiz-options-container').innerHTML = q.options.map((opt, idx) => `
+        <button onclick="handleQuizAnswer(${idx})" id="q-opt-${idx}" class="text-left p-3.5 rounded-xl bg-white/10 hover:bg-white/20 border border-white/10 text-xs font-semibold">
+          ${String.fromCharCode(65 + idx)}) ${opt}
+        </button>
+      `).join('');
+    }
+    function handleQuizAnswer(idx) {
+      if (answered.has(currentQuizIndex)) return;
+      answered.add(currentQuizIndex);
+      const q = quizQuestions[currentQuizIndex];
+      const isCorrect = idx === q.correct;
+      const fb = document.getElementById('quiz-feedback-box');
+      fb.classList.remove('hidden');
+      if (isCorrect) {
+        quizScore++;
+        document.getElementById('user-score').textContent = quizScore;
+        fb.className = 'p-3 rounded-xl bg-emerald-950/80 border border-emerald-500/50 text-emerald-200 text-xs font-semibold';
+        fb.innerHTML = `🎉 ${q.explanation}`;
+      } else {
+        fb.className = 'p-3 rounded-xl bg-rose-950/80 border border-rose-500/50 text-rose-200 text-xs font-semibold';
+        fb.innerHTML = `⚠️ ${q.explanation}`;
+      }
+      document.getElementById('quiz-next-btn').classList.remove('hidden');
+    }
+    function nextQuizQuestion() {
+      if (currentQuizIndex < quizQuestions.length - 1) {
+        currentQuizIndex++;
+        renderCurrentQuizQuestion();
+      } else {
+        if (typeof confetti === 'function') confetti();
+        document.getElementById('quiz-body').innerHTML = `
+          <div class="text-center py-6 space-y-3">
+            <div class="text-4xl">🏆</div>
+            <h4 class="text-xl font-bold">Felicitats! Puntuació: ${quizScore} / 10</h4>
+            <a href="unit5.html" class="inline-block px-4 py-2 bg-brand-600 text-white rounded-xl font-bold text-xs">Continuar a la unitat 5 ➡️</a>
+          </div>
+        `;
+      }
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      renderAdj();
+      renderTooEnough();
+      renderAsAs();
+      renderCurrentQuizQuestion();
+    });
+  </script>
+</body>
+</html>

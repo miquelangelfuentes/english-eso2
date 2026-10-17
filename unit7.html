@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="ca" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <title>English 2n d'ESO | Unitat 7: el futur (be going to, present continuous, will) i el primer condicional</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            display: ['"Outfit"', 'sans-serif'],
+            mono: ['"Fira Code"', 'monospace'],
+          },
+          colors: {
+            brand: {
+              50: '#eef2ff',
+              100: '#e0e7ff',
+              200: '#c7d2fe',
+              500: '#6366f1',
+              600: '#4f46e5',
+              700: '#4338ca',
+              800: '#3730a3',
+              900: '#312e81',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @media print {
+      header, nav, #unit-banner, #scaffolding-tools, .no-print { display: none !important; }
+      body { background: white !important; color: black !important; font-size: 11pt; }
+      .print-card { border: 1px solid #cbd5e1 !important; box-shadow: none !important; page-break-inside: avoid; margin-bottom: 1.5rem !important; }
+    }
+    .badge-pulse { animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+    @keyframes pulse-ring { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: .7; transform: scale(1.05); } }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col font-sans selection:bg-brand-500 selection:text-white">
+
+  <!-- CAPÇALERA -->
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 sm:h-20">
+        <div class="flex items-center gap-3">
+          <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-brand-600 to-indigo-500 text-white flex items-center justify-center font-display font-extrabold text-xl">2E</div>
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="text-xs font-bold uppercase tracking-wider text-brand-600 bg-brand-50 px-2 py-0.5 rounded-full border border-brand-200">Anglès 2n d'ESO</span>
+              <span class="text-xs text-slate-400 hidden sm:inline">- Gramàtica i pràctica</span>
+            </div>
+            <h1 class="text-lg sm:text-xl font-display font-bold text-slate-900 leading-tight">Grammar Lab</h1>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-2 sm:gap-3">
+          <a href="unit6.html" class="flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-semibold rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors border border-slate-200">
+            <i data-lucide="arrow-left" class="w-4 h-4 text-brand-600"></i>
+            <span>Unitat 6</span>
+          </a>
+          <a href="index.html" class="hidden sm:flex items-center gap-1.5 px-3 py-1.5 text-xs sm:text-sm font-semibold rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors border border-slate-200">
+            <i data-lucide="home" class="w-4 h-4 text-brand-600"></i>
+            <span>Inici</span>
+          </a>
+          <a href="unit8.html" class="flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-semibold rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors border border-slate-200">
+            <span>Unitat 8</span>
+            <i data-lucide="arrow-right" class="w-4 h-4 text-brand-600"></i>
+          </a>
+          <button onclick="toggleUnitsModal()" class="flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-semibold rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors border border-slate-200">
+            <i data-lucide="layers" class="w-4 h-4 text-brand-600"></i>
+            <span class="hidden md:inline">Temari:</span>
+            <span class="font-bold text-brand-700">unitats 1-8</span>
+          </button>
+          <a href="#practice-section" class="flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-bold rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white">
+            <i data-lucide="play" class="w-3.5 h-3.5 fill-current"></i>
+            <span>Pràctica</span>
+          </a>
+          <button onclick="window.print()" class="p-2 text-slate-500 hover:bg-slate-100 rounded-xl">
+            <i data-lucide="printer" class="w-5 h-5"></i>
+          </button>
+        </div>
+      </div>
+
+      <nav class="flex items-center gap-2 overflow-x-auto py-2 border-t border-slate-100 scrollbar-none text-xs sm:text-sm">
+        <span class="text-slate-400 font-medium whitespace-nowrap pl-1 pr-2 flex items-center gap-1">
+          <i data-lucide="bookmark" class="w-3.5 h-3.5 text-brand-500"></i> Unitat 7:
+        </span>
+        <a href="#overview" class="px-3 py-1 rounded-lg text-slate-600 hover:bg-brand-50 font-medium">Objectius</a>
+        <a href="#goingto-section" class="px-3 py-1 rounded-lg text-slate-600 hover:bg-brand-50 font-medium">1. Be going to</a>
+        <a href="#cont-future-section" class="px-3 py-1 rounded-lg text-slate-600 hover:bg-brand-50 font-medium">2. Present cont. futur</a>
+        <a href="#will-section" class="px-3 py-1 rounded-lg text-slate-600 hover:bg-brand-50 font-medium">3. Will i won't</a>
+        <a href="#conditional-section" class="px-3 py-1 rounded-lg text-slate-600 hover:bg-brand-50 font-medium">4. Primer condicional</a>
+        <a href="#scaffolding-section" class="px-3 py-1 rounded-lg text-slate-600 hover:bg-brand-50 font-medium">5. Bastides</a>
+        <a href="#practice-section" class="px-3 py-1 rounded-lg bg-brand-50 text-brand-700 font-semibold">6. Pràctica</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- MODAL TEMARI -->
+  <div id="units-modal" class="fixed inset-0 z-50 bg-slate-900/50 backdrop-blur-sm hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-3xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-slate-200 p-6 sm:p-8">
+      <div class="flex items-center justify-between pb-4 border-b border-slate-100">
+        <div>
+          <span class="text-xs uppercase font-extrabold tracking-wider text-brand-600">Pla docent d'anglès de 2n d'ESO</span>
+          <h2 class="text-2xl font-display font-bold text-slate-900">Programa de gramàtica (unitats 1-8)</h2>
+          <p class="text-xs text-slate-500 mt-0.5">Active Minds 2 (Burlington English)</p>
+        </div>
+        <button onclick="toggleUnitsModal()" class="p-2 text-slate-400 hover:bg-slate-100 rounded-full"><i data-lucide="x" class="w-6 h-6"></i></button>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-4">
+        
+        <div class="p-4 rounded-2xl border border-slate-200 bg-slate-50/70 hover:bg-white transition-all">
+          <div class="flex items-center justify-between mb-1">
+            <span class="text-xs font-bold text-slate-500 uppercase tracking-wide">Unitat 1</span>
+            <a href="unit1.html" class="text-[10px] bg-emerald-600 text-white px-2 py-0.5 rounded-full font-bold hover:bg-emerald-700 transition-colors flex items-center gap-1">
+              <span>Obrir</span> ➡️
+            </a>
+          </div>
+          <h3 class="font-bold text-slate-800 text-sm capitalize-first">there is / there are, quantificadors i pronoms objecte</h3>
+          <p class="text-xs text-slate-500 mt-1">Noms comptables i no comptables, articles (the, a/an), quantificadors (some, any, much, many, how much, how many) i pronoms personals objecte.</p>
+        </div>
+
+        <div class="p-4 rounded-2xl border border-slate-200 bg-slate-50/70 hover:bg-white transition-all">
+          <div class="flex items-center justify-between mb-1">
+            <span class="text-xs font-bold text-slate-500 uppercase tracking-wide">Unitat 2</span>
+            <a href="unit2.html" class="text-[10px] bg-emerald-600 text-white px-2 py-0.5 rounded-full font-bold hover:bg-emerald-700 transition-colors flex items-center gap-1">
+              <span>Obrir</span> ➡️
+            </a>
+          </div>
+          <h3 class="font-bold text-slate-800 text-sm capitalize-first">contrast de presents, verbs estàtics i tag questions</h3>
+          <p class="text-xs text-slate-500 mt-1">Contrast present simple vs. present continuous (rutines vs. ara mateix), verbs que no accepten -ing (stative verbs) i preguntes confirmatòries (tag questions).</p>
+        </div>
+
+        <div class="p-4 rounded-2xl border border-slate-200 bg-slate-50/70 hover:bg-white transition-all">
+          <div class="flex items-center justify-between mb-1">
+            <span class="text-xs font-bold text-slate-500 uppercase tracking-wide">Unitat 3</span>
+            <a href="unit3.html" class="text-[10px] bg-emerald-600 text-white px-2 py-0.5 rounded-full font-bold hover:bg-emerald-700 transition-colors flex items-center gap-1">
+              <span>Obrir</span> ➡️
+            </a>
+          </div>
+          <h3 class="font-bold text-slate-800 text-sm capitalize-first">past simple, there was / there were i used to</h3>
+          <p class="text-xs text-slate-500 mt-1">Formes regulars (-ed) i irregulars en passat simple, regles ortogràfiques, expressions temporals (yesterday, last, ago), there was / there were i hàbits passats amb used to.</p>
+        </div>
+
+        <div class="p-4 rounded-2xl border border-slate-200 bg-slate-50/70 hover:bg-white transition-all">
+          <div class="flex items-center justify-between mb-1">
+            <span class="text-xs font-bold text-slate-500 uppercase tracking-wide">Unitat 4</span>
+            <a href="unit4.html" class="text-[10px] bg-emerald-600 text-white px-2 py-0.5 rounded-full font-bold hover:bg-emerald-700 transition-colors flex items-center gap-1">
+              <span>Obrir</span> ➡️
+            </a>
+          </div>
+          <h3 class="font-bold text-slate-800 text-sm capitalize-first">comparatius, superlatius, (not) as... as i too / enough</h3>
+          <p class="text-xs text-slate-500 mt-1">Adjectius comparatius (-er / more... than, less... than), el comparatiu d'igualtat (not) as... as, les estructures too / (not) enough i la forma superlativa.</p>
+        </div>
+
+        <div class="p-4 rounded-2xl border border-slate-200 bg-slate-50/70 hover:bg-white transition-all">
+          <div class="flex items-center justify-between mb-1">
+            <span class="text-xs font-bold text-slate-500 uppercase tracking-wide">Unitat 5</span>
+            <a href="unit5.html" class="text-[10px] bg-emerald-600 text-white px-2 py-0.5 rounded-full font-bold hover:bg-emerald-700 transition-colors flex items-center gap-1">
+              <span>Obrir</span> ➡️
+            </a>
+          </div>
+          <h3 class="font-bold text-slate-800 text-sm capitalize-first">verbs modals: can, could, must, should, have to i need to</h3>
+          <p class="text-xs text-slate-500 mt-1">Habilitat i permís amb can i could, obligació forta amb must, prohibició amb mustn't, consells amb should, i absència d'obligació amb don't have to.</p>
+        </div>
+
+        <div class="p-4 rounded-2xl border border-slate-200 bg-slate-50/70 hover:bg-white transition-all">
+          <div class="flex items-center justify-between mb-1">
+            <span class="text-xs font-bold text-slate-500 uppercase tracking-wide">Unitat 6</span>
+            <a href="unit6.html" class="text-[10px] bg-emerald-600 text-white px-2 py-0.5 rounded-full font-bold hover:bg-emerald-700 transition-colors flex items-center gap-1">
+              <span>Obrir</span> ➡️
+            </a>
+          </div>
+          <h3 class="font-bold text-slate-800 text-sm capitalize-first">past continuous i contrast amb el past simple</h3>
+          <p class="text-xs text-slate-500 mt-1">El passat continu (was / were + -ing, accions simultànies amb while / as) i el contrast past continuous vs. past simple amb els connectors when i while.</p>
+        </div>
+
+        <div class="p-4 rounded-2xl border-2 border-brand-500 bg-brand-50/60 relative overflow-hidden shadow-sm">
+          <div class="flex items-center justify-between mb-1">
+            <span class="text-xs font-bold text-brand-700 uppercase tracking-wide">Unitat 7</span>
+            <span class="text-[10px] bg-brand-600 text-white px-2 py-0.5 rounded-full font-extrabold tracking-wide flex items-center gap-1">
+              <span class="w-1.5 h-1.5 rounded-full bg-white badge-pulse"></span> Activa ara
+            </span>
+          </div>
+          <h3 class="font-bold text-brand-900 text-sm capitalize-first">el futur (be going to, present continuous, will) i el primer condicional</h3>
+          <p class="text-xs text-brand-800 mt-1">Plans i intencions amb be going to, cites acordades amb present continuous, futur espontani amb will, i el primer condicional amb if i unless.</p>
+        </div>
+
+        <div class="p-4 rounded-2xl border border-slate-200 bg-slate-50/70 hover:bg-white transition-all">
+          <div class="flex items-center justify-between mb-1">
+            <span class="text-xs font-bold text-slate-500 uppercase tracking-wide">Unitat 8</span>
+            <a href="unit8.html" class="text-[10px] bg-emerald-600 text-white px-2 py-0.5 rounded-full font-bold hover:bg-emerald-700 transition-colors flex items-center gap-1">
+              <span>Obrir</span> ➡️
+            </a>
+          </div>
+          <h3 class="font-bold text-slate-800 text-sm capitalize-first">present perfect simple, adverbis temporals i contrast amb past simple</h3>
+          <p class="text-xs text-slate-500 mt-1">El present perfect simple (have/has + participi), partícules temporals (ever, never, already, just, yet, recently, so far), for / since i contrast amb el passat simple.</p>
+        </div>
+      </div>
+      <div class="mt-6 pt-4 border-t border-slate-100 flex justify-end">
+        <button onclick="toggleUnitsModal()" class="px-5 py-2 rounded-xl bg-brand-600 text-white font-semibold text-sm">Tancar</button>
+      </div>
+    </div>
+  </div>
+
+  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 space-y-12">
+    <!-- BANNER -->
+    <section id="overview" class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-indigo-900 via-brand-800 to-indigo-950 text-white p-6 sm:p-10 shadow-xl">
+      <div class="relative z-10 max-w-3xl">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-brand-200 text-xs font-bold mb-4 border border-white/10">
+          <i data-lucide="sparkles" class="w-3.5 h-3.5 text-amber-300"></i> Unitat 7 - Bloc gramatical
+        </div>
+        <h2 class="text-2xl sm:text-4xl font-display font-extrabold text-white mb-4">
+          El futur (be going to, present continuous, will) i el primer condicional
+        </h2>
+        <p class="text-indigo-100 text-sm sm:text-base leading-relaxed mb-6">
+          Com expressar el futur en anglès? Diferencia entre intencions personals (<em>be going to</em>), cites fermes d'agenda (present continuous), decisions del moment o prediccions (<em>will</em>), i aprèn a formular condicions de futur amb el primer condicional (<em>if / unless</em>).
+        </p>
+      </div>
+    </section>
+
+    <!-- SECCIÓ 1: BE GOING TO -->
+    <section id="goingto-section" class="scroll-mt-24 space-y-6">
+      <div class="border-b border-slate-200 pb-3">
+        <span class="text-xs font-bold uppercase tracking-wider text-brand-600 bg-brand-50 px-2.5 py-1 rounded-md border border-brand-200">Part 1</span>
+        <h2 class="text-2xl sm:text-3xl font-display font-bold text-slate-900 mt-1">Be going to (plans i prediccions evidents)</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-white rounded-3xl border border-slate-200 p-6 shadow-sm space-y-3">
+          <h3 class="font-display font-bold text-lg text-slate-900">1. Intencions i plans premeditats</h3>
+          <p class="text-xs text-slate-600">Fórmula: <strong>am / is / are + going to + verb infinitiu</strong>. Indica coses que ja has decidit fer:</p>
+          <div class="p-3 bg-slate-50 rounded-xl text-xs font-medium text-slate-800">
+            "I <strong>am going to study</strong> Medicine at university."
+          </div>
+          <button onclick="speakText('I am going to study Medicine at university.')" class="text-xs font-bold text-brand-600 hover:underline flex items-center gap-1">
+            <i data-lucide="volume-2" class="w-3.5 h-3.5"></i> Escolta la frase
+          </button>
+        </div>
+
+        <div class="bg-white rounded-3xl border border-slate-200 p-6 shadow-sm space-y-3">
+          <h3 class="font-display font-bold text-lg text-slate-900">2. Prediccions basades en proves que veiem</h3>
+          <p class="text-xs text-slate-600">Quan veiem un indici clar en el present que alguna cosa passarà:</p>
+          <div class="p-3 bg-slate-50 rounded-xl text-xs font-medium text-slate-800">
+            "Look at those black clouds! It <strong>is going to rain</strong>."
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓ 2: PRESENT CONTINUOUS DE FUTUR -->
+    <section id="cont-future-section" class="scroll-mt-24 space-y-6">
+      <div class="border-b border-slate-200 pb-3">
+        <span class="text-xs font-bold uppercase tracking-wider text-brand-600 bg-brand-50 px-2.5 py-1 rounded-md border border-brand-200">Part 2</span>
+        <h2 class="text-2xl sm:text-3xl font-display font-bold text-slate-900 mt-1">Present continuous amb valor de futur</h2>
+      </div>
+
+      <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm space-y-3">
+        <p class="text-xs text-slate-600">S'utilitza per a <strong>acords i cites fixades</strong> amb altres persones, entrades comprades o dates ja reservades a l'agenda:</p>
+        <div class="p-3 bg-slate-50 rounded-xl text-xs font-medium text-slate-800 flex justify-between items-center">
+          <span>"We <strong>are meeting</strong> Anna at the cinema tomorrow at 6 pm."</span>
+          <button onclick="speakText('We are meeting Anna at the cinema tomorrow at 6 pm.')" class="p-1 rounded bg-brand-600 text-white"><i data-lucide="volume-2" class="w-3.5 h-3.5"></i></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓ 3: WILL -->
+    <section id="will-section" class="scroll-mt-24 space-y-6">
+      <div class="border-b border-slate-200 pb-3">
+        <span class="text-xs font-bold uppercase tracking-wider text-brand-600 bg-brand-50 px-2.5 py-1 rounded-md border border-brand-200">Part 3</span>
+        <h2 class="text-2xl sm:text-3xl font-display font-bold text-slate-900 mt-1">Will i won't (decisions del moment, promeses i opinions)</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+        <div class="bg-white p-5 rounded-3xl border border-slate-200 shadow-sm space-y-2">
+          <h3 class="font-bold text-slate-900 text-sm">Decisions espontànies</h3>
+          <p class="text-xs text-slate-600">Preses a l'instant de parlar (on the spot):</p>
+          <div class="p-3 bg-slate-50 rounded-xl text-xs font-medium text-slate-800">
+            "The phone is ringing. I <strong>will answer</strong> it!"
+          </div>
+        </div>
+
+        <div class="bg-white p-5 rounded-3xl border border-slate-200 shadow-sm space-y-2">
+          <h3 class="font-bold text-slate-900 text-sm">Prediccions generals</h3>
+          <p class="text-xs text-slate-600">Allò que penses o creus (amb <em>think, hope</em>):</p>
+          <div class="p-3 bg-slate-50 rounded-xl text-xs font-medium text-slate-800">
+            "I think people <strong>will live</strong> on Mars in 2050."
+          </div>
+        </div>
+
+        <div class="bg-white p-5 rounded-3xl border border-slate-200 shadow-sm space-y-2">
+          <h3 class="font-bold text-slate-900 text-sm">Promeses i ofertes</h3>
+          <p class="text-xs text-slate-600">Oferir ajuda o prometre fidelitat:</p>
+          <div class="p-3 bg-slate-50 rounded-xl text-xs font-medium text-slate-800">
+            "I <strong>won't tell</strong> anyone, I promise!"
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓ 4: PRIMER CONDICIONAL -->
+    <section id="conditional-section" class="scroll-mt-24 space-y-6">
+      <div class="border-b border-slate-200 pb-3">
+        <span class="text-xs font-bold uppercase tracking-wider text-brand-600 bg-brand-50 px-2.5 py-1 rounded-md border border-brand-200">Part 4</span>
+        <h2 class="text-2xl sm:text-3xl font-display font-bold text-slate-900 mt-1">El primer condicional: if i unless</h2>
+      </div>
+
+      <div class="bg-white rounded-3xl border border-slate-200 p-6 shadow-sm space-y-4">
+        <p class="text-xs text-slate-600">Expressa una condició i la seva conseqüència probable en el futur:</p>
+        <div class="p-4 bg-emerald-50 rounded-2xl border border-emerald-200 text-xs sm:text-sm font-mono text-emerald-950 space-y-2">
+          <p><strong>Fórmula:</strong> If + <strong>present simple</strong>, <strong>will / won't</strong> + infinitiu</p>
+          <p>"<strong>If</strong> you <strong>study</strong>, you <strong>will pass</strong> the exam."</p>
+          <p>"You <strong>will pass</strong> the exam <strong>if</strong> you <strong>study</strong>." (sense coma)</p>
+        </div>
+        <div class="p-3 bg-amber-50 rounded-xl border border-amber-200 text-xs text-amber-900">
+          <strong>⚠️ Unless = if not ("a menys que / si no..."):</strong><br>
+          "<strong>Unless you hurry</strong>, you will miss the bus." (= If you don't hurry).
+        </div>
+      </div>
+    </section>
+
+    <!-- BASTIDES I ERRORS -->
+    <section id="scaffolding-section" class="scroll-mt-24 space-y-6">
+      <div class="border-b border-slate-200 pb-3">
+        <span class="text-xs font-bold uppercase tracking-wider text-brand-600 bg-brand-50 px-2.5 py-1 rounded-md border border-brand-200">Bastides i suport</span>
+        <h2 class="text-2xl sm:text-3xl font-display font-bold text-slate-900 mt-1">L'escala del futur</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="bg-white p-5 rounded-3xl border-2 border-brand-100 shadow-sm space-y-2">
+          <div class="w-8 h-8 rounded-full bg-brand-600 text-white font-bold flex items-center justify-center text-sm">1</div>
+          <h3 class="font-bold text-slate-900 text-sm">Pas 1: quan s'ha decidit?</h3>
+          <p class="text-xs text-slate-600">Ara mateix ➡️ will. Abans de parlar (pla premeditat) ➡️ be going to. Amb cita i hora ➡️ present continuous.</p>
+        </div>
+        <div class="bg-white p-5 rounded-3xl border-2 border-brand-100 shadow-sm space-y-2">
+          <div class="w-8 h-8 rounded-full bg-brand-600 text-white font-bold flex items-center justify-center text-sm">2</div>
+          <h3 class="font-bold text-slate-900 text-sm">Pas 2: no posis will després d'if</h3>
+          <p class="text-xs text-slate-600">Al primer condicional, la part amb <em>if</em> va SEMPRE en present simple, mai amb <em>will</em>.</p>
+        </div>
+        <div class="bg-white p-5 rounded-3xl border-2 border-brand-100 shadow-sm space-y-2">
+          <div class="w-8 h-8 rounded-full bg-brand-600 text-white font-bold flex items-center justify-center text-sm">3</div>
+          <h3 class="font-bold text-slate-900 text-sm">Pas 3: recorda el verb to be</h3>
+          <p class="text-xs text-slate-600"><em>Be going to</em> sempre necessita <em>am / is / are</em>: <em>I am going to</em> (no <em>I going to</em>).</p>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-3xl border border-rose-200 p-6 shadow-sm space-y-4">
+        <div class="flex items-center gap-2 text-rose-700 font-display font-bold text-lg">
+          <i data-lucide="shield-alert" class="w-5 h-5"></i> Detectiu d'errors comuns a la unitat 7
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+          <div class="p-4 bg-rose-50/50 rounded-2xl border border-rose-100 space-y-1.5">
+            <span class="font-bold text-rose-800">❌ Error 1: will darrere d'if</span>
+            <p class="text-slate-600"><em>"If it will rain tomorrow"</em> ❌.</p>
+            <p class="font-bold text-emerald-800">✅ Correcte: <em>"If it rains tomorrow"</em>.</p>
+          </div>
+          <div class="p-4 bg-rose-50/50 rounded-2xl border border-rose-100 space-y-1.5">
+            <span class="font-bold text-rose-800">❌ Error 2: oblidar el to be</span>
+            <p class="text-slate-600"><em>"She going to visit us"</em> ❌.</p>
+            <p class="font-bold text-emerald-800">✅ Correcte: <em>"She is going to visit us"</em>.</p>
+          </div>
+          <div class="p-4 bg-rose-50/50 rounded-2xl border border-rose-100 space-y-1.5">
+            <span class="font-bold text-rose-800">❌ Error 3: doble negació amb unless</span>
+            <p class="text-slate-600"><em>"Unless you don't run"</em> ❌.</p>
+            <p class="font-bold text-emerald-800">✅ Correcte: <em>"Unless you run"</em>.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ZONA DE PRÀCTICA -->
+    <section id="practice-section" class="scroll-mt-24 space-y-8">
+      <div class="border-b border-slate-200 pb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-md border border-emerald-200">Zona interactiva</span>
+          <h2 class="text-2xl sm:text-3xl font-display font-bold text-slate-900 mt-1">Pràctica i reptes d'autoavaluació</h2>
+        </div>
+        <span class="px-3 py-1 rounded-xl bg-slate-100 text-slate-700 text-xs font-bold font-mono">Puntuació: <span id="user-score" class="text-brand-600">0</span> / 10</span>
+      </div>
+
+      <!-- Activitat 1: Classificador de futurs -->
+      <div class="bg-white rounded-3xl border border-slate-200 p-6 shadow-sm space-y-4">
+        <h3 class="font-display font-bold text-lg text-slate-900">Activitat 1 - És decisió del moment (will) o intenció prèvia (going to)?</h3>
+        <div id="sort-container" class="space-y-4">
+          <div class="p-6 bg-slate-50 border-2 border-dashed border-slate-300 rounded-2xl text-center space-y-2">
+            <span id="sort-step" class="text-xs font-bold text-slate-400">Frase 1 de 5</span>
+            <p id="sort-word" class="text-xl font-bold text-slate-900 font-display">Carregant...</p>
+          </div>
+          <div class="grid grid-cols-2 gap-4">
+            <button onclick="answerFutType('will')" class="p-4 rounded-2xl border-2 border-indigo-200 bg-indigo-50 text-indigo-900 font-bold text-sm">Decisió sobtada / opinió (will)</button>
+            <button onclick="answerFutType('goingto')" class="p-4 rounded-2xl border-2 border-emerald-200 bg-emerald-50 text-emerald-900 font-bold text-sm">Intenció / evidència (going to)</button>
+          </div>
+          <div id="sort-feedback" class="hidden p-4 rounded-2xl text-xs font-medium"></div>
+        </div>
+      </div>
+
+      <!-- Activitat 2: Repte Primer Condicional -->
+      <div class="bg-white rounded-3xl border border-slate-200 p-6 shadow-sm space-y-4">
+        <h3 class="font-display font-bold text-lg text-slate-900">Activitat 2 - Repte del primer condicional</h3>
+        <div id="cond-grid" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+      </div>
+
+      <!-- Activitat 3: Taller de futur -->
+      <div class="bg-white rounded-3xl border border-slate-200 p-6 shadow-sm space-y-4">
+        <h3 class="font-display font-bold text-lg text-slate-900">Activitat 3 - Tria la forma verbal correcta</h3>
+        <div id="fut-choice-grid" class="space-y-3"></div>
+      </div>
+
+      <!-- Activitat 4: Gran repte -->
+      <div class="bg-slate-900 text-white rounded-3xl p-6 sm:p-10 shadow-xl space-y-6">
+        <div class="flex items-center justify-between border-b border-slate-800 pb-4">
+          <h3 class="text-xl font-display font-bold text-white">El gran repte de la unitat 7</h3>
+          <span id="quiz-question-counter" class="text-xs font-mono text-slate-400">Pregunta 1 de 10</span>
+        </div>
+        <div id="quiz-body" class="space-y-6">
+          <div class="space-y-1">
+            <span id="quiz-category" class="text-xs font-bold text-brand-400">Tema</span>
+            <p id="quiz-question-text" class="text-base sm:text-lg font-semibold text-slate-100">Carregant...</p>
+          </div>
+          <div id="quiz-options-container" class="grid grid-cols-1 sm:grid-cols-2 gap-3"></div>
+          <div id="quiz-feedback-box" class="hidden p-4 rounded-2xl text-xs font-medium"></div>
+          <div class="flex justify-end">
+            <button id="quiz-next-btn" onclick="nextQuizQuestion()" class="hidden px-5 py-2.5 rounded-xl bg-brand-600 text-white font-bold text-xs">Següent</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FITXES IMPRIMIBLES -->
+    <section class="print-card bg-white rounded-3xl border border-slate-200 p-6 space-y-4 text-xs text-slate-700">
+      <div class="flex items-center justify-between border-b border-slate-200 pb-3">
+        <h3 class="font-display font-bold text-base text-slate-900">Resum de la unitat 7 per a 2n d'ESO</h3>
+        <button onclick="window.print()" class="no-print px-3 py-1.5 bg-slate-100 rounded-xl font-bold">Imprimeix</button>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="p-3 bg-slate-50 rounded-xl">
+          <strong>Be going to:</strong><br>
+          - am/is/are + going to + verb<br>
+          - Plans personals i intencions<br>
+          - Prediccions amb proves que veus
+        </div>
+        <div class="p-3 bg-slate-50 rounded-xl">
+          <strong>Will i present continuous:</strong><br>
+          - will: decisions al moment i promeses<br>
+          - present cont: cites i plans tancats a l'agenda
+        </div>
+        <div class="p-3 bg-slate-50 rounded-xl">
+          <strong>Primer condicional:</strong><br>
+          - If + present simple, will + verb<br>
+          - Unless = if not (a menys que)
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-white border-t border-slate-200 mt-16 py-8 text-center text-xs text-slate-500">
+    English 2n d'ESO - Departament de Llengües Estrangeres - Unitat 7
+  </footer>
+
+  <script>
+    lucide.createIcons();
+    function speakText(t) {
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const u = new SpeechSynthesisUtterance(t);
+        u.lang = 'en-GB';
+        window.speechSynthesis.speak(u);
+      }
+    }
+    function toggleUnitsModal() { document.getElementById('units-modal').classList.toggle('hidden'); }
+
+    const futItems = [
+      { text: "I'll answer the door!", type: "will", exp: "Correcte! És una decisió del moment." },
+      { text: "I am going to learn German next year.", type: "goingto", exp: "Molt bé! És una intenció premeditada." },
+      { text: "Look at the dark clouds! It's going to rain.", type: "goingto", exp: "Exacte! Predicció amb prova visible." },
+      { text: "Don't worry, I won't tell anyone.", type: "will", exp: "Correcte! És una promesa." },
+      { text: "I think robots will teach us in 2060.", type: "will", exp: "Molt bé! Opinió / predicció general." }
+    ];
+    let curFut = 0;
+    function renderFut() {
+      if (curFut >= futItems.length) {
+        document.getElementById('sort-container').innerHTML = `<div class="p-4 bg-emerald-50 text-emerald-900 rounded-xl text-center font-bold">🎉 Molt bona feina! Has completat l'activitat 1.</div>`;
+        return;
+      }
+      document.getElementById('sort-step').textContent = `Frase ${curFut+1} de ${futItems.length}`;
+      document.getElementById('sort-word').textContent = futItems[curFut].text;
+      document.getElementById('sort-feedback').className = 'hidden';
+    }
+    function answerFutType(t) {
+      const item = futItems[curFut];
+      const fb = document.getElementById('sort-feedback');
+      fb.classList.remove('hidden');
+      if (t === item.type) {
+        fb.className = 'p-3 rounded-xl bg-emerald-100 text-emerald-900 font-bold';
+        fb.innerHTML = `✅ ${item.exp}`;
+        setTimeout(() => { curFut++; renderFut(); }, 1300);
+      } else {
+        fb.className = 'p-3 rounded-xl bg-rose-100 text-rose-900 font-bold';
+        fb.innerHTML = `❌ És una decisió sobtada (will) o un pla pensat d'abans (going to)?`;
+      }
+    }
+
+    const condQuestions = [
+      { q: "If it ______ (rain) tomorrow, we won't go out.", opts: ["rains", "will rain"], c: 0, exp: "Correcte! Després d'if sempre s'usa el present simple." },
+      { q: "You will fail the exam unless you ______ (study).", opts: ["study", "won't study"], c: 0, exp: "Exacte! 'Unless' ja significa 'if not', per tant el verb va en afirmativa." },
+      { q: "If you come to my party, you ______ (meet) my cousins.", opts: ["will meet", "meet"], c: 0, exp: "Molt bé! La clàusula principal porta will + infinitiu." },
+      { q: "We ______ (go) to the beach if the weather is warm.", opts: ["will go", "go"], c: 0, exp: "Correcte! La conseqüència futura porta 'will'." }
+    ];
+    function renderCond() {
+      const c = document.getElementById('cond-grid');
+      c.innerHTML = condQuestions.map((q, idx) => `
+        <div class="p-4 bg-slate-50 border border-slate-200 rounded-2xl space-y-2">
+          <p class="font-bold text-xs text-slate-800">${q.q}</p>
+          <div class="flex gap-2">
+            ${q.opts.map((opt, oIdx) => `<button onclick="checkCond(${idx}, ${oIdx})" class="px-3 py-1 bg-white border border-slate-300 rounded-lg text-xs font-bold">${opt}</button>`).join('')}
+          </div>
+          <div id="c-fb-${idx}" class="hidden text-xs p-2 rounded-lg"></div>
+        </div>
+      `).join('');
+    }
+    function checkCond(idx, oIdx) {
+      const q = condQuestions[idx];
+      const fb = document.getElementById(`c-fb-${idx}`);
+      fb.classList.remove('hidden');
+      if (oIdx === q.c) {
+        fb.className = 'text-xs p-2 rounded-lg bg-emerald-100 text-emerald-900 font-bold';
+        fb.innerHTML = `✅ ${q.exp}`;
+      } else {
+        fb.className = 'text-xs p-2 rounded-lg bg-rose-100 text-rose-900 font-bold';
+        fb.innerHTML = `❌ Recorda: if + present simple, will + infinitiu.`;
+      }
+    }
+
+    const futChoiceQuestions = [
+      { s: "I have got a ticket. I ______ (fly) to Rome tomorrow.", opts: ["am flying", "will fly", "fly"], c: 0 },
+      { s: "I feel sick. I think I ______ (rest).", opts: ["will rest", "am going rest", "rest"], c: 0 }
+    ];
+    function renderFutChoice() {
+      const c = document.getElementById('fut-choice-grid');
+      c.innerHTML = futChoiceQuestions.map((q, idx) => `
+        <div class="p-3 bg-slate-50 border border-slate-200 rounded-xl flex items-center justify-between text-xs">
+          <span id="fc-s-${idx}" class="font-semibold">${q.s}</span>
+          <div class="flex gap-2">
+            ${q.opts.map((opt, oIdx) => `<button onclick="checkFC(${idx}, ${oIdx})" class="px-2 py-1 bg-white border rounded font-bold">${opt}</button>`).join('')}
+          </div>
+        </div>
+      `).join('');
+    }
+    function checkFC(idx, oIdx) {
+      const q = futChoiceQuestions[idx];
+      const p = document.getElementById(`fc-s-${idx}`);
+      if (oIdx === q.c) p.innerHTML = q.s.replace('______', `<strong class="text-emerald-700 font-bold">${q.opts[oIdx]} ✅</strong>`);
+      else p.innerHTML = q.s.replace('______', `<strong class="text-rose-700 font-bold">${q.opts[oIdx]} ❌</strong>`);
+    }
+
+    const quizQuestions = [
+      { category: "be going to intenció", question: "Quina frase expressa una intenció decidida amb be going to?", options: ["I am going to learn tennis this summer.", "I will to learn tennis this summer.", "I going to learn tennis.", "I am go learn tennis."], correct: 0, explanation: "L'estructura és subjecte + am/is/are + going to + verb en infinitiu." },
+      { category: "be going to evidència", question: "Per què diem 'Look! He is going to fall'?", options: ["Perquè veiem una prova evident en aquest moment", "Perquè és una decisió espontània", "Perquè és una promesa", "Perquè és una acció habitual"], correct: 0, explanation: "Be going to s'utilitza per a prediccions amb evidència present." },
+      { category: "present continuous de futur", question: "Quan s'usa el present continuous per parlar de futur?", options: ["Per a cites i plans fixats amb persones, hora o lloc", "Per a promeses solemnes", "Per a hipòtesis impossibles", "Només per a coses que passen ara"], correct: 0, explanation: "S'utilitza per a compromisos tancats en l'agenda en el futur proper." },
+      { category: "will decisió espontània", question: "El telèfon sona. Quina resposta és natural en anglès?", options: ["I'll get it!", "I am getting it tomorrow!", "I am going to answer it now always.", "I answer it!"], correct: 0, explanation: "Per a decisions sobtades del moment es fa servir 'will ('ll)'." },
+      { category: "will predicció d'opinió", question: "Completa amb will: 'I think scientists ______ a cure soon.'", options: ["will find", "are finding", "is going to find", "finds"], correct: 0, explanation: "Amb 'think', 'believe' o 'hope' s'utilitza 'will' per a prediccions d'opinió." },
+      { category: "primer condicional estructura", question: "Com s'estructura el primer condicional?", options: ["If + present simple, will + infinitiu", "If + will, present simple", "If + past simple, will + infinitiu", "If + present simple, would + infinitiu"], correct: 0, explanation: "La regla és If + present simple (condició), will + forma base (resultat)." },
+      { category: "primer condicional exemple", question: "Quina frase condicional és correcta?", options: ["If you wake up early, you will arrive on time.", "If you will wake up early, you will arrive on time.", "If you wake up early, you arrive on time yesterday.", "If you woke up, you will arrive."], correct: 0, explanation: "Mai no posem 'will' a la meitat d'if: 'If you wake up early...'." },
+      { category: "unless significat", question: "Què significa 'unless' en català?", options: ["A menys que / si no", "Perquè", "Tan aviat com", "Encara que"], correct: 0, explanation: "'Unless' equival a 'if not' (a menys que / si no)." },
+      { category: "ordre del condicional", question: "Com escrivim la condició al final? 'You will pass the exam ______'", options: ["if you study hard (sense coma)", "if you will study hard,", "unless you will study hard", "if you studyed hard"], correct: 0, explanation: "Quan 'if' va al mig, no s'hi posa coma i la regla es manté." },
+      { category: "negativa de will", question: "Quina és la contracció negativa de will?", options: ["won't", "willn't", "wont't", "don't will"], correct: 0, explanation: "La forma negativa abreujada de will not és 'won't'." }
+    ];
+
+    let currentQuizIndex = 0;
+    let quizScore = 0;
+    let answered = new Set();
+    function renderCurrentQuizQuestion() {
+      const q = quizQuestions[currentQuizIndex];
+      document.getElementById('quiz-question-counter').textContent = `Pregunta ${currentQuizIndex + 1} de ${quizQuestions.length}`;
+      document.getElementById('quiz-category').textContent = `Tema: ${q.category}`;
+      document.getElementById('quiz-question-text').textContent = q.question;
+      document.getElementById('quiz-feedback-box').className = 'hidden';
+      document.getElementById('quiz-next-btn').className = 'hidden';
+      document.getElementById('quiz-options-container').innerHTML = q.options.map((opt, idx) => `
+        <button onclick="handleQuizAnswer(${idx})" id="q-opt-${idx}" class="text-left p-3.5 rounded-xl bg-white/10 hover:bg-white/20 border border-white/10 text-xs font-semibold">
+          ${String.fromCharCode(65 + idx)}) ${opt}
+        </button>
+      `).join('');
+    }
+    function handleQuizAnswer(idx) {
+      if (answered.has(currentQuizIndex)) return;
+      answered.add(currentQuizIndex);
+      const q = quizQuestions[currentQuizIndex];
+      const isCorrect = idx === q.correct;
+      const fb = document.getElementById('quiz-feedback-box');
+      fb.classList.remove('hidden');
+      if (isCorrect) {
+        quizScore++;
+        document.getElementById('user-score').textContent = quizScore;
+        fb.className = 'p-3 rounded-xl bg-emerald-950/80 border border-emerald-500/50 text-emerald-200 text-xs font-semibold';
+        fb.innerHTML = `🎉 ${q.explanation}`;
+      } else {
+        fb.className = 'p-3 rounded-xl bg-rose-950/80 border border-rose-500/50 text-rose-200 text-xs font-semibold';
+        fb.innerHTML = `⚠️ ${q.explanation}`;
+      }
+      document.getElementById('quiz-next-btn').classList.remove('hidden');
+    }
+    function nextQuizQuestion() {
+      if (currentQuizIndex < quizQuestions.length - 1) {
+        currentQuizIndex++;
+        renderCurrentQuizQuestion();
+      } else {
+        if (typeof confetti === 'function') confetti();
+        document.getElementById('quiz-body').innerHTML = `
+          <div class="text-center py-6 space-y-3">
+            <div class="text-4xl">🏆</div>
+            <h4 class="text-xl font-bold">Felicitats! Puntuació: ${quizScore} / 10</h4>
+            <a href="unit8.html" class="inline-block px-4 py-2 bg-brand-600 text-white rounded-xl font-bold text-xs">Continuar a la unitat 8 ➡️</a>
+          </div>
+        `;
+      }
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      renderFut();
+      renderCond();
+      renderFutChoice();
+      renderCurrentQuizQuestion();
+    });
+  </script>
+</body>
+</html>
