@@ -178,13 +178,13 @@
         </h2>
 
         <p class="text-sm sm:text-base text-white/90 max-w-3xl leading-relaxed">
-          Aquesta fitxa de reforç t'ajuda a dominar la formació del present perfect simple (have / has + participi), l'ús dels adverbis temporals clau (ever, never, just, already, yet), la diferència entre for (durada) i since (inici), i com distingir-lo del passat simple.
+          Aquesta fitxa de reforç t'ajuda a dominar la formació del present perfect simple (have / has + participi), l'ús dels adverbis temporals principals (ever, never, just, already, yet), la diferència entre for (durada) i since (inici), i com distingir-lo del passat simple.
         </p>
 
         <div class="flex flex-wrap items-center gap-3 pt-2">
           <a href="#explicacions" class="px-5 py-2.5 rounded-xl bg-white text-slate-900 font-display font-bold text-xs sm:text-sm hover:bg-slate-100 transition-colors shadow-sm flex items-center gap-2">
             <i data-lucide="book-open" class="w-4 h-4 text-emerald-600"></i>
-            <span>Explicacions clau</span>
+            <span>Explicacions essencials</span>
           </a>
           <a href="#practice-section" class="px-5 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-display font-bold text-xs sm:text-sm transition-colors border border-white/20 flex items-center gap-2">
             <i data-lucide="play" class="w-4 h-4"></i>
@@ -199,7 +199,7 @@
       <div class="border-b border-slate-200 pb-4">
         <span class="text-xs font-bold uppercase tracking-wider text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-md border border-emerald-200">Bloc d'aprenentatge</span>
         <h2 class="text-2xl sm:text-3xl font-display font-bold text-slate-900 mt-1">
-          Explicacions i conceptes clau
+          Explicacions i conceptes essencials
         </h2>
         <p class="text-xs sm:text-sm text-slate-500 mt-1">
           Punts fonamentals explicats amb exemples contextualitzats i consells pedagògics.
@@ -258,7 +258,7 @@
             <div class="p-4 rounded-2xl border bg-amber-50 border-amber-200 text-amber-900 space-y-1 mt-4">
               <div class="flex items-center gap-2 font-bold text-xs uppercase tracking-wide">
                 <i data-lucide="lightbulb" class="w-4 h-4"></i>
-                <span>pista clau: la 3a columna dels verbs</span>
+                <span>pista essencial: la 3a columna dels verbs</span>
               </div>
               <p class="text-xs sm:text-sm leading-relaxed">Recorda que no fem servir la 2a columna (passat simple), sinó la 3a columna (participi passat: <em>done, seen, eaten, been</em>).</p>
             </div>
@@ -313,7 +313,7 @@
             <div class="p-4 rounded-2xl border bg-amber-50 border-amber-200 text-amber-900 space-y-1 mt-4">
               <div class="flex items-center gap-2 font-bold text-xs uppercase tracking-wide">
                 <i data-lucide="lightbulb" class="w-4 h-4"></i>
-                <span>regla d'or: la posició de yet</span>
+                <span>norma fonamental: la posició de yet</span>
               </div>
               <p class="text-xs sm:text-sm leading-relaxed">'Yet' va SEMPRE al final de tot de la frase (negativa o interrogativa).</p>
             </div>
@@ -356,7 +356,7 @@
             <div class="p-4 rounded-2xl border bg-amber-50 border-amber-200 text-amber-900 space-y-1 mt-4">
               <div class="flex items-center gap-2 font-bold text-xs uppercase tracking-wide">
                 <i data-lucide="lightbulb" class="w-4 h-4"></i>
-                <span>pista clau: període vs data</span>
+                <span>pista essencial: període vs data</span>
               </div>
               <p class="text-xs sm:text-sm leading-relaxed">Si és un número d'anys, mesos o dies -> <em>for</em>. Si és un any, dia de la setmana o data -> <em>since</em>.</p>
             </div>
@@ -399,7 +399,7 @@
             <div class="p-4 rounded-2xl border bg-amber-50 border-amber-200 text-amber-900 space-y-1 mt-4">
               <div class="flex items-center gap-2 font-bold text-xs uppercase tracking-wide">
                 <i data-lucide="lightbulb" class="w-4 h-4"></i>
-                <span>regla d'or: la paraula 'yesterday'</span>
+                <span>norma fonamental: la paraula 'yesterday'</span>
               </div>
               <p class="text-xs sm:text-sm leading-relaxed">Si la frase diu <em>yesterday, last night, in 2020</em> o <em>ago</em>, és OBLIGATORI utilitzar el Past simple!</p>
             </div>
@@ -879,7 +879,7 @@
     const act1Data = [{"prompt": "1. Participi passat del verb 'see':", "options": ["seen", "saw", "seed"], "correct": 0, "explanation": "'See' (infinitiu) -> 'saw' (passat simple) -> 'seen' (participi passat)."}, {"prompt": "2. Participi passat del verb 'eat':", "options": ["eaten", "ate", "eated"], "correct": 0, "explanation": "'Eat' -> 'ate' -> 'eaten'."}, {"prompt": "3. Participi passat del verb 'write':", "options": ["written", "wrote", "writen"], "correct": 0, "explanation": "'Write' -> 'wrote' -> 'written' (amb doble 't')."}, {"prompt": "4. Participi passat del verb 'go':", "options": ["gone / been", "went", "goed"], "correct": 0, "explanation": "El participi de 'go' és 'gone' o 'been' segons si ha tornat o no."}];
     const act2Data = [{"sentence": "1. We have been friends ______ three years.", "options": ["for", "since", "during"], "correct": 0, "explanation": "'Three years' és una durada de temps, cal 'for'."}, {"sentence": "2. She has lived in Barcelona ______ 2020.", "options": ["since", "for", "from"], "correct": 0, "explanation": "'2020' és un any o punt d'inici precís, cal 'since'."}, {"sentence": "3. I haven't heard from him ______ last Monday.", "options": ["since", "for", "ago"], "correct": 0, "explanation": "'Last Monday' és un moment concret del calendari, cal 'since'."}, {"sentence": "4. The baby has been sleeping ______ two hours.", "options": ["for", "since", "in"], "correct": 0, "explanation": "'Two hours' és un període de temps continuat, cal 'for'."}];
     const act3Data = [{"prompt": "1. 'I ______ (watch) that documentary yesterday evening.'", "options": ["watched", "have watched", "has watched"], "correct": 0, "explanation": "'Yesterday evening' és un temps passat tancat i concret: past simple ('watched')."}, {"prompt": "2. 'She ______ (already / read) that adventure novel.'", "options": ["has already read", "already read", "have already read"], "correct": 0, "explanation": "'Already' indica un fet consumat relacionat amb el present: present perfect ('has already read')."}, {"prompt": "3. '______ you ever ______ (visit) an active volcano?'", "options": ["Have / visited", "Did / visit", "Were / visiting"], "correct": 0, "explanation": "Les preguntes d'experiència al llarg de la vida amb 'ever' porten present perfect: 'Have you ever visited?'."}, {"prompt": "4. 'In 2015, my parents ______ (buy) this old stone cottage.'", "options": ["bought", "have bought", "buyed"], "correct": 0, "explanation": "'In 2015' és una data concreta passada: past simple ('bought')."}];
-    const quizQuestions = [{"category": "contrast temps", "question": "Completa: 'Shakespeare ______ many famous plays.'", "options": ["wrote", "has written", "has wrote", "writes"], "correct": 0, "explanation": "Shakespeare és una persona històrica que ja ha mort; la seva vida és un temps tancat (past simple: 'wrote')."}, {"category": "adverbis", "question": "Completa: 'I haven't tidied my bedroom ______.'", "options": ["yet", "already", "just", "ever"], "correct": 0, "explanation": "'Yet' es col·loca al final de les oracions negatives per expressar 'encara no'."}, {"category": "for vs since", "question": "Completa: 'Mr Harris has taught English at this school ______ fifteen years.'", "options": ["for", "since", "during", "ago"], "correct": 0, "explanation": "'Fifteen years' és la durada de temps acumulada (requereix 'for')."}, {"category": "adverbi just", "question": "Què significa 'I have just finished my homework'?", "options": ["Que he acabat els deures fa només un o dos minuts.", "Que encara no he començat els deures.", "Que faré els deures demà.", "Que no tinc deures per fer."], "correct": 0, "explanation": "'Just' amb present perfect indica que l'acció s'acaba de produir de forma immediata."}, {"category": "experiències", "question": "Completa: '______ you ever seen a shooting star at night?'", "options": ["Have", "Has", "Did", "Were"], "correct": 0, "explanation": "Amb el subjecte 'you' la forma auxiliar del present perfect és 'Have'."}, {"category": "never", "question": "Quina d'aquestes oracions és correcta sense doble negació?", "options": ["I have never been to Japan.", "I haven't never been to Japan.", "I didn't never go to Japan.", "I have never go to Japan."], "correct": 0, "explanation": "'Never' ja és una paraula negativa; l'auxiliar ha d'anar en forma afirmativa ('have never been')."}, {"category": "past simple clau", "question": "Completa: 'Two days ago, our football team ______ the tournament.'", "options": ["won", "has won", "have won", "winned"], "correct": 0, "explanation": "'Two days ago' fixa l'acció en un moment temporal determinat del passat: past simple ('won')."}];
+    const quizQuestions = [{"category": "contrast temps", "question": "Completa: 'Shakespeare ______ many famous plays.'", "options": ["wrote", "has written", "has wrote", "writes"], "correct": 0, "explanation": "Shakespeare és una persona històrica que ja ha mort; la seva vida és un temps tancat (past simple: 'wrote')."}, {"category": "adverbis", "question": "Completa: 'I haven't tidied my bedroom ______.'", "options": ["yet", "already", "just", "ever"], "correct": 0, "explanation": "'Yet' es col·loca al final de les oracions negatives per expressar 'encara no'."}, {"category": "for vs since", "question": "Completa: 'Mr Harris has taught English at this school ______ fifteen years.'", "options": ["for", "since", "during", "ago"], "correct": 0, "explanation": "'Fifteen years' és la durada de temps acumulada (requereix 'for')."}, {"category": "adverbi just", "question": "Què significa 'I have just finished my homework'?", "options": ["Que he acabat els deures fa només un o dos minuts.", "Que encara no he començat els deures.", "Que faré els deures demà.", "Que no tinc deures per fer."], "correct": 0, "explanation": "'Just' amb present perfect indica que l'acció s'acaba de produir de forma immediata."}, {"category": "experiències", "question": "Completa: '______ you ever seen a shooting star at night?'", "options": ["Have", "Has", "Did", "Were"], "correct": 0, "explanation": "Amb el subjecte 'you' la forma auxiliar del present perfect és 'Have'."}, {"category": "never", "question": "Quina d'aquestes oracions és correcta sense doble negació?", "options": ["I have never been to Japan.", "I haven't never been to Japan.", "I didn't never go to Japan.", "I have never go to Japan."], "correct": 0, "explanation": "'Never' ja és una paraula negativa; l'auxiliar ha d'anar en forma afirmativa ('have never been')."}, {"category": "past simple essencial", "question": "Completa: 'Two days ago, our football team ______ the tournament.'", "options": ["won", "has won", "have won", "winned"], "correct": 0, "explanation": "'Two days ago' fixa l'acció en un moment temporal determinat del passat: past simple ('won')."}];
 
     function checkAct1(itemIdx, optIdx) {
       const item = act1Data[itemIdx];
