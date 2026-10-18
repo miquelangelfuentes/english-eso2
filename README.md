@@ -74,3 +74,11 @@ Una plataforma web interactiva d'aprenentatge d'anglès com a llengua estrangera
 - **Vanilla JavaScript** (sense necessitat de compilació ni dependències de Node)
 - **Lucide Icons** i **Canvas-Confetti**
 - **Web Speech API** per al text a veu en anglès
+
+---
+
+## 📄 Llicències
+
+- **Codi:** sota llicència [GNU AGPL v3](https://www.gnu.org/licenses/agpl-3.0.html).
+- **Continguts educatius:** sota llicència [Creative Commons CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.ca).
+
