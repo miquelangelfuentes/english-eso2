@@ -48,32 +48,39 @@
   <!-- ========================================================================= -->
   <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm transition-all duration-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-16 sm:h-20">
+      <div class="flex items-center justify-between h-16 sm:h-20 gap-2 sm:gap-4">
         
         <!-- Logotip i títol -->
-        <div class="flex items-center gap-3">
-          <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-brand-600 to-indigo-500 text-white flex items-center justify-center shadow-md shadow-brand-500/20 font-display font-extrabold text-xl tracking-tight border border-white/20">
+        <a href="index.html" class="flex items-center gap-2.5 sm:gap-3 shrink-0 group">
+          <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-gradient-to-tr from-brand-600 to-indigo-500 text-white flex items-center justify-center shadow-md shadow-brand-500/20 font-display font-extrabold text-lg sm:text-xl tracking-tight border border-white/20 shrink-0">
             2E
           </div>
-          <div>
-            <div class="flex items-center gap-2">
-              <span class="text-xs font-bold uppercase tracking-wider text-brand-600 bg-brand-50 px-2 py-0.5 rounded-full border border-brand-200">Anglès 2n d'ESO</span>
-              <span class="text-xs text-slate-400 hidden sm:inline">- Portal del curs</span>
+          <div class="shrink-0 whitespace-nowrap">
+            <div class="flex items-center gap-1.5 sm:gap-2">
+              <span class="text-[11px] font-bold uppercase tracking-wider text-brand-600 bg-brand-50 px-2 py-0.5 rounded-full border border-brand-200">Anglès 2n d'ESO</span>
+              <span class="text-xs text-slate-400 hidden xl:inline">- Portal del curs</span>
             </div>
-            <h1 class="text-lg sm:text-xl font-display font-bold text-slate-900 leading-tight">Grammar Lab</h1>
+            <div class="text-base sm:text-lg font-display font-bold text-slate-900 leading-tight group-hover:text-brand-600 transition-colors">Grammar Lab</div>
           </div>
+        </a>
+
+        <!-- Indicador de temari (escriptori) -->
+        <div class="hidden lg:inline-flex items-center gap-2 text-xs font-semibold text-slate-600 bg-slate-100 px-3.5 py-1.5 rounded-2xl border border-slate-200 shrink-0 whitespace-nowrap">
+          <i data-lucide="book-open" class="w-4 h-4 text-brand-600"></i>
+          <span>8 unitats completes amb reforç i ampliació</span>
         </div>
 
         <!-- Accés ràpid -->
-        <div class="flex items-center gap-2 sm:gap-3">
-          <a href="#units-grid" class="flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-semibold rounded-xl bg-brand-50 hover:bg-brand-100 text-brand-700 transition-colors border border-brand-200">
-            <i data-lucide="layers" class="w-4 h-4 text-brand-600"></i>
-            <span>Totes les unitats (1-8)</span>
+        <div class="flex items-center gap-1.5 sm:gap-2 shrink-0 whitespace-nowrap">
+          <a href="#units-grid" class="flex items-center gap-1.5 px-2.5 py-1.5 sm:px-3 sm:py-2 text-xs sm:text-sm font-semibold rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors border border-slate-200">
+            <i data-lucide="layers" class="w-4 h-4 text-brand-600 shrink-0"></i>
+            <span>Temari</span>
           </a>
 
-          <a href="unit1.html" class="flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-bold rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white shadow-sm shadow-emerald-600/20 transition-all">
-            <i data-lucide="play" class="w-3.5 h-3.5 fill-current"></i>
-            <span>Comença a la unitat 1</span>
+          <a href="unit1.html" class="flex items-center gap-1.5 px-3 py-1.5 sm:px-3.5 sm:py-2 text-xs sm:text-sm font-bold rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white shadow-sm shadow-emerald-600/20 transition-all">
+            <i data-lucide="play" class="w-3.5 h-3.5 fill-current shrink-0"></i>
+            <span class="hidden sm:inline">Comença a la unitat 1</span>
+            <span class="sm:hidden">Comença</span>
           </a>
         </div>
       </div>

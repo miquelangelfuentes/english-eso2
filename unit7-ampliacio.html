@@ -68,53 +68,58 @@
   <!-- ========================================================================= -->
   <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm transition-all duration-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-16 sm:h-20">
+      <div class="flex items-center justify-between h-16 sm:h-20 gap-2 sm:gap-4">
         
         <!-- Logotip i títol -->
-        <div class="flex items-center gap-3">
-          <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-brand-600 to-indigo-500 text-white flex items-center justify-center shadow-md shadow-brand-500/20 font-display font-extrabold text-xl tracking-tight border border-white/20">
+        <a href="index.html" class="flex items-center gap-2.5 sm:gap-3 shrink-0 group">
+          <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-gradient-to-tr from-brand-600 to-indigo-500 text-white flex items-center justify-center shadow-md shadow-brand-500/20 font-display font-extrabold text-lg sm:text-xl tracking-tight border border-white/20 shrink-0">
             2E
           </div>
-          <div>
-            <div class="flex items-center gap-2">
-              <span class="text-xs font-bold uppercase tracking-wider text-brand-600 bg-brand-50 px-2 py-0.5 rounded-full border border-brand-200">Anglès 2n d'ESO</span>
-              <span class="text-xs text-slate-400 hidden sm:inline">- Ampliació de la unitat 7</span>
+          <div class="shrink-0 whitespace-nowrap">
+            <div class="flex items-center gap-1.5 sm:gap-2">
+              <span class="text-[11px] font-bold uppercase tracking-wider text-brand-600 bg-brand-50 px-2 py-0.5 rounded-full border border-brand-200">Anglès 2n d'ESO</span>
+              <span class="text-xs text-slate-400 hidden xl:inline">- Ampliació unitat 7</span>
             </div>
-            <h1 class="text-lg sm:text-xl font-display font-bold text-slate-900 leading-tight">Grammar Lab</h1>
+            <div class="text-base sm:text-lg font-display font-bold text-slate-900 leading-tight group-hover:text-brand-600 transition-colors">Grammar Lab</div>
           </div>
-        </div>
+        </a>
 
-        <!-- Botons de navegació -->
-        <div class="flex items-center gap-2 sm:gap-3">
-          <a href="index.html" class="flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-semibold rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors border border-slate-200">
-            <i data-lucide="home" class="w-4 h-4 text-brand-600"></i>
-            <span>Inici</span>
-          </a>
-
-          <a href="unit7.html" class="flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-semibold rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors border border-slate-200">
-            <i data-lucide="book-open" class="w-4 h-4 text-brand-600"></i>
+        
+        <!-- Selector de nivell de la unitat (escriptori) -->
+        <nav class="hidden lg:inline-flex items-center p-1 bg-slate-100 rounded-2xl border border-slate-200 text-xs font-semibold shrink-0 whitespace-nowrap" aria-label="Nivell d'aprenentatge">
+          <a href="unit7.html" class="flex items-center gap-1 px-3 py-1.5 rounded-xl text-slate-600 hover:text-brand-700 hover:bg-brand-50 transition-all">
+            <i data-lucide="book-open" class="w-3.5 h-3.5 text-brand-600"></i>
             <span>Unitat 7</span>
           </a>
+          <a href="unit7-reforc.html" class="flex items-center gap-1 px-3 py-1.5 rounded-xl text-slate-600 hover:text-emerald-700 hover:bg-emerald-50 transition-all"><i data-lucide="shield-check" class="w-3.5 h-3.5 text-emerald-600"></i><span>Reforç</span></a>
+          <span class="flex items-center gap-1 px-3 py-1.5 rounded-xl bg-purple-600 text-white shadow-xs font-bold"><i data-lucide="sparkles" class="w-3.5 h-3.5"></i><span>Ampliació</span></span>
+        </nav>
 
-          <a href="unit7-reforc.html" class="hidden md:flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-semibold rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-800 transition-colors border border-emerald-200">
-            <i data-lucide="shield-check" class="w-4 h-4 text-emerald-600"></i>
-            <span>Reforç</span>
+        <!-- Botons de navegació i accions -->
+        <div class="flex items-center gap-1.5 sm:gap-2 shrink-0 whitespace-nowrap">
+          <a href="index.html" class="flex items-center gap-1.5 px-2.5 py-1.5 sm:px-3 sm:py-2 text-xs sm:text-sm font-semibold rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors border border-slate-200">
+            <i data-lucide="home" class="w-4 h-4 text-brand-600 shrink-0"></i>
+            <span class="hidden sm:inline">Inici</span>
           </a>
 
-          <button onclick="toggleUnitsModal()" class="flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-semibold rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors border border-slate-200">
-            <i data-lucide="layers" class="w-4 h-4 text-brand-600"></i>
-            <span class="hidden md:inline">Temari:</span>
-            <span class="font-bold text-brand-700">unitats 1-8</span>
-            <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-slate-400"></i>
+          <a href="unit7.html" class="flex items-center gap-1.5 px-2.5 py-1.5 sm:px-3 sm:py-2 text-xs sm:text-sm font-semibold rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors border border-slate-200">
+            <i data-lucide="book-open" class="w-4 h-4 text-brand-600 shrink-0"></i>
+            <span class="hidden sm:inline">Unitat 7</span>
+          </a>
+
+          <button onclick="toggleUnitsModal()" class="flex items-center gap-1.5 px-2.5 py-1.5 sm:px-3 sm:py-2 text-xs sm:text-sm font-semibold rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors border border-slate-200">
+            <i data-lucide="layers" class="w-4 h-4 text-brand-600 shrink-0"></i>
+            <span>Temari</span>
+            <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-slate-400 shrink-0"></i>
           </button>
 
-          <a href="#practice-section" class="flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-bold rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white shadow-sm shadow-emerald-600/20 transition-all">
-            <i data-lucide="play" class="w-3.5 h-3.5 fill-current"></i>
-            <span>Pràctica</span>
+          <a href="#practice-section" class="flex items-center gap-1.5 px-3 py-1.5 sm:px-3.5 sm:py-2 text-xs sm:text-sm font-bold rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white shadow-sm shadow-emerald-600/20 transition-all">
+            <i data-lucide="play" class="w-3.5 h-3.5 fill-current shrink-0"></i>
+            <span class="hidden sm:inline">Pràctica</span>
           </a>
 
-          <button onclick="window.print()" title="Imprimeix o desa la fitxa" class="p-2 text-slate-500 hover:text-slate-800 hover:bg-slate-100 rounded-xl transition-colors">
-            <i data-lucide="printer" class="w-5 h-5"></i>
+          <button onclick="window.print()" title="Imprimeix o desa la fitxa" class="p-2 sm:p-2.5 text-slate-500 hover:text-slate-800 hover:bg-slate-100 rounded-xl transition-colors shrink-0">
+            <i data-lucide="printer" class="w-4 h-4 sm:w-5 sm:h-5"></i>
           </button>
         </div>
       </div>
