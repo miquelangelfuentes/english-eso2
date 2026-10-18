@@ -77,6 +77,16 @@
             <span>Unitat 8</span>
             <i data-lucide="arrow-right" class="w-4 h-4 text-brand-600"></i>
           </a>
+          
+          <a href="unit7-reforc.html" class="hidden sm:flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-semibold rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-800 transition-colors border border-emerald-200">
+            <i data-lucide="shield-check" class="w-4 h-4 text-emerald-600"></i>
+            <span>Reforç</span>
+          </a>
+          <a href="unit7-ampliacio.html" class="hidden sm:flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-semibold rounded-xl bg-purple-50 hover:bg-purple-100 text-purple-800 transition-colors border border-purple-200">
+            <i data-lucide="sparkles" class="w-4 h-4 text-purple-600"></i>
+            <span>Ampliació</span>
+          </a>
+
           <button onclick="toggleUnitsModal()" class="flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-semibold rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors border border-slate-200">
             <i data-lucide="layers" class="w-4 h-4 text-brand-600"></i>
             <span class="hidden md:inline">Temari:</span>
@@ -228,6 +238,41 @@
           Com expressar el futur en anglès? Diferencia entre intencions personals (<em>be going to</em>), cites fermes d'agenda (present continuous), decisions del moment o prediccions (<em>will</em>), i aprèn a formular condicions de futur amb el primer condicional (<em>if / unless</em>).
         </p>
       </div>
+    </section>
+
+    <!-- NIVELLS DE TREBALL: REFORÇ I AMPLIACIÓ -->
+    <section class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <a href="unit7-reforc.html" class="p-5 rounded-3xl bg-emerald-50/80 border-2 border-emerald-200 hover:border-emerald-400 hover:bg-emerald-100/60 transition-all flex items-center justify-between group shadow-xs">
+        <div class="flex items-center gap-4">
+          <div class="w-12 h-12 rounded-2xl bg-emerald-600 text-white flex items-center justify-center shrink-0 shadow-sm shadow-emerald-600/30">
+            <i data-lucide="shield-check" class="w-6 h-6"></i>
+          </div>
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="text-[11px] font-bold uppercase tracking-wider text-emerald-800 bg-white px-2 py-0.5 rounded-full border border-emerald-200">Nivell de reforç</span>
+            </div>
+            <h3 class="font-display font-bold text-base text-slate-900 mt-0.5 group-hover:text-emerald-900 transition-colors">Activitats i explicacions de reforç</h3>
+            <p class="text-xs text-slate-600 mt-0.5">Consolidació pas a pas, pistes clau i activitats guiades.</p>
+          </div>
+        </div>
+        <i data-lucide="arrow-right" class="w-5 h-5 text-emerald-600 shrink-0 group-hover:translate-x-1 transition-transform"></i>
+      </a>
+
+      <a href="unit7-ampliacio.html" class="p-5 rounded-3xl bg-purple-50/80 border-2 border-purple-200 hover:border-purple-400 hover:bg-purple-100/60 transition-all flex items-center justify-between group shadow-xs">
+        <div class="flex items-center gap-4">
+          <div class="w-12 h-12 rounded-2xl bg-purple-600 text-white flex items-center justify-center shrink-0 shadow-sm shadow-purple-600/30">
+            <i data-lucide="sparkles" class="w-6 h-6"></i>
+          </div>
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="text-[11px] font-bold uppercase tracking-wider text-purple-800 bg-white px-2 py-0.5 rounded-full border border-purple-200">Nivell d'ampliació</span>
+            </div>
+            <h3 class="font-display font-bold text-base text-slate-900 mt-0.5 group-hover:text-purple-900 transition-colors">Activitats i explicacions d'ampliació</h3>
+            <p class="text-xs text-slate-600 mt-0.5">Aprofundiment, excepcions, matisos i reptes avançats.</p>
+          </div>
+        </div>
+        <i data-lucide="arrow-right" class="w-5 h-5 text-purple-600 shrink-0 group-hover:translate-x-1 transition-transform"></i>
+      </a>
     </section>
 
     <!-- SECCIÓ 1: BE GOING TO -->
@@ -389,7 +434,7 @@
         <span class="px-3 py-1 rounded-xl bg-slate-100 text-slate-700 text-xs font-bold font-mono">Puntuació: <span id="user-score" class="text-brand-600">0</span> / 10</span>
       </div>
 
-      <!-- Activitat 1: Classificador de futurs -->
+      <!-- Activitat 1: classificador de futurs -->
       <div class="bg-white rounded-3xl border border-slate-200 p-6 shadow-sm space-y-4">
         <h3 class="font-display font-bold text-lg text-slate-900">Activitat 1 - És decisió del moment (will) o intenció prèvia (going to)?</h3>
         <div id="sort-container" class="space-y-4">
@@ -405,19 +450,19 @@
         </div>
       </div>
 
-      <!-- Activitat 2: Repte Primer Condicional -->
+      <!-- Activitat 2: repte Primer Condicional -->
       <div class="bg-white rounded-3xl border border-slate-200 p-6 shadow-sm space-y-4">
         <h3 class="font-display font-bold text-lg text-slate-900">Activitat 2 - Repte del primer condicional</h3>
         <div id="cond-grid" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
       </div>
 
-      <!-- Activitat 3: Taller de futur -->
+      <!-- Activitat 3: taller de futur -->
       <div class="bg-white rounded-3xl border border-slate-200 p-6 shadow-sm space-y-4">
         <h3 class="font-display font-bold text-lg text-slate-900">Activitat 3 - Tria la forma verbal correcta</h3>
         <div id="fut-choice-grid" class="space-y-3"></div>
       </div>
 
-      <!-- Activitat 4: Gran repte -->
+      <!-- Activitat 4: gran repte -->
       <div class="bg-slate-900 text-white rounded-3xl p-6 sm:p-10 shadow-xl space-y-6">
         <div class="flex items-center justify-between border-b border-slate-800 pb-4">
           <h3 class="text-xl font-display font-bold text-white">El gran repte de la unitat 7</h3>
