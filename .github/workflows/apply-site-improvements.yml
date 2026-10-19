@@ -18,6 +18,336 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Apply Grammar Lab style system
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          config = Path('tailwind.config.cjs')
+          text = config.read_text(encoding='utf-8')
+          text = re.sub(
+              r'"fontFamily": \{.*?\n  \},\n  "colors":',
+              '''"fontFamily": {
+    "sans": ["Arial", "Helvetica", "sans-serif"],
+    "display": ["Arial", "Helvetica", "sans-serif"],
+    "mono": ["Arial", "Helvetica", "sans-serif"]
+  },
+  "colors":''',
+              text,
+              count=1,
+              flags=re.S,
+          )
+          config.write_text(text, encoding='utf-8')
+
+          css = r'''/* Llibre d'estil compartit de Grammar Lab */
+
+:root {
+  --gl-brand-50: #eef2ff;
+  --gl-brand-100: #e0e7ff;
+  --gl-brand-200: #c7d2fe;
+  --gl-brand-600: #4f46e5;
+  --gl-brand-700: #4338ca;
+  --gl-text: #1e293b;
+  --gl-muted: #475569;
+  --gl-border: #e2e8f0;
+  --gl-surface: #ffffff;
+  --gl-page: #f8fafc;
+  --gl-radius-card: 1rem;
+  --gl-shadow: 0 1px 3px rgba(15, 23, 42, .08), 0 1px 2px rgba(15, 23, 42, .05);
+}
+
+html {
+  font-size: 16px;
+}
+
+body,
+button,
+input,
+select,
+textarea,
+.font-sans,
+.font-display,
+.font-mono {
+  font-family: Arial, Helvetica, sans-serif !important;
+}
+
+body {
+  background: var(--gl-page);
+  color: var(--gl-text);
+  line-height: 1.6;
+}
+
+.font-extrabold {
+  font-weight: 700 !important;
+}
+
+:focus-visible {
+  outline: 3px solid var(--gl-brand-600);
+  outline-offset: 3px;
+}
+
+/* Capçalera compacta i cromàticament neutra. */
+header > div > div {
+  min-height: 4rem;
+}
+
+header nav a {
+  color: var(--gl-muted) !important;
+}
+
+header nav a:hover,
+header nav a:focus-visible {
+  color: var(--gl-brand-700) !important;
+  background-color: var(--gl-brand-50) !important;
+}
+
+header .text-\[10px\],
+header .text-\[11px\],
+header .text-xs {
+  font-size: .75rem !important;
+  line-height: 1rem !important;
+}
+
+/* Escala tipogràfica de contingut. */
+main .text-\[10px\],
+main .text-\[11px\],
+main .text-xs,
+#units-modal .text-\[10px\],
+#units-modal .text-\[11px\],
+#units-modal .text-xs {
+  font-size: .875rem !important;
+  line-height: 1.35rem !important;
+}
+
+main .text-sm,
+main .text-base {
+  font-size: 1rem !important;
+  line-height: 1.6rem !important;
+}
+
+main .text-lg {
+  font-size: 1.125rem !important;
+  line-height: 1.7rem !important;
+}
+
+main h1 {
+  font-size: 2rem !important;
+  line-height: 1.2 !important;
+  font-weight: 700 !important;
+}
+
+main h2,
+#units-modal h2 {
+  font-size: 1.5rem !important;
+  line-height: 1.3 !important;
+  font-weight: 700 !important;
+}
+
+main h3 {
+  font-size: 1.125rem !important;
+  line-height: 1.45 !important;
+  font-weight: 700 !important;
+}
+
+main h4 {
+  font-size: 1rem !important;
+  line-height: 1.5 !important;
+  font-weight: 700 !important;
+}
+
+/* Etiquetes i microtext sense crits visuals. */
+main .uppercase,
+#units-modal .uppercase {
+  text-transform: none !important;
+}
+
+main .tracking-widest,
+main .tracking-wider,
+main .tracking-wide,
+#units-modal .tracking-widest,
+#units-modal .tracking-wider,
+#units-modal .tracking-wide {
+  letter-spacing: .01em !important;
+}
+
+/* Targetes amb geometria i ombra comunes. */
+main .rounded-3xl,
+#units-modal .rounded-3xl {
+  border-radius: var(--gl-radius-card) !important;
+}
+
+main .rounded-2xl,
+#units-modal .rounded-2xl {
+  border-radius: .75rem !important;
+}
+
+main .shadow-2xl,
+main .shadow-xl,
+main .shadow-lg,
+main .shadow-md,
+main .shadow-sm,
+#units-modal .shadow-2xl,
+#units-modal .shadow-xl,
+#units-modal .shadow-lg,
+#units-modal .shadow-md,
+#units-modal .shadow-sm {
+  box-shadow: var(--gl-shadow) !important;
+}
+
+/* Indigo és l'accent general. Verd, ambre i vermell es reserven per significat. */
+main .text-purple-600,
+main .text-purple-700,
+main .text-purple-800,
+main .text-purple-900,
+main .text-pink-600,
+main .text-pink-700,
+main .text-pink-800,
+main .text-pink-900,
+main .text-blue-600,
+main .text-blue-700,
+main .text-blue-800,
+main .text-blue-900,
+main .text-sky-600,
+main .text-sky-700,
+main .text-sky-800,
+main .text-sky-900,
+main .text-orange-600,
+main .text-orange-700,
+main .text-orange-800,
+main .text-orange-900 {
+  color: var(--gl-brand-700) !important;
+}
+
+main .bg-purple-50,
+main .bg-blue-50,
+main .bg-sky-50,
+main .bg-pink-50,
+main .bg-orange-50 {
+  background-color: var(--gl-brand-50) !important;
+}
+
+main .bg-purple-100,
+main .bg-blue-100,
+main .bg-sky-100,
+main .bg-pink-100,
+main .bg-orange-100 {
+  background-color: var(--gl-brand-100) !important;
+}
+
+main .border-purple-200,
+main .border-blue-200,
+main .border-sky-200,
+main .border-pink-200,
+main .border-orange-200 {
+  border-color: var(--gl-brand-200) !important;
+}
+
+/* Reforç i Ampliació comparteixen llenguatge visual amb la unitat. */
+main a[href*="-reforc.html"] .text-emerald-600,
+main a[href*="-reforc.html"] .text-emerald-700,
+main a[href*="-reforc.html"] .text-emerald-800,
+main a[href*="-ampliacio.html"] .text-purple-600,
+main a[href*="-ampliacio.html"] .text-purple-700,
+main a[href*="-ampliacio.html"] .text-purple-800 {
+  color: var(--gl-brand-700) !important;
+}
+
+main a[href*="-reforc.html"] .bg-emerald-600,
+main a[href*="-ampliacio.html"] .bg-purple-600 {
+  background-color: var(--gl-brand-600) !important;
+}
+
+main a[href="#practice-section"],
+header a[href="#practice-section"] {
+  background-color: var(--gl-brand-600) !important;
+  border-color: var(--gl-brand-600) !important;
+  color: #fff !important;
+}
+
+main a[href="#practice-section"]:hover,
+header a[href="#practice-section"]:hover {
+  background-color: var(--gl-brand-700) !important;
+}
+
+/* Controls llegibles i coherents. */
+main button,
+main a[class*="px-"],
+#units-modal button,
+#units-modal a[class*="px-"] {
+  font-size: .875rem;
+}
+
+main input,
+main select,
+main textarea {
+  font-size: 1rem !important;
+}
+
+/* Les explicacions es mostren sempre completes. */
+.progressive-card,
+.progressive-card-expanded {
+  max-height: none !important;
+  overflow: visible !important;
+}
+
+.progressive-card::after,
+.progressive-card-expanded::after,
+.progressive-toggle {
+  display: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}
+'''
+          Path('assets/site.css').write_text(css, encoding='utf-8')
+
+          for path in Path('.').glob('*.html'):
+              html = path.read_text(encoding='utf-8')
+              html = re.sub(r'\s*<link[^>]+href=["\']https://fonts\.googleapis\.com[^>]*>\s*', '\n', html, flags=re.I)
+              html = re.sub(r'\s*<link[^>]+href=["\']https://fonts\.gstatic\.com[^>]*>\s*', '\n', html, flags=re.I)
+              path.write_text(html, encoding='utf-8')
+
+          guide = '''# Llibre d'estil - Grammar Lab
+
+## Tipografia
+
+- Família única - Arial, amb Helvetica i sans-serif com a alternatives.
+- Cos de lectura - 16 px amb interlineat ampli.
+- Text secundari - 14 px. No s'utilitza text inferior a 12 px a la capçalera ni inferior a 14 px al contingut.
+- Títols - 32 px per al títol principal, 24 px per a seccions i 18 px per a targetes.
+- Pesos - 400 per al cos, 600 per a controls i 700 per a títols.
+
+## Color
+
+- Accent general - indigo `#4f46e5`, amb `#4338ca` per als estats més foscos.
+- Text principal - slate `#1e293b`; text secundari - `#475569`.
+- Fons de pàgina - `#f8fafc`; superfícies de contingut - blanc.
+- Verd, ambre i vermell només comuniquen èxit, avís o error. Les distincions gramaticals que necessiten color poden conservar un codi propi.
+
+## Components
+
+- Targetes - radi de 16 px i ombra discreta comuna.
+- Controls secundaris - fons blanc o slate molt clar amb vora neutra.
+- Acció principal - indigo. El botó Pràctica utilitza sempre aquest tractament.
+- Reforç i Ampliació - mateixa estructura visual que la unitat principal; el nom i la icona indiquen la ruta.
+
+## Jerarquia i accessibilitat
+
+- Les etiquetes no utilitzen majúscules sistemàtiques ni espaiat de lletres exagerat.
+- El focus de teclat utilitza un contorn indigo visible.
+- Els camps d'entrada mantenen una mida de 16 px per facilitar la lectura i l'ús en pantalles tàctils.
+- Les preferències de moviment reduït desactiven animacions i transicions no essencials.
+'''
+          Path('STYLE_GUIDE.md').write_text(guide, encoding='utf-8')
+          PY
+
       - name: Apply final polish and build production CSS
         run: python scripts/apply_site_improvements.py
 
@@ -57,8 +387,8 @@ jobs:
 
           for path in Path('.').glob('*.html'):
               text = path.read_text(encoding='utf-8')
-              updated = re.sub(r'assets/site\.js(?:\?v=\d+)?', 'assets/site.js?v=5', text)
-              updated = re.sub(r'assets/site\.css(?:\?v=\d+)?', 'assets/site.css?v=5', updated)
+              updated = re.sub(r'assets/site\.js(?:\?v=\d+)?', 'assets/site.js?v=6', text)
+              updated = re.sub(r'assets/site\.css(?:\?v=\d+)?', 'assets/site.css?v=6', updated)
               if updated != text:
                   path.write_text(updated, encoding='utf-8')
           PY
@@ -72,5 +402,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
-          git commit -m "Polir Grammar Lab i compilar Tailwind"
+          git commit -m "Aplicar llibre d'estil de Grammar Lab"
           git push
