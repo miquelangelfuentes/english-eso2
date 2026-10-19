@@ -1,0 +1,59 @@
+/* Millores compartides del portal d'anglès de 2n d'ESO */
+
+:focus-visible {
+  outline: 3px solid #4f46e5;
+  outline-offset: 3px;
+}
+
+.progressive-card {
+  max-height: 31rem;
+  overflow: hidden;
+  position: relative;
+}
+
+.progressive-card::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 5rem;
+  pointer-events: none;
+  background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,.98));
+}
+
+.progressive-card-expanded {
+  max-height: none;
+  overflow: visible;
+}
+
+.progressive-card-expanded::after {
+  display: none;
+}
+
+.progressive-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: .75rem;
+  padding: .55rem .9rem;
+  border: 1px solid #c7d2fe;
+  border-radius: .75rem;
+  background: #eef2ff;
+  color: #3730a3;
+  font-size: .8rem;
+  font-weight: 700;
+}
+
+.progressive-toggle:hover {
+  background: #e0e7ff;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}
