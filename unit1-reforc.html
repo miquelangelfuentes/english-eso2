@@ -43,23 +43,9 @@
     }
   </script>
   <style>
-    @media print {
-      header, nav, #subpage-tabs, .no-print {
-        display: none !important;
-      }
-      body {
-        background: white !important;
-        color: black !important;
-        font-size: 11pt;
-      }
-      .print-card {
-        border: 1px solid #cbd5e1 !important;
-        box-shadow: none !important;
-        page-break-inside: avoid;
-        margin-bottom: 1.5rem !important;
-      }
-    }
+    
   </style>
+  <link rel="stylesheet" href="assets/site.css">
 </head>
 <body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col font-sans selection:bg-brand-500 selection:text-white">
 
@@ -117,10 +103,6 @@
             <i data-lucide="play" class="w-3.5 h-3.5 fill-current shrink-0"></i>
             <span class="hidden sm:inline">Pràctica</span>
           </a>
-
-          <button onclick="window.print()" title="Imprimeix o desa la fitxa" class="p-2 sm:p-2.5 text-slate-500 hover:text-slate-800 hover:bg-slate-100 rounded-xl transition-colors shrink-0">
-            <i data-lucide="printer" class="w-4 h-4 sm:w-5 sm:h-5"></i>
-          </button>
         </div>
       </div>
     </div>
@@ -745,7 +727,7 @@
     <div class="bg-white rounded-3xl max-w-3xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-slate-200 p-6 sm:p-8 transform transition-all">
       <div class="flex items-center justify-between pb-4 border-b border-slate-100">
         <div>
-          <span class="text-xs uppercase font-extrabold tracking-wider text-brand-600">Pla docent d'anglès de 2n d'ESO</span>
+          <span class="text-xs uppercase font-extrabold tracking-wider text-brand-600">Anglès 2n d'ESO</span>
           <h2 class="text-2xl font-display font-bold text-slate-900">Programa de gramàtica (unitats 1-8)</h2>
           <p class="text-xs text-slate-500 mt-0.5">Gramàtica d'anglès de 2n d'ESO</p>
         </div>
@@ -1047,5 +1029,6 @@
       }
     });
   </script>
+  <script src="assets/site.js"></script>
 </body>
 </html>

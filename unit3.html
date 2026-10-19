@@ -43,22 +43,7 @@
     }
   </script>
   <style>
-    @media print {
-      header, nav, #unit-banner, #scaffolding-tools, .no-print {
-        display: none !important;
-      }
-      body {
-        background: white !important;
-        color: black !important;
-        font-size: 11pt;
-      }
-      .print-card {
-        border: 1px solid #cbd5e1 !important;
-        box-shadow: none !important;
-        page-break-inside: avoid;
-        margin-bottom: 1.5rem !important;
-      }
-    }
+    
     .badge-pulse {
       animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
     }
@@ -67,6 +52,7 @@
       50% { opacity: .7; transform: scale(1.05); }
     }
   </style>
+  <link rel="stylesheet" href="assets/site.css">
 </head>
 <body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col font-sans selection:bg-brand-500 selection:text-white">
 
@@ -127,10 +113,6 @@
             <i data-lucide="play" class="w-3.5 h-3.5 fill-current shrink-0"></i>
             <span class="hidden sm:inline">Pràctica</span>
           </a>
-
-          <button onclick="window.print()" title="Imprimeix o desa la fitxa resum" class="p-2 sm:p-2.5 text-slate-500 hover:text-slate-800 hover:bg-slate-100 rounded-xl transition-colors shrink-0">
-            <i data-lucide="printer" class="w-4 h-4 sm:w-5 sm:h-5"></i>
-          </button>
         </div>
       </div>
 
@@ -163,7 +145,7 @@
     <div class="bg-white rounded-3xl max-w-3xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-slate-200 p-6 sm:p-8 transform transition-all">
       <div class="flex items-center justify-between pb-4 border-b border-slate-100">
         <div>
-          <span class="text-xs uppercase font-extrabold tracking-wider text-brand-600">Pla docent d'anglès de 2n d'ESO</span>
+          <span class="text-xs uppercase font-extrabold tracking-wider text-brand-600">Anglès 2n d'ESO</span>
           <h2 class="text-2xl font-display font-bold text-slate-900">Programa de gramàtica (unitats 1-8)</h2>
           <p class="text-xs text-slate-500 mt-0.5">Gramàtica d'anglès de 2n d'ESO</p>
         </div>
@@ -691,7 +673,7 @@
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800 pb-4">
           <div>
             <span class="text-xs font-bold uppercase tracking-wider text-amber-400 bg-amber-400/10 px-2.5 py-1 rounded-md border border-amber-400/20">Autoavaluació final</span>
-            <h3 class="text-xl sm:text-2xl font-display font-bold text-white mt-1">El gran repte de la unitat 3</h3>
+            <h3 class="text-xl sm:text-2xl font-display font-bold text-white mt-1">Repte final de la unitat 3</h3>
           </div>
           <div class="flex items-center gap-3">
             <span id="quiz-question-counter" class="text-xs font-mono text-slate-400">Pregunta 1 de 10</span>
@@ -733,9 +715,6 @@
           <span class="text-[10px] uppercase font-bold tracking-wider text-brand-600">Fitxes imprimibles d'estudi</span>
           <h3 class="font-display font-bold text-base text-slate-900">Resum de la unitat 3 per a 2n d'ESO</h3>
         </div>
-        <button onclick="window.print()" class="no-print px-3 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold flex items-center gap-1.5">
-          <i data-lucide="printer" class="w-3.5 h-3.5"></i> Imprimeix
-        </button>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -1133,7 +1112,7 @@
             ${quizScore >= 8 
               ? "🌟 Excel·lent domini del past simple, there was / were i used to!" 
               : quizScore >= 5 
-              ? "👍 Bon treball! Revisa les fitxes imprimibles per consolidar les regles d'ortografia i l'estructura used to." 
+              ? "👍 Bon treball! Revisa les resums de consulta per consolidar les regles d'ortografia i l'estructura used to." 
               : "💪 Continua practicant! Revisa els passos de deducció i torna-ho a provar."}
           </div>
           <div class="pt-4 flex justify-center gap-3">
@@ -1162,5 +1141,6 @@
       renderCurrentQuizQuestion();
     });
   </script>
+  <script src="assets/site.js"></script>
 </body>
 </html>

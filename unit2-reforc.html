@@ -43,23 +43,9 @@
     }
   </script>
   <style>
-    @media print {
-      header, nav, #subpage-tabs, .no-print {
-        display: none !important;
-      }
-      body {
-        background: white !important;
-        color: black !important;
-        font-size: 11pt;
-      }
-      .print-card {
-        border: 1px solid #cbd5e1 !important;
-        box-shadow: none !important;
-        page-break-inside: avoid;
-        margin-bottom: 1.5rem !important;
-      }
-    }
+    
   </style>
+  <link rel="stylesheet" href="assets/site.css">
 </head>
 <body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col font-sans selection:bg-brand-500 selection:text-white">
 
@@ -117,10 +103,6 @@
             <i data-lucide="play" class="w-3.5 h-3.5 fill-current shrink-0"></i>
             <span class="hidden sm:inline">Pràctica</span>
           </a>
-
-          <button onclick="window.print()" title="Imprimeix o desa la fitxa" class="p-2 sm:p-2.5 text-slate-500 hover:text-slate-800 hover:bg-slate-100 rounded-xl transition-colors shrink-0">
-            <i data-lucide="printer" class="w-4 h-4 sm:w-5 sm:h-5"></i>
-          </button>
         </div>
       </div>
     </div>
@@ -178,7 +160,7 @@
         </h2>
 
         <p class="text-sm sm:text-base text-white/90 max-w-3xl leading-relaxed">
-          Aquesta fitxa de reforç t'ajuda a dominar la diferència entre el present simple (accions habituals) i el present continuous (accions que passen ara mateix), a memoritzar els verbs estàtics que no s'utilitzen en -ing, i a formar les preguntes confirmatòries (tag questions) sense dubtar.
+          Aquesta pàgina de reforç t'ajuda a consolidar la diferència entre present simple i present continuous. També treballaràs els verbs d'estat quan no utilitzen continuous i la formació de les preguntes confirmatòries (tag questions).
         </p>
 
         <div class="flex flex-wrap items-center gap-3 pt-2">
@@ -319,7 +301,7 @@
           <div class="flex items-start justify-between gap-4">
             <div>
               <span class="text-xs font-bold uppercase tracking-wider text-emerald-600 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200">Part 3</span>
-              <h3 class="text-lg sm:text-xl font-display font-bold text-slate-900 mt-1">3. Verbs estàtics (stative verbs): mai en -ing</h3>
+              <h3 class="text-lg sm:text-xl font-display font-bold text-slate-900 mt-1">3. Verbs estàtics (stative verbs): quan expressen un estat</h3>
               <p class="text-xs sm:text-sm text-slate-600 mt-1">Verbs que expressen sentiments, pensaments o possessions. No descriuen una acció física.</p>
             </div>
           </div>
@@ -336,11 +318,11 @@
             </li>
             <li class="flex items-start gap-2.5">
               <span class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 text-xs font-bold mt-0.5">✓</span>
-              <span class="text-xs sm:text-sm text-slate-700">Diferència essencial: sempre es conjuguen en present simple, encara que sigui ara mateix.</span>
+              <span class="text-xs sm:text-sm text-slate-700">Quan expressen un estat, normalment els fem servir en present simple, també si parlem del moment actual.</span>
             </li>
             <li class="flex items-start gap-2.5">
               <span class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 text-xs font-bold mt-0.5">✓</span>
-              <span class="text-xs sm:text-sm text-slate-700">Diem <em>'I understand now'</em> (mai <em>'I am understanding'</em>).</span>
+              <span class="text-xs sm:text-sm text-slate-700">Diem <em>'I understand now'</em>; en aquest significat no utilitzem <em>'I am understanding'</em>.</span>
             </li>
           </ul>
 
@@ -348,11 +330,11 @@
             
             <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 text-xs sm:text-sm font-mono space-y-1">
               <div class="text-slate-900 font-semibold">I know the answer to this question.</div>
-              <div class="text-slate-500 text-xs font-sans italic">Sé la resposta a aquesta pregunta (mai en -ing).</div>
+              <div class="text-slate-500 text-xs font-sans italic">Sé la resposta a aquesta pregunta (aquí, en present simple).</div>
             </div>
             <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 text-xs sm:text-sm font-mono space-y-1">
               <div class="text-slate-900 font-semibold">She wants a glass of water.</div>
-              <div class="text-slate-500 text-xs font-sans italic">Ella vol un got d'aigua (mai 'is wanting').</div>
+              <div class="text-slate-500 text-xs font-sans italic">Ella vol un got d'aigua (aquí, no 'is wanting').</div>
             </div>
           </div>
 
@@ -360,9 +342,9 @@
             <div class="p-4 rounded-2xl border bg-amber-50 border-amber-200 text-amber-900 space-y-1 mt-4">
               <div class="flex items-center gap-2 font-bold text-xs uppercase tracking-wide">
                 <i data-lucide="lightbulb" class="w-4 h-4"></i>
-                <span>norma fonamental: 'want' i 'need'</span>
+                <span>recorda: 'want' i 'need' per expressar estat</span>
               </div>
-              <p class="text-xs sm:text-sm leading-relaxed">Els verbs de desig o necessitat mai es posen amb -ing. Sempre en present simple.</p>
+              <p class="text-xs sm:text-sm leading-relaxed">Quan expressen desig o necessitat, verbs com 'want' i 'need' s'utilitzen normalment en present simple.</p>
             </div>
         </div>
         <!-- Mòdul teòric 4 -->
@@ -725,7 +707,7 @@
     <div class="bg-white rounded-3xl max-w-3xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-slate-200 p-6 sm:p-8 transform transition-all">
       <div class="flex items-center justify-between pb-4 border-b border-slate-100">
         <div>
-          <span class="text-xs uppercase font-extrabold tracking-wider text-brand-600">Pla docent d'anglès de 2n d'ESO</span>
+          <span class="text-xs uppercase font-extrabold tracking-wider text-brand-600">Anglès 2n d'ESO</span>
           <h2 class="text-2xl font-display font-bold text-slate-900">Programa de gramàtica (unitats 1-8)</h2>
           <p class="text-xs text-slate-500 mt-0.5">Gramàtica d'anglès de 2n d'ESO</p>
         </div>
@@ -873,7 +855,7 @@
     }
 
     const act1Data = [{"prompt": "1. 'Look! The bus ______ (come).'", "options": ["is coming", "comes"], "correct": 0, "explanation": "'Look!' indica una acció que passa davant dels nostres ulls ara mateix (continuous)."}, {"prompt": "2. 'My father always ______ (drink) coffee in the morning.'", "options": ["drinks", "is drinking"], "correct": 0, "explanation": "'Always' indica un hàbit rutinari, s'utilitza el present simple amb -s de 3a persona."}, {"prompt": "3. 'Right now, we ______ (do) our homework.'", "options": ["are doing", "do"], "correct": 0, "explanation": "'Right now' és el marcador per excel·lència del present continuous."}, {"prompt": "4. 'They ______ (go) to the swimming pool every Friday.'", "options": ["go", "are going"], "correct": 0, "explanation": "'Every Friday' expressa una rutina repetida, requereix present simple."}];
-    const act2Data = [{"sentence": "1. I ______ the grammar explanation now.", "options": ["understand", "am understanding", "understands"], "correct": 0, "explanation": "'Understand' és un verb estàtic, no es posa mai en present continu."}, {"sentence": "2. She ______ chocolate ice cream very much.", "options": ["likes", "is liking", "like"], "correct": 0, "explanation": "'Like' és un verb de sentiment (estàtic) i requereix la -s de 3a persona."}, {"sentence": "3. Do you ______ the truth about what happened?", "options": ["know", "knowing", "are knowing"], "correct": 0, "explanation": "'Know' és estàtic; la pregunta en present simple es fa amb 'Do you know?'."}, {"sentence": "4. Look at him! He ______ an ice cream.", "options": ["is eating", "eats", "eat"], "correct": 0, "explanation": "'Eat' és una acció física en curs en aquest moment: 'is eating'."}];
+    const act2Data = [{"sentence": "1. I ______ the grammar explanation now.", "options": ["understand", "am understanding", "understands"], "correct": 0, "explanation": "En aquest significat, 'understand' expressa un estat i s'utilitza en present simple."}, {"sentence": "2. She ______ chocolate ice cream very much.", "options": ["likes", "is liking", "like"], "correct": 0, "explanation": "'Like' és un verb de sentiment (estàtic) i requereix la -s de 3a persona."}, {"sentence": "3. Do you ______ the truth about what happened?", "options": ["know", "knowing", "are knowing"], "correct": 0, "explanation": "'Know' és estàtic; la pregunta en present simple es fa amb 'Do you know?'."}, {"sentence": "4. Look at him! He ______ an ice cream.", "options": ["is eating", "eats", "eat"], "correct": 0, "explanation": "'Eat' és una acció física en curs en aquest moment: 'is eating'."}];
     const act3Data = [{"prompt": "1. 'You are from Girona, ______?'", "options": ["aren't you", "are you", "isn't it"], "correct": 0, "explanation": "Frase afirmativa amb 'are' -> tag negativa amb 'aren't you'."}, {"prompt": "2. 'She doesn't speak Italian, ______?'", "options": ["does she", "doesn't she", "is she"], "correct": 0, "explanation": "Frase negativa amb 'doesn't' -> tag afirmativa amb 'does she'."}, {"prompt": "3. 'They play basketball every Tuesday, ______?'", "options": ["don't they", "aren't they", "do they"], "correct": 0, "explanation": "Frase afirmativa en present simple amb verb d'acció -> tag 'don't they'."}, {"prompt": "4. 'Peter is studying in his room, ______?'", "options": ["isn't he", "is he", "doesn't he"], "correct": 0, "explanation": "Frase afirmativa amb 'is' -> tag negativa amb 'isn't he'."}];
     const quizQuestions = [{"category": "contrast presents", "question": "Completa: 'Listen! Somebody ______ the piano.'", "options": ["is playing", "plays", "play", "are playing"], "correct": 0, "explanation": "'Listen!' alerta d'una acció en desenvolupament immediat: 'is playing'."}, {"category": "verbs estàtics", "question": "Quina d'aquestes frases és correcta?", "options": ["I am wanting to go home.", "I want to go home.", "I wanting to go home.", "I am want to go home."], "correct": 1, "explanation": "'Want' és un verb d'estat (desig) i no admet la forma contínua -ing."}, {"category": "present simple", "question": "Completa: 'My brother ______ computer games after school.'", "options": ["play", "plays", "is playing", "playing"], "correct": 1, "explanation": "'My brother' és he (tercera persona del singular), per tant el verb porta -s: 'plays'."}, {"category": "tag questions", "question": "Completa la tag: 'You don't like horror films, ______?'", "options": ["do you", "don't you", "are you", "aren't you"], "correct": 0, "explanation": "Frase negativa amb 'don't' -> tag afirmativa 'do you'."}, {"category": "contrast presents", "question": "Completa: 'Water ______ at 100 degrees Celsius.'", "options": ["boils", "is boiling", "boil", "are boiling"], "correct": 0, "explanation": "És una llei científica universal, per tant s'utilitza sempre el present simple."}, {"category": "negativa present simple", "question": "Completa: 'She ______ meat because she is vegetarian.'", "options": ["doesn't eat", "don't eat", "isn't eating", "not eat"], "correct": 0, "explanation": "Amb 'she' la negativa del present simple es forma amb 'doesn't' + verb en forma base."}, {"category": "tag questions", "question": "Completa la tag: 'David and Emma are coming to the party, ______?'", "options": ["aren't they", "are they", "isn't he", "don't they"], "correct": 0, "explanation": "Subjecte plural ('David and Emma' = they) amb 'are' afirmatiu -> tag 'aren't they'."}];
 
@@ -1027,5 +1009,6 @@
       }
     });
   </script>
+  <script src="assets/site.js"></script>
 </body>
 </html>

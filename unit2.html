@@ -64,22 +64,7 @@
     }
   </script>
   <style>
-    @media print {
-      header, nav, #unit-banner, #scaffolding-tools, .no-print {
-        display: none !important;
-      }
-      body {
-        background: white !important;
-        color: black !important;
-        font-size: 11pt;
-      }
-      .print-card {
-        border: 1px solid #cbd5e1 !important;
-        box-shadow: none !important;
-        page-break-inside: avoid;
-        margin-bottom: 1.5rem !important;
-      }
-    }
+    
     .badge-pulse {
       animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
     }
@@ -88,6 +73,7 @@
       50% { opacity: .7; transform: scale(1.05); }
     }
   </style>
+  <link rel="stylesheet" href="assets/site.css">
 </head>
 <body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col font-sans selection:bg-brand-500 selection:text-white">
 
@@ -148,10 +134,6 @@
             <i data-lucide="play" class="w-3.5 h-3.5 fill-current shrink-0"></i>
             <span class="hidden sm:inline">Pràctica</span>
           </a>
-
-          <button onclick="window.print()" title="Imprimeix o desa la fitxa resum" class="p-2 sm:p-2.5 text-slate-500 hover:text-slate-800 hover:bg-slate-100 rounded-xl transition-colors shrink-0">
-            <i data-lucide="printer" class="w-4 h-4 sm:w-5 sm:h-5"></i>
-          </button>
         </div>
       </div>
 
@@ -184,7 +166,7 @@
     <div class="bg-white rounded-3xl max-w-3xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-slate-200 p-6 sm:p-8 transform transition-all">
       <div class="flex items-center justify-between pb-4 border-b border-slate-100">
         <div>
-          <span class="text-xs uppercase font-extrabold tracking-wider text-brand-600">Pla docent d'anglès de 2n d'ESO</span>
+          <span class="text-xs uppercase font-extrabold tracking-wider text-brand-600">Anglès 2n d'ESO</span>
           <h2 class="text-2xl font-display font-bold text-slate-900">Programa de gramàtica (unitats 1-8)</h2>
         </div>
         <button onclick="toggleUnitsModal()" class="p-2 text-slate-400 hover:text-slate-700 rounded-full hover:bg-slate-100">
@@ -310,10 +292,10 @@
           Unitat 2 - Bloc gramatical
         </div>
         <h2 class="text-2xl sm:text-4xl font-display font-extrabold tracking-tight text-white mb-4">
-          Present tenses contrast, stative verbs i tag questions
+          Present simple i present continuous, stative verbs i tag questions
         </h2>
         <p class="text-indigo-100 text-sm sm:text-base leading-relaxed mb-6">
-          En aquesta unitat aprendràs a contrastar amb precisió quan cal utilitzar el <strong>present simple</strong> i quan el <strong>present continuous</strong>, quins verbs especials d'estat no admeten mai <code class="bg-black/30 px-1.5 py-0.5 rounded font-mono text-amber-300">-ing</code>, i com construir preguntes confirmatòries (<strong>tag questions</strong>) amb total fluïdesa i seguretat.
+          En aquesta unitat aprendràs a decidir quan cal utilitzar el <strong>present simple</strong> i quan el <strong>present continuous</strong>. També treballaràs com funcionen els verbs d'estat, inclosos els casos en què el significat permet el continuous, i com construir preguntes confirmatòries (<strong>tag questions</strong>).
         </p>
 
         <!-- Objectius d'aprenentatge -->
@@ -334,7 +316,7 @@
             </div>
             <div>
               <h4 class="text-xs font-bold text-white">Verbs estàtics</h4>
-              <p class="text-[11px] text-indigo-200">Verbs de sentiment, ment i possessió que no porten mai <em>-ing</em>.</p>
+              <p class="text-[11px] text-indigo-200">Quan expressen un estat, aquests verbs normalment no s’utilitzen en continuous.</p>
             </div>
           </div>
 
@@ -558,7 +540,7 @@
         <span class="text-xs font-bold uppercase tracking-wider text-amber-700 bg-amber-50 px-2.5 py-1 rounded-md border border-amber-200">Part 2 d'explicació</span>
         <h2 class="text-2xl sm:text-3xl font-display font-bold text-slate-900 mt-1">Els verbs estàtics (stative verbs)</h2>
         <p class="text-sm text-slate-600 mt-1">
-          Els verbs estàtics expressen <strong>estats</strong> (no pas accions físiques en moviment). Per aquest motiu, <strong>no s'acostumen a fer servir mai en present continuous (<span class="line-through text-rose-500 font-mono">-ing</span>)</strong>!
+          Els verbs estàtics expressen <strong>estats</strong>. Quan tenen aquest significat, normalment no s'utilitzen en present continuous (<span class="line-through text-rose-500 font-mono">-ing</span>). Alguns verbs també poden expressar una acció i, en aquest cas, sí que admeten continuous.
         </p>
       </div>
 
@@ -1069,7 +1051,7 @@
             <span class="text-xs font-extrabold uppercase tracking-widest text-amber-300 flex items-center gap-1.5">
               <i data-lucide="award" class="w-4 h-4"></i> Autoavaluació de la unitat 2
             </span>
-            <h3 class="font-display font-extrabold text-2xl text-white mt-1">El gran repte de la unitat 2 (10 preguntes)</h3>
+            <h3 class="font-display font-extrabold text-2xl text-white mt-1">Repte final de la unitat 2 (10 preguntes)</h3>
           </div>
           <div class="flex items-center gap-2">
             <span id="quiz-question-counter" class="text-xs bg-white/10 px-3 py-1.5 rounded-xl font-mono text-indigo-200">Pregunta 1 de 10</span>
@@ -1122,9 +1104,6 @@
             <button onclick="restartQuiz()" class="px-5 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold text-xs transition-colors border border-white/20">
               Torna-ho a intentar
             </button>
-            <button onclick="window.print()" class="px-5 py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-slate-900 font-bold text-xs transition-colors flex items-center gap-1.5">
-              <i data-lucide="printer" class="w-4 h-4"></i> Desa o imprimeix el resum
-            </button>
           </div>
         </div>
 
@@ -1141,9 +1120,6 @@
           <span class="text-xs font-bold uppercase tracking-wider text-slate-500">Fitxa resum d'estudi</span>
           <h2 class="text-xl sm:text-2xl font-display font-bold text-slate-900">Grammar pocket guide - Unitat 2</h2>
         </div>
-        <button onclick="window.print()" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold rounded-xl transition-colors flex items-center gap-2">
-          <i data-lucide="printer" class="w-4 h-4"></i> Imprimeix / Desa en PDF
-        </button>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-xs text-slate-700">
@@ -1454,7 +1430,7 @@
         question: "3. My sister ______ a glass of water right now.",
         options: ["wants", "is wanting"],
         correct: 0,
-        explanation: "Exacte! 'Want' és un desig i és sempre un verb estàtic; mai no es diu 'is wanting'."
+        explanation: "Exacte! En aquest significat, 'want' expressa un desig i s'utilitza en present simple: no diem 'is wanting'."
       },
       {
         question: "4. Pol can't answer the phone because he ______ a shower.",
@@ -1598,7 +1574,7 @@
       },
       {
         category: "verbs estàtics (stative verbs)",
-        question: "Quin d'aquests verbs no s'acostuma a utilitzar mai en present continuous?",
+        question: "Quin d'aquests verbs s'utilitza normalment en present simple quan expressa un estat?",
         options: [
           "want",
           "play",
@@ -1783,5 +1759,6 @@
       renderCurrentQuizQuestion();
     });
   </script>
+  <script src="assets/site.js"></script>
 </body>
 </html>

@@ -38,14 +38,11 @@
     }
   </script>
   <style>
-    @media print {
-      header, nav, #unit-banner, #scaffolding-tools, .no-print { display: none !important; }
-      body { background: white !important; color: black !important; font-size: 11pt; }
-      .print-card { border: 1px solid #cbd5e1 !important; box-shadow: none !important; page-break-inside: avoid; margin-bottom: 1.5rem !important; }
-    }
+    
     .badge-pulse { animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
     @keyframes pulse-ring { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: .7; transform: scale(1.05); } }
   </style>
+  <link rel="stylesheet" href="assets/site.css">
 </head>
 <body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col font-sans selection:bg-brand-500 selection:text-white">
 
@@ -106,10 +103,6 @@
             <i data-lucide="play" class="w-3.5 h-3.5 fill-current shrink-0"></i>
             <span class="hidden sm:inline">Pràctica</span>
           </a>
-
-          <button onclick="window.print()" title="Imprimeix o desa la fitxa resum" class="p-2 sm:p-2.5 text-slate-500 hover:text-slate-800 hover:bg-slate-100 rounded-xl transition-colors shrink-0">
-            <i data-lucide="printer" class="w-4 h-4 sm:w-5 sm:h-5"></i>
-          </button>
         </div>
       </div>
 
@@ -141,7 +134,7 @@
     <div class="bg-white rounded-3xl max-w-3xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-slate-200 p-6 sm:p-8">
       <div class="flex items-center justify-between pb-4 border-b border-slate-100">
         <div>
-          <span class="text-xs uppercase font-extrabold tracking-wider text-brand-600">Pla docent d'anglès de 2n d'ESO</span>
+          <span class="text-xs uppercase font-extrabold tracking-wider text-brand-600">Anglès 2n d'ESO</span>
           <h2 class="text-2xl font-display font-bold text-slate-900">Programa de gramàtica (unitats 1-8)</h2>
           <p class="text-xs text-slate-500 mt-0.5">Gramàtica d'anglès de 2n d'ESO</p>
         </div>
@@ -526,7 +519,7 @@
       <!-- Activitat 4: gran repte -->
       <div class="bg-slate-900 text-white rounded-3xl p-6 sm:p-10 shadow-xl space-y-6">
         <div class="flex items-center justify-between border-b border-slate-800 pb-4">
-          <h3 class="text-xl font-display font-bold text-white">El gran repte de la unitat 8 (final del curs)</h3>
+          <h3 class="text-xl font-display font-bold text-white">Repte final de la unitat 8 (final del curs)</h3>
           <span id="quiz-question-counter" class="text-xs font-mono text-slate-400">Pregunta 1 de 10</span>
         </div>
         <div id="quiz-body" class="space-y-6">
@@ -547,7 +540,6 @@
     <section class="print-card bg-white rounded-3xl border border-slate-200 p-6 space-y-4 text-xs text-slate-700">
       <div class="flex items-center justify-between border-b border-slate-200 pb-3">
         <h3 class="font-display font-bold text-base text-slate-900">Resum de la unitat 8 per a 2n d'ESO</h3>
-        <button onclick="window.print()" class="no-print px-3 py-1.5 bg-slate-100 rounded-xl font-bold">Imprimeix</button>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
         <div class="p-3 bg-slate-50 rounded-xl">
@@ -764,5 +756,6 @@
       renderCurrentQuizQuestion();
     });
   </script>
+  <script src="assets/site.js"></script>
 </body>
 </html>
