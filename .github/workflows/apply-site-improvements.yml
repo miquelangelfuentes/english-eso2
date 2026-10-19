@@ -67,15 +67,15 @@ jobs:
           from pathlib import Path
           import re
 
-          theme_css = '<link rel="stylesheet" href="portal-theme.css?v=2">'
-          theme_js = '<script src="portal-theme.js?v=1"></script>'
+          theme_css = '<link rel="stylesheet" href="portal-theme.css?v=3">'
+          theme_js = '<script src="portal-theme.js?v=2"></script>'
 
           for path in Path('.').glob('*.html'):
               text = path.read_text(encoding='utf-8')
               text = re.sub(r'assets/site\.js(?:\?v=\d+)?', 'assets/site.js?v=7', text)
               text = re.sub(r'assets/site\.css(?:\?v=\d+)?', 'assets/site.css?v=7', text)
-              text = re.sub(r'portal-theme\.css(?:\?v=\d+)?', 'portal-theme.css?v=2', text)
-              text = re.sub(r'portal-theme\.js(?:\?v=\d+)?', 'portal-theme.js?v=1', text)
+              text = re.sub(r'portal-theme\.css(?:\?v=\d+)?', 'portal-theme.css?v=3', text)
+              text = re.sub(r'portal-theme\.js(?:\?v=\d+)?', 'portal-theme.js?v=2', text)
 
               if 'portal-theme.css' not in text:
                   text = re.sub(
@@ -100,5 +100,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
-          git commit -m "Activar mode clar i fosc compartit"
+          git commit -m "Corregir contrast i controls de tema"
           git push
