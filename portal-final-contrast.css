@@ -1,0 +1,26 @@
+/* Final targeted fixes from the full automated contrast audit. Loaded last. */
+
+/* Route labels on dark card surfaces. */
+html[data-theme='dark'] [class~='bg-white'][class~='text-emerald-800'] {
+  color: #a7f3d0 !important;
+}
+html[data-theme='dark'] [class~='bg-white'][class~='text-purple-800'] {
+  color: #c7d2fe !important;
+}
+
+/* Translucent pale panels that remain inside content cards. */
+html[data-theme='dark'] [class~='bg-blue-50/70'],
+html[data-theme='dark'] [class~='bg-indigo-50/70'],
+html[data-theme='dark'] [class~='bg-purple-50/70'],
+html[data-theme='dark'] [class~='bg-brand-50/70'] {
+  background-color: #172554 !important;
+}
+html[data-theme='dark'] [class~='bg-slate-100/80'] {
+  background-color: #1e293b !important;
+}
+
+/* Table headers must use a genuinely dark surface when text is remapped light. */
+html[data-theme='dark'] thead [class~='bg-slate-100/80'] {
+  background-color: #1e293b !important;
+  color: #f8fafc !important;
+}
