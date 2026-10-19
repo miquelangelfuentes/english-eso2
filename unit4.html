@@ -6,42 +6,17 @@
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
   <title>English 2n d'ESO | Unitat 4: comparatius, superlatius, (not) as... as i too / enough</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/lucide@latest"></script>
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-            display: ['"Outfit"', 'sans-serif'],
-            mono: ['"Fira Code"', 'monospace'],
-          },
-          colors: {
-            brand: {
-              50: '#eef2ff',
-              100: '#e0e7ff',
-              200: '#c7d2fe',
-              500: '#6366f1',
-              600: '#4f46e5',
-              700: '#4338ca',
-              800: '#3730a3',
-              900: '#312e81',
-            }
-          }
-        }
-      }
-    }
-  </script>
-  <style>
+<style>
     
     .badge-pulse { animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
     @keyframes pulse-ring { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: .7; transform: scale(1.05); } }
   </style>
+  <link rel="stylesheet" href="assets/tailwind.css">
   <link rel="stylesheet" href="assets/site.css">
 </head>
 <body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col font-sans selection:bg-brand-500 selection:text-white">
@@ -94,7 +69,7 @@
             <a href="unit5.html" title="Unitat 5" class="p-1.5 text-slate-600 hover:text-brand-600 hover:bg-white rounded-lg transition-all"><i data-lucide="chevron-right" class="w-4 h-4"></i></a>
           </div>
 
-          <button onclick="toggleUnitsModal()" class="flex items-center gap-1.5 px-2.5 py-1.5 sm:px-3 sm:py-2 text-xs sm:text-sm font-semibold rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors border border-slate-200">
+          <button onclick="toggleUnitsModal()" aria-controls="units-modal" aria-expanded="false" class="flex items-center gap-1.5 px-2.5 py-1.5 sm:px-3 sm:py-2 text-xs sm:text-sm font-semibold rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors border border-slate-200">
             <i data-lucide="layers" class="w-4 h-4 text-brand-600 shrink-0"></i>
             <span>Temari</span>
             <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-slate-400 shrink-0"></i>
@@ -131,12 +106,12 @@
   </header>
 
   <!-- MODAL TEMARI -->
-  <div id="units-modal" class="fixed inset-0 z-50 bg-slate-900/50 backdrop-blur-sm hidden flex items-center justify-center p-4">
+  <div id="units-modal" role="dialog" aria-modal="true" aria-labelledby="units-modal-title" aria-hidden="true" class="fixed inset-0 z-50 bg-slate-900/50 backdrop-blur-sm hidden flex items-center justify-center p-4">
     <div class="bg-white rounded-3xl max-w-3xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-slate-200 p-6 sm:p-8">
       <div class="flex items-center justify-between pb-4 border-b border-slate-100">
         <div>
           <span class="text-xs uppercase font-extrabold tracking-wider text-brand-600">Anglès 2n d'ESO</span>
-          <h2 class="text-2xl font-display font-bold text-slate-900">Programa de gramàtica (unitats 1-8)</h2>
+          <h2 id="units-modal-title" class="text-2xl font-display font-bold text-slate-900">Programa de gramàtica (unitats 1-8)</h2>
           <p class="text-xs text-slate-500 mt-0.5">Gramàtica d'anglès de 2n d'ESO</p>
         </div>
         <button onclick="toggleUnitsModal()" class="p-2 text-slate-400 hover:bg-slate-100 rounded-full"><i data-lucide="x" class="w-6 h-6"></i></button>

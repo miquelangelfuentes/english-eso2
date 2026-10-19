@@ -48,6 +48,8 @@
     modal.setAttribute('aria-modal', 'true');
     if (title) modal.setAttribute('aria-labelledby', title.id);
     modal.setAttribute('aria-hidden', modal.classList.contains('hidden') ? 'true' : 'false');
+    const modalToggles = Array.from(document.querySelectorAll('[aria-controls="units-modal"]'));
+    modalToggles.forEach((button) => button.setAttribute('aria-expanded', modal.classList.contains('hidden') ? 'false' : 'true'));
 
     const closeButton = Array.from(modal.querySelectorAll('button')).find((button) =>
       button.querySelector('[data-lucide="x"]')
@@ -63,6 +65,8 @@
         originalToggle();
         const isHidden = modal.classList.contains('hidden');
         modal.setAttribute('aria-hidden', isHidden ? 'true' : 'false');
+        modalToggles.forEach((button) => button.setAttribute('aria-expanded', isHidden ? 'false' : 'true'));
+        document.querySelector('main')?.toggleAttribute('inert', !isHidden);
         if (!isHidden) {
           window.setTimeout(() => (closeButton || modal.querySelector('a, button'))?.focus(), 0);
         } else if (returnFocus && typeof returnFocus.focus === 'function') {

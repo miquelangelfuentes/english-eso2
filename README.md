@@ -21,6 +21,7 @@ Una plataforma web interactiva d'aprenentatge d'anglès com a llengua estrangera
   3. *Taller de tag questions:* completar tags amb explicació de la regla de l'imant.
   4. *El gran repte de la unitat 2:* qüestionari d'autoavaluació de 10 preguntes amb puntuació i informe de resultats.
 - **Curs complet:** les 8 unitats disposen de pàgina principal i itineraris de reforç i ampliació. La capa compartida d’interacció es centralitza a `assets/site.js` i `assets/site.css`.
+- **CSS de producció:** Tailwind es compila a `assets/tailwind.css`; el lloc no depèn del Play CDN de Tailwind.
 - **Progrés local:** el navegador recorda l’última unitat visitada i pot conservar el millor resultat dels reptes, sense comptes d’usuari ni enviament de dades.
 
 ---
