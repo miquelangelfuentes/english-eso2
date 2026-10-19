@@ -70,6 +70,7 @@ jobs:
           theme_css = '<link rel="stylesheet" href="portal-theme.css?v=3">'
           contrast_css = '<link rel="stylesheet" href="portal-contrast.css?v=2">'
           readability_css = '<link rel="stylesheet" href="portal-readability.css?v=1">'
+          final_contrast_css = '<link rel="stylesheet" href="portal-final-contrast.css?v=1">'
           theme_js = '<script src="portal-theme.js?v=3"></script>'
 
           for path in Path('.').glob('*.html'):
@@ -79,6 +80,7 @@ jobs:
               text = re.sub(r'portal-theme\.css(?:\?v=\d+)?', 'portal-theme.css?v=3', text)
               text = re.sub(r'portal-contrast\.css(?:\?v=\d+)?', 'portal-contrast.css?v=2', text)
               text = re.sub(r'portal-readability\.css(?:\?v=\d+)?', 'portal-readability.css?v=1', text)
+              text = re.sub(r'portal-final-contrast\.css(?:\?v=\d+)?', 'portal-final-contrast.css?v=1', text)
               text = re.sub(r'portal-theme\.js(?:\?v=\d+)?', 'portal-theme.js?v=3', text)
 
               if 'portal-theme.css' not in text:
@@ -101,6 +103,14 @@ jobs:
                   text = re.sub(
                       r'(<link rel="stylesheet" href="portal-contrast\.css\?v=2">)',
                       r'\1\n  ' + readability_css,
+                      text,
+                      count=1,
+                  )
+
+              if 'portal-final-contrast.css' not in text:
+                  text = re.sub(
+                      r'(<link rel="stylesheet" href="portal-readability\.css\?v=1">)',
+                      r'\1\n  ' + final_contrast_css,
                       text,
                       count=1,
                   )
