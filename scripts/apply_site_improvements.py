@@ -6,6 +6,10 @@ ROOT = Path(__file__).resolve().parents[1]
 
 TAILWIND_CDN_RE = re.compile(r'\s*<script\s+src=["\']https://cdn\.tailwindcss\.com["\']></script>\s*', re.I)
 TAILWIND_CONFIG_RE = re.compile(r'\s*<script>\s*tailwind\.config\s*=.*?</script>\s*', re.I | re.S)
+SECONDARY_UNIT_NAV_RE = re.compile(
+    r'\n\s*<nav class="flex items-center gap-2 overflow-x-auto py-2 border-t border-slate-100 scrollbar-none text-xs sm:text-sm">.*?</nav>\s*',
+    re.S,
+)
 
 
 def ensure_tailwind_config() -> None:
@@ -112,6 +116,9 @@ def polish_html(path: Path, html: str) -> str:
             "Practica els verbs en <strong>11 packs d'aprenentatge - 10 packs de 10 verbs i un últim de 8</strong> i posa't a prova als <strong>6 checkpoints acumulatius</strong>. Quan vulguis treballar amb tota la llista, obre els modes globals (Contrarellotge, Supervivència, Simulacre d'examen i Ruleta).",
         )
 
+    if re.match(r'^unit\d+(?:-(?:reforc|ampliacio))?\.html$', path.name):
+        html = SECONDARY_UNIT_NAV_RE.sub('\n', html, count=1)
+
     if path.name == 'unit2.html':
         html = html.replace(
             'verbs que no accepten -ing (stative verbs)',
@@ -164,6 +171,47 @@ def polish_shared_js() -> None:
             "modal.setAttribute('aria-hidden', isHidden ? 'true' : 'false');\n        modalToggles.forEach((button) => button.setAttribute('aria-expanded', isHidden ? 'false' : 'true'));\n        document.querySelector('main')?.toggleAttribute('inert', !isHidden);",
             1,
         )
+
+    learning_route = r'''  function addLearningRoute() {
+    if (!unitMatch) return;
+    const unit = unitMatch[1];
+    const mode = unitMatch[2] || 'main';
+    const main = document.querySelector('main');
+    if (!main || main.querySelector('[data-learning-route]')) return;
+
+    const box = document.createElement('aside');
+    box.dataset.learningRoute = 'true';
+    box.className = 'rounded-2xl border border-indigo-200 bg-indigo-50 px-4 py-3 text-sm text-indigo-950 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-3';
+
+    let message = '';
+    let actions = '';
+    if (mode === 'main') {
+      message = '<strong>Com treballar aquesta unitat.</strong> Aquesta és la ruta principal. Pots canviar a Reforç si necessites més suport o passar a Ampliació per aprofundir.';
+      actions = `<a class="inline-flex items-center justify-center px-3 py-2 rounded-xl border border-emerald-200 bg-white text-emerald-800 font-bold hover:bg-emerald-50" href="unit${unit}-reforc.html">Reforç</a><a class="inline-flex items-center justify-center px-3 py-2 rounded-xl border border-purple-200 bg-white text-purple-800 font-bold hover:bg-purple-50" href="unit${unit}-ampliacio.html">Ampliació</a>`;
+    } else if (mode === 'reforc') {
+      message = '<strong>Ruta de Reforç.</strong> Pots tornar a la unitat completa o passar a Ampliació quan vulguis aprofundir.';
+      actions = `<a class="inline-flex items-center justify-center px-3 py-2 rounded-xl border border-indigo-200 bg-white text-indigo-800 font-bold hover:bg-indigo-50" href="unit${unit}.html">Unitat completa</a><a class="inline-flex items-center justify-center px-3 py-2 rounded-xl border border-purple-200 bg-white text-purple-800 font-bold hover:bg-purple-50" href="unit${unit}-ampliacio.html">Ampliació</a>`;
+    } else {
+      message = '<strong>Ruta d’Ampliació.</strong> Pots tornar a la unitat completa o obrir Reforç si necessites més suport.';
+      actions = `<a class="inline-flex items-center justify-center px-3 py-2 rounded-xl border border-indigo-200 bg-white text-indigo-800 font-bold hover:bg-indigo-50" href="unit${unit}.html">Unitat completa</a><a class="inline-flex items-center justify-center px-3 py-2 rounded-xl border border-emerald-200 bg-white text-emerald-800 font-bold hover:bg-emerald-50" href="unit${unit}-reforc.html">Reforç</a>`;
+    }
+
+    box.innerHTML = `<p class="leading-relaxed">${message}</p><div class="flex flex-wrap gap-2 shrink-0">${actions}</div>`;
+
+    const firstSection = main.querySelector(':scope > section');
+    if (firstSection) firstSection.after(box);
+    else main.prepend(box);
+  }
+
+'''
+    text = re.sub(
+        r'  function addLearningRoute\(\) \{.*?\n  \}\n\n(?=  function addProgressiveDisclosure\(\))',
+        learning_route,
+        text,
+        count=1,
+        flags=re.S,
+    )
+
     path.write_text(text, encoding='utf-8')
 
 
@@ -191,6 +239,9 @@ def validate() -> None:
             raise RuntimeError(f'Tailwind Play CDN encara és present a {path.name}')
         if 'assets/tailwind.css' not in html:
             raise RuntimeError(f'Falta assets/tailwind.css a {path.name}')
+        if re.match(r'^unit\d+(?:-(?:reforc|ampliacio))?\.html$', path.name):
+            if 'overflow-x-auto py-2 border-t border-slate-100 scrollbar-none' in html:
+                raise RuntimeError(f'La segona fila de navegació encara és present a {path.name}')
     if not (ROOT / 'assets' / 'tailwind.css').exists():
         raise RuntimeError('No s’ha generat assets/tailwind.css')
 
