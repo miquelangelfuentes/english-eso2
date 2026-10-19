@@ -21,6 +21,25 @@ jobs:
       - name: Apply final polish and build production CSS
         run: python scripts/apply_site_improvements.py
 
+      - name: Remove redundant route block from main unit pages
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          path = Path('assets/site.js')
+          text = path.read_text(encoding='utf-8')
+          updated, count = re.subn(
+              r'(function addLearningRoute\(\) \{\s*)if \(!unitMatch\) return;',
+              r'\1if (!unitMatch || !unitMatch[2]) return;',
+              text,
+              count=1,
+          )
+          if count != 1:
+              raise RuntimeError('No s’ha pogut actualitzar addLearningRoute()')
+          path.write_text(updated, encoding='utf-8')
+          PY
+
       - name: Version shared resources
         run: |
           python - <<'PY'
@@ -29,8 +48,8 @@ jobs:
 
           for path in Path('.').glob('*.html'):
               text = path.read_text(encoding='utf-8')
-              updated = re.sub(r'assets/site\.js(?:\?v=\d+)?', 'assets/site.js?v=3', text)
-              updated = re.sub(r'assets/site\.css(?:\?v=\d+)?', 'assets/site.css?v=3', updated)
+              updated = re.sub(r'assets/site\.js(?:\?v=\d+)?', 'assets/site.js?v=4', text)
+              updated = re.sub(r'assets/site\.css(?:\?v=\d+)?', 'assets/site.css?v=4', updated)
               if updated != text:
                   path.write_text(updated, encoding='utf-8')
           PY
