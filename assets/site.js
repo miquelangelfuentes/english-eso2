@@ -213,6 +213,32 @@
 
   function addProgressiveDisclosure() {
     if (!unitMatch || unitMatch[2]) return;
+
+    if (!document.documentElement.dataset.progressiveDisclosureBound) {
+      document.documentElement.dataset.progressiveDisclosureBound = 'true';
+      document.addEventListener('click', (event) => {
+        const button = event.target.closest?.('.progressive-toggle');
+        if (!button) return;
+
+        const targetId = button.getAttribute('aria-controls');
+        const card = (targetId && document.getElementById(targetId)) || button.previousElementSibling;
+        if (!card?.classList.contains('progressive-card')) return;
+
+        event.preventDefault();
+        const expanded = card.classList.toggle('progressive-card-expanded');
+        button.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+        button.textContent = expanded ? 'Mostra menys' : 'Mostra més';
+
+        if (expanded) {
+          card.style.maxHeight = 'none';
+          card.style.overflow = 'visible';
+        } else {
+          card.style.removeProperty('max-height');
+          card.style.removeProperty('overflow');
+        }
+      });
+    }
+
     const practice = document.getElementById('practice-section');
     const candidates = Array.from(document.querySelectorAll('main .print-card, main .bg-white.rounded-3xl'));
     let count = 0;
@@ -225,20 +251,20 @@
       if ((card.textContent || '').trim().length < 950) return;
       if (card.dataset.progressiveReady) return;
 
+      count += 1;
+      const cardId = card.id || `progressive-card-unit${unitMatch[1]}-${count}`;
+      card.id = cardId;
       card.dataset.progressiveReady = 'true';
       card.classList.add('progressive-card');
+
       const button = document.createElement('button');
       button.type = 'button';
       button.className = 'progressive-toggle';
+      button.dataset.progressiveToggle = 'true';
+      button.setAttribute('aria-controls', cardId);
       button.setAttribute('aria-expanded', 'false');
       button.textContent = 'Mostra més';
-      button.addEventListener('click', () => {
-        const expanded = card.classList.toggle('progressive-card-expanded');
-        button.setAttribute('aria-expanded', expanded ? 'true' : 'false');
-        button.textContent = expanded ? 'Mostra menys' : 'Mostra més';
-      });
       card.after(button);
-      count += 1;
     });
   }
 
