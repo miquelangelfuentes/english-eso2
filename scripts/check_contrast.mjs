@@ -16,14 +16,15 @@ await sleep(1200);
 const browser = await chromium.launch({ headless: true });
 const failures = [];
 
-async function audit(page, file, theme, scope = 'page') {
+async function audit(page, file, theme, scope = 'page', selector = null) {
   await page.addScriptTag({ path: axePath });
-  const result = await page.evaluate(async () => {
-    return await window.axe.run(document, {
+  const result = await page.evaluate(async ({ selector }) => {
+    const context = selector ? document.querySelector(selector) : document;
+    return await window.axe.run(context, {
       runOnly: { type: 'rule', values: ['color-contrast'] },
       resultTypes: ['violations'],
     });
-  });
+  }, { selector });
 
   for (const violation of result.violations) {
     for (const node of violation.nodes) {
@@ -57,7 +58,7 @@ try {
           modal.setAttribute('aria-hidden', 'false');
         });
         await page.waitForTimeout(50);
-        await audit(page, file, theme, 'units-modal');
+        await audit(page, file, theme, 'units-modal', '#units-modal');
       }
       await context.close();
     }
@@ -69,13 +70,23 @@ try {
 
 if (failures.length) {
   console.error(`Contrast audit failed with ${failures.length} issue(s).`);
-  for (const issue of failures.slice(0, 120)) {
-    console.error(`\n[${issue.theme}] ${issue.file} (${issue.scope})`);
+  const grouped = new Map();
+  for (const issue of failures) {
+    const key = `${issue.theme}|${issue.html}|${issue.summary}`;
+    if (!grouped.has(key)) grouped.set(key, { ...issue, count: 0, files: new Set() });
+    const entry = grouped.get(key);
+    entry.count += 1;
+    entry.files.add(issue.file);
+  }
+  const unique = [...grouped.values()].sort((a, b) => b.count - a.count);
+  console.error(`${unique.length} unique contrast pattern(s).`);
+  for (const issue of unique.slice(0, 100)) {
+    console.error(`\n[${issue.theme}] ${issue.count} occurrence(s) in ${[...issue.files].slice(0, 8).join(', ')}`);
     console.error(`Target: ${issue.target}`);
     console.error(`HTML: ${issue.html}`);
     console.error(issue.summary || '');
   }
-  if (failures.length > 120) console.error(`\n... ${failures.length - 120} additional issue(s) omitted.`);
+  if (unique.length > 100) console.error(`\n... ${unique.length - 100} additional unique pattern(s) omitted.`);
   process.exit(1);
 }
 
