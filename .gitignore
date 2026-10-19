@@ -10,3 +10,6 @@ Thumbs.db
 *.njsproj
 *.sln
 *.sw?
+
+# Temporary local dependencies used by automated audits
+node_modules/

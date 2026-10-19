@@ -123,6 +123,7 @@ jobs:
 
       - name: Automated contrast audit for every page in light and dark mode
         run: |
+          trap 'rm -rf node_modules' EXIT
           npm install --no-save --package-lock=false playwright axe-core
           npx playwright install chromium
           node scripts/check_contrast.mjs
