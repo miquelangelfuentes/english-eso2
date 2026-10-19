@@ -8,18 +8,9 @@ module.exports = {
   ],
   theme: { extend: {
   "fontFamily": {
-    "sans": [
-      "\"Plus Jakarta Sans\"",
-      "sans-serif"
-    ],
-    "display": [
-      "\"Outfit\"",
-      "sans-serif"
-    ],
-    "mono": [
-      "\"Fira Code\"",
-      "monospace"
-    ]
+    "sans": ["Arial", "Helvetica", "sans-serif"],
+    "display": ["Arial", "Helvetica", "sans-serif"],
+    "mono": ["Arial", "Helvetica", "sans-serif"]
   },
   "colors": {
     "brand": {
