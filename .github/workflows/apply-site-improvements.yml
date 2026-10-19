@@ -21,6 +21,19 @@ jobs:
       - name: Apply final polish and build production CSS
         run: python scripts/apply_site_improvements.py
 
+      - name: Version shared JavaScript reference
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          for path in Path('.').glob('*.html'):
+              text = path.read_text(encoding='utf-8')
+              updated = re.sub(r'assets/site\.js(?:\?v=\d+)?', 'assets/site.js?v=2', text)
+              if updated != text:
+                  path.write_text(updated, encoding='utf-8')
+          PY
+
       - name: Commit generated updates
         run: |
           if git diff --quiet && [ -z "$(git status --porcelain)" ]; then
