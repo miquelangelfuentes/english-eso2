@@ -1,0 +1,120 @@
+/* WCAG readability fixes found by the automated light/dark audit. Loaded last. */
+
+/* White text on Tailwind emerald-600 is only 3.76:1. Use emerald-700 for controls. */
+[class~='bg-emerald-600'][class~='text-white'],
+[class~='bg-simple-600'][class~='text-white'] {
+  background-color: #047857 !important;
+}
+[class~='hover:bg-emerald-700']:hover,
+[class~='hover:bg-simple-700']:hover {
+  background-color: #065f46 !important;
+}
+
+/* Orange controls need the same treatment when they carry white text. */
+[class~='bg-tag-600'][class~='text-white'] { background-color: #9a3412 !important; }
+[class~='hover:bg-tag-700']:hover { background-color: #7c2d12 !important; }
+
+/* Light mode still contains deliberately dark learning/quiz panels. Do not darken their labels. */
+html:not([data-theme='dark']) [class~='bg-slate-900'] [class~='text-slate-400'],
+html:not([data-theme='dark']) [class~='bg-slate-900'] [class~='text-slate-500'],
+html:not([data-theme='dark']) [class~='from-slate-900'] [class~='text-slate-400'],
+html:not([data-theme='dark']) [class~='from-slate-900'] [class~='text-slate-500'] {
+  color: #cbd5e1 !important;
+}
+html:not([data-theme='dark']) [class~='bg-slate-900'] [class~='text-brand-400'],
+html:not([data-theme='dark']) [class~='from-slate-900'] [class~='text-brand-400'] {
+  color: #c7d2fe !important;
+}
+html:not([data-theme='dark']) [class~='bg-slate-900'] [class~='text-amber-400'],
+html:not([data-theme='dark']) [class~='from-slate-900'] [class~='text-amber-400'] {
+  color: #fde68a !important;
+}
+html:not([data-theme='dark']) [class~='bg-slate-900'] [class~='text-emerald-200'],
+html:not([data-theme='dark']) [class~='from-slate-900'] [class~='text-emerald-200'] {
+  color: #a7f3d0 !important;
+}
+html:not([data-theme='dark']) [class~='bg-slate-900'] [class~='text-rose-200'],
+html:not([data-theme='dark']) [class~='from-slate-900'] [class~='text-rose-200'] {
+  color: #fecdd3 !important;
+}
+
+/* Reforç, Ampliació and active-unit cards also use /80 translucent pale surfaces. */
+html[data-theme='dark'] [class~='bg-emerald-50/80'],
+html[data-theme='dark'] [class~='bg-simple-50/80'] {
+  background-color: #052e2b !important;
+}
+html[data-theme='dark'] [class~='bg-purple-50/80'],
+html[data-theme='dark'] [class~='bg-indigo-50/80'],
+html[data-theme='dark'] [class~='bg-brand-50/80'],
+html[data-theme='dark'] [class~='bg-blue-50/80'],
+html[data-theme='dark'] [class~='bg-sky-50/80'] {
+  background-color: #1e1b4b !important;
+}
+html[data-theme='dark'] [class~='bg-amber-50/80'],
+html[data-theme='dark'] [class~='bg-tag-50/80'],
+html[data-theme='dark'] [class~='bg-orange-50/80'] {
+  background-color: #431407 !important;
+}
+html[data-theme='dark'] [class~='bg-rose-50/80'],
+html[data-theme='dark'] [class~='bg-red-50/80'] {
+  background-color: #4c0519 !important;
+}
+
+/* Custom grammar palettes defined in tailwind.config.cjs. */
+html:not([data-theme='dark']) [class~='text-simple-600'],
+html:not([data-theme='dark']) [class~='text-simple-700'] { color: #047857 !important; }
+html:not([data-theme='dark']) [class~='text-continuous-600'],
+html:not([data-theme='dark']) [class~='text-continuous-700'] { color: #1d4ed8 !important; }
+html:not([data-theme='dark']) [class~='text-tag-500'],
+html:not([data-theme='dark']) [class~='text-tag-600'],
+html:not([data-theme='dark']) [class~='text-tag-700'] { color: #9a3412 !important; }
+
+html[data-theme='dark'] [class~='bg-simple-50'],
+html[data-theme='dark'] [class~='bg-simple-100'] { background-color: #052e2b !important; }
+html[data-theme='dark'] [class~='text-simple-600'],
+html[data-theme='dark'] [class~='text-simple-700'],
+html[data-theme='dark'] [class~='text-simple-800'] { color: #a7f3d0 !important; }
+html[data-theme='dark'] [class~='border-simple-100'],
+html[data-theme='dark'] [class~='border-simple-200'] { border-color: #047857 !important; }
+
+html[data-theme='dark'] [class~='bg-continuous-50'],
+html[data-theme='dark'] [class~='bg-continuous-100'] { background-color: #172554 !important; }
+html[data-theme='dark'] [class~='text-continuous-600'],
+html[data-theme='dark'] [class~='text-continuous-700'],
+html[data-theme='dark'] [class~='text-continuous-800'] { color: #bfdbfe !important; }
+html[data-theme='dark'] [class~='border-continuous-100'],
+html[data-theme='dark'] [class~='border-continuous-200'] { border-color: #1d4ed8 !important; }
+
+html[data-theme='dark'] [class~='bg-tag-50'],
+html[data-theme='dark'] [class~='bg-tag-100'] { background-color: #431407 !important; }
+html[data-theme='dark'] [class~='text-tag-500'],
+html[data-theme='dark'] [class~='text-tag-600'],
+html[data-theme='dark'] [class~='text-tag-700'] { color: #fdba74 !important; }
+html[data-theme='dark'] [class~='border-tag-100'],
+html[data-theme='dark'] [class~='border-tag-200'] { border-color: #c2410c !important; }
+
+/* Force coloured labels to a light counterpart on dark surfaces. */
+html[data-theme='dark'] main [class~='text-purple-700'],
+html[data-theme='dark'] main [class~='text-purple-800'],
+html[data-theme='dark'] main [class~='text-purple-900'],
+html[data-theme='dark'] main [class~='text-brand-700'],
+html[data-theme='dark'] main [class~='text-brand-800'],
+html[data-theme='dark'] main [class~='text-brand-900'] {
+  color: #c7d2fe !important;
+}
+html[data-theme='dark'] main [class~='group-hover:text-emerald-900'],
+html[data-theme='dark'] main [class~='group-hover:text-purple-900'] {
+  color: #f8fafc !important;
+}
+
+/* Quiz/result feedback created dynamically by JavaScript. */
+html:not([data-theme='dark']) [class~='bg-emerald-500/20'][class~='text-emerald-200'] {
+  background-color: #ecfdf5 !important;
+  color: #065f46 !important;
+  border-color: #6ee7b7 !important;
+}
+html:not([data-theme='dark']) [class~='bg-rose-500/20'][class~='text-rose-200'] {
+  background-color: #fff1f2 !important;
+  color: #9f1239 !important;
+  border-color: #fda4af !important;
+}
