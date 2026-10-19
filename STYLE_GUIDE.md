@@ -1,30 +1,46 @@
-# Llibre d'estil - Grammar Lab
+# Llibre d'estil compartit - Grammar Lab i Verb Quest
 
 ## Tipografia
 
-- Família única - Arial, amb Helvetica i sans-serif com a alternatives.
-- Cos de lectura - 16 px amb interlineat ampli.
-- Text secundari - 14 px. No s'utilitza text inferior a 12 px a la capçalera ni inferior a 14 px al contingut.
-- Títols - 32 px per al títol principal, 24 px per a seccions, 18 px per a targetes i 16 px per a subtítols interns.
-- Pesos - 400 per al cos, 600 per a controls i 700 per a títols.
+- Text de lectura - Plus Jakarta Sans.
+- Títols i noms de secció - Space Grotesk.
+- Cos habitual - 16 px amb interlineat ampli.
+- Text secundari - 14 px.
+- Els controls mantenen una mida suficient per a lectura i ús tàctil.
 
 ## Color
 
-- Accent general - indigo `#4f46e5`, amb `#4338ca` per als estats més foscos.
-- Text principal - slate `#1e293b`; text secundari - `#475569`.
+- Accent principal - indigo `#4f46e5`.
+- Accent fosc - indigo `#4338ca` i `#312e81`.
+- Text principal - slate `#1e293b`.
 - Fons de pàgina - `#f8fafc`; superfícies de contingut - blanc.
-- Verd, ambre i vermell només comuniquen èxit, avís o error. Les distincions gramaticals que necessiten color poden conservar un codi propi.
+- Els colors decoratius alternatius convergeixen cap a l'indigo.
+- Verd es reserva per a èxit i vermell per a error quan aquests significats són necessaris.
 
-## Components
+## Capses i controls
 
-- Targetes - radi de 16 px i ombra discreta comuna.
-- Controls secundaris - fons blanc o slate molt clar amb vora neutra.
-- Acció principal - indigo. El botó Pràctica utilitza sempre aquest tractament.
-- Reforç i Ampliació - mateixa estructura visual que la unitat principal; el nom i la icona indiquen la ruta.
+- Targetes principals - radi de 16 px, vora neutra i ombra discreta.
+- Controls - radi de 12 px.
+- Les vores dobles o excessivament gruixudes es normalitzen a una vora simple.
+- Les accions principals utilitzen indigo.
+- Reforç i Ampliació mantenen el mateix llenguatge visual que la resta del portal.
 
-## Jerarquia i accessibilitat
+## Capçalera
 
-- Les etiquetes no utilitzen majúscules sistemàtiques ni espaiat de lletres exagerat.
+- La marca ocupa una sola línia.
+- El nom del portal i `2n ESO` comparteixen la mateixa fila en pantalles amb prou amplada.
+- No s'utilitza una segona línia descriptiva sota el nom del portal.
+- L'alçada de la capçalera és comuna als dos portals.
+
+## Coherència entre portals
+
+- `portal-theme.css` és el tema visual compartit i es carrega després dels estils específics de cada web.
+- Grammar Lab i Verb Quest utilitzen les mateixes variables de color, tipografies i geometria.
+- Els estils específics només s'utilitzen quan una funció interactiva ho necessita.
+- Les diferències visuals no han de dependre de la pàgina o del mode si no comuniquen una diferència funcional.
+
+## Accessibilitat
+
 - El focus de teclat utilitza un contorn indigo visible.
-- Els camps d'entrada mantenen una mida de 16 px per facilitar la lectura i l'ús en pantalles tàctils.
-- Les preferències de moviment reduït desactiven animacions i transicions no essencials.
+- Les preferències de moviment reduït desactiven animacions no essencials.
+- Els camps d'entrada mantenen una mida mínima de 16 px.
