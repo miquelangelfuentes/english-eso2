@@ -187,7 +187,7 @@
   }
 
   function addLearningRoute() {
-    if (!unitMatch) return;
+    if (!unitMatch || !unitMatch[2]) return;
     const unit = unitMatch[1];
     const mode = unitMatch[2] || 'main';
     const main = document.querySelector('main');
