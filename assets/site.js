@@ -195,16 +195,22 @@
 
     const box = document.createElement('aside');
     box.dataset.learningRoute = 'true';
-    box.className = 'rounded-2xl border border-indigo-200 bg-indigo-50 px-4 py-3 text-sm text-indigo-950 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3';
+    box.className = 'rounded-2xl border border-indigo-200 bg-indigo-50 px-4 py-3 text-sm text-indigo-950 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-3';
 
+    let message = '';
+    let actions = '';
     if (mode === 'main') {
-      box.innerHTML = `
-        <p><strong>Com treballar aquesta unitat.</strong> Comença per aquesta pàgina. Si algun contingut et costa, obre <a class="font-bold underline underline-offset-2" href="unit${unit}-reforc.html">Reforç</a>; quan el dominis i vulguis anar més enllà, passa a <a class="font-bold underline underline-offset-2" href="unit${unit}-ampliacio.html">Ampliació</a>.</p>`;
+      message = '<strong>Com treballar aquesta unitat.</strong> Aquesta és la ruta principal. Pots canviar a Reforç si necessites més suport o passar a Ampliació per aprofundir.';
+      actions = `<a class="inline-flex items-center justify-center px-3 py-2 rounded-xl border border-emerald-200 bg-white text-emerald-800 font-bold hover:bg-emerald-50" href="unit${unit}-reforc.html">Reforç</a><a class="inline-flex items-center justify-center px-3 py-2 rounded-xl border border-purple-200 bg-white text-purple-800 font-bold hover:bg-purple-50" href="unit${unit}-ampliacio.html">Ampliació</a>`;
+    } else if (mode === 'reforc') {
+      message = '<strong>Ruta de Reforç.</strong> Pots tornar a la unitat completa o passar a Ampliació quan vulguis aprofundir.';
+      actions = `<a class="inline-flex items-center justify-center px-3 py-2 rounded-xl border border-indigo-200 bg-white text-indigo-800 font-bold hover:bg-indigo-50" href="unit${unit}.html">Unitat completa</a><a class="inline-flex items-center justify-center px-3 py-2 rounded-xl border border-purple-200 bg-white text-purple-800 font-bold hover:bg-purple-50" href="unit${unit}-ampliacio.html">Ampliació</a>`;
     } else {
-      const label = mode === 'reforc' ? 'Reforç' : 'Ampliació';
-      box.innerHTML = `
-        <p><strong>${label} és una ruta alternativa.</strong> No cal completar totes les versions. Pots tornar a la <a class="font-bold underline underline-offset-2" href="unit${unit}.html">unitat completa</a> en qualsevol moment.</p>`;
+      message = '<strong>Ruta d’Ampliació.</strong> Pots tornar a la unitat completa o obrir Reforç si necessites més suport.';
+      actions = `<a class="inline-flex items-center justify-center px-3 py-2 rounded-xl border border-indigo-200 bg-white text-indigo-800 font-bold hover:bg-indigo-50" href="unit${unit}.html">Unitat completa</a><a class="inline-flex items-center justify-center px-3 py-2 rounded-xl border border-emerald-200 bg-white text-emerald-800 font-bold hover:bg-emerald-50" href="unit${unit}-reforc.html">Reforç</a>`;
     }
+
+    box.innerHTML = `<p class="leading-relaxed">${message}</p><div class="flex flex-wrap gap-2 shrink-0">${actions}</div>`;
 
     const firstSection = main.querySelector(':scope > section');
     if (firstSection) firstSection.after(box);
