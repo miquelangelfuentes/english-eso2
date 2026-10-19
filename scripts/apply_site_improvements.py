@@ -85,6 +85,7 @@ def build_tailwind() -> None:
 def migrate_tailwind(html: str) -> str:
     html = TAILWIND_CDN_RE.sub('\n', html)
     html = TAILWIND_CONFIG_RE.sub('\n', html)
+    html = html.replace('<!-- Tailwind CSS -->', '<!-- CSS de producció -->')
     link = '<link rel="stylesheet" href="assets/tailwind.css">'
     if link not in html:
         if '<link rel="stylesheet" href="assets/site.css">' in html:
@@ -106,6 +107,10 @@ def polish_html(path: Path, html: str) -> str:
             '<strong>11 packs de 10 alfabèticament</strong>',
             '<strong>11 packs d\'aprenentatge - 10 packs de 10 verbs i un últim de 8</strong>',
         )
+        html = html.replace(
+            "Practica els verbs en <strong>11 packs d'aprenentatge - 10 packs de 10 verbs i un últim de 8</strong>, posa't a prova als <strong>6 checkpoints acumulatius</strong> i juga als modes globals (Contrarellotge, Supervivència, Simulacre d'examen i Ruleta).",
+            "Practica els verbs en <strong>11 packs d'aprenentatge - 10 packs de 10 verbs i un últim de 8</strong> i posa't a prova als <strong>6 checkpoints acumulatius</strong>. Quan vulguis treballar amb tota la llista, obre els modes globals (Contrarellotge, Supervivència, Simulacre d'examen i Ruleta).",
+        )
 
     if path.name == 'unit2.html':
         html = html.replace(
@@ -113,8 +118,12 @@ def polish_html(path: Path, html: str) -> str:
             'verbs d’estat i els casos en què normalment no utilitzem -ing (stative verbs)',
         )
         html = html.replace(
+            'Contrast present simple vs. present continuous (rutines vs. ara mateix), verbs d’estat i els casos en què normalment no utilitzem -ing (stative verbs) i preguntes confirmatòries (tag questions).',
+            'Contrast present simple vs. present continuous i verbs d’estat, inclosos els casos en què el significat permet continuous. També treballaràs les preguntes confirmatòries (tag questions).',
+        )
+        html = html.replace(
             'Contrast present simple vs. present continuous (rutines vs. ara mateix), verbs que no accepten -ing (stative verbs) i preguntes confirmatòries (tag questions).',
-            'Contrast present simple vs. present continuous, verbs d’estat i casos en què el significat permet continuous, i preguntes confirmatòries (tag questions).',
+            'Contrast present simple vs. present continuous i verbs d’estat, inclosos els casos en què el significat permet continuous. També treballaràs les preguntes confirmatòries (tag questions).',
         )
 
     if 'id="units-modal"' in html:
@@ -187,7 +196,6 @@ def validate() -> None:
 
 
 def main() -> None:
-    # La primera execució compila a partir de les configuracions encara incrustades.
     build_tailwind()
 
     changed = []
