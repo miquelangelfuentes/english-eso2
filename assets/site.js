@@ -288,47 +288,6 @@
     });
   }
 
-  function addOpenProductionForUnit2() {
-    if (filename !== 'unit2.html') return;
-    const practice = document.getElementById('practice-section');
-    if (!practice || practice.querySelector('[data-open-production]')) return;
-
-    const block = document.createElement('section');
-    block.dataset.openProduction = 'true';
-    block.className = 'bg-white rounded-3xl border border-slate-200 p-6 sm:p-8 shadow-sm space-y-5';
-    block.innerHTML = `
-      <div>
-        <span class="text-xs font-bold uppercase tracking-wider text-sky-700 bg-sky-50 px-2.5 py-1 rounded-md border border-sky-200">Producció pròpia</span>
-        <h3 class="text-xl sm:text-2xl font-display font-bold text-slate-900 mt-2">Ara construeix les frases tu</h3>
-        <p class="text-sm text-slate-600 mt-1">Aquí no hi ha opcions per triar. Escriu una resposta i utilitza el model només després d’haver-ho intentat.</p>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        ${[
-          ['Escriu una frase sobre una rutina teva en present simple.', 'I walk to school every morning.'],
-          ['Descriu una acció que passa ara mateix amb present continuous.', 'My classmates are working quietly now.'],
-          ['Escriu una frase amb un verb d’estat que expressi opinió, sentiment o possessió.', 'I think this exercise is useful.'],
-          ['Completa amb una tag question: Your best friend likes music, ...?', "Your best friend likes music, doesn’t he / she?"]
-        ].map(([prompt, sample], index) => `
-          <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4 space-y-3">
-            <label for="production-${index}" class="block text-sm font-semibold text-slate-800">${prompt}</label>
-            <textarea id="production-${index}" rows="3" class="w-full rounded-xl border border-slate-300 bg-white p-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500" placeholder="Escriu aquí..."></textarea>
-            <button type="button" class="text-xs font-bold text-brand-700 hover:text-brand-900 underline underline-offset-2" aria-expanded="false" data-sample-toggle="${index}">Mostra una possibilitat</button>
-            <p class="hidden text-xs text-slate-600 bg-white rounded-lg border border-slate-200 p-2" data-sample="${index}"><strong>Exemple:</strong> ${sample}</p>
-          </div>`).join('')}
-      </div>`;
-
-    block.querySelectorAll('[data-sample-toggle]').forEach((button) => {
-      button.addEventListener('click', () => {
-        const sample = block.querySelector(`[data-sample="${button.dataset.sampleToggle}"]`);
-        const hidden = sample.classList.toggle('hidden');
-        button.setAttribute('aria-expanded', hidden ? 'false' : 'true');
-        button.textContent = hidden ? 'Mostra una possibilitat' : 'Amaga el model';
-      });
-    });
-
-    practice.appendChild(block);
-  }
-
   document.addEventListener('DOMContentLoaded', () => {
     addSharedAccessibility();
     enhanceUnitsModal();
@@ -337,7 +296,6 @@
     addLearningRoute();
     addProgressiveDisclosure();
     addPracticeLinksForUnit2();
-    addOpenProductionForUnit2();
     if (window.lucide?.createIcons) window.lucide.createIcons();
   });
 })();
