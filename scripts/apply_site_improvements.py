@@ -1,199 +1,208 @@
 from pathlib import Path
 import re
+import subprocess
 
 ROOT = Path(__file__).resolve().parents[1]
 
-
-def remove_media_print(css_html: str) -> str:
-    marker = '@media print'
-    text = css_html
-    while True:
-        start = text.find(marker)
-        if start == -1:
-            break
-        brace = text.find('{', start)
-        if brace == -1:
-            break
-        depth = 0
-        end = None
-        for index in range(brace, len(text)):
-            if text[index] == '{':
-                depth += 1
-            elif text[index] == '}':
-                depth -= 1
-                if depth == 0:
-                    end = index + 1
-                    break
-        if end is None:
-            break
-        text = text[:start] + text[end:]
-    return text
+TAILWIND_CDN_RE = re.compile(r'\s*<script\s+src=["\']https://cdn\.tailwindcss\.com["\']></script>\s*', re.I)
+TAILWIND_CONFIG_RE = re.compile(r'\s*<script>\s*tailwind\.config\s*=.*?</script>\s*', re.I | re.S)
 
 
-def remove_print_buttons(html: str) -> str:
-    return re.sub(
-        r'\s*<button\b[^>]*onclick=["\']window\.print\(\)["\'][^>]*>.*?</button>',
-        '',
-        html,
-        flags=re.IGNORECASE | re.DOTALL,
-    )
+def ensure_tailwind_config() -> None:
+    config = ROOT / 'tailwind.config.cjs'
+    if config.exists():
+        return
 
+    node_script = r'''
+const fs = require('fs');
+const vm = require('vm');
 
-def add_shared_assets(html: str) -> str:
-    if 'assets/site.css' not in html:
-        html = html.replace('</head>', '  <link rel="stylesheet" href="assets/site.css">\n</head>', 1)
-    if 'assets/site.js' not in html:
-        html = html.replace('</body>', '  <script src="assets/site.js"></script>\n</body>', 1)
-    return html
-
-
-def apply_global_html_changes(html: str) -> str:
-    html = remove_media_print(html)
-    html = remove_print_buttons(html)
-    html = add_shared_assets(html)
-
-    replacements = {
-        "Pla docent d'anglès de 2n d'ESO": "Anglès 2n d'ESO",
-        "Pla docent d'anglès 2n d'ESO": "Anglès 2n d'ESO",
-        "El gran repte de la unitat": "Repte final de la unitat",
-        "El Gran Repte de la Unitat": "Repte final de la unitat",
-        "fitxes imprimibles": "resums de consulta",
-        "fitxa imprimible": "resum de consulta",
+function merge(target, source) {
+  for (const [key, value] of Object.entries(source || {})) {
+    if (value && typeof value === 'object' && !Array.isArray(value)) {
+      target[key] ??= {};
+      merge(target[key], value);
+    } else {
+      target[key] = value;
     }
-    for old, new in replacements.items():
-        html = html.replace(old, new)
+  }
+  return target;
+}
+
+const extend = {};
+let found = false;
+for (const file of fs.readdirSync('.').filter(name => name.endsWith('.html'))) {
+  const html = fs.readFileSync(file, 'utf8');
+  const scripts = html.matchAll(/<script(?:\s[^>]*)?>([\s\S]*?)<\/script>/gi);
+  for (const match of scripts) {
+    const code = match[1];
+    if (!code.includes('tailwind.config')) continue;
+    const sandbox = { tailwind: {} };
+    vm.runInNewContext(code, sandbox, { filename: file });
+    merge(extend, sandbox.tailwind?.config?.theme?.extend || {});
+    found = true;
+  }
+}
+
+if (!found) throw new Error('No s’ha trobat cap configuració Tailwind per migrar.');
+
+const out = `module.exports = {
+  content: ['./*.html', './assets/**/*.js'],
+  safelist: [
+    {
+      pattern: /^(bg|text|border|ring)-(slate|indigo|emerald|amber|rose|sky|purple|pink|blue|orange|red|green|brand|simple|continuous|tag)-(50|100|200|300|400|500|600|700|800|900|950)$/,
+      variants: ['hover', 'focus']
+    }
+  ],
+  theme: { extend: ${JSON.stringify(extend, null, 2)} }
+};\n`;
+fs.writeFileSync('tailwind.config.cjs', out);
+'''
+    subprocess.run(['node', '-e', node_script], cwd=ROOT, check=True)
+
+
+def build_tailwind() -> None:
+    ensure_tailwind_config()
+    src = ROOT / 'src'
+    assets = ROOT / 'assets'
+    src.mkdir(exist_ok=True)
+    assets.mkdir(exist_ok=True)
+    input_css = src / 'tailwind-input.css'
+    input_css.write_text('@tailwind base;\n@tailwind components;\n@tailwind utilities;\n', encoding='utf-8')
+    subprocess.run(
+        [
+            'npx', '--yes', 'tailwindcss@3.4.17',
+            '-c', 'tailwind.config.cjs',
+            '-i', 'src/tailwind-input.css',
+            '-o', 'assets/tailwind.css',
+            '--minify',
+        ],
+        cwd=ROOT,
+        check=True,
+    )
+
+
+def migrate_tailwind(html: str) -> str:
+    html = TAILWIND_CDN_RE.sub('\n', html)
+    html = TAILWIND_CONFIG_RE.sub('\n', html)
+    link = '<link rel="stylesheet" href="assets/tailwind.css">'
+    if link not in html:
+        if '<link rel="stylesheet" href="assets/site.css">' in html:
+            html = html.replace(
+                '<link rel="stylesheet" href="assets/site.css">',
+                f'{link}\n  <link rel="stylesheet" href="assets/site.css">',
+                1,
+            )
+        else:
+            html = html.replace('</head>', f'  {link}\n</head>', 1)
     return html
 
 
-def improve_index(html: str) -> str:
-    html = html.replace(
-        "Benvinguts i benvingudes al portal de gramàtica de 2n d'ESO. Aquí trobaràs les 8 unitats del curs explicades pas a pas de manera visual i clara, amb pistes de suport, activitats autocorrectives, fitxes resum i reptes de 10 preguntes per posar-te a prova.",
-        "Aquest portal recull la gramàtica de 2n d'ESO perquè puguis consultar una explicació quan la necessitis i passar directament a la pràctica. Comença per la unitat que esteu treballant a classe; utilitza Reforç si necessites més suport i Ampliació quan vulguis aprofundir.",
-    )
-    html = html.replace(
-        "Fes clic a qualsevol unitat per accedir directament a l'explicació per parts, les bastides de suport i la zona de pràctica interactiva.",
-        "Entra primer a la unitat que esteu treballant a classe. Cada unitat inclou explicacions i pràctica; Reforç i Ampliació són itineraris alternatius, no tasques que calgui completar sempre.",
-    )
-    html = html.replace('>WEB DEDICADA<', '>PRÀCTICA DE VERBS IRREGULARS<')
+def polish_html(path: Path, html: str) -> str:
+    html = migrate_tailwind(html)
+
+    if path.name == 'index.html':
+        html = html.replace(
+            '<strong>11 packs de 10 alfabèticament</strong>',
+            '<strong>11 packs d\'aprenentatge - 10 packs de 10 verbs i un últim de 8</strong>',
+        )
+
+    if path.name == 'unit2.html':
+        html = html.replace(
+            'verbs que no accepten -ing (stative verbs)',
+            'verbs d’estat i els casos en què normalment no utilitzem -ing (stative verbs)',
+        )
+        html = html.replace(
+            'Contrast present simple vs. present continuous (rutines vs. ara mateix), verbs que no accepten -ing (stative verbs) i preguntes confirmatòries (tag questions).',
+            'Contrast present simple vs. present continuous, verbs d’estat i casos en què el significat permet continuous, i preguntes confirmatòries (tag questions).',
+        )
+
+    if 'id="units-modal"' in html:
+        html = re.sub(
+            r'<div id="units-modal"(?![^>]*\brole=)',
+            '<div id="units-modal" role="dialog" aria-modal="true" aria-labelledby="units-modal-title" aria-hidden="true"',
+            html,
+            count=1,
+        )
+        html = re.sub(
+            r'<h2(?![^>]*\bid=)([^>]*)>Programa de gramàtica \(unitats 1-8\)</h2>',
+            r'<h2 id="units-modal-title"\1>Programa de gramàtica (unitats 1-8)</h2>',
+            html,
+            count=1,
+        )
+        html = html.replace(
+            'onclick="toggleUnitsModal()" class="flex items-center',
+            'onclick="toggleUnitsModal()" aria-controls="units-modal" aria-expanded="false" class="flex items-center',
+        )
+
     return html
 
 
-def improve_unit2(html: str) -> str:
-    html = html.replace(
-        'Present tenses contrast, stative verbs i tag questions',
-        'Present simple i present continuous, stative verbs i tag questions',
-    )
-    html = html.replace(
-        "En aquesta unitat aprendràs a contrastar amb precisió quan cal utilitzar el <strong>present simple</strong> i quan el <strong>present continuous</strong>, quins verbs especials d'estat no admeten mai <code class=\"bg-black/30 px-1.5 py-0.5 rounded font-mono text-amber-300\">-ing</code>, i com construir preguntes confirmatòries (<strong>tag questions</strong>) amb total fluïdesa i seguretat.",
-        "En aquesta unitat aprendràs a decidir quan cal utilitzar el <strong>present simple</strong> i quan el <strong>present continuous</strong>. També treballaràs com funcionen els verbs d'estat, inclosos els casos en què el significat permet el continuous, i com construir preguntes confirmatòries (<strong>tag questions</strong>).",
-    )
-    html = html.replace(
-        'Verbs de sentiment, ment i possessió que no porten mai <em>-ing</em>.',
-        'Quan expressen un estat, aquests verbs normalment no s’utilitzen en continuous.',
-    )
-    html = html.replace(
-        "Els verbs estàtics expressen <strong>estats</strong> (no pas accions físiques en moviment). Per aquest motiu, <strong>no s'acostumen a fer servir mai en present continuous (<span class=\"line-through text-rose-500 font-mono\">-ing</span>)</strong>!",
-        "Els verbs estàtics expressen <strong>estats</strong>. Quan tenen aquest significat, normalment no s'utilitzen en present continuous (<span class=\"line-through text-rose-500 font-mono\">-ing</span>). Alguns verbs també poden expressar una acció i, en aquest cas, sí que admeten continuous.",
-    )
-    html = html.replace(
-        "Exacte! 'Want' és un desig i és sempre un verb estàtic; mai no es diu 'is wanting'.",
-        "Exacte! En aquest significat, 'want' expressa un desig i s'utilitza en present simple: no diem 'is wanting'.",
-    )
-    html = html.replace(
-        "Quin d'aquests verbs no s'acostuma a utilitzar mai en present continuous?",
-        "Quin d'aquests verbs s'utilitza normalment en present simple quan expressa un estat?",
-    )
-    return html
+def polish_shared_js() -> None:
+    path = ROOT / 'assets' / 'site.js'
+    if not path.exists():
+        return
+    text = path.read_text(encoding='utf-8')
+    marker = "const modalToggles = Array.from(document.querySelectorAll('[aria-controls=\"units-modal\"]'));"
+    if marker not in text:
+        text = text.replace(
+            "modal.setAttribute('aria-hidden', modal.classList.contains('hidden') ? 'true' : 'false');",
+            "modal.setAttribute('aria-hidden', modal.classList.contains('hidden') ? 'true' : 'false');\n    const modalToggles = Array.from(document.querySelectorAll('[aria-controls=\"units-modal\"]'));\n    modalToggles.forEach((button) => button.setAttribute('aria-expanded', modal.classList.contains('hidden') ? 'false' : 'true'));",
+            1,
+        )
+        text = text.replace(
+            "modal.setAttribute('aria-hidden', isHidden ? 'true' : 'false');",
+            "modal.setAttribute('aria-hidden', isHidden ? 'true' : 'false');\n        modalToggles.forEach((button) => button.setAttribute('aria-expanded', isHidden ? 'false' : 'true'));\n        document.querySelector('main')?.toggleAttribute('inert', !isHidden);",
+            1,
+        )
+    path.write_text(text, encoding='utf-8')
 
 
-def improve_unit2_reforc(html: str) -> str:
-    html = html.replace(
-        "Aquesta fitxa de reforç t'ajuda a dominar la diferència entre el present simple (accions habituals) i el present continuous (accions que passen ara mateix), a memoritzar els verbs estàtics que no s'utilitzen en -ing, i a formar les preguntes confirmatòries (tag questions) sense dubtar.",
-        "Aquesta pàgina de reforç t'ajuda a consolidar la diferència entre present simple i present continuous. També treballaràs els verbs d'estat quan no utilitzen continuous i la formació de les preguntes confirmatòries (tag questions).",
-    )
-    html = html.replace(
-        '3. Verbs estàtics (stative verbs): mai en -ing',
-        '3. Verbs estàtics (stative verbs): quan expressen un estat',
-    )
-    html = html.replace(
-        'Diferència essencial: sempre es conjuguen en present simple, encara que sigui ara mateix.',
-        'Quan expressen un estat, normalment els fem servir en present simple, també si parlem del moment actual.',
-    )
-    html = html.replace(
-        "Diem <em>'I understand now'</em> (mai <em>'I am understanding'</em>).",
-        "Diem <em>'I understand now'</em>; en aquest significat no utilitzem <em>'I am understanding'</em>.",
-    )
-    html = html.replace(
-        "Sé la resposta a aquesta pregunta (mai en -ing).",
-        "Sé la resposta a aquesta pregunta (aquí, en present simple).",
-    )
-    html = html.replace(
-        "Ella vol un got d'aigua (mai 'is wanting').",
-        "Ella vol un got d'aigua (aquí, no 'is wanting').",
-    )
-    html = html.replace(
-        "norma fonamental: 'want' i 'need'",
-        "recorda: 'want' i 'need' per expressar estat",
-    )
-    html = html.replace(
-        "Els verbs de desig o necessitat mai es posen amb -ing. Sempre en present simple.",
-        "Quan expressen desig o necessitat, verbs com 'want' i 'need' s'utilitzen normalment en present simple.",
-    )
-    html = html.replace(
-        "'Understand' és un verb estàtic, no es posa mai en present continu.",
-        "En aquest significat, 'understand' expressa un estat i s'utilitza en present simple.",
-    )
-    return html
+def polish_readme() -> None:
+    path = ROOT / 'README.md'
+    if not path.exists():
+        return
+    text = path.read_text(encoding='utf-8')
+    note = '- **CSS de producció:** Tailwind es compila a `assets/tailwind.css`; el lloc no depèn del Play CDN de Tailwind.\n'
+    if note not in text:
+        anchor = '- **Curs complet:**'
+        pos = text.find(anchor)
+        if pos != -1:
+            line_end = text.find('\n', pos)
+            text = text[:line_end + 1] + note + text[line_end + 1:]
+        else:
+            text += '\n' + note
+    path.write_text(text, encoding='utf-8')
 
 
-def improve_readme(text: str) -> str:
-    text = re.sub(
-        r'- \*\*Mode impressió:\*\*.*?(?:\n|$)',
-        '- **Progrés local:** el navegador recorda l’última unitat visitada i pot conservar el millor resultat dels reptes, sense comptes d’usuari ni enviament de dades.\n',
-        text,
-    )
-    text = text.replace(
-        '- **Enfocament visual i accessible:** explicacions dividides en mòduls (micro-learning), amb codis de colors, taules comparatives, alertes visuals i bastides pas a pas.',
-        '- **Enfocament visual i accessible:** explicacions dividides en mòduls, navegació per teclat, focus visible i compatibilitat amb la preferència de moviment reduït.',
-    )
-    text = text.replace(
-        "- **Escalabilitat curricular (de la unitat 1 a la 8):** arquitectura preparada per acollir les 8 unitats del curs de 2n d'ESO, amb la **unitat 2** 100% interactiva i desenvolupada al detall.",
-        '- **Curs complet:** les 8 unitats disposen de pàgina principal i itineraris de reforç i ampliació. La capa compartida d’interacció es centralitza a `assets/site.js` i `assets/site.css`.',
-    )
-    if 'Producció pròpia' not in text:
-        anchor = '- **Zona de pràctica multinivell:**\n'
-        addition = '- **Producció pròpia:** la unitat 2 incorpora activitats obertes sense opcions de resposta i amb models que es poden revelar després de l’intent.\n'
-        if anchor in text:
-            text = text.replace(anchor, addition + anchor, 1)
-    return text
+def validate() -> None:
+    for path in ROOT.glob('*.html'):
+        html = path.read_text(encoding='utf-8')
+        if 'cdn.tailwindcss.com' in html or 'tailwind.config' in html:
+            raise RuntimeError(f'Tailwind Play CDN encara és present a {path.name}')
+        if 'assets/tailwind.css' not in html:
+            raise RuntimeError(f'Falta assets/tailwind.css a {path.name}')
+    if not (ROOT / 'assets' / 'tailwind.css').exists():
+        raise RuntimeError('No s’ha generat assets/tailwind.css')
 
 
 def main() -> None:
+    # La primera execució compila a partir de les configuracions encara incrustades.
+    build_tailwind()
+
     changed = []
     for path in sorted(ROOT.glob('*.html')):
         original = path.read_text(encoding='utf-8')
-        html = apply_global_html_changes(original)
-
-        if path.name == 'index.html':
-            html = improve_index(html)
-        elif path.name == 'unit2.html':
-            html = improve_unit2(html)
-        elif path.name == 'unit2-reforc.html':
-            html = improve_unit2_reforc(html)
-
-        if html != original:
-            path.write_text(html, encoding='utf-8')
+        updated = polish_html(path, original)
+        if updated != original:
+            path.write_text(updated, encoding='utf-8')
             changed.append(path.name)
 
-    readme = ROOT / 'README.md'
-    if readme.exists():
-        original = readme.read_text(encoding='utf-8')
-        updated = improve_readme(original)
-        if updated != original:
-            readme.write_text(updated, encoding='utf-8')
-            changed.append(readme.name)
+    polish_shared_js()
+    polish_readme()
+    validate()
 
-    print('Fitxers actualitzats:')
+    print('Poliment final completat.')
     for name in changed:
         print(f'- {name}')
 
