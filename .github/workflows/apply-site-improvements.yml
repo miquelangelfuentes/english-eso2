@@ -61,26 +61,36 @@ jobs:
               path.write_text(text, encoding='utf-8')
           PY
 
-      - name: Apply shared portal theme
+      - name: Apply shared portal theme and contrast layer
         run: |
           python - <<'PY'
           from pathlib import Path
           import re
 
           theme_css = '<link rel="stylesheet" href="portal-theme.css?v=3">'
-          theme_js = '<script src="portal-theme.js?v=2"></script>'
+          contrast_css = '<link rel="stylesheet" href="portal-contrast.css?v=1">'
+          theme_js = '<script src="portal-theme.js?v=3"></script>'
 
           for path in Path('.').glob('*.html'):
               text = path.read_text(encoding='utf-8')
               text = re.sub(r'assets/site\.js(?:\?v=\d+)?', 'assets/site.js?v=7', text)
               text = re.sub(r'assets/site\.css(?:\?v=\d+)?', 'assets/site.css?v=7', text)
               text = re.sub(r'portal-theme\.css(?:\?v=\d+)?', 'portal-theme.css?v=3', text)
-              text = re.sub(r'portal-theme\.js(?:\?v=\d+)?', 'portal-theme.js?v=2', text)
+              text = re.sub(r'portal-contrast\.css(?:\?v=\d+)?', 'portal-contrast.css?v=1', text)
+              text = re.sub(r'portal-theme\.js(?:\?v=\d+)?', 'portal-theme.js?v=3', text)
 
               if 'portal-theme.css' not in text:
                   text = re.sub(
                       r'(<link rel="stylesheet" href="assets/site\.css\?v=7">)',
                       r'\1\n  ' + theme_css,
+                      text,
+                      count=1,
+                  )
+
+              if 'portal-contrast.css' not in text:
+                  text = re.sub(
+                      r'(<link rel="stylesheet" href="portal-theme\.css\?v=3">)',
+                      r'\1\n  ' + contrast_css,
                       text,
                       count=1,
                   )
@@ -100,5 +110,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
-          git commit -m "Corregir contrast i controls de tema"
+          git commit -m "Aplicar auditoria de contrast clar i fosc"
           git push
