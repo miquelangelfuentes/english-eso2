@@ -64,3 +64,5 @@ El progrés que es conserva es desa amb `localStorage` al navegador. No cal inic
 
 - **Codi** - [GNU AGPL v3](https://www.gnu.org/licenses/agpl-3.0.html).
 - **Continguts educatius** - [Creative Commons CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.ca).
+
+- **CSS de producció:** Tailwind es compila a `assets/tailwind.css`; el lloc no depèn del Play CDN de Tailwind.
