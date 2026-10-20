@@ -48,6 +48,39 @@ jobs:
           path.write_text(text, encoding='utf-8')
           PY
 
+      - name: Diversify self-assessment answer positions
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          marker = '// Balanced answer positions for the final self-assessment'
+          base_pattern = [1, 3, 0, 2, 3, 1, 2, 0, 1, 2]
+
+          for unit in range(1, 9):
+              path = Path(f'unit{unit}.html')
+              text = path.read_text(encoding='utf-8')
+              if marker in text:
+                  continue
+              if 'const quizQuestions = [' not in text:
+                  raise RuntimeError(f'No s’ha trobat quizQuestions a {path}')
+
+              needle = '\n    let currentQuizIndex = 0;'
+              if needle not in text:
+                  raise RuntimeError(f'No s’ha trobat el punt d’inserció del test a {path}')
+
+              offset = unit - 1
+              pattern = ', '.join(str(n) for n in base_pattern)
+              snippet = f'''\n    {marker}\n    (() => {{\n      const answerPattern = [{pattern}];\n      const unitOffset = {offset};\n      quizQuestions.forEach((question, index) => {{\n        if (!Array.isArray(question.options) || typeof question.correct !== 'number' || question.options.length < 2) return;\n        const desiredIndex = (answerPattern[index % answerPattern.length] + unitOffset) % question.options.length;\n        if (desiredIndex === question.correct) return;\n        const correctOption = question.options[question.correct];\n        question.options.splice(question.correct, 1);\n        question.options.splice(desiredIndex, 0, correctOption);\n        question.correct = desiredIndex;\n      }});\n    }})();\n'''
+              text = text.replace(needle, snippet + needle, 1)
+              path.write_text(text, encoding='utf-8')
+
+          for unit in range(1, 9):
+              text = Path(f'unit{unit}.html').read_text(encoding='utf-8')
+              if marker not in text:
+                  raise RuntimeError(f'La diversificació no s’ha aplicat a unit{unit}.html')
+          PY
+
       - name: Remove duplicate font links from HTML
         run: |
           python - <<'PY'
@@ -137,5 +170,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
-          git commit -m "Revisar contrast de totes les pàgines"
+          git commit -m "Diversificar autoavaluacions i validar contrast"
           git push
