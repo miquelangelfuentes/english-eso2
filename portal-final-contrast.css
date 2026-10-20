@@ -46,6 +46,10 @@ html.page-unit2:not([data-theme='dark']) #tags-section [class~='bg-slate-900'][c
   border-bottom: 1px solid #e2e8f0 !important;
 }
 
+html.page-unit2:not([data-theme='dark']) #tags-section [class~='bg-slate-900'] [class~='text-slate-400'] {
+  color: #475569 !important;
+}
+
 /* Textos que abans depenien d'una superfície fosca. */
 html.page-unit2:not([data-theme='dark']) :is(
   #overview,
