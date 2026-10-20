@@ -24,3 +24,140 @@ html[data-theme='dark'] thead [class~='bg-slate-100/80'] {
   background-color: #1e293b !important;
   color: #f8fafc !important;
 }
+
+/* -------------------------------------------------------------------------- */
+/* Unitat 2 - superfícies que canvien realment amb el tema                    */
+/* -------------------------------------------------------------------------- */
+
+/* El mode clar no conserva banners o blocs foscos decoratius. */
+html.page-unit2:not([data-theme='dark']) #overview,
+html.page-unit2:not([data-theme='dark']) #quiz-card,
+html.page-unit2:not([data-theme='dark']) #scaffolding-section [class~='from-slate-900'][class~='to-indigo-950'] {
+  background-image: none !important;
+  background-color: #ffffff !important;
+  color: #1e293b !important;
+  border: 1px solid #e2e8f0 !important;
+  box-shadow: var(--portal-shadow) !important;
+}
+
+html.page-unit2:not([data-theme='dark']) #tags-section [class~='bg-slate-900'][class~='text-white'] {
+  background-color: #f1f5f9 !important;
+  color: #1e293b !important;
+  border-bottom: 1px solid #e2e8f0 !important;
+}
+
+/* Textos que abans depenien d'una superfície fosca. */
+html.page-unit2:not([data-theme='dark']) :is(
+  #overview,
+  #quiz-card,
+  #scaffolding-section [class~='from-slate-900'][class~='to-indigo-950']
+) [class~='text-white'] {
+  color: #0f172a !important;
+}
+
+html.page-unit2:not([data-theme='dark']) :is(
+  #overview,
+  #quiz-card,
+  #scaffolding-section [class~='from-slate-900'][class~='to-indigo-950']
+) :is([class~='text-slate-200'], [class~='text-slate-300'], [class~='text-slate-400']) {
+  color: #475569 !important;
+}
+
+html.page-unit2:not([data-theme='dark']) :is(
+  #overview,
+  #quiz-card,
+  #scaffolding-section [class~='from-slate-900'][class~='to-indigo-950']
+) :is([class~='text-indigo-100'], [class~='text-indigo-200'], [class~='text-brand-200'], [class~='text-brand-300']) {
+  color: #4338ca !important;
+}
+
+html.page-unit2:not([data-theme='dark']) :is(
+  #overview,
+  #quiz-card,
+  #scaffolding-section [class~='from-slate-900'][class~='to-indigo-950']
+) [class~='text-amber-300'] {
+  color: #92400e !important;
+}
+
+html.page-unit2:not([data-theme='dark']) :is(
+  #overview,
+  #quiz-card,
+  #scaffolding-section [class~='from-slate-900'][class~='to-indigo-950']
+) [class~='text-emerald-300'] {
+  color: #047857 !important;
+}
+
+html.page-unit2:not([data-theme='dark']) :is(
+  #overview,
+  #quiz-card,
+  #scaffolding-section [class~='from-slate-900'][class~='to-indigo-950']
+) [class~='text-rose-300'] {
+  color: #9f1239 !important;
+}
+
+/* Targetes interiors, opcions i sortides del simulador/quiz en mode clar. */
+html.page-unit2:not([data-theme='dark']) :is(
+  #overview,
+  #quiz-card,
+  #scaffolding-section [class~='from-slate-900'][class~='to-indigo-950']
+) :is([class~='bg-white/5'], [class~='bg-white/10'], [class~='bg-white/15']) {
+  background-color: #f8fafc !important;
+}
+
+html.page-unit2:not([data-theme='dark']) :is(
+  #overview,
+  #quiz-card,
+  #scaffolding-section [class~='from-slate-900'][class~='to-indigo-950']
+) [class~='bg-white/20'] {
+  background-color: #e0e7ff !important;
+}
+
+html.page-unit2:not([data-theme='dark']) :is(
+  #overview,
+  #quiz-card,
+  #scaffolding-section [class~='from-slate-900'][class~='to-indigo-950']
+) [class~='bg-black/30'] {
+  background-color: #f1f5f9 !important;
+}
+
+html.page-unit2:not([data-theme='dark']) :is(
+  #overview,
+  #quiz-card,
+  #scaffolding-section [class~='from-slate-900'][class~='to-indigo-950']
+) :is([class~='border-white/5'], [class~='border-white/10'], [class~='border-white/15'], [class~='border-white/20']) {
+  border-color: #cbd5e1 !important;
+}
+
+html.page-unit2:not([data-theme='dark']) :is(
+  #overview,
+  #quiz-card,
+  #scaffolding-section [class~='from-slate-900'][class~='to-indigo-950']
+) [class~='hover:bg-white/15']:hover,
+html.page-unit2:not([data-theme='dark']) :is(
+  #overview,
+  #quiz-card,
+  #scaffolding-section [class~='from-slate-900'][class~='to-indigo-950']
+) [class~='hover:bg-white/20']:hover {
+  background-color: #eef2ff !important;
+}
+
+html.page-unit2:not([data-theme='dark']) :is(
+  #overview,
+  #quiz-card,
+  #scaffolding-section [class~='from-slate-900'][class~='to-indigo-950']
+) [class~='hover:text-white']:hover {
+  color: #312e81 !important;
+}
+
+/* En mode fosc, els dos degradats pedagògics clars passen a superfícies fosques. */
+html.page-unit2[data-theme='dark'] #contrast-section [class~='from-emerald-50'][class~='via-teal-50'][class~='to-cyan-50'] {
+  background-image: none !important;
+  background-color: #052e2b !important;
+  border-color: #047857 !important;
+}
+
+html.page-unit2[data-theme='dark'] #tags-section [class~='from-orange-50'][class~='via-amber-50'][class~='to-rose-50'] {
+  background-image: none !important;
+  background-color: #431407 !important;
+  border-color: #9a3412 !important;
+}
