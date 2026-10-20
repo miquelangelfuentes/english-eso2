@@ -1,6 +1,11 @@
 (() => {
   const STORAGE_KEY = 'eso2-portal-theme';
   const root = document.documentElement;
+  const currentFile = window.location.pathname.split('/').pop() || 'index.html';
+
+  if (currentFile === 'unit2.html') {
+    root.classList.add('page-unit2');
+  }
 
   function getStoredTheme() {
     try {
@@ -51,7 +56,7 @@
       return { actions: soundButton.parentElement, soundButton };
     }
 
-    const quickLink = header.querySelector('a[href="#units-grid"], a[href="unit1.html"]');
+    const quickLink = header.querySelector('a[href="#units-grid"]');
     if (quickLink?.parentElement) {
       return { actions: quickLink.parentElement, soundButton: null };
     }
