@@ -638,6 +638,21 @@
       { category: "superlatius preposicions", question: "Quina preposició acompanya un lloc amb superlatius? 'the highest mountain ______ the world'", options: ["in", "of", "at", "from"], correct: 0, explanation: "Per a llocs o col·lectius s'usa la preposició 'in': 'in the world'." }
     ];
 
+    // Balanced answer positions for the final self-assessment
+    (() => {
+      const answerPattern = [1, 3, 0, 2, 3, 1, 2, 0, 1, 2];
+      const unitOffset = 3;
+      quizQuestions.forEach((question, index) => {
+        if (!Array.isArray(question.options) || typeof question.correct !== 'number' || question.options.length < 2) return;
+        const desiredIndex = (answerPattern[index % answerPattern.length] + unitOffset) % question.options.length;
+        if (desiredIndex === question.correct) return;
+        const correctOption = question.options[question.correct];
+        question.options.splice(question.correct, 1);
+        question.options.splice(desiredIndex, 0, correctOption);
+        question.correct = desiredIndex;
+      });
+    })();
+
     let currentQuizIndex = 0;
     let quizScore = 0;
     let answered = new Set();
