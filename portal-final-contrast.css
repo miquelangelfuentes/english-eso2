@@ -166,8 +166,19 @@ html.page-unit2[data-theme='dark'] #tags-section [class~='from-orange-50'][class
   border-color: #9a3412 !important;
 }
 
-/* Les icones de les tres targetes d'objectius del banner necessiten més pes visual. */
-html.page-unit2 #overview [class~='bg-white/10'] > [class~='p-2'] > svg {
-  width: 1.25rem !important;
-  height: 1.25rem !important;
+/* Les icones de les tres targetes d'objectius del banner tenen prou pes visual. */
+html.page-unit2 #overview [class~='bg-white/10'] > [class~='p-2'] {
+  width: 2.5rem !important;
+  height: 2.5rem !important;
+  min-width: 2.5rem !important;
+  padding: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+html.page-unit2 #overview [class~='bg-white/10'] > [class~='p-2'] > :is(i, svg) {
+  width: 1.5rem !important;
+  height: 1.5rem !important;
+  stroke-width: 2.4 !important;
 }
