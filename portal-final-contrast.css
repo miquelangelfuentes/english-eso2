@@ -26,11 +26,76 @@ html[data-theme='dark'] thead [class~='bg-slate-100/80'] {
 }
 
 /* -------------------------------------------------------------------------- */
-/* Unitat 2 - superfícies que canvien realment amb el tema                    */
+/* Requadre principal de totes les unitats en mode clar                        */
 /* -------------------------------------------------------------------------- */
 
-/* El mode clar no conserva banners o blocs foscos decoratius. */
-html.page-unit2:not([data-theme='dark']) #overview,
+html.page-unit:not([data-theme='dark']) #overview {
+  background-image: none !important;
+  background-color: #ffffff !important;
+  color: #1e293b !important;
+  border: 1px solid #e2e8f0 !important;
+  box-shadow: var(--portal-shadow) !important;
+}
+
+html.page-unit:not([data-theme='dark']) #overview [class~='text-white'] {
+  color: #0f172a !important;
+}
+
+html.page-unit:not([data-theme='dark']) #overview :is(
+  [class~='text-slate-200'],
+  [class~='text-slate-300'],
+  [class~='text-slate-400']
+) {
+  color: #475569 !important;
+}
+
+html.page-unit:not([data-theme='dark']) #overview :is(
+  [class~='text-indigo-100'],
+  [class~='text-indigo-200'],
+  [class~='text-brand-200'],
+  [class~='text-brand-300']
+) {
+  color: #4338ca !important;
+}
+
+html.page-unit:not([data-theme='dark']) #overview [class~='text-amber-300'] {
+  color: #92400e !important;
+}
+
+html.page-unit:not([data-theme='dark']) #overview [class~='text-emerald-300'] {
+  color: #047857 !important;
+}
+
+html.page-unit:not([data-theme='dark']) #overview [class~='text-rose-300'] {
+  color: #9f1239 !important;
+}
+
+html.page-unit:not([data-theme='dark']) #overview :is(
+  [class~='bg-white/5'],
+  [class~='bg-white/10'],
+  [class~='bg-white/15']
+) {
+  background-color: #f8fafc !important;
+}
+
+html.page-unit:not([data-theme='dark']) #overview [class~='bg-white/20'] {
+  background-color: #e0e7ff !important;
+}
+
+html.page-unit:not([data-theme='dark']) #overview :is(
+  [class~='border-white/5'],
+  [class~='border-white/10'],
+  [class~='border-white/15'],
+  [class~='border-white/20']
+) {
+  border-color: #cbd5e1 !important;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Unitat 2 - superfícies específiques que canvien realment amb el tema       */
+/* -------------------------------------------------------------------------- */
+
+/* El mode clar no conserva blocs foscos decoratius específics de la U2. */
 html.page-unit2:not([data-theme='dark']) #quiz-card,
 html.page-unit2:not([data-theme='dark']) #scaffolding-section [class~='from-slate-900'][class~='to-indigo-950'] {
   background-image: none !important;
@@ -52,7 +117,6 @@ html.page-unit2:not([data-theme='dark']) #tags-section [class~='bg-slate-900'] [
 
 /* Textos que abans depenien d'una superfície fosca. */
 html.page-unit2:not([data-theme='dark']) :is(
-  #overview,
   #quiz-card,
   #scaffolding-section [class~='from-slate-900'][class~='to-indigo-950']
 ) [class~='text-white'] {
@@ -60,7 +124,6 @@ html.page-unit2:not([data-theme='dark']) :is(
 }
 
 html.page-unit2:not([data-theme='dark']) :is(
-  #overview,
   #quiz-card,
   #scaffolding-section [class~='from-slate-900'][class~='to-indigo-950']
 ) :is([class~='text-slate-200'], [class~='text-slate-300'], [class~='text-slate-400']) {
@@ -68,7 +131,6 @@ html.page-unit2:not([data-theme='dark']) :is(
 }
 
 html.page-unit2:not([data-theme='dark']) :is(
-  #overview,
   #quiz-card,
   #scaffolding-section [class~='from-slate-900'][class~='to-indigo-950']
 ) :is([class~='text-indigo-100'], [class~='text-indigo-200'], [class~='text-brand-200'], [class~='text-brand-300']) {
@@ -76,7 +138,6 @@ html.page-unit2:not([data-theme='dark']) :is(
 }
 
 html.page-unit2:not([data-theme='dark']) :is(
-  #overview,
   #quiz-card,
   #scaffolding-section [class~='from-slate-900'][class~='to-indigo-950']
 ) [class~='text-amber-300'] {
@@ -84,7 +145,6 @@ html.page-unit2:not([data-theme='dark']) :is(
 }
 
 html.page-unit2:not([data-theme='dark']) :is(
-  #overview,
   #quiz-card,
   #scaffolding-section [class~='from-slate-900'][class~='to-indigo-950']
 ) [class~='text-emerald-300'] {
@@ -92,7 +152,6 @@ html.page-unit2:not([data-theme='dark']) :is(
 }
 
 html.page-unit2:not([data-theme='dark']) :is(
-  #overview,
   #quiz-card,
   #scaffolding-section [class~='from-slate-900'][class~='to-indigo-950']
 ) [class~='text-rose-300'] {
@@ -101,7 +160,6 @@ html.page-unit2:not([data-theme='dark']) :is(
 
 /* Targetes interiors, opcions i sortides del simulador/quiz en mode clar. */
 html.page-unit2:not([data-theme='dark']) :is(
-  #overview,
   #quiz-card,
   #scaffolding-section [class~='from-slate-900'][class~='to-indigo-950']
 ) :is([class~='bg-white/5'], [class~='bg-white/10'], [class~='bg-white/15']) {
@@ -109,7 +167,6 @@ html.page-unit2:not([data-theme='dark']) :is(
 }
 
 html.page-unit2:not([data-theme='dark']) :is(
-  #overview,
   #quiz-card,
   #scaffolding-section [class~='from-slate-900'][class~='to-indigo-950']
 ) [class~='bg-white/20'] {
@@ -117,7 +174,6 @@ html.page-unit2:not([data-theme='dark']) :is(
 }
 
 html.page-unit2:not([data-theme='dark']) :is(
-  #overview,
   #quiz-card,
   #scaffolding-section [class~='from-slate-900'][class~='to-indigo-950']
 ) [class~='bg-black/30'] {
@@ -125,7 +181,6 @@ html.page-unit2:not([data-theme='dark']) :is(
 }
 
 html.page-unit2:not([data-theme='dark']) :is(
-  #overview,
   #quiz-card,
   #scaffolding-section [class~='from-slate-900'][class~='to-indigo-950']
 ) :is([class~='border-white/5'], [class~='border-white/10'], [class~='border-white/15'], [class~='border-white/20']) {
@@ -133,12 +188,10 @@ html.page-unit2:not([data-theme='dark']) :is(
 }
 
 html.page-unit2:not([data-theme='dark']) :is(
-  #overview,
   #quiz-card,
   #scaffolding-section [class~='from-slate-900'][class~='to-indigo-950']
 ) [class~='hover:bg-white/15']:hover,
 html.page-unit2:not([data-theme='dark']) :is(
-  #overview,
   #quiz-card,
   #scaffolding-section [class~='from-slate-900'][class~='to-indigo-950']
 ) [class~='hover:bg-white/20']:hover {
@@ -146,7 +199,6 @@ html.page-unit2:not([data-theme='dark']) :is(
 }
 
 html.page-unit2:not([data-theme='dark']) :is(
-  #overview,
   #quiz-card,
   #scaffolding-section [class~='from-slate-900'][class~='to-indigo-950']
 ) [class~='hover:text-white']:hover {
@@ -166,7 +218,7 @@ html.page-unit2[data-theme='dark'] #tags-section [class~='from-orange-50'][class
   border-color: #9a3412 !important;
 }
 
-/* Les icones de les tres targetes d'objectius del banner tenen prou pes visual. */
+/* Compatibilitat amb el markup original de la U2. */
 html.page-unit2 #overview [class~='bg-white/10'] > [class~='p-2'] {
   width: 2.5rem !important;
   height: 2.5rem !important;
