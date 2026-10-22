@@ -3,6 +3,14 @@
   const root = document.documentElement;
   const currentFile = window.location.pathname.split('/').pop() || 'index.html';
 
+  if (!document.querySelector('link[data-portal-mobile]')) {
+    const mobileStyles = document.createElement('link');
+    mobileStyles.rel = 'stylesheet';
+    mobileStyles.href = 'portal-mobile.css?v=1';
+    mobileStyles.dataset.portalMobile = 'true';
+    document.head.appendChild(mobileStyles);
+  }
+
   if (currentFile === 'unit2.html') {
     root.classList.add('page-unit2');
   }
